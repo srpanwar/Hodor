@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>84ED73C2-FF8C-4ADE-BF39-4EBBCCE295EC</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Hodor</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>7FA2D07B-E507-4737-8C8E-A18825262D5C</key>
+		<string>https://github.com/srpanwar/Hodor.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Hodor.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>7FA2D07B-E507-4737-8C8E-A18825262D5C</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/srpanwar/Hodor.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>7FA2D07B-E507-4737-8C8E-A18825262D5C</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>7FA2D07B-E507-4737-8C8E-A18825262D5C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Hodor</string>
+		</dict>
+	</array>
+</dict>
+</plist>
