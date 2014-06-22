@@ -40,8 +40,9 @@
     NSURL *url = [NSURL URLWithString:CREATE_USER_ENDPOINT];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     
-    NSString *body = [NSString stringWithFormat:@"username=%@", userName];
-    body = [self encBody:body];
+    NSString *body = [NSString stringWithFormat:@"method=createuser&username=%@", userName];
+    body = [self doHash:body];
+
     
     request.HTTPMethod = @"POST";
     request.HTTPBody = [body dataUsingEncoding:NSUTF8StringEncoding];
@@ -80,8 +81,8 @@
     NSURL *url = [NSURL URLWithString:SEND_HODOR_ENDPOINT];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     
-    NSString *body = [NSString stringWithFormat:@"to=%@&from=%@", recipient, [HDRCurrentUser getCurrentUserName]];
-    body = [self encBody:body];
+    NSString *body = [NSString stringWithFormat:@"method=sendhodor&sender=%@&recipient=%@", [HDRCurrentUser getCurrentUserName], recipient];
+    body = [self doHash:body];
     
     request.HTTPMethod = @"POST";
     request.HTTPBody = [body dataUsingEncoding:NSUTF8StringEncoding];
@@ -105,8 +106,8 @@
     NSURL *url = [NSURL URLWithString:BLOCK_USER_ENDPOINT];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     
-    NSString *body = [NSString stringWithFormat:@"blockee=%@&blocker=%@", userName, [HDRCurrentUser getCurrentUserName]];
-    body = [self encBody:body];
+    NSString *body = [NSString stringWithFormat:@"method=blockuser&blocker=%@&blockee=%@", [HDRCurrentUser getCurrentUserName], userName];
+    body = [self doHash:body];
     
     request.HTTPMethod = @"POST";
     request.HTTPBody = [body dataUsingEncoding:NSUTF8StringEncoding];
@@ -133,8 +134,8 @@
     NSURL *url = [NSURL URLWithString:SEND_DEVICETOKEN_ENDPOINT];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     
-    NSString *body = [NSString stringWithFormat:@"devicetoken=%@&username=%@", deviceToken, [HDRCurrentUser getCurrentUserName]];
-    body = [self encBody:body];
+    NSString *body = [NSString stringWithFormat:@"method=setdevicetoken&username=%@&devicetoken=%@", [HDRCurrentUser getCurrentUserName], [deviceToken stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    body = [self doHash:body];
     
     request.HTTPMethod = @"POST";
     request.HTTPBody = [body dataUsingEncoding:NSUTF8StringEncoding];
@@ -146,8 +147,16 @@
 
 }
 
-- (NSString *)encBody:(NSString *)input
+- (NSString *)doHash:(NSString *)input
 {
+    NSData *dataIn = [[NSString stringWithFormat:@"%@%@",input, ENC_GUID] dataUsingEncoding:NSUTF8StringEncoding];
+    NSMutableData *hashData = [NSMutableData dataWithLength:CC_SHA256_DIGEST_LENGTH];
+    
+    CC_SHA256(dataIn.bytes, (CC_LONG)dataIn.length, hashData.mutableBytes);
+    
+    NSString *base64String = [hashData base64EncodedStringWithOptions:0];
+    
+    input = [NSString stringWithFormat:@"%@&authtoken=%@", input, base64String];
     return input;
 }
 

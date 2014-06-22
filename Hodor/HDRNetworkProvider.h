@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CommonCrypto/CommonDigest.h>
 #import "HDRCommon.h"
 #import "HDRCurrentUser.h"
 
