@@ -51,7 +51,7 @@
         picker.messageComposeDelegate = self;
         picker.recipients = @[mobile];
         
-        picker.body = @"Checkout WhereMsg for you smartphone. Download it today from http://wheremsg.weebly.com";
+        picker.body = [NSString stringWithFormat:@"I wanna HODOR you! Add my HODOR username %@ (if you don't have HODOR app get it here http://app)", @"HELLO"];
         
         [self.viewController presentViewController:picker animated:YES completion:nil];
     }];
