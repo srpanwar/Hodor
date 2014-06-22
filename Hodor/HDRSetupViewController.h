@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AudioToolbox/AudioToolbox.h> 
 #import "HDRCurrentUser.h"
 #import "HDRNetworkProvider.h"
 

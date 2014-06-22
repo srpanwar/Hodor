@@ -37,7 +37,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[HDRFriends instance] getFriends].count;
+    return [[HDRFriends instance] getFriends].count + 2;
 }
 
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
@@ -47,7 +47,7 @@
 {
     HDRTableViewCell *cell = nil;
     
-    if (indexPath.row < ([[HDRFriends instance] getFriends].count - 2))
+    if (indexPath.row < ([[HDRFriends instance] getFriends].count))
     {
         HDRHomeTableViewCell *cell1 = (HDRHomeTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"HDRHomeTableViewCell" owner:nil options:nil] lastObject];
         cell1.user = [[HDRFriends instance] getFriends][indexPath.row];
@@ -56,7 +56,7 @@
     }
     else
     {
-        if (indexPath.row == ([[HDRFriends instance] getFriends].count - 1))
+        if (indexPath.row == ([[HDRFriends instance] getFriends].count + 1))
         {
             HDRAddUserNameTableViewCell *cell2 = (HDRAddUserNameTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"HDRAddUserNameTableViewCell" owner:nil options:nil] lastObject];
             cell = cell2;

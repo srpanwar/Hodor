@@ -58,6 +58,7 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (status)
                 {
+                    [self playSound];
                     [self goHome];
                 }
                 else
@@ -80,6 +81,14 @@
 - (void)goHome
 {
     [self performSegueWithIdentifier:@"HomeSegue" sender:self];
+}
+
+-(void) playSound
+{
+    NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"Hodor" ofType:@"wav"];
+    SystemSoundID soundID;
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath: soundPath], &soundID);
+    AudioServicesPlaySystemSound (soundID);
 }
 
 /*

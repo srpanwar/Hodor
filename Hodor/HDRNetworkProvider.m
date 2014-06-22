@@ -26,7 +26,7 @@
 
 -(BOOL) createUserName:(NSString *)userName
 {
-    return NO;
+    return YES;
     
     if (!userName)
     {

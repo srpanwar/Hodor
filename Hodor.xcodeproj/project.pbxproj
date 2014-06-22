@@ -137,6 +137,8 @@
 		78237CE01955873400BE750D /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				78237CF41956991300BE750D /* HDRTableViewCell.h */,
+				78237CF51956991300BE750D /* HDRTableViewCell.m */,
 				78237CEF195698B200BE750D /* HDRInviteTableViewCell.h */,
 				78237CF0195698B200BE750D /* HDRInviteTableViewCell.m */,
 				78237CF1195698B200BE750D /* HDRInviteTableViewCell.xib */,
@@ -148,8 +150,6 @@
 				78237CE31955875900BE750D /* HDRHomeTableViewCell.xib */,
 				78237CDD1955867500BE750D /* HDRHomeViewController.h */,
 				78237CDE1955867500BE750D /* HDRHomeViewController.m */,
-				78237CF41956991300BE750D /* HDRTableViewCell.h */,
-				78237CF51956991300BE750D /* HDRTableViewCell.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
