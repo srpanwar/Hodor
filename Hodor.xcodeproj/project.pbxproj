@@ -21,6 +21,11 @@
 		78237CF61956991300BE750D /* HDRTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78237CF51956991300BE750D /* HDRTableViewCell.m */; };
 		78237CF919569B7F00BE750D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78237CF719569B7F00BE750D /* AddressBook.framework */; };
 		78237CFA19569B7F00BE750D /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78237CF819569B7F00BE750D /* AddressBookUI.framework */; };
+		78237CFE1956A22000BE750D /* HDRCurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 78237CFD1956A22000BE750D /* HDRCurrentUser.m */; };
+		78237D011956B78400BE750D /* HDRCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 78237D001956B78400BE750D /* HDRCommon.m */; };
+		78237D041956BA6E00BE750D /* HDRNetworkProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 78237D031956BA6E00BE750D /* HDRNetworkProvider.m */; };
+		78237D071956BE1800BE750D /* HDRFriends.m in Sources */ = {isa = PBXBuildFile; fileRef = 78237D061956BE1800BE750D /* HDRFriends.m */; };
+		78237D0B1956BE5B00BE750D /* HDRUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 78237D0A1956BE5B00BE750D /* HDRUser.m */; };
 		78CCE69919552C46009EA16B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78CCE69819552C46009EA16B /* Foundation.framework */; };
 		78CCE69B19552C46009EA16B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78CCE69A19552C46009EA16B /* CoreGraphics.framework */; };
 		78CCE69D19552C46009EA16B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78CCE69C19552C46009EA16B /* UIKit.framework */; };
@@ -66,6 +71,16 @@
 		78237CF51956991300BE750D /* HDRTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRTableViewCell.m; sourceTree = "<group>"; };
 		78237CF719569B7F00BE750D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		78237CF819569B7F00BE750D /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		78237CFC1956A22000BE750D /* HDRCurrentUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRCurrentUser.h; sourceTree = "<group>"; };
+		78237CFD1956A22000BE750D /* HDRCurrentUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRCurrentUser.m; sourceTree = "<group>"; };
+		78237CFF1956B78400BE750D /* HDRCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRCommon.h; sourceTree = "<group>"; };
+		78237D001956B78400BE750D /* HDRCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRCommon.m; sourceTree = "<group>"; };
+		78237D021956BA6E00BE750D /* HDRNetworkProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRNetworkProvider.h; sourceTree = "<group>"; };
+		78237D031956BA6E00BE750D /* HDRNetworkProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRNetworkProvider.m; sourceTree = "<group>"; };
+		78237D051956BE1800BE750D /* HDRFriends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRFriends.h; sourceTree = "<group>"; };
+		78237D061956BE1800BE750D /* HDRFriends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRFriends.m; sourceTree = "<group>"; };
+		78237D091956BE5B00BE750D /* HDRUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRUser.h; sourceTree = "<group>"; };
+		78237D0A1956BE5B00BE750D /* HDRUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRUser.m; sourceTree = "<group>"; };
 		78CCE69519552C46009EA16B /* Hodor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hodor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78CCE69819552C46009EA16B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		78CCE69A19552C46009EA16B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -148,6 +163,30 @@
 			name = Setup;
 			sourceTree = "<group>";
 		};
+		78237CFB1956A20900BE750D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				78237D021956BA6E00BE750D /* HDRNetworkProvider.h */,
+				78237D031956BA6E00BE750D /* HDRNetworkProvider.m */,
+				78237CFC1956A22000BE750D /* HDRCurrentUser.h */,
+				78237CFD1956A22000BE750D /* HDRCurrentUser.m */,
+				78237D051956BE1800BE750D /* HDRFriends.h */,
+				78237D061956BE1800BE750D /* HDRFriends.m */,
+				78237CFF1956B78400BE750D /* HDRCommon.h */,
+				78237D001956B78400BE750D /* HDRCommon.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		78237D081956BE4D00BE750D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				78237D091956BE5B00BE750D /* HDRUser.h */,
+				78237D0A1956BE5B00BE750D /* HDRUser.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		78CCE68C19552C46009EA16B = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +223,8 @@
 			isa = PBXGroup;
 			children = (
 				78237CDC1955864500BE750D /* View Controllers */,
+				78237CFB1956A20900BE750D /* Utils */,
+				78237D081956BE4D00BE750D /* Model */,
 				78CCE6A719552C46009EA16B /* HDRAppDelegate.h */,
 				78CCE6A819552C46009EA16B /* HDRAppDelegate.m */,
 				78CCE6AA19552C46009EA16B /* Images.xcassets */,
@@ -335,10 +376,15 @@
 			files = (
 				78CCE6A519552C46009EA16B /* main.m in Sources */,
 				78237CE91956814300BE750D /* HDRAddUserNameTableViewCell.m in Sources */,
+				78237CFE1956A22000BE750D /* HDRCurrentUser.m in Sources */,
+				78237D041956BA6E00BE750D /* HDRNetworkProvider.m in Sources */,
+				78237D011956B78400BE750D /* HDRCommon.m in Sources */,
 				78CCE6A919552C46009EA16B /* HDRAppDelegate.m in Sources */,
 				78237CDF1955867500BE750D /* HDRHomeViewController.m in Sources */,
 				78237CE41955875900BE750D /* HDRHomeTableViewCell.m in Sources */,
+				78237D071956BE1800BE750D /* HDRFriends.m in Sources */,
 				78237CEE195690FA00BE750D /* HDRSetupViewController.m in Sources */,
+				78237D0B1956BE5B00BE750D /* HDRUser.m in Sources */,
 				78237CF61956991300BE750D /* HDRTableViewCell.m in Sources */,
 				78237CF2195698B200BE750D /* HDRInviteTableViewCell.m in Sources */,
 			);

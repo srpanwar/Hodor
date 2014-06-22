@@ -25,6 +25,11 @@
 
 - (void)viewDidLoad
 {
+    if ([HDRCurrentUser getCurrentUserName].length)
+    {
+        [self goHome];
+    }
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
@@ -42,8 +47,13 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
-    [self performSegueWithIdentifier:@"HomeSegue" sender:self];
+    [self goHome];
     return YES;
+}
+
+- (void)goHome
+{
+    [self performSegueWithIdentifier:@"HomeSegue" sender:self];
 }
 
 /*

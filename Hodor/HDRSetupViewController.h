@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HDRCurrentUser.h"
 
 @interface HDRSetupViewController : UIViewController<UITextFieldDelegate>
 
