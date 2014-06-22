@@ -8,8 +8,13 @@
 
 #import "HDRNetworkProvider.h"
 
-@implementation HDRNetworkProvider
+@interface HDRNetworkProvider ()
 
+@property NSString *deviceToken;
+
+@end
+
+@implementation HDRNetworkProvider
 
 + (id) instance
 {
@@ -54,6 +59,9 @@
     {
         [HDRCurrentUser setUUID:uuid];
         [HDRCurrentUser setCurrentUserName:userName];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [self sendRemoteNotificationsDeviceToken:self.deviceToken];
+        });
         return YES;
     }
     
@@ -113,10 +121,11 @@
     return error == nil && response.statusCode == 200;
 }
 
-- (void)senRemoteNotificationsDeviceToken:(NSString *)deviceToken
+- (void)sendRemoteNotificationsDeviceToken:(NSString *)deviceToken
 {
     return;
-    
+ 
+    self.deviceToken = deviceToken;
     if (!deviceToken || ![HDRCurrentUser getCurrentUserName])
     {
         return;

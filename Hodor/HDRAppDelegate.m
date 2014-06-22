@@ -26,7 +26,7 @@
 
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
-    [[HDRNetworkProvider instance] senRemoteNotificationsDeviceToken:[[NSString alloc] initWithData:deviceToken encoding:NSUTF8StringEncoding]];
+    [[HDRNetworkProvider instance] sendRemoteNotificationsDeviceToken:[[NSString alloc] initWithData:deviceToken encoding:NSUTF8StringEncoding]];
 	NSLog(@"My token is: %@", deviceToken);
 }
 

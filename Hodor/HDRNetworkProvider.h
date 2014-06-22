@@ -20,6 +20,6 @@
 
 - (void)sendHODOR:(NSString *)recipient;
 
-- (void)senRemoteNotificationsDeviceToken:(NSString *)deviceToken;
+- (void)sendRemoteNotificationsDeviceToken:(NSString *)deviceToken;
 
 @end
