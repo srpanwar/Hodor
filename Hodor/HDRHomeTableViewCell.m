@@ -33,16 +33,20 @@
     self.nameLabel.hidden = YES;
     [self.busyIndicator startAnimating];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        self.nameLabel.hidden = NO;
-        self.nameLabel.text = @"HODORED!";
-        [self.busyIndicator stopAnimating];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        [[HDRNetworkProvider instance] sendHODOR:name];
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
             self.nameLabel.hidden = NO;
-            self.nameLabel.text = name;
+            self.nameLabel.text = @"HODORED!";
             [self.busyIndicator stopAnimating];
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                self.nameLabel.text = name;
+                [self.busyIndicator stopAnimating];
+            });
         });
+        
     });
 }
 

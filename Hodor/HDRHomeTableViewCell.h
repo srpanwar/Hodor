@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "HDRTableViewCell.h"
+#import "HDRNetworkProvider.h"
 
 @interface HDRHomeTableViewCell : HDRTableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
