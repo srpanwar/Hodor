@@ -12,29 +12,11 @@
 
 - (void)awakeFromNib
 {
-    srand((unsigned)rand());
+    [super awakeFromNib];
     
     // Initialization code
-    CGFloat red = [self getNextRand];
-    CGFloat green = [self getNextRand];
-    CGFloat blue = [self getNextRand];
-    self.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:0.8];
-    
     self.textField.delegate = self;
 }
-
-- (CGFloat) getNextRand
-{
-    return  fminf(fmaxf(rand()%170, 90.0f), 170.0f) / 255.0f;
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {

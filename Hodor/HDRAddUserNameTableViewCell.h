@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HDRTableViewCell.h"
 
-@interface HDRAddUserNameTableViewCell : UITableViewCell<UITextFieldDelegate>
+@interface HDRAddUserNameTableViewCell : HDRTableViewCell<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 
 @property (weak, nonatomic) IBOutlet UIButton *addBtn;

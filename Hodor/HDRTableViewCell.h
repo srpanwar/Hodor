@@ -1,5 +1,5 @@
 //
-//  HDRInviteTableViewCell.h
+//  HDRTableViewCell.h
 //  Hodor
 //
 //  Created by Shailesh Panwar on 6/21/14.
@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HDRTableViewCell.h"
 
-@interface HDRInviteTableViewCell : HDRTableViewCell
+@interface HDRTableViewCell : UITableViewCell
 
 @end

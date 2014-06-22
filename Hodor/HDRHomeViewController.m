@@ -40,6 +40,7 @@
     [self.friends addObject:[@"usha" uppercaseString]];
     [self.friends addObject:[@"hardiksh" uppercaseString]];
     [self.friends addObject:[@"" uppercaseString]];
+    [self.friends addObject:[@"" uppercaseString]];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -53,7 +54,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = nil;
-    if (indexPath.row < (self.friends.count - 1))
+    
+    if (indexPath.row < (self.friends.count - 2))
     {
         HDRHomeTableViewCell *cell1 = (HDRHomeTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"HDRHomeTableViewCell" owner:nil options:nil] lastObject];
         cell1.nameLabel.text = self.friends[indexPath.row];
@@ -61,8 +63,16 @@
     }
     else
     {
-        HDRAddUserNameTableViewCell *cell2 = (HDRAddUserNameTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"HDRAddUserNameTableViewCell" owner:nil options:nil] lastObject];
-        cell = cell2;
+        if (indexPath.row == (self.friends.count - 1))
+        {
+            HDRAddUserNameTableViewCell *cell2 = (HDRAddUserNameTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"HDRAddUserNameTableViewCell" owner:nil options:nil] lastObject];
+            cell = cell2;
+        }
+        else
+        {
+            HDRInviteTableViewCell *cell3 = (HDRInviteTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"HDRInviteTableViewCell" owner:nil options:nil] lastObject];
+            cell = cell3;
+        }
     }
 
     return cell;

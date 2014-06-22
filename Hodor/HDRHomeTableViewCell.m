@@ -12,16 +12,11 @@
 
 - (void)awakeFromNib
 {
-     srand((unsigned)rand());
+    [super awakeFromNib];
     
     // Initialization code
     self.menuView.alpha = 0;
     self.nameLabel.text = @"";
-    
-    CGFloat red = [self getNextRand];
-    CGFloat green = [self getNextRand];
-    CGFloat blue = [self getNextRand];
-    self.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:0.8];
     
     UISwipeGestureRecognizer *mSwipeUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipe)];
     [mSwipeUpRecognizer setDirection:UISwipeGestureRecognizerDirectionLeft];
@@ -29,18 +24,6 @@
     
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doHodor)];
     [self.contentView addGestureRecognizer:gestureRecognizer];
-}
-
-- (CGFloat) getNextRand
-{
-    return  fminf(fmaxf(rand()%170, 90.0f), 170.0f) / 255.0f;
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 - (void) doHodor

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HDRTableViewCell.h"
 
-@interface HDRHomeTableViewCell : UITableViewCell
+@interface HDRHomeTableViewCell : HDRTableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIView *menuView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *busyIndicator;
