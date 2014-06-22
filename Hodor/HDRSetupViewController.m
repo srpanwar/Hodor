@@ -48,8 +48,9 @@
 
 - (BOOL)textField:(UITextField *)field shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)characters
 {
+    NSString *text = [field.text stringByReplacingCharactersInRange:range withString:characters];
     NSCharacterSet *blockedCharacters = [[NSCharacterSet alphanumericCharacterSet] invertedSet];
-    return ([characters rangeOfCharacterFromSet:blockedCharacters].location == NSNotFound);
+    return ([characters rangeOfCharacterFromSet:blockedCharacters].location == NSNotFound) && text.length < 50;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -71,9 +72,9 @@
                 else
                 {
                     self.messageLabel.alpha = 1;
-                    [UIView animateWithDuration:2 animations:^{
+                    [UIView animateWithDuration:1 delay:0.3f options:UIViewAnimationOptionCurveEaseInOut animations:^{
                         self.messageLabel.alpha = 0;
-                    }];
+                    } completion:nil];
                 }
                 
                 [self.busyIndicator stopAnimating];
