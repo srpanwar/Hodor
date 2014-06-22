@@ -10,7 +10,6 @@
 
 @interface HDRHomeViewController ()
 
-@property NSMutableArray *friends;
 @end
 
 @implementation HDRHomeViewController
@@ -34,18 +33,11 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.separatorColor = [UIColor clearColor];
-    
-    self.friends =[[NSMutableArray alloc] init];
-    [self.friends addObject:[@"vivekian" uppercaseString]];
-    [self.friends addObject:[@"usha" uppercaseString]];
-    [self.friends addObject:[@"hardiksh" uppercaseString]];
-    [self.friends addObject:[@"" uppercaseString]];
-    [self.friends addObject:[@"" uppercaseString]];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.friends.count;
+    return [[HDRFriends instance] getFriends].count;
 }
 
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
@@ -55,15 +47,15 @@
 {
     HDRTableViewCell *cell = nil;
     
-    if (indexPath.row < (self.friends.count - 2))
+    if (indexPath.row < ([[HDRFriends instance] getFriends].count - 2))
     {
         HDRHomeTableViewCell *cell1 = (HDRHomeTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"HDRHomeTableViewCell" owner:nil options:nil] lastObject];
-        cell1.nameLabel.text = self.friends[indexPath.row];
+        cell1.nameLabel.text = [[HDRFriends instance] getFriends][indexPath.row];
         cell = cell1;
     }
     else
     {
-        if (indexPath.row == (self.friends.count - 1))
+        if (indexPath.row == ([[HDRFriends instance] getFriends].count - 1))
         {
             HDRAddUserNameTableViewCell *cell2 = (HDRAddUserNameTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"HDRAddUserNameTableViewCell" owner:nil options:nil] lastObject];
             cell = cell2;

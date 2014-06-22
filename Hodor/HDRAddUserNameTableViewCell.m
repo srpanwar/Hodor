@@ -20,6 +20,15 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+    if(textField.text.length)
+    {
+        HDRUser *user = [[HDRUser alloc] init];
+        user.name = textField.text;
+        user.isBlocked = NO;
+        [[HDRFriends instance] addFriend:user];
+        [self.tableView reloadData];
+    }
+    
     [self.addBtn setHidden:NO];
     [self.textField setHidden:YES];
     [textField resignFirstResponder];

@@ -33,6 +33,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.messageLabel.hidden = YES;
     self.textField.delegate = self;
     
     [self.textField becomeFirstResponder];
@@ -46,8 +47,30 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [textField resignFirstResponder];
-    [self goHome];
+    if (textField.text.length)
+    {
+        [self.busyIndicator startAnimating];
+        NSString *userName = [NSString stringWithString:textField.text];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+            
+            BOOL status = [[HDRNetworkProvider instance] createUserName:userName];
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (status)
+                {
+                    [self goHome];
+                }
+                else
+                {
+                    self.messageLabel.hidden = NO;
+                }
+                
+                [self.busyIndicator stopAnimating];
+            });
+            
+        });
+    }
+    
     return YES;
 }
 

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "HDRTableViewCell.h"
+#import "HDRUser.h"
+#import "HDRFriends.h"
 
 @interface HDRAddUserNameTableViewCell : HDRTableViewCell<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *textField;

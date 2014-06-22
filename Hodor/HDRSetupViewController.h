@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "HDRCurrentUser.h"
+#import "HDRNetworkProvider.h"
 
 @interface HDRSetupViewController : UIViewController<UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UILabel *messageLabel;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *busyIndicator;
 
 @end
