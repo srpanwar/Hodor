@@ -15,7 +15,9 @@
      srand((unsigned)rand());
     
     // Initialization code
+    self.menuView.alpha = 0;
     self.nameLabel.text = @"";
+    
     CGFloat red = [self getNextRand];
     CGFloat green = [self getNextRand];
     CGFloat blue = [self getNextRand];
@@ -29,7 +31,7 @@
 
 - (CGFloat) getNextRand
 {
-    return  fminf(fmaxf(rand()%170, 70.0f), 170.0f) / 255.0f;
+    return  fminf(fmaxf(rand()%170, 90.0f), 170.0f) / 255.0f;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -41,7 +43,20 @@
 
 - (void)onSwipe
 {
-    
+    [UIView animateWithDuration:0.3f animations:^{
+        self.menuView.alpha = 1;
+    }];
 }
 
+- (IBAction)onCancel:(id)sender {
+    [UIView animateWithDuration:0.3f animations:^{
+        self.menuView.alpha = 0;
+    }];
+}
+
+- (IBAction)onDelete:(id)sender {
+}
+
+- (IBAction)onBlock:(id)sender {
+}
 @end

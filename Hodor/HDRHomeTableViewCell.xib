@@ -16,11 +16,11 @@
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VIVEKIAN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="35" id="GRl-dr-nYt">
                         <rect key="frame" x="0.0" y="13" width="320" height="62"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="41"/>
+                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="41"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" id="SW8-Xc-EmZ">
+                    <view contentMode="scaleToFill" id="SW8-Xc-EmZ" userLabel="Menu View">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -33,6 +33,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onCancel:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="qsh-xM-a5K"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9cU-lB-7Lc">
                                 <rect key="frame" x="106" y="0.0" width="108" height="90"/>
@@ -43,6 +46,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onDelete:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="aL0-jT-OMV"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VUE-X6-tco">
                                 <rect key="frame" x="214" y="0.0" width="106" height="90"/>
@@ -53,6 +59,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onBlock:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="rTF-89-1EY"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -62,6 +71,7 @@
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.094117656350135803" green="0.59215688705444336" blue="0.27058824896812439" alpha="0.90000000000000002" colorSpace="deviceRGB"/>
             <connections>
+                <outlet property="menuView" destination="SW8-Xc-EmZ" id="Emk-Ly-MSP"/>
                 <outlet property="nameLabel" destination="GRl-dr-nYt" id="ZmS-IA-ZUK"/>
             </connections>
         </tableViewCell>

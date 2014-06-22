@@ -25,7 +25,7 @@
 
 - (CGFloat) getNextRand
 {
-    return  fminf(fmaxf(rand()%170, 70.0f), 170.0f) / 255.0f;
+    return  fminf(fmaxf(rand()%170, 90.0f), 170.0f) / 255.0f;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
