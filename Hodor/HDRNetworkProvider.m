@@ -26,6 +26,8 @@
 
 -(BOOL) createUserName:(NSString *)userName
 {
+    return NO;
+    
     if (!userName)
     {
         return NO;
@@ -51,6 +53,7 @@
     if(error == nil && response.statusCode == 200 && ![EMPTY_GUID isEqualToString:uuid])
     {
         [HDRCurrentUser setUUID:uuid];
+        [HDRCurrentUser setCurrentUserName:userName];
         return YES;
     }
     
@@ -60,6 +63,8 @@
 
 -(void) sendHODOR:(NSString *)recipient
 {
+    return;
+    
     if (!recipient)
     {
         return;
@@ -83,6 +88,8 @@
 
 - (BOOL) blockUser:(NSString *)userName
 {
+    return YES;
+    
     if (!userName)
     {
         return NO;

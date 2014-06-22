@@ -33,7 +33,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.messageLabel.hidden = YES;
+    self.messageLabel.alpha = 0;
     self.textField.delegate = self;
     
     [self.textField becomeFirstResponder];
@@ -62,7 +62,10 @@
                 }
                 else
                 {
-                    self.messageLabel.hidden = NO;
+                    self.messageLabel.alpha = 1;
+                    [UIView animateWithDuration:1 animations:^{
+                        self.messageLabel.alpha = 0;
+                    }];
                 }
                 
                 [self.busyIndicator stopAnimating];
