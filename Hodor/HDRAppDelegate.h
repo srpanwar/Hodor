@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HDRNetworkProvider.h"
 
 @interface HDRAppDelegate : UIResponder <UIApplicationDelegate>
 

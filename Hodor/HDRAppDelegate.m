@@ -26,6 +26,7 @@
 
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
+    [[HDRNetworkProvider instance] senRemoteNotificationsDeviceToken:[[NSString alloc] initWithData:deviceToken encoding:NSUTF8StringEncoding]];
 	NSLog(@"My token is: %@", deviceToken);
 }
 
@@ -40,13 +41,13 @@
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     
-//    UILocalNotification *localNotif = [[UILocalNotification alloc] init];
-//    if (localNotif)
-//    {
-//        localNotif.alertBody = @"vivekian";
-//        localNotif.soundName = @"Hodor.wav";
-//        [UIApplication.sharedApplication presentLocalNotificationNow:localNotif];
-//    }    
+    UILocalNotification *localNotif = [[UILocalNotification alloc] init];
+    if (localNotif)
+    {
+        localNotif.alertBody = @"vivekian";
+        localNotif.soundName = @"Hodor.wav";
+        [UIApplication.sharedApplication presentLocalNotificationNow:localNotif];
+    }    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
