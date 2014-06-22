@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface HDRUser : NSObject
+@interface HDRUser : NSObject<NSCoding>
 
 @property NSString *name;
 @property BOOL isBlocked;

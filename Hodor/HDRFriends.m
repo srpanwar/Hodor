@@ -26,8 +26,7 @@
         dispatch_once(&onceToken, ^{
             that = [[self alloc] init];
             that.refreshNeeded = YES;
-            NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-            that.friendsList = [NSMutableArray arrayWithArray:[defaults arrayForKey:@"HDRFriendsList"]];
+            that.friendsList = [NSMutableArray arrayWithArray:[that readArrayWithCustomObjFromUserDefaults:@"HDRFriendsList"]];
         });
     }
     return that;
@@ -43,6 +42,7 @@
     
     if(self.refreshNeeded)
     {
+        [list removeAllObjects];
         for (int i = 0; i < self.friendsList.count; i++)
         {
             HDRUser *user = self.friendsList[i];
@@ -80,8 +80,25 @@
 
 - (void)save
 {
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:self.friendsList forKey:@"HDRFriendsList"];
+    [self writeArrayWithCustomObjToUserDefaults:@"HDRFriendsList" withArray:self.friendsList];
+}
+
+
+-(void)writeArrayWithCustomObjToUserDefaults:(NSString *)keyName withArray:(NSMutableArray *)myArray
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:myArray];
+    [defaults setObject:data forKey:keyName];
+    [defaults synchronize];
+}
+
+-(NSArray *)readArrayWithCustomObjFromUserDefaults:(NSString*)keyName
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *data = [defaults objectForKey:keyName];
+    NSArray *myArray = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    [defaults synchronize];
+    return myArray;
 }
 
 @end

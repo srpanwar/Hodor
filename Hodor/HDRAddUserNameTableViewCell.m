@@ -28,10 +28,12 @@
         [[HDRFriends instance] addFriend:user];
         [self.tableView reloadData];
     }
-    
-    [self.addBtn setHidden:NO];
-    [self.textField setHidden:YES];
-    [textField resignFirstResponder];
+    else
+    {
+        [self.addBtn setHidden:NO];
+        [self.textField setHidden:YES];
+        [textField resignFirstResponder];
+    }
     
     return YES;
 }
