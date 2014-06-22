@@ -63,7 +63,7 @@
                 else
                 {
                     self.messageLabel.alpha = 1;
-                    [UIView animateWithDuration:1 animations:^{
+                    [UIView animateWithDuration:2 animations:^{
                         self.messageLabel.alpha = 0;
                     }];
                 }
