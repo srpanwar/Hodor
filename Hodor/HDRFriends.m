@@ -33,7 +33,17 @@
 
 - (NSMutableArray *)getFriends
 {
-    return self.friendsList;
+    NSMutableArray *list = [[NSMutableArray alloc] init];
+    for (int i = 0; i < self.friendsList.count; i++)
+    {
+        HDRUser *user = self.friendsList[i];
+        if (!user.isBlocked)
+        {
+            [list addObject:user];
+        }
+    }
+    
+    return list;
 }
 
 - (void)addFriend:(HDRUser *)user

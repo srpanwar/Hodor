@@ -28,7 +28,7 @@
 
 - (void) doHodor
 {
-    NSString *name = self.nameLabel.text;
+    NSString *name = self.user.name;
     
     self.nameLabel.hidden = YES;
     [self.busyIndicator startAnimating];
@@ -75,7 +75,7 @@
 
 - (IBAction)onBlock:(id)sender
 {
-    NSString *name = self.nameLabel.text;
+    NSString *name = self.user.name;
     
     self.nameLabel.hidden = YES;
     [self.busyIndicator startAnimating];
@@ -84,6 +84,7 @@
         BOOL status = [[HDRNetworkProvider instance] blockUser:name];
         if (status)
         {
+            [[HDRFriends instance] blockFriend:self.user];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.tableView reloadData];
             });
