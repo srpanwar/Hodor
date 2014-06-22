@@ -38,7 +38,10 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+    [self.addBtn setHidden:NO];
+    [self.textField setHidden:YES];
     [textField resignFirstResponder];
+    
     return YES;
 }
 

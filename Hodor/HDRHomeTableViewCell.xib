@@ -20,6 +20,10 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" id="XZJ-Fw-9Gb">
+                        <rect key="frame" x="141" y="26" width="37" height="37"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </activityIndicatorView>
                     <view contentMode="scaleToFill" id="SW8-Xc-EmZ" userLabel="Menu View">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -71,6 +75,7 @@
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.094117656350135803" green="0.59215688705444336" blue="0.27058824896812439" alpha="0.90000000000000002" colorSpace="deviceRGB"/>
             <connections>
+                <outlet property="busyIndicator" destination="XZJ-Fw-9Gb" id="jIZ-Zs-Web"/>
                 <outlet property="menuView" destination="SW8-Xc-EmZ" id="Emk-Ly-MSP"/>
                 <outlet property="nameLabel" destination="GRl-dr-nYt" id="ZmS-IA-ZUK"/>
             </connections>

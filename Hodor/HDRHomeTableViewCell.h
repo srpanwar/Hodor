@@ -11,6 +11,7 @@
 @interface HDRHomeTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIView *menuView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *busyIndicator;
 
 - (IBAction)onCancel:(id)sender;
 - (IBAction)onDelete:(id)sender;

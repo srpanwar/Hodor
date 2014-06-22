@@ -26,7 +26,9 @@
     UISwipeGestureRecognizer *mSwipeUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipe)];
     [mSwipeUpRecognizer setDirection:UISwipeGestureRecognizerDirectionLeft];
     [self.contentView addGestureRecognizer:mSwipeUpRecognizer];
-
+    
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doHodor)];
+    [self.contentView addGestureRecognizer:gestureRecognizer];
 }
 
 - (CGFloat) getNextRand
@@ -39,6 +41,26 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void) doHodor
+{
+    NSString *name = self.nameLabel.text;
+    
+    self.nameLabel.hidden = YES;
+    [self.busyIndicator startAnimating];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        self.nameLabel.hidden = NO;
+        self.nameLabel.text = @"HODORED!";
+        [self.busyIndicator stopAnimating];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            self.nameLabel.hidden = NO;
+            self.nameLabel.text = name;
+            [self.busyIndicator stopAnimating];
+        });
+    });
 }
 
 - (void)onSwipe

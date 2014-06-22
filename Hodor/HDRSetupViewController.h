@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HDRSetupViewController : UIViewController
+@interface HDRSetupViewController : UIViewController<UITextFieldDelegate>
+
+@property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet UILabel *messageLabel;
 
 @end
