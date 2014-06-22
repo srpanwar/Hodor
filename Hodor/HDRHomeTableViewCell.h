@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "HDRTableViewCell.h"
 #import "HDRNetworkProvider.h"
+#import "HDRFriends.h"
 
 @interface HDRHomeTableViewCell : HDRTableViewCell
+
+@property HDRUser* user;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIView *menuView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *busyIndicator;

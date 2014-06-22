@@ -63,9 +63,32 @@
     }];
 }
 
-- (IBAction)onDelete:(id)sender {
+- (IBAction)onDelete:(id)sender
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        [[HDRFriends instance] deleteFriend:self.user];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
+    });
 }
 
-- (IBAction)onBlock:(id)sender {
+- (IBAction)onBlock:(id)sender
+{
+    NSString *name = self.nameLabel.text;
+    
+    self.nameLabel.hidden = YES;
+    [self.busyIndicator startAnimating];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        BOOL status = [[HDRNetworkProvider instance] blockUser:name];
+        if (status)
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+            });
+        }
+    });
+
 }
 @end

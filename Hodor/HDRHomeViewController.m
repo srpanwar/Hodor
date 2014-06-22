@@ -50,7 +50,8 @@
     if (indexPath.row < ([[HDRFriends instance] getFriends].count - 2))
     {
         HDRHomeTableViewCell *cell1 = (HDRHomeTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"HDRHomeTableViewCell" owner:nil options:nil] lastObject];
-        cell1.nameLabel.text = [[HDRFriends instance] getFriends][indexPath.row];
+        cell1.user = [[HDRFriends instance] getFriends][indexPath.row];
+        cell1.nameLabel.text = cell1.user.name;
         cell = cell1;
     }
     else
