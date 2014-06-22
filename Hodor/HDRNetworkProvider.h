@@ -14,10 +14,12 @@
 
 + (id) instance;
 
-- (BOOL) createUserName:(NSString *)userName;
+- (BOOL)createUserName:(NSString *)userName;
 
-- (BOOL) blockUser:(NSString *)userName;
+- (BOOL)blockUser:(NSString *)userName;
 
-- (void) sendHODOR:(NSString *)recipient;
+- (void)sendHODOR:(NSString *)recipient;
+
+- (void)senRemoteNotificationsDeviceToken:(NSString *)deviceToken;
 
 @end

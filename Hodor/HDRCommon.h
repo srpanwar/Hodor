@@ -14,7 +14,7 @@
 #define CREATE_USER_ENDPOINT @""
 #define BLOCK_USER_ENDPOINT @""
 #define SEND_HODOR_ENDPOINT @""
-
+#define SEND_DEVICETOKEN_ENDPOINT @""
 
 @interface HDRCommon : NSObject
 

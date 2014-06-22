@@ -113,6 +113,31 @@
     return error == nil && response.statusCode == 200;
 }
 
+- (void)senRemoteNotificationsDeviceToken:(NSString *)deviceToken
+{
+    return;
+    
+    if (!deviceToken || ![HDRCurrentUser getCurrentUserName])
+    {
+        return;
+    }
+    
+    //form the url
+    NSURL *url = [NSURL URLWithString:SEND_DEVICETOKEN_ENDPOINT];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    
+    NSString *body = [NSString stringWithFormat:@"devicetoken=%@&username=%@", deviceToken, [HDRCurrentUser getCurrentUserName]];
+    body = [self encBody:body];
+    
+    request.HTTPMethod = @"POST";
+    request.HTTPBody = [body dataUsingEncoding:NSUTF8StringEncoding];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    NSError *error = nil;
+    NSHTTPURLResponse *response = nil;
+    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+
+}
 
 - (NSString *)encBody:(NSString *)input
 {
