@@ -57,4 +57,20 @@ NSString *UUENCID;
     }
 }
 
++(BOOL)isNotificationTokenSet
+{
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    NSString *flag = [defaults stringForKey:@"HDRNotificationTokenSet"];
+
+    return flag && flag.length;
+}
+
+
++(void) setNotificationTokenSet
+{
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:@"set" forKey:@"HDRNotificationTokenSet"];
+    return;
+}
+
 @end

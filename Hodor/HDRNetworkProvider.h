@@ -13,7 +13,9 @@
 
 @interface HDRNetworkProvider : NSObject
 
-+ (id) instance;
++ (HDRNetworkProvider *) instance;
+
+@property NSString *deviceToken;
 
 - (BOOL)createUserName:(NSString *)userName;
 

@@ -10,13 +10,11 @@
 
 @interface HDRNetworkProvider ()
 
-@property NSString *deviceToken;
-
 @end
 
 @implementation HDRNetworkProvider
 
-+ (id) instance
++ (HDRNetworkProvider *) instance
 {
     static HDRNetworkProvider *that = nil;
     @synchronized(self)
@@ -37,7 +35,7 @@
     }
     
     //form the url
-    NSURL *url = [NSURL URLWithString:CREATE_USER_ENDPOINT];
+    NSURL *url = [NSURL URLWithString:HODOR_SERVICE_ENDPOINT];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     
     NSString *body = [NSString stringWithFormat:@"method=createuser&username=%@", userName];
@@ -78,7 +76,7 @@
     }
     
     //form the url
-    NSURL *url = [NSURL URLWithString:SEND_HODOR_ENDPOINT];
+    NSURL *url = [NSURL URLWithString:HODOR_SERVICE_ENDPOINT];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     
     NSString *body = [NSString stringWithFormat:@"method=sendhodor&sender=%@&recipient=%@", [HDRCurrentUser getCurrentUserName], recipient];
@@ -103,7 +101,7 @@
     }
     
     //form the url
-    NSURL *url = [NSURL URLWithString:BLOCK_USER_ENDPOINT];
+    NSURL *url = [NSURL URLWithString:HODOR_SERVICE_ENDPOINT];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     
     NSString *body = [NSString stringWithFormat:@"method=blockuser&blocker=%@&blockee=%@", [HDRCurrentUser getCurrentUserName], userName];
@@ -122,19 +120,17 @@
 
 - (void)sendRemoteNotificationsDeviceToken:(NSString *)deviceToken
 {
-    return;
- 
     self.deviceToken = deviceToken;
-    if (!deviceToken || ![HDRCurrentUser getCurrentUserName])
+    if (!deviceToken || ![HDRCurrentUser getCurrentUserName] || [HDRCurrentUser isNotificationTokenSet])
     {
         return;
     }
     
     //form the url
-    NSURL *url = [NSURL URLWithString:SEND_DEVICETOKEN_ENDPOINT];
+    NSURL *url = [NSURL URLWithString:HODOR_SERVICE_ENDPOINT];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     
-    NSString *body = [NSString stringWithFormat:@"method=setdevicetoken&username=%@&devicetoken=%@", [HDRCurrentUser getCurrentUserName], [deviceToken stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSString *body = [NSString stringWithFormat:@"method=setdevicetoken&username=%@&devicetoken=%@", [HDRCurrentUser getCurrentUserName], [self stringWithPercentEscape:deviceToken]];
     body = [self doHash:body];
     
     request.HTTPMethod = @"POST";
@@ -144,7 +140,11 @@
     NSError *error = nil;
     NSHTTPURLResponse *response = nil;
     [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-
+    
+    if (error == nil && response.statusCode == 200)
+    {
+        [HDRCurrentUser setNotificationTokenSet];
+    }
 }
 
 - (NSString *)doHash:(NSString *)input
@@ -155,11 +155,21 @@
     CC_SHA256(dataIn.bytes, (CC_LONG)dataIn.length, hashData.mutableBytes);
     
     NSString *base64String = [hashData base64EncodedStringWithOptions:0];
+    base64String =[self stringWithPercentEscape:base64String];
     
     input = [NSString stringWithFormat:@"%@&authtoken=%@", input, base64String];
     return input;
 }
 
+- (NSString*)stringWithPercentEscape:(NSString *)input
+{
+    return (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
+                                                                 NULL,
+                                                                 (CFStringRef)[input mutableCopy],
+                                                                 NULL, 
+                                                                 CFSTR("￼=,!$&'()*+;@?\n\"<>#\t :/"),
+                                                                 kCFStringEncodingUTF8));
+}
 
 @end
 

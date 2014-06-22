@@ -72,7 +72,7 @@
                 else
                 {
                     self.messageLabel.alpha = 1;
-                    [UIView animateWithDuration:1 delay:0.3f options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                    [UIView animateWithDuration:1 delay:1 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                         self.messageLabel.alpha = 0;
                     } completion:nil];
                 }

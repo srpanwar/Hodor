@@ -16,4 +16,7 @@
 + (NSString *) getUUID;
 + (void) setUUID:(NSString *) uuid;
 
++(BOOL)isNotificationTokenSet;
++(void) setNotificationTokenSet;
+
 @end
