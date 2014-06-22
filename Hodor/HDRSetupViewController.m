@@ -45,6 +45,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (BOOL)textField:(UITextField *)field shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)characters
+{
+    NSCharacterSet *blockedCharacters = [[NSCharacterSet alphanumericCharacterSet] invertedSet];
+    return ([characters rangeOfCharacterFromSet:blockedCharacters].location == NSNotFound);
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     if (textField.text.length)
