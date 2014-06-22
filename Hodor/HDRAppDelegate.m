@@ -30,11 +30,19 @@
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)data
 {
     NSString *deviceToken = [[data description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
-    deviceToken = [deviceToken stringByReplacingOccurrencesOfString:@" " withString:@""];
     
     [HDRNetworkProvider instance].deviceToken = deviceToken;
     [[HDRNetworkProvider instance] sendRemoteNotificationsDeviceToken:deviceToken];
 	NSLog(@"My token is: %@", deviceToken);
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    NSLog(@"%@", userInfo);
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
+                          [userInfo objectForKey:@"inAppMessage"] delegate:nil cancelButtonTitle:
+                          @"OK" otherButtonTitles:nil, nil];
+    [alert show];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

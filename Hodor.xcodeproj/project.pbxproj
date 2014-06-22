@@ -510,7 +510,7 @@
 				GCC_PREFIX_HEADER = "Hodor/Hodor-Prefix.pch";
 				INFOPLIST_FILE = "Hodor/Hodor-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "CD241074-4636-45BA-95B3-AF2A455BCCBD";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -526,7 +526,7 @@
 				GCC_PREFIX_HEADER = "Hodor/Hodor-Prefix.pch";
 				INFOPLIST_FILE = "Hodor/Hodor-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "CD241074-4636-45BA-95B3-AF2A455BCCBD";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
