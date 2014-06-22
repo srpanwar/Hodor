@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		78237CD719552D2E00BE750D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78237CD619552D2E00BE750D /* MainStoryboard.storyboard */; };
+		78237CD91955843400BE750D /* Hodor.m4r in Resources */ = {isa = PBXBuildFile; fileRef = 78237CD81955843100BE750D /* Hodor.m4r */; };
+		78237CDB1955853500BE750D /* Hodor.wav in Resources */ = {isa = PBXBuildFile; fileRef = 78237CDA1955853500BE750D /* Hodor.wav */; };
+		78237CDF1955867500BE750D /* HDRHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78237CDE1955867500BE750D /* HDRHomeViewController.m */; };
+		78237CE41955875900BE750D /* HDRHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78237CE21955875900BE750D /* HDRHomeTableViewCell.m */; };
+		78237CE51955875900BE750D /* HDRHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78237CE31955875900BE750D /* HDRHomeTableViewCell.xib */; };
 		78CCE69919552C46009EA16B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78CCE69819552C46009EA16B /* Foundation.framework */; };
 		78CCE69B19552C46009EA16B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78CCE69A19552C46009EA16B /* CoreGraphics.framework */; };
 		78CCE69D19552C46009EA16B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78CCE69C19552C46009EA16B /* UIKit.framework */; };
@@ -34,6 +39,13 @@
 
 /* Begin PBXFileReference section */
 		78237CD619552D2E00BE750D /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		78237CD81955843100BE750D /* Hodor.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Hodor.m4r; sourceTree = "<group>"; };
+		78237CDA1955853500BE750D /* Hodor.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Hodor.wav; sourceTree = "<group>"; };
+		78237CDD1955867500BE750D /* HDRHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRHomeViewController.h; sourceTree = "<group>"; };
+		78237CDE1955867500BE750D /* HDRHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRHomeViewController.m; sourceTree = "<group>"; };
+		78237CE11955875900BE750D /* HDRHomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRHomeTableViewCell.h; sourceTree = "<group>"; };
+		78237CE21955875900BE750D /* HDRHomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRHomeTableViewCell.m; sourceTree = "<group>"; };
+		78237CE31955875900BE750D /* HDRHomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HDRHomeTableViewCell.xib; sourceTree = "<group>"; };
 		78CCE69519552C46009EA16B /* Hodor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hodor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78CCE69819552C46009EA16B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		78CCE69A19552C46009EA16B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -76,6 +88,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		78237CDC1955864500BE750D /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				78237CE01955873400BE750D /* Home */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		78237CE01955873400BE750D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				78237CE11955875900BE750D /* HDRHomeTableViewCell.h */,
+				78237CE21955875900BE750D /* HDRHomeTableViewCell.m */,
+				78237CE31955875900BE750D /* HDRHomeTableViewCell.xib */,
+				78237CDD1955867500BE750D /* HDRHomeViewController.h */,
+				78237CDE1955867500BE750D /* HDRHomeViewController.m */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
 		78CCE68C19552C46009EA16B = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +141,7 @@
 		78CCE69E19552C46009EA16B /* Hodor */ = {
 			isa = PBXGroup;
 			children = (
+				78237CDC1955864500BE750D /* View Controllers */,
 				78CCE6A719552C46009EA16B /* HDRAppDelegate.h */,
 				78CCE6A819552C46009EA16B /* HDRAppDelegate.m */,
 				78CCE6AA19552C46009EA16B /* Images.xcassets */,
@@ -121,6 +154,8 @@
 		78CCE69F19552C46009EA16B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				78237CDA1955853500BE750D /* Hodor.wav */,
+				78237CD81955843100BE750D /* Hodor.m4r */,
 				78CCE6A019552C46009EA16B /* Hodor-Info.plist */,
 				78CCE6A119552C46009EA16B /* InfoPlist.strings */,
 				78CCE6A419552C46009EA16B /* main.m */,
@@ -195,6 +230,13 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Troupe Of Vagrants";
 				TargetAttributes = {
+					78CCE69419552C46009EA16B = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
 					78CCE6AF19552C46009EA16B = {
 						TestTargetID = 78CCE69419552C46009EA16B;
 					};
@@ -224,8 +266,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				78237CD719552D2E00BE750D /* MainStoryboard.storyboard in Resources */,
+				78237CE51955875900BE750D /* HDRHomeTableViewCell.xib in Resources */,
 				78CCE6A319552C46009EA16B /* InfoPlist.strings in Resources */,
+				78237CD91955843400BE750D /* Hodor.m4r in Resources */,
 				78CCE6AB19552C46009EA16B /* Images.xcassets in Resources */,
+				78237CDB1955853500BE750D /* Hodor.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +291,8 @@
 			files = (
 				78CCE6A519552C46009EA16B /* main.m in Sources */,
 				78CCE6A919552C46009EA16B /* HDRAppDelegate.m in Sources */,
+				78237CDF1955867500BE750D /* HDRHomeViewController.m in Sources */,
+				78237CE41955875900BE750D /* HDRHomeTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
