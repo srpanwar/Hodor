@@ -14,9 +14,9 @@
 {
     // Initialization code
     self.nameLabel.text = @"";
-    CGFloat red = (rand()%50 + rand()%100 + rand()%150)%150/255.0f;
-    CGFloat green = (rand()%50 + rand()%100 + rand()%150)%150/255.0f;
-    CGFloat blue = (rand()%50 + rand()%100 + rand()%150)%150/255.0f;
+    CGFloat red = fminf(fmaxf(rand()%150, 50.0f), 150.0f) / 255.0f;
+    CGFloat green = fminf(fmaxf(rand()%150, 50.0f), 150.0f) / 255.0f;
+    CGFloat blue = fminf(fmaxf(rand()%150, 50.0f), 150.0f) / 255.0f;
     self.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:0.8];
 
 }
