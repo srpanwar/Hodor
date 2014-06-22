@@ -11,10 +11,10 @@
 #define EMPTY_GUID @"00000000-0000-0000-0000-000000000000"
 #define ENC_GUID @"2711ea6a-d68a-4ffe-a431-6373325795bf"
 
-#define CREATE_USER_ENDPOINT @""
-#define BLOCK_USER_ENDPOINT @""
-#define SEND_HODOR_ENDPOINT @""
-#define SEND_DEVICETOKEN_ENDPOINT @""
+#define CREATE_USER_ENDPOINT @"http://hodorservice.cloudapp.net/createuser"
+#define BLOCK_USER_ENDPOINT @"http://hodorservice.cloudapp.net/blockuser"
+#define SEND_HODOR_ENDPOINT @"http://hodorservice.cloudapp.net/sendhodor"
+#define SEND_DEVICETOKEN_ENDPOINT @"http://hodorservice.cloudapp.net/setdevicetoken"
 
 @interface HDRCommon : NSObject
 

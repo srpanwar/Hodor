@@ -50,7 +50,7 @@
     NSString *uuid = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
 
     //mark it delivered in db
-    if(error == nil && response.statusCode == 200 && ![EMPTY_GUID isEqualToString:uuid])
+    if(error == nil && response.statusCode == 200 && uuid && uuid.length && ![EMPTY_GUID isEqualToString:uuid])
     {
         [HDRCurrentUser setUUID:uuid];
         [HDRCurrentUser setCurrentUserName:userName];
