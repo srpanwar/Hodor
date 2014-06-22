@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HDRUser.h"
 
 @interface HDRFriends : NSObject
+
++ (HDRFriends *) instance;
+
+- (NSMutableArray *)getFriends;
+- (void) addFriend:(HDRUser *)user;
+- (void) deleteFriend:(HDRUser *)user;
+- (void) blockFriend:(HDRUser *)user;
 
 @end

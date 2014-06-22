@@ -11,7 +11,6 @@
 @interface HDRUser : NSObject
 
 @property NSString *name;
-@property BOOL isDeleted;
 @property BOOL isBlocked;
 
 @end
