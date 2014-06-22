@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AddressBook/AddressBook.h>
+#import <AddressBookUI/AddressBookUI.h>
+#import <MessageUI/MessageUI.h>
 #import "HDRTableViewCell.h"
 
-@interface HDRInviteTableViewCell : HDRTableViewCell
+@interface HDRInviteTableViewCell : HDRTableViewCell<ABPeoplePickerNavigationControllerDelegate,MFMessageComposeViewControllerDelegate>
 
 @end

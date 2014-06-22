@@ -10,4 +10,7 @@
 
 @interface HDRTableViewCell : UITableViewCell
 
+@property UIViewController *viewController;
+@property UITableView *tableView;
+
 @end

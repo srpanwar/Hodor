@@ -19,6 +19,8 @@
 		78237CF2195698B200BE750D /* HDRInviteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78237CF0195698B200BE750D /* HDRInviteTableViewCell.m */; };
 		78237CF3195698B200BE750D /* HDRInviteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78237CF1195698B200BE750D /* HDRInviteTableViewCell.xib */; };
 		78237CF61956991300BE750D /* HDRTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78237CF51956991300BE750D /* HDRTableViewCell.m */; };
+		78237CF919569B7F00BE750D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78237CF719569B7F00BE750D /* AddressBook.framework */; };
+		78237CFA19569B7F00BE750D /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78237CF819569B7F00BE750D /* AddressBookUI.framework */; };
 		78CCE69919552C46009EA16B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78CCE69819552C46009EA16B /* Foundation.framework */; };
 		78CCE69B19552C46009EA16B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78CCE69A19552C46009EA16B /* CoreGraphics.framework */; };
 		78CCE69D19552C46009EA16B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78CCE69C19552C46009EA16B /* UIKit.framework */; };
@@ -62,6 +64,8 @@
 		78237CF1195698B200BE750D /* HDRInviteTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HDRInviteTableViewCell.xib; sourceTree = "<group>"; };
 		78237CF41956991300BE750D /* HDRTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRTableViewCell.h; sourceTree = "<group>"; };
 		78237CF51956991300BE750D /* HDRTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRTableViewCell.m; sourceTree = "<group>"; };
+		78237CF719569B7F00BE750D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		78237CF819569B7F00BE750D /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		78CCE69519552C46009EA16B /* Hodor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hodor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78CCE69819552C46009EA16B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		78CCE69A19552C46009EA16B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -85,6 +89,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78237CF919569B7F00BE750D /* AddressBook.framework in Frameworks */,
+				78237CFA19569B7F00BE750D /* AddressBookUI.framework in Frameworks */,
 				78CCE69B19552C46009EA16B /* CoreGraphics.framework in Frameworks */,
 				78CCE69D19552C46009EA16B /* UIKit.framework in Frameworks */,
 				78CCE69919552C46009EA16B /* Foundation.framework in Frameworks */,
@@ -164,6 +170,8 @@
 		78CCE69719552C46009EA16B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				78237CF719569B7F00BE750D /* AddressBook.framework */,
+				78237CF819569B7F00BE750D /* AddressBookUI.framework */,
 				78CCE69819552C46009EA16B /* Foundation.framework */,
 				78CCE69A19552C46009EA16B /* CoreGraphics.framework */,
 				78CCE69C19552C46009EA16B /* UIKit.framework */,
