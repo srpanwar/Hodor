@@ -11,6 +11,7 @@
 @interface HDRFriends ()
 
 @property NSMutableArray *friendsList;
+@property BOOL refreshNeeded;
 
 @end
 
@@ -24,6 +25,7 @@
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
             that = [[self alloc] init];
+            that.refreshNeeded = YES;
             NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
             that.friendsList = [NSMutableArray arrayWithArray:[defaults arrayForKey:@"HDRFriendsList"]];
         });
@@ -33,14 +35,23 @@
 
 - (NSMutableArray *)getFriends
 {
-    NSMutableArray *list = [[NSMutableArray alloc] init];
-    for (int i = 0; i < self.friendsList.count; i++)
+    static NSMutableArray *list = nil;
+    if (list == nil)
     {
-        HDRUser *user = self.friendsList[i];
-        if (!user.isBlocked)
+        list = [[NSMutableArray alloc] init];
+    }
+    
+    if(self.refreshNeeded)
+    {
+        for (int i = 0; i < self.friendsList.count; i++)
         {
-            [list addObject:user];
+            HDRUser *user = self.friendsList[i];
+            if (!user.isBlocked)
+            {
+                [list addObject:user];
+            }
         }
+        self.refreshNeeded = NO;
     }
     
     return list;
@@ -50,18 +61,21 @@
 {
     [self.friendsList addObject:user];
     [self save];
+    self.refreshNeeded = YES;
 }
 
 - (void)deleteFriend:(HDRUser *)user
 {
     [self.friendsList removeObject:user];
     [self save];
+    self.refreshNeeded = YES;
 }
 
 - (void)blockFriend:(HDRUser *)user
 {
     user.isBlocked = YES;
     [self save];
+    self.refreshNeeded = YES;
 }
 
 - (void)save
