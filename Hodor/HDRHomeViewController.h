@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "HDRHomeTableViewCell.h"
+#import "HDRAddUserNameTableViewCell.h"
 
 @interface HDRHomeViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 

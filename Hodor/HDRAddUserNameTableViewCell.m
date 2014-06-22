@@ -1,30 +1,26 @@
 //
-//  HDRHomeTableViewCell.m
+//  HDRAddUserNameTableViewCell.m
 //  Hodor
 //
 //  Created by Shailesh Panwar on 6/21/14.
 //  Copyright (c) 2014 Troupe Of Vagrants. All rights reserved.
 //
 
-#import "HDRHomeTableViewCell.h"
+#import "HDRAddUserNameTableViewCell.h"
 
-@implementation HDRHomeTableViewCell
+@implementation HDRAddUserNameTableViewCell
 
 - (void)awakeFromNib
 {
-     srand((unsigned)rand());
+    srand((unsigned)rand());
     
     // Initialization code
-    self.nameLabel.text = @"";
     CGFloat red = [self getNextRand];
     CGFloat green = [self getNextRand];
     CGFloat blue = [self getNextRand];
     self.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:0.8];
     
-    UISwipeGestureRecognizer *mSwipeUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipe)];
-    [mSwipeUpRecognizer setDirection:UISwipeGestureRecognizerDirectionLeft];
-    [self.contentView addGestureRecognizer:mSwipeUpRecognizer];
-
+    self.textField.delegate = self;
 }
 
 - (CGFloat) getNextRand
@@ -39,9 +35,17 @@
     // Configure the view for the selected state
 }
 
-- (void)onSwipe
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    
+    [textField resignFirstResponder];
+    return YES;
 }
 
+- (IBAction)startEditing:(id)sender
+{
+    [self.addBtn setHidden:YES];
+    [self.textField setHidden:NO];
+    [self.textField becomeFirstResponder];
+}
 @end

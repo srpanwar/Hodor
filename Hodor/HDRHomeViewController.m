@@ -29,6 +29,7 @@
     srand((unsigned)time(NULL));
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self registerForKeyboardNotifications];
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -38,6 +39,7 @@
     [self.friends addObject:[@"vivekian" uppercaseString]];
     [self.friends addObject:[@"usha" uppercaseString]];
     [self.friends addObject:[@"hardiksh" uppercaseString]];
+    [self.friends addObject:[@"" uppercaseString]];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -50,8 +52,19 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    HDRHomeTableViewCell *cell = (HDRHomeTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"HDRHomeTableViewCell" owner:nil options:nil] lastObject];
-    cell.nameLabel.text = self.friends[indexPath.row];
+    UITableViewCell *cell = nil;
+    if (indexPath.row < (self.friends.count - 1))
+    {
+        HDRHomeTableViewCell *cell1 = (HDRHomeTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"HDRHomeTableViewCell" owner:nil options:nil] lastObject];
+        cell1.nameLabel.text = self.friends[indexPath.row];
+        cell = cell1;
+    }
+    else
+    {
+        HDRAddUserNameTableViewCell *cell2 = (HDRAddUserNameTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"HDRAddUserNameTableViewCell" owner:nil options:nil] lastObject];
+        cell = cell2;
+    }
+
     return cell;
 }
 
@@ -66,5 +79,39 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+// Call this method somewhere in your view controller setup code.
+- (void)registerForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardDidShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
+    
+}
+
+// Called when the UIKeyboardDidShowNotification is sent.
+- (void)keyboardWasShown:(NSNotification*)aNotification
+{
+    NSDictionary* info = [aNotification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+    self.tableView.contentInset = contentInsets;
+    self.tableView.scrollIndicatorInsets = contentInsets;
+    
+}
+
+// Called when the UIKeyboardWillHideNotification is sent
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification
+{
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    self.tableView.contentInset = contentInsets;
+    self.tableView.scrollIndicatorInsets = contentInsets;
+}
 
 @end
