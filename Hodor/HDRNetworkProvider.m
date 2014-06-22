@@ -30,9 +30,7 @@
 }
 
 -(BOOL) createUserName:(NSString *)userName
-{
-    return YES;
-    
+{    
     if (!userName)
     {
         return NO;
