@@ -26,6 +26,7 @@
 		78237D041956BA6E00BE750D /* HDRNetworkProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 78237D031956BA6E00BE750D /* HDRNetworkProvider.m */; };
 		78237D071956BE1800BE750D /* HDRFriends.m in Sources */ = {isa = PBXBuildFile; fileRef = 78237D061956BE1800BE750D /* HDRFriends.m */; };
 		78237D0B1956BE5B00BE750D /* HDRUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 78237D0A1956BE5B00BE750D /* HDRUser.m */; };
+		787F4786195800100064BFCE /* Hodor-Echo.wav in Resources */ = {isa = PBXBuildFile; fileRef = 787F4785195800100064BFCE /* Hodor-Echo.wav */; };
 		78CCE69919552C46009EA16B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78CCE69819552C46009EA16B /* Foundation.framework */; };
 		78CCE69B19552C46009EA16B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78CCE69A19552C46009EA16B /* CoreGraphics.framework */; };
 		78CCE69D19552C46009EA16B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78CCE69C19552C46009EA16B /* UIKit.framework */; };
@@ -81,6 +82,7 @@
 		78237D061956BE1800BE750D /* HDRFriends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRFriends.m; sourceTree = "<group>"; };
 		78237D091956BE5B00BE750D /* HDRUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRUser.h; sourceTree = "<group>"; };
 		78237D0A1956BE5B00BE750D /* HDRUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRUser.m; sourceTree = "<group>"; };
+		787F4785195800100064BFCE /* Hodor-Echo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Hodor-Echo.wav"; sourceTree = "<group>"; };
 		78CCE69519552C46009EA16B /* Hodor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hodor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78CCE69819552C46009EA16B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		78CCE69A19552C46009EA16B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -237,6 +239,7 @@
 		78CCE69F19552C46009EA16B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				787F4785195800100064BFCE /* Hodor-Echo.wav */,
 				78237CDA1955853500BE750D /* Hodor.wav */,
 				78237CD81955843100BE750D /* Hodor.m4r */,
 				78CCE6A019552C46009EA16B /* Hodor-Info.plist */,
@@ -354,6 +357,7 @@
 				78CCE6A319552C46009EA16B /* InfoPlist.strings in Resources */,
 				78237CF3195698B200BE750D /* HDRInviteTableViewCell.xib in Resources */,
 				78237CD91955843400BE750D /* Hodor.m4r in Resources */,
+				787F4786195800100064BFCE /* Hodor-Echo.wav in Resources */,
 				78237CEA1956814300BE750D /* HDRAddUserNameTableViewCell.xib in Resources */,
 				78CCE6AB19552C46009EA16B /* Images.xcassets in Resources */,
 				78237CDB1955853500BE750D /* Hodor.wav in Resources */,

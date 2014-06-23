@@ -38,6 +38,7 @@
     self.textField.delegate = self;
     
     [self.textField becomeFirstResponder];
+    [self playSoundLoop];
 }
 
 - (void)didReceiveMemoryWarning
@@ -91,6 +92,15 @@
 {
     [self performSegueWithIdentifier:@"HomeSegue" sender:self];
 }
+
+-(void) playSoundLoop
+{
+    NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"Hodor" ofType:@"wav"];
+    SystemSoundID soundID;
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath: soundPath], &soundID);
+    AudioServicesPlaySystemSound (soundID);
+}
+
 
 -(void) playSound
 {
