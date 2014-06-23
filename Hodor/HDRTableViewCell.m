@@ -33,7 +33,7 @@
         red = [self getNextRand];
         green = [self getNextRand];
         blue = [self getNextRand];
-        if ((red + blue + green)*255.0f > 330)
+        if ((red + blue + green)*255.0f > 340)
             break;
     }
     
