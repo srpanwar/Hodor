@@ -46,7 +46,7 @@
     if (userName && userName.length && ![[HDRFriends instance] isFriend:userName])
     {
         HDRUser *newFriend = [[HDRUser alloc] init];
-        newFriend.name = userName;
+        newFriend.name = [userName uppercaseString];
         newFriend.isBlocked = NO;
         [[HDRFriends instance] addFriend:newFriend];
     }
