@@ -31,6 +31,7 @@
     
     // Do any additional setup after loading the view.
     [self registerForKeyboardNotifications];
+    self.shareBtn.layer.cornerRadius = 23.3;
     
     self.tableView.separatorColor = [UIColor clearColor];
 }

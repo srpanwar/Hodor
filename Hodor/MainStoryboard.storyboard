@@ -83,9 +83,9 @@
                                 <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="usr-YS-Iyp">
-                                <rect key="frame" x="270" y="518" width="50" height="50"/>
+                                <rect key="frame" x="260" y="508" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.1769217609489051" alpha="0.29999999999999999" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.23999999999999999" alpha="0.35000000000000003" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Button" image="icon_37240">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -98,6 +98,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="6Rp-Za-5ne"/>
                     <connections>
+                        <outlet property="shareBtn" destination="usr-YS-Iyp" id="4us-ej-mmY"/>
                         <outlet property="tableView" destination="eSI-sJ-9nx" id="l0i-9S-Q2W"/>
                     </connections>
                 </viewController>
