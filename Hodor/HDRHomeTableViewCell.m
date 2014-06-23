@@ -65,6 +65,10 @@
 
 - (IBAction)onDelete:(id)sender
 {
+    self.menuView.alpha = 0;
+    self.nameLabel.alpha = 0;
+    [self.busyIndicator startAnimating];
+
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         [[HDRFriends instance] deleteFriend:self.user];
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -75,13 +79,12 @@
 
 - (IBAction)onBlock:(id)sender
 {
-    NSString *name = self.user.name;
-    
-    self.nameLabel.hidden = YES;
+    self.menuView.alpha = 0;
+    self.nameLabel.alpha = 0;
     [self.busyIndicator startAnimating];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        BOOL status = [[HDRNetworkProvider instance] blockUser:name];
+        BOOL status = [[HDRNetworkProvider instance] blockUser:self.user.name];
         if (status)
         {
             [[HDRFriends instance] blockFriend:self.user];

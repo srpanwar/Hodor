@@ -68,8 +68,6 @@
 
 -(void) sendHODOR:(NSString *)recipient
 {
-    return;
-    
     if (!recipient)
     {
         return;
@@ -93,8 +91,6 @@
 
 - (BOOL) blockUser:(NSString *)userName
 {
-    return YES;
-    
     if (!userName)
     {
         return NO;

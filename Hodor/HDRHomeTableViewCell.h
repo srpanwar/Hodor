@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIView *menuView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *busyIndicator;
+@property (weak, nonatomic) IBOutlet UIButton *blockBtn;
 
 - (IBAction)onCancel:(id)sender;
 - (IBAction)onDelete:(id)sender;
