@@ -11,6 +11,7 @@
 #import <AddressBookUI/AddressBookUI.h>
 #import <MessageUI/MessageUI.h>
 #import "HDRTableViewCell.h"
+#import "HDRCurrentUser.h"
 
 @interface HDRInviteTableViewCell : HDRTableViewCell<ABPeoplePickerNavigationControllerDelegate,MFMessageComposeViewControllerDelegate>
 

@@ -92,7 +92,7 @@
             picker.messageComposeDelegate = self;
             picker.recipients = @[mobile];
             
-            picker.body = [NSString stringWithFormat:@"I wanna HODOR you! Add my HODOR username %@ (if you don't have HODOR app get it here http://app)", @"HELLO"];
+            picker.body = [NSString stringWithFormat:@"Why 'Yo' when you can 'Hodor'! Add my 'Hodor' username %@ (if you don't have the app get it here http://goo.gl/68WSRK)", [HDRCurrentUser getCurrentUserName]];
             
             [self.viewController presentViewController:picker animated:YES completion:nil];
         }];
