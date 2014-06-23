@@ -59,7 +59,7 @@
     if (textField.text.length)
     {
         [self.busyIndicator startAnimating];
-        NSString *userName = [NSString stringWithString:textField.text];
+        NSString *userName = [[NSString stringWithString:textField.text] uppercaseString];
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
             
             BOOL status = [[HDRNetworkProvider instance] createUserName:userName];
