@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "HDRFriends.h"
 #import "HDRNetworkProvider.h"
+#import "HDRUtils.h"
 
 @interface HDRAppDelegate : UIResponder <UIApplicationDelegate>
 

@@ -50,6 +50,12 @@
         newFriend.isBlocked = NO;
         [[HDRFriends instance] addFriend:newFriend];
     }
+    
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"You got a Hodor!" message: [userName lowercaseString] delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+    
+    [HDRUtils playSound];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

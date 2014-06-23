@@ -38,7 +38,7 @@
     self.textField.delegate = self;
     
     [self.textField becomeFirstResponder];
-    [self playSoundLoop];
+    [HDRUtils playSound];
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,7 +68,7 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (status)
                 {
-                    [self playSound];
+                    [HDRUtils playSound];
                     [self goHome];
                 }
                 else
@@ -91,23 +91,6 @@
 - (void)goHome
 {
     [self performSegueWithIdentifier:@"HomeSegue" sender:self];
-}
-
--(void) playSoundLoop
-{
-    NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"Hodor" ofType:@"wav"];
-    SystemSoundID soundID;
-    AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath: soundPath], &soundID);
-    AudioServicesPlaySystemSound (soundID);
-}
-
-
--(void) playSound
-{
-    NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"Hodor" ofType:@"wav"];
-    SystemSoundID soundID;
-    AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath: soundPath], &soundID);
-    AudioServicesPlaySystemSound (soundID);
 }
 
 /*

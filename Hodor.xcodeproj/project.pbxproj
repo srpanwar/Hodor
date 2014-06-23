@@ -26,6 +26,7 @@
 		78237D041956BA6E00BE750D /* HDRNetworkProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 78237D031956BA6E00BE750D /* HDRNetworkProvider.m */; };
 		78237D071956BE1800BE750D /* HDRFriends.m in Sources */ = {isa = PBXBuildFile; fileRef = 78237D061956BE1800BE750D /* HDRFriends.m */; };
 		78237D0B1956BE5B00BE750D /* HDRUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 78237D0A1956BE5B00BE750D /* HDRUser.m */; };
+		787956FE195898B800B903B2 /* HDRUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 787956FD195898B800B903B2 /* HDRUtils.m */; };
 		787F4786195800100064BFCE /* Hodor-Echo.wav in Resources */ = {isa = PBXBuildFile; fileRef = 787F4785195800100064BFCE /* Hodor-Echo.wav */; };
 		78CCE69919552C46009EA16B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78CCE69819552C46009EA16B /* Foundation.framework */; };
 		78CCE69B19552C46009EA16B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78CCE69A19552C46009EA16B /* CoreGraphics.framework */; };
@@ -82,6 +83,8 @@
 		78237D061956BE1800BE750D /* HDRFriends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRFriends.m; sourceTree = "<group>"; };
 		78237D091956BE5B00BE750D /* HDRUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRUser.h; sourceTree = "<group>"; };
 		78237D0A1956BE5B00BE750D /* HDRUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRUser.m; sourceTree = "<group>"; };
+		787956FC195898B800B903B2 /* HDRUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRUtils.h; sourceTree = "<group>"; };
+		787956FD195898B800B903B2 /* HDRUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRUtils.m; sourceTree = "<group>"; };
 		787F4785195800100064BFCE /* Hodor-Echo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Hodor-Echo.wav"; sourceTree = "<group>"; };
 		78CCE69519552C46009EA16B /* Hodor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hodor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78CCE69819552C46009EA16B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -152,6 +155,8 @@
 				78237CE31955875900BE750D /* HDRHomeTableViewCell.xib */,
 				78237CDD1955867500BE750D /* HDRHomeViewController.h */,
 				78237CDE1955867500BE750D /* HDRHomeViewController.m */,
+				787956FC195898B800B903B2 /* HDRUtils.h */,
+				787956FD195898B800B903B2 /* HDRUtils.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -379,6 +384,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				787956FE195898B800B903B2 /* HDRUtils.m in Sources */,
 				78CCE6A519552C46009EA16B /* main.m in Sources */,
 				78237CE91956814300BE750D /* HDRAddUserNameTableViewCell.m in Sources */,
 				78237CFE1956A22000BE750D /* HDRCurrentUser.m in Sources */,

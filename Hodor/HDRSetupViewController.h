@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <AudioToolbox/AudioToolbox.h> 
 #import "HDRCurrentUser.h"
 #import "HDRNetworkProvider.h"
+#import "HDRUtils.h"
 
 @interface HDRSetupViewController : UIViewController<UITextFieldDelegate>
 
