@@ -14,6 +14,7 @@
 + (HDRFriends *) instance;
 
 - (NSMutableArray *)getFriends;
+- (BOOL)isFriend:(NSString *)userName;
 - (void) addFriend:(HDRUser *)user;
 - (void) deleteFriend:(HDRUser *)user;
 - (void) blockFriend:(HDRUser *)user;

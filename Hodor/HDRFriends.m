@@ -57,6 +57,19 @@
     return list;
 }
 
+- (BOOL)isFriend:(NSString *)userName
+{
+    for (int i = 0; i < self.friendsList.count; i++)
+    {
+        HDRUser *user = self.friendsList[i];
+        if ([[user.name lowercaseString] isEqualToString:[userName lowercaseString]])
+        {
+            return YES;
+        }
+    }
+    
+    return NO;
+}
 - (void)addFriend:(HDRUser *)user
 {
     [self.friendsList addObject:user];

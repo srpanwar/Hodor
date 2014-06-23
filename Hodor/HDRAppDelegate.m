@@ -39,7 +39,14 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
-    
+    NSString *userName = [userInfo objectForKey:@"sender"];
+    if (![[HDRFriends instance] isFriend:userName])
+    {
+        HDRUser *newFriend = [[HDRUser alloc] init];
+        newFriend.name = userName;
+        newFriend.isBlocked = NO;
+        [[HDRFriends instance] addFriend:newFriend];
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
