@@ -40,6 +40,7 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
     NSString *userName = [userInfo objectForKey:@"sender"];
+    
     if (userName && userName.length && ![[HDRFriends instance] isFriend:userName])
     {
         HDRUser *newFriend = [[HDRUser alloc] init];

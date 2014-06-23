@@ -16,6 +16,8 @@
     
     // Initialization code
     self.textField.delegate = self;
+    UIColor *color = [UIColor whiteColor];
+    self.textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"TYPE USERNAME TO ADD" attributes:@{NSForegroundColorAttributeName: color}];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
