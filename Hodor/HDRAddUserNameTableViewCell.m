@@ -20,6 +20,13 @@
     self.textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"TYPE USERNAME TO ADD" attributes:@{NSForegroundColorAttributeName: color}];
 }
 
+- (BOOL)textField:(UITextField *)field shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)characters
+{
+    NSString *text = [field.text stringByReplacingCharactersInRange:range withString:characters];
+    NSCharacterSet *blockedCharacters = [[NSCharacterSet alphanumericCharacterSet] invertedSet];
+    return ([characters rangeOfCharacterFromSet:blockedCharacters].location == NSNotFound) && text.length < 50;
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     if(textField.text.length)
