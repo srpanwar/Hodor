@@ -21,8 +21,7 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [[UITextField appearance] setTintColor:[UIColor whiteColor]];
     
-    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
-     (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes: (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
 
     return YES;
 }
@@ -32,8 +31,11 @@
     NSString *deviceToken = [[data description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
     deviceToken = [deviceToken stringByReplacingOccurrencesOfString:@" " withString:@""];
     
-    [HDRNetworkProvider instance].deviceToken = deviceToken;
-    [[HDRNetworkProvider instance] sendRemoteNotificationsDeviceToken:deviceToken];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [HDRNetworkProvider instance].deviceToken = deviceToken;
+        [[HDRNetworkProvider instance] sendRemoteNotificationsDeviceToken:deviceToken];
+    });
+    
 	NSLog(@"My token is: %@", deviceToken);
 }
 

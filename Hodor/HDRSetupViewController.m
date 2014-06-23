@@ -28,6 +28,7 @@
     if ([HDRCurrentUser getCurrentUserName].length)
     {
         [self goHome];
+        return;
     }
     
     [super viewDidLoad];
