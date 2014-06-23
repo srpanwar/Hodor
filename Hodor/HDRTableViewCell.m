@@ -24,12 +24,12 @@
     static int count = 0;
     
     // Initialization code
-    CGFloat red = (count %3 == 0) ? [self getNextRand:180.0f max:210.0f] : [self getNextRand:70.0f max:100.0f];
-    CGFloat green = (count %3 == 1) ? [self getNextRand:180.0f max:210.0f] : [self getNextRand:70.0f max:100.0f];
-    CGFloat blue = (count %3 == 2) ? [self getNextRand:180.0f max:200.0f] : [self getNextRand:70.0f max:100.0f];
+    CGFloat red = (count %3 == 0) ? [self getNextRand:150.0f max:220.0f] : [self getNextRand:50.0f max:110.0f];
+    CGFloat green = (count %3 == 1) ? [self getNextRand:150.0f max:220.0f] : [self getNextRand:50.0f max:110.0f];
+    CGFloat blue = (count %3 == 2) ? [self getNextRand:150.0f max:220.0f] : [self getNextRand:50.0f max:110.0f];
     count++;
     
-    self.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:0.8];
+    self.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:0.6];
 }
 
 
