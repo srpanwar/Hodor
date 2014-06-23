@@ -35,6 +35,13 @@
     self.tableView.separatorColor = [UIColor clearColor];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self.tableView reloadData];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [[HDRFriends instance] getFriends].count + 2;
