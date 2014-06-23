@@ -52,7 +52,7 @@
     }
     
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"You got a Hodor!" message: [userName lowercaseString] delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"You got a Hodor!" message: [userName lowercaseString] delegate: nil cancelButtonTitle:@"Gotcha" otherButtonTitles:nil];
     [alert show];
     
     [HDRUtils playSound];
