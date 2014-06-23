@@ -87,6 +87,8 @@
     NSError *error = nil;
     NSHTTPURLResponse *response = nil;
     [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    return;
 }
 
 - (BOOL) blockUser:(NSString *)userName
