@@ -15,5 +15,6 @@
 @interface HDRHomeViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+- (IBAction)doShare:(id)sender;
 
 @end

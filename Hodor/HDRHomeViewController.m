@@ -128,4 +128,19 @@
     self.tableView.scrollIndicatorInsets = contentInsets;
 }
 
+- (IBAction)doShare:(id)sender
+{
+    NSString *string = @"Why'Yo' when you 'Hodor'!";
+    NSURL *URL = [NSURL URLWithString:@"http://troupeofvagrants.weebly.com/hodor.html"];
+    
+    UIActivityViewController *activityViewController =
+    [[UIActivityViewController alloc] initWithActivityItems:@[string, URL]
+                                      applicationActivities:nil];
+    [self.navigationController presentViewController:activityViewController
+                                            animated:YES
+                                          completion:^{
+                                              // ...
+                                          }];
+
+}
 @end

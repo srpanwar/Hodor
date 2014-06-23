@@ -82,6 +82,17 @@
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="usr-YS-Iyp">
+                                <rect key="frame" x="270" y="518" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.1769217609489051" alpha="0.29999999999999999" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Button" image="icon_37240">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="doShare:" destination="qmg-VW-uDI" eventType="touchUpInside" id="O89-x9-lZQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.40000000596046448" green="0.40000000596046448" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -113,6 +124,9 @@
             <point key="canvasLocation" x="-1197" y="-893"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon_37240" width="50" height="50"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
