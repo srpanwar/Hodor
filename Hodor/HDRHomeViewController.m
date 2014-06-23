@@ -51,7 +51,7 @@
     {
         HDRHomeTableViewCell *cell1 = (HDRHomeTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"HDRHomeTableViewCell" owner:nil options:nil] lastObject];
         cell1.user = [[HDRFriends instance] getFriends][indexPath.row];
-        cell1.nameLabel.text = cell1.user.name;
+        cell1.nameLabel.text = [cell1.user.name uppercaseString];
         cell = cell1;
     }
     else
