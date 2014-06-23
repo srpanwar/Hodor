@@ -24,16 +24,26 @@
     srand((unsigned)rand());
     
     // Initialization code
-    CGFloat red = [self getNextRand];
-    CGFloat green = [self getNextRand];
-    CGFloat blue = [self getNextRand];
+    CGFloat red = 0;
+    CGFloat green = 0;
+    CGFloat blue = 0;
+
+    while (YES)
+    {
+        red = [self getNextRand];
+        green = [self getNextRand];
+        blue = [self getNextRand];
+        if ((red + blue + green)*255.0f > 330)
+            break;
+    }
+    
     self.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:0.8];
 }
 
 
 - (CGFloat) getNextRand
 {
-    return  fminf(fmaxf(rand()%170, 90.0f), 170.0f) / 255.0f;
+    return  fminf(fmaxf(rand()%180, 100.0f), 180.0f) / 255.0f;
 }
 
 
