@@ -130,7 +130,7 @@
 
 - (IBAction)doShare:(id)sender
 {
-    NSString *string = @"Why'Yo' when you 'Hodor'!";
+    NSString *string = @"Why'Yo' when you can 'Hodor'!";
     NSURL *URL = [NSURL URLWithString:@"http://troupeofvagrants.weebly.com/hodor.html"];
     
     UIActivityViewController *activityViewController =
