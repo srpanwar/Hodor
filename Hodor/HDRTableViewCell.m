@@ -21,29 +21,21 @@
 
 - (void)awakeFromNib
 {
-    srand((unsigned)rand());
+    static int count = 0;
     
     // Initialization code
-    CGFloat red = 0;
-    CGFloat green = 0;
-    CGFloat blue = 0;
-
-    while (YES)
-    {
-        red = [self getNextRand];
-        green = [self getNextRand];
-        blue = [self getNextRand];
-        if ((red + blue + green)*255.0f > 340)
-            break;
-    }
+    CGFloat red = (count %3 == 0) ? [self getNextRand:180.0f max:210.0f] : [self getNextRand:50.0f max:100.0f];
+    CGFloat green = (count %3 == 1) ? [self getNextRand:180.0f max:210.0f] : [self getNextRand:50.0f max:100.0f];
+    CGFloat blue = (count %3 == 2) ? [self getNextRand:180.0f max:200.0f] : [self getNextRand:50.0f max:100.0f];
+    count++;
     
     self.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:0.8];
 }
 
 
-- (CGFloat) getNextRand
+- (CGFloat) getNextRand:(CGFloat)min max:(CGFloat)max
 {
-    return  fminf(fmaxf(rand()%180, 100.0f), 180.0f) / 255.0f;
+    return  fminf(fmaxf(rand()%(int)max, min), max) / 255.0f;
 }
 
 
