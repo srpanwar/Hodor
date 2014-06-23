@@ -32,9 +32,15 @@
     // Do any additional setup after loading the view.
     [self registerForKeyboardNotifications];
     
+    self.tableView.separatorColor = [UIColor clearColor];
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    self.tableView.separatorColor = [UIColor clearColor];
+    
+    [super viewWillAppear:animated];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
