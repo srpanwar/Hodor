@@ -34,15 +34,17 @@
     self.shareBtn.layer.cornerRadius = 23.3;
     
     self.tableView.separatorColor = [UIColor clearColor];
-}
-
-- (void) viewWillAppear:(BOOL)animated
-{
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
-    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
 }
+
+- (void)applicationWillEnterForeground:(NSNotification *)notification
+{
+    [self.tableView reloadData];
+}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
