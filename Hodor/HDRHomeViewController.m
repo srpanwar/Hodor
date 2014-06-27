@@ -42,6 +42,7 @@
 
 - (void)applicationWillEnterForeground:(NSNotification *)notification
 {
+    srand((unsigned)time(NULL));
     [self.tableView reloadData];
 }
 
