@@ -42,6 +42,7 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
     NSString *userName = [userInfo objectForKey:@"sender"];
+    userName = [userName stringByReplacingOccurrencesOfString:@" " withString:@""];
     
     if (userName && userName.length && ![[HDRFriends instance] isFriend:userName])
     {

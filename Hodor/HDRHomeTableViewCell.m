@@ -41,9 +41,12 @@
             self.nameLabel.text = @"HODORED!";
             [self.busyIndicator stopAnimating];
             
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                 self.nameLabel.text = name;
                 [self.busyIndicator stopAnimating];
+                [[HDRFriends instance] moveToTop:self.user];
+                [self.tableView moveRowAtIndexPath:[self.tableView indexPathForCell:self] toIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+                [self colorify];
             });
         });
         

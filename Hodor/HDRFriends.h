@@ -14,6 +14,7 @@
 + (HDRFriends *) instance;
 
 - (NSMutableArray *)getFriends;
+- (void)moveToTop:(HDRUser *)user;
 - (BOOL)isFriend:(NSString *)userName;
 - (void) addFriend:(HDRUser *)user;
 - (void) deleteFriend:(HDRUser *)user;

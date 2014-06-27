@@ -59,6 +59,18 @@
     return list;
 }
 
+- (void)moveToTop:(HDRUser *)user
+{
+    @synchronized(self)
+    {
+        [self.friendsList removeObject:user];
+        [self.friendsList insertObject:user atIndex:0];
+        [self save];
+        self.refreshNeeded = YES;
+    }
+}
+
+
 - (BOOL)isFriend:(NSString *)userName
 {
     @synchronized(self)
@@ -75,6 +87,26 @@
     
     return NO;
 }
+
+
+- (HDRUser *)findFriend:(NSString *)userName
+{
+    @synchronized(self)
+    {
+        for (int i = 0; i < self.friendsList.count; i++)
+        {
+            HDRUser *user = self.friendsList[i];
+            if ([[user.name lowercaseString] isEqualToString:[userName lowercaseString]])
+            {
+                return user;
+            }
+        }
+    }
+    
+    return nil;
+}
+
+
 - (void)addFriend:(HDRUser *)user
 {
     @synchronized(self)

@@ -13,4 +13,6 @@
 @property UIViewController *viewController;
 @property UITableView *tableView;
 
+- (void)colorify;
+
 @end

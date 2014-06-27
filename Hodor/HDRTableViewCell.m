@@ -21,6 +21,13 @@
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
+    
+    [self colorify];
+}
+
+- (void)colorify
+{
     static int count = 0;
     
     // Initialization code
@@ -37,7 +44,6 @@
     NSLog(@"color %d %f %f %f", count, red *255, green*255, blue*255);
     self.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:0.7];
 }
-
 
 - (CGFloat) getNextRand:(CGFloat)min max:(CGFloat)max
 {
