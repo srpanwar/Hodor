@@ -10,6 +10,7 @@
 
 @interface HDRHomeViewController ()
 
+@property NSMutableArray *friends;
 @end
 
 @implementation HDRHomeViewController
@@ -40,6 +41,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
 }
 
+
 - (void)applicationWillEnterForeground:(NSNotification *)notification
 {
     srand((unsigned)time(NULL));
@@ -49,7 +51,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[HDRFriends instance] getFriends].count + 2;
+    self.friends = [NSMutableArray arrayWithArray:[[HDRFriends instance] getFriends]];
+    return self.friends.count + 2;
 }
 
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
@@ -59,16 +62,16 @@
 {
     HDRTableViewCell *cell = nil;
     
-    if (indexPath.row < ([[HDRFriends instance] getFriends].count))
+    if (indexPath.row < (self.friends.count))
     {
         HDRHomeTableViewCell *cell1 = (HDRHomeTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"HDRHomeTableViewCell" owner:nil options:nil] lastObject];
-        cell1.user = [[HDRFriends instance] getFriends][indexPath.row];
+        cell1.user = self.friends[indexPath.row];
         cell1.nameLabel.text = [cell1.user.name uppercaseString];
         cell = cell1;
     }
     else
     {
-        if (indexPath.row == ([[HDRFriends instance] getFriends].count + 1))
+        if (indexPath.row == (self.friends.count + 1))
         {
             HDRAddUserNameTableViewCell *cell2 = (HDRAddUserNameTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"HDRAddUserNameTableViewCell" owner:nil options:nil] lastObject];
             cell = cell2;
