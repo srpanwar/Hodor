@@ -49,18 +49,20 @@
         newFriend.name = [userName uppercaseString];
         newFriend.isBlocked = NO;
         [[HDRFriends instance] addFriend:newFriend];
+        
+        UINavigationController *root = (UINavigationController *)self.window.rootViewController;
+        if (root && [root.topViewController isKindOfClass:[HDRHomeViewController class]])
+        {
+            HDRHomeViewController *controller = (HDRHomeViewController *)root.topViewController;
+            [controller.tableView reloadData];
+        }
     }
-    
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"You got a Hodor!" message: [userName lowercaseString] delegate: nil cancelButtonTitle:@"Gotcha" otherButtonTitles:nil];
-    [alert show];
-    
-    [HDRUtils playSound];
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler
 {
     [self application:application didReceiveRemoteNotification:userInfo];
+    completionHandler(UIBackgroundFetchResultNewData);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

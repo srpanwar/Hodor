@@ -35,36 +35,41 @@
 - (NSMutableArray *)getFriends
 {
     static NSMutableArray *list = nil;
-    if (list == nil)
+    @synchronized(self)
     {
-        list = [[NSMutableArray alloc] init];
-    }
-    
-    if(self.refreshNeeded)
-    {
-        [list removeAllObjects];
-        for (int i = 0; i < self.friendsList.count; i++)
+        if (list == nil)
         {
-            HDRUser *user = self.friendsList[i];
-            if (!user.isBlocked)
-            {
-                [list addObject:user];
-            }
+            list = [[NSMutableArray alloc] init];
         }
-        self.refreshNeeded = NO;
+        
+        if(self.refreshNeeded)
+        {
+            [list removeAllObjects];
+            for (int i = 0; i < self.friendsList.count; i++)
+            {
+                HDRUser *user = self.friendsList[i];
+                if (!user.isBlocked)
+                {
+                    [list addObject:user];
+                }
+            }
+            self.refreshNeeded = NO;
+        }
     }
-    
     return list;
 }
 
 - (BOOL)isFriend:(NSString *)userName
 {
-    for (int i = 0; i < self.friendsList.count; i++)
+    @synchronized(self)
     {
-        HDRUser *user = self.friendsList[i];
-        if ([[user.name lowercaseString] isEqualToString:[userName lowercaseString]])
+        for (int i = 0; i < self.friendsList.count; i++)
         {
-            return YES;
+            HDRUser *user = self.friendsList[i];
+            if ([[user.name lowercaseString] isEqualToString:[userName lowercaseString]])
+            {
+                return YES;
+            }
         }
     }
     
@@ -72,23 +77,32 @@
 }
 - (void)addFriend:(HDRUser *)user
 {
-    [self.friendsList addObject:user];
-    [self save];
-    self.refreshNeeded = YES;
+    @synchronized(self)
+    {
+        [self.friendsList insertObject:user atIndex:0];
+        [self save];
+        self.refreshNeeded = YES;
+    }
 }
 
 - (void)deleteFriend:(HDRUser *)user
 {
-    [self.friendsList removeObject:user];
-    [self save];
-    self.refreshNeeded = YES;
+    @synchronized(self)
+    {
+        [self.friendsList removeObject:user];
+        [self save];
+        self.refreshNeeded = YES;
+    }
 }
 
 - (void)blockFriend:(HDRUser *)user
 {
-    user.isBlocked = YES;
-    [self save];
-    self.refreshNeeded = YES;
+    @synchronized(self)
+    {
+        user.isBlocked = YES;
+        [self save];
+        self.refreshNeeded = YES;
+    }
 }
 
 - (void)save

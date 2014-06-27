@@ -10,6 +10,7 @@
 #import "HDRFriends.h"
 #import "HDRNetworkProvider.h"
 #import "HDRUtils.h"
+#import "HDRHomeViewController.h"
 
 @interface HDRAppDelegate : UIResponder <UIApplicationDelegate>
 
