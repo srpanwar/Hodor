@@ -27,24 +27,18 @@
 
 - (void)colorify
 {
-    static int count = 0;
-    
     // Initialization code
-    CGFloat color = [self getNextRand:50.0f max:160.0f];
-    CGFloat red = count % 3 == 0 ? color : (1 - color) * 0.9;
-    CGFloat green = count % 3 == 1 ? color : (1 - color) * 0.9;
-    CGFloat blue = (count % 3 == 2 ? color : 1 - color) * 0.65;
-    count++;
+
+    CGFloat red = [self getNextRand:40.0f max:225.0f] /255.0f;
+    CGFloat green = [self getNextRand:40.0f max:225.0f] /255.0f;
+    CGFloat blue = [self getNextRand:40.0f max:225.0f] /255.0f;
     
-    NSLog(@"color %d %f %f %f", count, red *255, green*255, blue*255);
     self.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:0.9];
 }
 
 - (CGFloat) getNextRand:(CGFloat)min max:(CGFloat)max
 {
-    min *= 10;
-    max *= 10;
-    return  fminf(fmaxf(rand()*rand()%(int)max, min), max) / 2550.0f;
+    return  fminf(fmaxf((arc4random())%(int)max, min), max);
 }
 
 
