@@ -155,8 +155,6 @@
 				78237CE31955875900BE750D /* HDRHomeTableViewCell.xib */,
 				78237CDD1955867500BE750D /* HDRHomeViewController.h */,
 				78237CDE1955867500BE750D /* HDRHomeViewController.m */,
-				787956FC195898B800B903B2 /* HDRUtils.h */,
-				787956FD195898B800B903B2 /* HDRUtils.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -173,6 +171,8 @@
 		78237CFB1956A20900BE750D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				787956FC195898B800B903B2 /* HDRUtils.h */,
+				787956FD195898B800B903B2 /* HDRUtils.m */,
 				78237D021956BA6E00BE750D /* HDRNetworkProvider.h */,
 				78237D031956BA6E00BE750D /* HDRNetworkProvider.m */,
 				78237CFC1956A22000BE750D /* HDRCurrentUser.h */,

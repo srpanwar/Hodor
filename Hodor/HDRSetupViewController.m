@@ -38,7 +38,7 @@
     self.textField.delegate = self;
     
     [self.textField becomeFirstResponder];
-    [HDRUtils playSound];
+    //[HDRUtils playSound];
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,7 +68,7 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (status)
                 {
-                    [HDRUtils playSound];
+                    //[HDRUtils playSound];
                     [self goHome];
                 }
                 else
