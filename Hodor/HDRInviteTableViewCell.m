@@ -80,8 +80,11 @@
     for(CFIndex i = 0; i < ABMultiValueGetCount(phones); i++)
     {
         //For Phone number
-        mobile = (__bridge NSString*)ABMultiValueCopyValueAtIndex(phones, i);
-        break;
+        if (i == identifier)
+        {
+            mobile = (__bridge NSString*)ABMultiValueCopyValueAtIndex(phones, i);
+            break;
+        }
     }
     NSLog(@"%@", mobile);
     
