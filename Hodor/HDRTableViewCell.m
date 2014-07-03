@@ -29,9 +29,9 @@
 {
     // Initialization code
 
-    CGFloat red = [self getNextRand:40.0f max:225.0f] /255.0f;
-    CGFloat green = [self getNextRand:40.0f max:225.0f] /255.0f;
-    CGFloat blue = [self getNextRand:40.0f max:225.0f] /255.0f;
+    CGFloat red = [self getNextRand:60.0f max:225.0f] /255.0f;
+    CGFloat green = [self getNextRand:60.0f max:225.0f] /255.0f;
+    CGFloat blue = [self getNextRand:60.0f max:225.0f]*0.9 /255.0f;
     
     self.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:0.8];
 }
