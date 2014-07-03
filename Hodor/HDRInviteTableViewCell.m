@@ -76,15 +76,11 @@
 (ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier
 {
     NSString* mobile = nil;
-    ABMultiValueRef phones =(__bridge ABMultiValueRef)((__bridge NSString*)ABRecordCopyValue(person, kABPersonPhoneProperty));
-    for(CFIndex i = 0; i < ABMultiValueGetCount(phones); i++)
+    if (property == kABPersonPhoneProperty)
     {
-        //For Phone number
-        if (i == identifier)
-        {
-            mobile = (__bridge NSString*)ABMultiValueCopyValueAtIndex(phones, i);
-            break;
-        }
+        ABMultiValueRef phones = ABRecordCopyValue(person, property);
+        long count = ABMultiValueGetCount(phones);
+        mobile = (__bridge_transfer NSString *)ABMultiValueCopyValueAtIndex(phones, identifier % count);
     }
     NSLog(@"%@", mobile);
     
