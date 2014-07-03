@@ -122,7 +122,7 @@
 - (void)sendRemoteNotificationsDeviceToken:(NSString *)deviceToken
 {
     self.deviceToken = deviceToken;
-    if (!deviceToken || ![HDRCurrentUser getCurrentUserName] || [HDRCurrentUser isNotificationTokenSet])
+    if (!deviceToken || ![HDRCurrentUser getCurrentUserName])// || [HDRCurrentUser isNotificationTokenSet])
     {
         return;
     }
