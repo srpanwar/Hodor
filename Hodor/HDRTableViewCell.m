@@ -33,7 +33,7 @@
     CGFloat green = [self getNextRand:100.0f max:230.0f] /255.0f;
     CGFloat blue = [self getNextRand:100.0f max:230.0f] /255.0f;
     
-    self.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:0.8];
+    self.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:0.9];
 }
 
 - (CGFloat) getNextRand:(CGFloat)min max:(CGFloat)max
