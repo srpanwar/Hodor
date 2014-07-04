@@ -16,6 +16,7 @@
     
     // Initialization code
     self.menuView.alpha = 0;
+    self.flashLabel.alpha = 0;
     self.nameLabel.text = @"";
     
     UISwipeGestureRecognizer *mSwipeUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipe)];
@@ -24,6 +25,14 @@
     
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doHodor)];
     [self.contentView addGestureRecognizer:gestureRecognizer];
+}
+
+- (void)flashHodor
+{
+    self.flashLabel.alpha = 1;
+    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.flashLabel.alpha = 0;
+    } completion:nil];
 }
 
 - (void) doHodor

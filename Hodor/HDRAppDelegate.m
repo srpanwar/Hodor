@@ -55,6 +55,7 @@
         if (root && [root.topViewController isKindOfClass:[HDRHomeViewController class]])
         {
             HDRHomeViewController *controller = (HDRHomeViewController *)root.topViewController;
+            controller.userWhoPinged = userName;
             [controller.tableView reloadData];
         }
     }

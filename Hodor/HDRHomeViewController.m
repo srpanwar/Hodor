@@ -70,6 +70,13 @@
         cell1.user = self.friends[indexPath.row];
         cell1.nameLabel.text = [cell1.user.name uppercaseString];
         cell = cell1;
+        
+       // if ([self.userWhoPinged caseInsensitiveCompare:cell1.user.name] == NSOrderedSame)
+        {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                [cell1 flashHodor];
+            });
+        }
     }
     else
     {

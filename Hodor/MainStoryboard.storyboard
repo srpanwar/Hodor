@@ -132,7 +132,7 @@
                                 <rect key="frame" x="0.0" y="35" width="320" height="534"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="separatorColor" white="0.80000000000000004" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" white="0.80000000000000004" alpha="0.57999999999999996" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="usr-YS-Iyp">
