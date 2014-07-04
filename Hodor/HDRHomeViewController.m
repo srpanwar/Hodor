@@ -34,9 +34,6 @@
     [self registerForKeyboardNotifications];
     self.shareBtn.layer.cornerRadius = 22.3;
     self.ratingBtn.layer.cornerRadius = 22.3;
-        self.ratingBtn.imageView.image = [self.ratingBtn.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    self.ratingBtn.imageView.tintColor = [UIColor colorWithRed:200/255.0f green:40/255.0f blue:40/255.0f alpha:0.7];
-
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -44,13 +41,20 @@
     // This will remove extra separators from tableview
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
+    [self colorifyRatings];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
 }
 
-
+- (void)colorifyRatings
+{
+    self.ratingBtn.imageView.image = [self.ratingBtn.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    self.ratingBtn.imageView.tintColor = [UIColor colorWithRed:200/255.0f green:40/255.0f blue:40/255.0f alpha:0.7];
+}
 - (void)applicationWillEnterForeground:(NSNotification *)notification
 {
     srand((unsigned)time(NULL));
+    [self colorifyRatings];
     [self.tableView reloadData];
 }
 
@@ -76,7 +80,7 @@
         cell = cell1;
         
         //flash
-        //if (self.userWhoPinged && [self.userWhoPinged caseInsensitiveCompare:cell1.user.name] == NSOrderedSame)
+        if (self.userWhoPinged && [self.userWhoPinged caseInsensitiveCompare:cell1.user.name] == NSOrderedSame)
         {
             self.userWhoPinged = nil;
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
@@ -165,4 +169,10 @@
                                           }];
 
 }
+
+- (IBAction)rateTheApp:(id)sender
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/app/id892252299"]];
+}
+
 @end
