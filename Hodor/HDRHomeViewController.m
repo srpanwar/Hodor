@@ -32,7 +32,11 @@
     
     // Do any additional setup after loading the view.
     [self registerForKeyboardNotifications];
-    self.shareBtn.layer.cornerRadius = 23.3;
+    self.shareBtn.layer.cornerRadius = 22.3;
+    self.ratingBtn.layer.cornerRadius = 22.3;
+        self.ratingBtn.imageView.image = [self.ratingBtn.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    self.ratingBtn.imageView.tintColor = [UIColor colorWithRed:200/255.0f green:40/255.0f blue:40/255.0f alpha:0.7];
+
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -71,7 +75,8 @@
         cell1.nameLabel.text = [cell1.user.name uppercaseString];
         cell = cell1;
         
-        if (self.userWhoPinged && [self.userWhoPinged caseInsensitiveCompare:cell1.user.name] == NSOrderedSame)
+        //flash
+        //if (self.userWhoPinged && [self.userWhoPinged caseInsensitiveCompare:cell1.user.name] == NSOrderedSame)
         {
             self.userWhoPinged = nil;
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{

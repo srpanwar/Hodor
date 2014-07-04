@@ -18,5 +18,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)doShare:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *shareBtn;
+@property (weak, nonatomic) IBOutlet UIButton *ratingBtn;
 
 @end
