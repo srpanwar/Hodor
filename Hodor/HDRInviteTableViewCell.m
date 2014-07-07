@@ -22,44 +22,66 @@
 
 - (void) doContactSelection
 {
-    ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, NULL);
-    
-    NSArray *allContacts = (__bridge NSArray *)ABAddressBookCopyArrayOfAllPeople(addressBook);
-    
-    for (int i =0; i < allContacts.count; i++)
+    if ([MFMessageComposeViewController canSendText])
     {
-        ABRecordRef person = (__bridge ABRecordRef)([allContacts objectAtIndex:i]);
+        ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, NULL);
         
-        if (person != nil)
+        NSArray *allContacts = (__bridge NSArray *)ABAddressBookCopyArrayOfAllPeople(addressBook);
+        
+        for (int i =0; i < allContacts.count; i++)
         {
-            ABMultiValueRef phones = ABRecordCopyValue(person, kABPersonPhoneProperty);
+            ABRecordRef person = (__bridge ABRecordRef)([allContacts objectAtIndex:i]);
             
-            if (ABMultiValueGetCount(phones) == 0)
+            if (person != nil)
             {
-                CFErrorRef error = nil;
-                ABAddressBookRemoveRecord(addressBook, person, &error);
-                NSLog(@"Removing %@",(__bridge NSString *)ABRecordCopyCompositeName(person));
+                ABMultiValueRef phones = ABRecordCopyValue(person, kABPersonPhoneProperty);
+                
+                if (ABMultiValueGetCount(phones) == 0)
+                {
+                    CFErrorRef error = nil;
+                    ABAddressBookRemoveRecord(addressBook, person, &error);
+                    NSLog(@"Removing %@",(__bridge NSString *)ABRecordCopyCompositeName(person));
+                }
+                
+                CFRelease(phones);
             }
-            
-            CFRelease(phones);
         }
+        
+        CFErrorRef saveError = nil;
+        ABAddressBookSave(addressBook, &saveError);
+        
+        ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
+        picker.peoplePickerDelegate = self;
+        picker.addressBook = addressBook;
+        
+        NSArray *displayedItems = [NSArray arrayWithObjects:[NSNumber numberWithInt:kABPersonPhoneProperty], nil];
+        picker.displayedProperties = displayedItems;
+        
+        // Show the picker
+        [self.viewController presentViewController:picker animated:YES completion:nil];
+        
+        CFRelease(addressBook);
     }
-    
-    CFErrorRef saveError = nil;
-    ABAddressBookSave(addressBook, &saveError);
-    
-    ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
-    picker.peoplePickerDelegate = self;
-    picker.addressBook = addressBook;
-    
-    NSArray *displayedItems = [NSArray arrayWithObjects:[NSNumber numberWithInt:kABPersonPhoneProperty], nil];
-    picker.displayedProperties = displayedItems;
-    
-    // Show the picker
-    [self.viewController presentViewController:picker animated:YES completion:nil];
-    
-    CFRelease(addressBook);
+    else
+    {
+        [self doShare];
+    }
 }
+
+- (void)doShare
+{
+    NSString *string = [NSString stringWithFormat:@"Why 'Yo' when you can 'Hodor'! Add my 'Hodor' username %@ (if you don't have the app get it here http://goo.gl/68WSRK)", [HDRCurrentUser getCurrentUserName]];
+    
+    UIActivityViewController *activityViewController =
+    [[UIActivityViewController alloc] initWithActivityItems:@[string]
+                                      applicationActivities:nil];
+    [self.viewController presentViewController:activityViewController
+                                            animated:YES
+                                          completion:^{
+                                              // ...
+                                          }];
+}
+
 
 - (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker
 {
