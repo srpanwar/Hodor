@@ -87,13 +87,16 @@
     if (mobile && mobile.length)
     {
         [peoplePicker dismissViewControllerAnimated:YES completion:^{
-            MFMessageComposeViewController *picker = [[MFMessageComposeViewController alloc] init];
-            picker.messageComposeDelegate = self;
-            picker.recipients = @[mobile];
-            
-            picker.body = [NSString stringWithFormat:@"Why 'Yo' when you can 'Hodor'! Add my 'Hodor' username %@ (if you don't have the app get it here http://goo.gl/68WSRK)", [HDRCurrentUser getCurrentUserName]];
-            
-            [self.viewController presentViewController:picker animated:YES completion:nil];
+            if ([MFMessageComposeViewController canSendText])
+            {
+                MFMessageComposeViewController *picker = [[MFMessageComposeViewController alloc] init];
+                picker.messageComposeDelegate = self;
+                picker.recipients = @[mobile];
+                
+                picker.body = [NSString stringWithFormat:@"Why 'Yo' when you can 'Hodor'! Add my 'Hodor' username %@ (if you don't have the app get it here http://goo.gl/68WSRK)", [HDRCurrentUser getCurrentUserName]];
+                
+                [self.viewController presentViewController:picker animated:YES completion:nil];
+            }
         }];
     }
     
