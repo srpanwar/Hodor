@@ -29,11 +29,11 @@
 {
     // Initialization code
 
-    CGFloat red = [self getNextRand:100.0f max:230.0f] /255.0f;
-    CGFloat green = [self getNextRand:100.0f max:230.0f] /255.0f;
-    CGFloat blue = [self getNextRand:100.0f max:230.0f] /255.0f;
+    CGFloat red = [self getNextRand:100.0f max:230.0f];
+    CGFloat green = [self getNextRand:100.0f max:230.0f];
+    CGFloat blue = [self getNextRand:100.0f max:230.0f];
     
-    self.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:0.9];
+    self.backgroundColor = [UIColor colorWithRed:red/255.0f green:green/255.0f blue:blue/255.0f alpha:0.9];
 }
 
 - (CGFloat) getNextRand:(CGFloat)min max:(CGFloat)max

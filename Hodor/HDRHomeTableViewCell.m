@@ -64,13 +64,19 @@
 
 - (void)onSwipe
 {
+    CGRect frame = self.menuView.frame;
+    frame.origin.x = 0;
     [UIView animateWithDuration:0.3f animations:^{
+        self.menuView.frame = frame;
         self.menuView.alpha = 1;
     }];
 }
 
 - (IBAction)onCancel:(id)sender {
+    CGRect frame = self.menuView.frame;
+    frame.origin.x = frame.size.width;
     [UIView animateWithDuration:0.3f animations:^{
+        self.menuView.frame = frame;
         self.menuView.alpha = 0;
     }];
 }

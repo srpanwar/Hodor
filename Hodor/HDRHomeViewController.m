@@ -32,8 +32,8 @@
     
     // Do any additional setup after loading the view.
     [self registerForKeyboardNotifications];
-    self.shareBtn.layer.cornerRadius = 22.3;
-    self.ratingBtn.layer.cornerRadius = 22.3;
+    self.shareBtn.layer.cornerRadius = 20.0f;
+    self.ratingBtn.layer.cornerRadius = 20.0f;
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
