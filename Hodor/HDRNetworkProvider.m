@@ -94,6 +94,35 @@
     return;
 }
 
+- (void)sendText:(NSString *)recipient text:(NSString *)text
+{
+    if (!recipient || !text)
+    {
+        return;
+    }
+    
+    //form the url
+    NSURL *url = [NSURL URLWithString:HODOR_SERVICE_ENDPOINT];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    
+    NSString *body = [NSString stringWithFormat:@"method=sendtext&sender=%@&recipient=%@&text=%@", [HDRCurrentUser getCurrentUserName], recipient, text];
+    body = [self doHash:body];
+    
+    request.HTTPMethod = @"POST";
+    request.HTTPBody = [body dataUsingEncoding:NSUTF8StringEncoding];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    NSError *error = nil;
+    NSHTTPURLResponse *response = nil;
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    NSString *ret = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+    
+    NSLog(@"%@",ret);
+    
+    return;
+}
+
+
 - (BOOL) blockUser:(NSString *)userName
 {
     if (!userName)

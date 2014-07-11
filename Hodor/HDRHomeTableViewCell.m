@@ -18,57 +18,71 @@
     self.menuView.alpha = 0;
     self.flashLabel.alpha = 0;
     self.nameLabel.text = @"";
-    
+
+    //menu
     UISwipeGestureRecognizer *leftSwipeUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipe)];
     [leftSwipeUpRecognizer setDirection:UISwipeGestureRecognizerDirectionLeft];
     [self.contentView addGestureRecognizer:leftSwipeUpRecognizer];
     
+    //send default
     UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doHodor)];
     [self.contentView addGestureRecognizer:singleTapGestureRecognizer];
     
-//    UITapGestureRecognizer *doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showTextTemplates)];
-//    doubleTapGestureRecognizer.numberOfTapsRequired = 2;
-//    [self.contentView addGestureRecognizer:doubleTapGestureRecognizer];
-//    [singleTapGestureRecognizer requireGestureRecognizerToFail:doubleTapGestureRecognizer];
-    
+    //text templates
     UISwipeGestureRecognizer *rightSwipeUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(showTextTemplates)];
     [rightSwipeUpRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
     [self.contentView addGestureRecognizer:rightSwipeUpRecognizer];
-
-    
-
 }
 
 - (void)showTextTemplates
 {
-    CGRect frame = self.contentView.frame;
-    frame.origin.x = 70.0f;
-    
-    [UIView animateWithDuration:0.2f animations:^{
-        self.contentView.frame = frame;
-    } completion:^(BOOL finished) {
-        CGRect frame2 = self.contentView.frame;
-        frame2.origin.x = 0.0f;
+    [self rightAndBack:^{
+        HDRListBox *listBox = (HDRListBox *)[[[NSBundle mainBundle] loadNibNamed:@"HDRListBox" owner:nil options:nil] lastObject];
+        [listBox setFrame:[UIScreen mainScreen].bounds];
         
-        [UIView animateWithDuration:0.2f animations:^{
-            self.contentView.frame = frame2;
-        }];
+        listBox.collection = [NSMutableArray arrayWithArray:@[@"How is it going?",
+                                                              @"Where are you?",
+                                                              @"Talk to you soon",
+                                                              @"I'm running late",
+                                                              @"Almost there",
+                                                              @"I am here",
+                                                              @"I love you",
+                                                              @"Call me when you get this" ]];
         
-        {
-            HDRListBox *listBox = (HDRListBox *)[[[NSBundle mainBundle] loadNibNamed:@"HDRListBox" owner:nil options:nil] lastObject];
-            [listBox setFrame:[UIScreen mainScreen].bounds];
-            
-            listBox.collection = [NSMutableArray arrayWithArray:@[@"How is it going?", @"Where are you?", @"Talk to you soon", @"I'm running late", @"Almost there", @"I am here", @"I love you", @"Call me when you get this" ]];
-            
-            listBox.callback = ^(NSString *text) {
-                
-            };
-            
-            [listBox show];
-            [self.viewController.navigationController.view addSubview:listBox];
-        }
+        listBox.callback = ^(NSString *text) {
+            [self doText:text];
+        };
         
+        [listBox show];
+        [self.viewController.navigationController.view addSubview:listBox];
     }];
+}
+
+- (void)doText:(NSString *)text
+{
+    NSString *name = self.user.name;
+    
+    self.nameLabel.hidden = YES;
+    [self.busyIndicator startAnimating];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        [[HDRNetworkProvider instance] sendText:name text:text];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            self.nameLabel.hidden = NO;
+            self.nameLabel.text = @"SEND!";
+            [self.busyIndicator stopAnimating];
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                self.nameLabel.text = [name uppercaseString];
+                [self.busyIndicator stopAnimating];
+                [[HDRFriends instance] moveToTop:self.user];
+                [self.tableView moveRowAtIndexPath:[self.tableView indexPathForCell:self] toIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+                [self colorify];
+            });
+        });
+        
+    });
 }
 
 
@@ -109,17 +123,7 @@
 
 - (void)onSwipe
 {
-    CGRect frame1 = self.contentView.frame;
-    frame1.origin.x = -70.0f;
-    [UIView animateWithDuration:0.2f animations:^{
-        self.contentView.frame = frame1;
-    } completion:^(BOOL finished) {
-        CGRect frame2 = self.contentView.frame;
-        frame2.origin.x = 0.0f;
-        [UIView animateWithDuration:0.2f animations:^{
-            self.contentView.frame = frame2;
-        }];
-    }];
+    [self leftAndBack];
     
     CGRect frame = self.menuView.frame;
     frame.origin.x = 0;
@@ -170,4 +174,48 @@
     });
 
 }
+
+
+#pragma mark Animation
+- (void)rightAndBack:(void (^)(void))callback
+{
+    CGRect frame = self.contentView.frame;
+    frame.origin.x = 70.0f;
+    
+    [UIView animateWithDuration:0.2f animations:^{
+        self.contentView.frame = frame;
+    } completion:^(BOOL finished) {
+        CGRect frame2 = self.contentView.frame;
+        frame2.origin.x = 0.0f;
+        
+        [UIView animateWithDuration:0.2f animations:^{
+            self.contentView.frame = frame2;
+        }];
+        
+        callback();
+    }];
+}
+
+- (void)leftAndBack
+{
+    CGRect frame1 = self.contentView.frame;
+    frame1.origin.x = -70.0f;
+    [UIView animateWithDuration:0.2f animations:^{
+        self.contentView.frame = frame1;
+    } completion:^(BOOL finished) {
+        CGRect frame2 = self.contentView.frame;
+        frame2.origin.x = 0.0f;
+        [UIView animateWithDuration:0.2f animations:^{
+            self.contentView.frame = frame2;
+        }];
+    }];
+}
+
 @end
+
+
+
+//    UITapGestureRecognizer *doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showTextTemplates)];
+//    doubleTapGestureRecognizer.numberOfTapsRequired = 2;
+//    [self.contentView addGestureRecognizer:doubleTapGestureRecognizer];
+//    [singleTapGestureRecognizer requireGestureRecognizerToFail:doubleTapGestureRecognizer];
