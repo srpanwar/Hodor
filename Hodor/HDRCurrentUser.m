@@ -13,6 +13,7 @@
 NSString *userName;
 NSString *UUID;
 NSString *UUENCID;
+NSString *deviceToken;
 
 +(NSString *) getCurrentUserName
 {
@@ -35,6 +36,31 @@ NSString *UUENCID;
     }
     return;
 }
+
++(NSString *) getDeviceToken
+{
+    if (!deviceToken)
+    {
+        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+        userName = [defaults stringForKey:@"HDRDeviceToken"];
+    }
+    return deviceToken;
+}
+
+
++(void) setDeviceToken:(NSString *) dt
+{
+    if (dt)
+    {
+        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:dt forKey:@"HDRDeviceToken"];
+        deviceToken = dt;
+    }
+    return;
+}
+
+
+
 
 +(NSString *) getUUID
 {

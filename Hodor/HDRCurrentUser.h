@@ -13,6 +13,9 @@
 + (NSString *) getCurrentUserName;
 + (void) setCurrentUserName:(NSString *) name;
 
++(NSString *) getDeviceToken;
++(void) setDeviceToken:(NSString *) dt;
+
 + (NSString *) getUUID;
 + (void) setUUID:(NSString *) uuid;
 

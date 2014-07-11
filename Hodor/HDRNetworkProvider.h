@@ -15,8 +15,6 @@
 
 + (HDRNetworkProvider *) instance;
 
-@property NSString *deviceToken;
-
 - (BOOL)createUserName:(NSString *)userName;
 
 - (BOOL)blockUser:(NSString *)userName;

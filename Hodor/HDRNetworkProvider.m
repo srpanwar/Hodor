@@ -57,7 +57,7 @@
         [HDRCurrentUser setUUID:uuid];
         [HDRCurrentUser setCurrentUserName:userName];
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            [self sendRemoteNotificationsDeviceToken:self.deviceToken];
+            [self sendRemoteNotificationsDeviceToken:[HDRCurrentUser getDeviceToken]];
         });
         return YES;
     }
@@ -121,7 +121,6 @@
 
 - (void)sendRemoteNotificationsDeviceToken:(NSString *)deviceToken
 {
-    self.deviceToken = deviceToken;
     if (!deviceToken || ![HDRCurrentUser getCurrentUserName])// || [HDRCurrentUser isNotificationTokenSet])
     {
         return;
@@ -168,7 +167,7 @@
                                                                  NULL,
                                                                  (CFStringRef)[input mutableCopy],
                                                                  NULL, 
-                                                                 CFSTR("￼=,!$&'()*+;@?\n\"<>#\t :/"),
+                                                                 CFSTR("￼=,!$&'()*+;@?\n\"<>#\t :/%-=^_`{|}~"), 
                                                                  kCFStringEncodingUTF8));
 }
 
