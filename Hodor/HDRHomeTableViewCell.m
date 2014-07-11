@@ -26,9 +26,15 @@
     
     //send default
     UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doHodor)];
+    singleTapGestureRecognizer.numberOfTapsRequired = 2;
     [self.contentView addGestureRecognizer:singleTapGestureRecognizer];
     
-    //text templates
+    //text
+//    UITapGestureRecognizer *doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showTextTemplates)];
+//    doubleTapGestureRecognizer.numberOfTapsRequired = 2;
+//    [self.contentView addGestureRecognizer:doubleTapGestureRecognizer];
+//    [singleTapGestureRecognizer requireGestureRecognizerToFail:doubleTapGestureRecognizer];
+    
     UISwipeGestureRecognizer *rightSwipeUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(showTextTemplates)];
     [rightSwipeUpRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
     [self.contentView addGestureRecognizer:rightSwipeUpRecognizer];
@@ -231,7 +237,3 @@
 
 
 
-//    UITapGestureRecognizer *doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showTextTemplates)];
-//    doubleTapGestureRecognizer.numberOfTapsRequired = 2;
-//    [self.contentView addGestureRecognizer:doubleTapGestureRecognizer];
-//    [singleTapGestureRecognizer requireGestureRecognizerToFail:doubleTapGestureRecognizer];
