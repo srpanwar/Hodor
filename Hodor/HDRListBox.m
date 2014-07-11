@@ -27,10 +27,10 @@
     self.alpha = 0;
     self.collection = [[NSMutableArray alloc] init];
     
-    self.backgroundColor = [UIColor colorWithPatternImage:[[self imageWithView:[[UIApplication sharedApplication] keyWindow]] applyLightEffect]];
+    //self.backgroundColor = [UIColor colorWithPatternImage:[[self imageWithView:[[UIApplication sharedApplication] keyWindow]] applyLightEffect]];
     
     UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(close:)];
-    [self addGestureRecognizer:singleTapGestureRecognizer];
+    [self.contentView addGestureRecognizer:singleTapGestureRecognizer];
 
     
     [self animateUp];
@@ -44,6 +44,17 @@
 
 
 #pragma mark - UITableViewDataSource, UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60.0f;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    UIView *footer = [[UIView alloc] initWithFrame:CGRectZero];
+    return footer;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.collection.count;
@@ -55,11 +66,10 @@
         
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"reuseIdentifier"];
         
-        cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:16];
-        cell.detailTextLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:12];
-        cell.detailTextLabel.textColor = [UIColor darkGrayColor];
+        cell.textLabel.font = [UIFont fontWithName:@"Arial Rounded MT Bold" size:22];
         cell.textLabel.text = self.collection[indexPath.row];
-        
+        cell.textLabel.textColor = [UIColor colorWithWhite:0.2 alpha:1];
+        cell.backgroundColor = [UIColor colorWithWhite:1.0f alpha:0.63];
         return cell;
 
     }
@@ -81,14 +91,14 @@
     [self close:nil];
 }
 
-- (void)close:(id)sender
+- (void)close:(UITapGestureRecognizer *)sender
 {
-    CGRect frame = self.contentView.frame;
+    CGRect frame = self.tableView.frame;
     frame.origin.y = [UIScreen mainScreen].bounds.size.height;
 
     [UIView animateWithDuration:0.2f animations:^{
         self.alpha = 0;
-        self.contentView.frame = frame;
+        self.tableView.frame = frame;
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
     }];
@@ -96,15 +106,15 @@
 
 - (void)animateUp
 {
-    CGRect frame = self.contentView.frame;
+    CGRect frame = self.tableView.frame;
     CGFloat y = frame.origin.y;
     
     frame.origin.y = [UIScreen mainScreen].bounds.size.height;
-    self.contentView.frame = frame;
+    self.tableView.frame = frame;
     
     frame.origin.y = y;
     [UIView animateWithDuration:0.3f animations:^{
-        self.contentView.frame = frame;
+        self.tableView.frame = frame;
         self.alpha = 1;
     }];
 }

@@ -19,33 +19,56 @@
     self.flashLabel.alpha = 0;
     self.nameLabel.text = @"";
     
-    UISwipeGestureRecognizer *mSwipeUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipe)];
-    [mSwipeUpRecognizer setDirection:UISwipeGestureRecognizerDirectionLeft];
-    [self.contentView addGestureRecognizer:mSwipeUpRecognizer];
+    UISwipeGestureRecognizer *leftSwipeUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipe)];
+    [leftSwipeUpRecognizer setDirection:UISwipeGestureRecognizerDirectionLeft];
+    [self.contentView addGestureRecognizer:leftSwipeUpRecognizer];
     
     UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doHodor)];
     [self.contentView addGestureRecognizer:singleTapGestureRecognizer];
     
-    UITapGestureRecognizer *doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showTextTemplates)];
-    doubleTapGestureRecognizer.numberOfTapsRequired = 2;
-    [self.contentView addGestureRecognizer:doubleTapGestureRecognizer];
+//    UITapGestureRecognizer *doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showTextTemplates)];
+//    doubleTapGestureRecognizer.numberOfTapsRequired = 2;
+//    [self.contentView addGestureRecognizer:doubleTapGestureRecognizer];
+//    [singleTapGestureRecognizer requireGestureRecognizerToFail:doubleTapGestureRecognizer];
+    
+    UISwipeGestureRecognizer *rightSwipeUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(showTextTemplates)];
+    [rightSwipeUpRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
+    [self.contentView addGestureRecognizer:rightSwipeUpRecognizer];
 
-    [singleTapGestureRecognizer requireGestureRecognizerToFail:doubleTapGestureRecognizer];
+    
+
 }
 
 - (void)showTextTemplates
 {
-    HDRListBox *listBox = (HDRListBox *)[[[NSBundle mainBundle] loadNibNamed:@"HDRListBox" owner:nil options:nil] lastObject];
-    [listBox setFrame:[UIScreen mainScreen].bounds];
+    CGRect frame = self.contentView.frame;
+    frame.origin.x = 70.0f;
     
-    listBox.collection = [NSMutableArray arrayWithArray:@[@"Hello", @"World"]];
-    
-    listBox.callback = ^(NSString *text) {
-    
-    };
-    
-    [listBox show];
-    [self.viewController.navigationController.view addSubview:listBox];
+    [UIView animateWithDuration:0.2f animations:^{
+        self.contentView.frame = frame;
+    } completion:^(BOOL finished) {
+        CGRect frame2 = self.contentView.frame;
+        frame2.origin.x = 0.0f;
+        
+        [UIView animateWithDuration:0.2f animations:^{
+            self.contentView.frame = frame2;
+        }];
+        
+        {
+            HDRListBox *listBox = (HDRListBox *)[[[NSBundle mainBundle] loadNibNamed:@"HDRListBox" owner:nil options:nil] lastObject];
+            [listBox setFrame:[UIScreen mainScreen].bounds];
+            
+            listBox.collection = [NSMutableArray arrayWithArray:@[@"How is it going?", @"Where are you?", @"Talk to you soon", @"I'm running late", @"Almost there", @"I am here", @"I love you", @"Call me when you get this" ]];
+            
+            listBox.callback = ^(NSString *text) {
+                
+            };
+            
+            [listBox show];
+            [self.viewController.navigationController.view addSubview:listBox];
+        }
+        
+    }];
 }
 
 
@@ -86,6 +109,18 @@
 
 - (void)onSwipe
 {
+    CGRect frame1 = self.contentView.frame;
+    frame1.origin.x = -70.0f;
+    [UIView animateWithDuration:0.2f animations:^{
+        self.contentView.frame = frame1;
+    } completion:^(BOOL finished) {
+        CGRect frame2 = self.contentView.frame;
+        frame2.origin.x = 0.0f;
+        [UIView animateWithDuration:0.2f animations:^{
+            self.contentView.frame = frame2;
+        }];
+    }];
+    
     CGRect frame = self.menuView.frame;
     frame.origin.x = 0;
     [UIView animateWithDuration:0.3f animations:^{
