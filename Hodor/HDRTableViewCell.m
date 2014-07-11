@@ -28,15 +28,15 @@
 - (void)colorify
 {
     // Initialization code
-    CGFloat red = [self getNextRand:100.0f max:230.0f];
-    CGFloat green = [self getNextRand:100.0f max:230.0f];
-    CGFloat blue = [self getNextRand:100.0f max:230.0f];
+    CGFloat red = [self getNextRand:90.0f max:230.0f];
+    CGFloat green = [self getNextRand:90.0f max:230.0f];
+    CGFloat blue = [self getNextRand:90.0f max:230.0f];
     
     int counter = 0;
-    while (counter++ < 3) {
-        red = [self getNextRand:100.0f max:230.0f];
-        green = [self getNextRand:100.0f max:230.0f];
-        blue = [self getNextRand:100.0f max:230.0f];
+    while (counter++ < 2) {
+        red = [self getNextRand:90.0f max:230.0f];
+        green = [self getNextRand:90.0f max:230.0f];
+        blue = [self getNextRand:90.0f max:230.0f];
     }
     
     self.backgroundColor = [UIColor colorWithRed:red/255.0f green:green/255.0f blue:blue/255.0f alpha:0.9];

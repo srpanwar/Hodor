@@ -123,13 +123,13 @@
 
 - (void)onSwipe
 {
-    [self leftAndBack];
-    
-    CGRect frame = self.menuView.frame;
-    frame.origin.x = 0;
-    [UIView animateWithDuration:0.3f animations:^{
-        self.menuView.frame = frame;
-        self.menuView.alpha = 1;
+    [self leftAndBack:^{
+        CGRect frame = self.menuView.frame;
+        frame.origin.x = 0;
+        [UIView animateWithDuration:0.3f animations:^{
+            self.menuView.frame = frame;
+            self.menuView.alpha = 1;
+        }];
     }];
 }
 
@@ -183,8 +183,11 @@
     frame.origin.x = 70.0f;
     
     [UIView animateWithDuration:0.2f animations:^{
+        
         self.contentView.frame = frame;
+        
     } completion:^(BOOL finished) {
+        
         CGRect frame2 = self.contentView.frame;
         frame2.origin.x = 0.0f;
         
@@ -196,18 +199,31 @@
     }];
 }
 
-- (void)leftAndBack
+- (void)leftAndBack:(void (^)(void))callback
 {
     CGRect frame1 = self.contentView.frame;
     frame1.origin.x = -70.0f;
+    
     [UIView animateWithDuration:0.2f animations:^{
+        
         self.contentView.frame = frame1;
+        
     } completion:^(BOOL finished) {
+        
         CGRect frame2 = self.contentView.frame;
         frame2.origin.x = 0.0f;
-        [UIView animateWithDuration:0.2f animations:^{
-            self.contentView.frame = frame2;
-        }];
+        
+        [UIView animateWithDuration:0.2f
+                              delay:0
+                            options:UIViewAnimationOptionCurveEaseInOut
+                         animations:^{
+                             self.contentView.frame = frame2;
+                         } completion:^(BOOL finished) {
+                             
+                         }];
+        
+        callback();
+        
     }];
 }
 
