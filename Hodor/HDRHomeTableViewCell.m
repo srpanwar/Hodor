@@ -23,9 +23,30 @@
     [mSwipeUpRecognizer setDirection:UISwipeGestureRecognizerDirectionLeft];
     [self.contentView addGestureRecognizer:mSwipeUpRecognizer];
     
-    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doHodor)];
-    [self.contentView addGestureRecognizer:gestureRecognizer];
+    UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doHodor)];
+    [self.contentView addGestureRecognizer:singleTapGestureRecognizer];
+    
+    UITapGestureRecognizer *doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showTextTemplates)];
+    [self.contentView addGestureRecognizer:doubleTapGestureRecognizer];
+
+    [singleTapGestureRecognizer requireGestureRecognizerToFail:doubleTapGestureRecognizer];
 }
+
+- (void)showTextTemplates
+{
+    HDRListBox *listBox = (HDRListBox *)[[[NSBundle mainBundle] loadNibNamed:@"HDRListBox" owner:nil options:nil] lastObject];
+    [listBox setFrame:[UIScreen mainScreen].bounds];
+    
+    listBox.collection = [NSMutableArray arrayWithArray:@[@"Hello", @"World"]];
+    
+    listBox.callback = ^(NSString *text) {
+    
+    };
+    
+    [listBox show];
+    [self.viewController.navigationController.view addSubview:listBox];
+}
+
 
 - (void)flashHodor
 {

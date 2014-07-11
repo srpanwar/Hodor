@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		780AFEA0196FB4F900596CC6 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 780AFE9F196FB4F900596CC6 /* UIImage+ImageEffects.m */; };
+		780AFEA5196FB52800596CC6 /* HDRListBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 780AFEA3196FB52800596CC6 /* HDRListBox.m */; };
+		780AFEA6196FB52800596CC6 /* HDRListBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 780AFEA4196FB52800596CC6 /* HDRListBox.xib */; };
 		78237CD719552D2E00BE750D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78237CD619552D2E00BE750D /* MainStoryboard.storyboard */; };
 		78237CDB1955853500BE750D /* Hodor1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 78237CDA1955853500BE750D /* Hodor1.wav */; };
 		78237CDF1955867500BE750D /* HDRHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78237CDE1955867500BE750D /* HDRHomeViewController.m */; };
@@ -53,6 +56,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		780AFE9E196FB4F900596CC6 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		780AFE9F196FB4F900596CC6 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		780AFEA2196FB52800596CC6 /* HDRListBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRListBox.h; sourceTree = "<group>"; };
+		780AFEA3196FB52800596CC6 /* HDRListBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRListBox.m; sourceTree = "<group>"; };
+		780AFEA4196FB52800596CC6 /* HDRListBox.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HDRListBox.xib; sourceTree = "<group>"; };
 		78237CD619552D2E00BE750D /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		78237CDA1955853500BE750D /* Hodor1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Hodor1.wav; sourceTree = "<group>"; };
 		78237CDD1955867500BE750D /* HDRHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRHomeViewController.h; sourceTree = "<group>"; };
@@ -130,9 +138,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		780AFEA1196FB50D00596CC6 /* ListBox */ = {
+			isa = PBXGroup;
+			children = (
+				780AFEA2196FB52800596CC6 /* HDRListBox.h */,
+				780AFEA3196FB52800596CC6 /* HDRListBox.m */,
+				780AFEA4196FB52800596CC6 /* HDRListBox.xib */,
+			);
+			name = ListBox;
+			sourceTree = "<group>";
+		};
 		78237CDC1955864500BE750D /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				780AFEA1196FB50D00596CC6 /* ListBox */,
 				78237CEB195690DC00BE750D /* Setup */,
 				78237CE01955873400BE750D /* Home */,
 			);
@@ -171,6 +190,8 @@
 		78237CFB1956A20900BE750D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				780AFE9E196FB4F900596CC6 /* UIImage+ImageEffects.h */,
+				780AFE9F196FB4F900596CC6 /* UIImage+ImageEffects.m */,
 				787956FC195898B800B903B2 /* HDRUtils.h */,
 				787956FD195898B800B903B2 /* HDRUtils.m */,
 				78237D021956BA6E00BE750D /* HDRNetworkProvider.h */,
@@ -369,6 +390,7 @@
 				78237CEA1956814300BE750D /* HDRAddUserNameTableViewCell.xib in Resources */,
 				78CCE6AB19552C46009EA16B /* Images.xcassets in Resources */,
 				78237CDB1955853500BE750D /* Hodor1.wav in Resources */,
+				780AFEA6196FB52800596CC6 /* HDRListBox.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,7 +420,9 @@
 				78237CE41955875900BE750D /* HDRHomeTableViewCell.m in Sources */,
 				78237D071956BE1800BE750D /* HDRFriends.m in Sources */,
 				78237CEE195690FA00BE750D /* HDRSetupViewController.m in Sources */,
+				780AFEA0196FB4F900596CC6 /* UIImage+ImageEffects.m in Sources */,
 				78237D0B1956BE5B00BE750D /* HDRUser.m in Sources */,
+				780AFEA5196FB52800596CC6 /* HDRListBox.m in Sources */,
 				78237CF61956991300BE750D /* HDRTableViewCell.m in Sources */,
 				78237CF2195698B200BE750D /* HDRInviteTableViewCell.m in Sources */,
 			);
