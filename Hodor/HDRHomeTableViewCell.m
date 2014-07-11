@@ -27,6 +27,7 @@
     [self.contentView addGestureRecognizer:singleTapGestureRecognizer];
     
     UITapGestureRecognizer *doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showTextTemplates)];
+    doubleTapGestureRecognizer.numberOfTapsRequired = 2;
     [self.contentView addGestureRecognizer:doubleTapGestureRecognizer];
 
     [singleTapGestureRecognizer requireGestureRecognizerToFail:doubleTapGestureRecognizer];
