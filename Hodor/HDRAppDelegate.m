@@ -23,6 +23,8 @@
     
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes: (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
 
+    //[HDRCurrentUser setCurrentUserName:@"HEMAN"];
+    
     return YES;
 }
 

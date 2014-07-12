@@ -34,7 +34,7 @@
     [self registerForKeyboardNotifications];
     self.shareBtn.layer.cornerRadius = 20.0f;
     self.ratingBtn.layer.cornerRadius = 20.0f;
-    self.pageTitleLabel.text = [NSString stringWithFormat:@"HODOR - %@", [HDRCurrentUser getCurrentUserName]];
+    self.pageTitleLabel.text = [NSString stringWithFormat:@"HODOR + YOU(%@)", [HDRCurrentUser getCurrentUserName]];
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
