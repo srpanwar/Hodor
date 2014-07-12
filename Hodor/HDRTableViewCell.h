@@ -14,5 +14,6 @@
 @property UITableView *tableView;
 
 - (void)colorify;
+- (CGFloat) getNextRand:(CGFloat)min max:(CGFloat)max;
 
 @end

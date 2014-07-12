@@ -29,7 +29,7 @@
     
     //self.backgroundColor = [UIColor colorWithPatternImage:[[self imageWithView:[[UIApplication sharedApplication] keyWindow]] applyLightEffect]];
     
-    UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(close:)];
+    UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(close)];
     [self.contentView addGestureRecognizer:singleTapGestureRecognizer];
 
     
@@ -88,10 +88,10 @@
         self.callback(text);
     }
     
-    [self close:nil];
+    [self close];
 }
 
-- (void)close:(UITapGestureRecognizer *)sender
+- (void)close
 {
     CGRect frame = self.tableView.frame;
     frame.origin.y = [UIScreen mainScreen].bounds.size.height;

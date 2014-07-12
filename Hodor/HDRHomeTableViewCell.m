@@ -38,6 +38,11 @@
     UISwipeGestureRecognizer *rightSwipeUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(showTextTemplates)];
     [rightSwipeUpRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
     [self.contentView addGestureRecognizer:rightSwipeUpRecognizer];
+    
+    //first run
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (((int)[self getNextRand:30.0f max:60.0f] % 70) / 70.0f) * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [self rightAndBack:nil];
+    });
 }
 
 - (void)showTextTemplates
@@ -205,7 +210,10 @@
             self.contentView.frame = frame2;
         }];
         
-        callback();
+        if (callback)
+        {
+            callback();
+        }
     }];
 }
 
@@ -231,8 +239,10 @@
                          } completion:^(BOOL finished) {
                              
                          }];
-        
-        callback();
+        if (callback)
+        {
+            callback();
+        }
         
     }];
 }

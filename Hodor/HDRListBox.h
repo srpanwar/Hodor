@@ -21,4 +21,6 @@ typedef void (^SelectionCallBack)(NSString *text);
 @property(readwrite, copy) SelectionCallBack callback;
 
 - (void)show;
+- (void)close;
+
 @end
