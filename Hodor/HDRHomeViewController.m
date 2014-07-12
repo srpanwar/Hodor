@@ -83,8 +83,13 @@
         if (self.userWhoPinged && [self.userWhoPinged caseInsensitiveCompare:cell1.user.name] == NSOrderedSame)
         {
             self.userWhoPinged = nil;
+            NSString *pingedText = self.userPingedText;
+            
+            self.userWhoPinged = nil;
+            self.userPingedText = nil;
+            
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-                [cell1 flashHodor];
+                [cell1 flashHodor: pingedText];
             });
         }
     }

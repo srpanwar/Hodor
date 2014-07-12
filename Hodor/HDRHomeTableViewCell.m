@@ -92,8 +92,9 @@
 }
 
 
-- (void)flashHodor
+- (void)flashHodor:(NSString *)text
 {
+    self.flashLabel.text = text;
     self.flashLabel.alpha = 1;
     [UIView animateWithDuration:1.0f delay:1.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.flashLabel.alpha = 0;

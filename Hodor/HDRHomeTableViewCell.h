@@ -25,6 +25,6 @@
 - (IBAction)onDelete:(id)sender;
 - (IBAction)onBlock:(id)sender;
 
-- (void)flashHodor;
+- (void)flashHodor:(NSString *)text;
 
 @end

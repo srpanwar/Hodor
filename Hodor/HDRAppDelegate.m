@@ -50,15 +50,18 @@
         newFriend.name = [userName uppercaseString];
         newFriend.isBlocked = NO;
         [[HDRFriends instance] addFriend:newFriend];
-        
-        UINavigationController *root = (UINavigationController *)self.window.rootViewController;
-        if (root && [root.topViewController isKindOfClass:[HDRHomeViewController class]])
-        {
-            HDRHomeViewController *controller = (HDRHomeViewController *)root.topViewController;
-            controller.userWhoPinged = userName;
-            [controller.tableView reloadData];
-        }
     }
+    
+    NSString *pingedText = [userInfo objectForKey:@"text"];
+    UINavigationController *root = (UINavigationController *)self.window.rootViewController;
+    if (root && [root.topViewController isKindOfClass:[HDRHomeViewController class]])
+    {
+        HDRHomeViewController *controller = (HDRHomeViewController *)root.topViewController;
+        controller.userWhoPinged = userName;
+        controller.userPingedText = pingedText ? pingedText : @"hodor!!";
+        [controller.tableView reloadData];
+    }
+
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler

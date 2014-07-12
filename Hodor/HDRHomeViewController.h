@@ -15,6 +15,8 @@
 @interface HDRHomeViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property NSString *userWhoPinged;
+@property NSString *userPingedText;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *shareBtn;
 @property (weak, nonatomic) IBOutlet UIButton *ratingBtn;
