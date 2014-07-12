@@ -38,7 +38,10 @@
     UISwipeGestureRecognizer *rightSwipeUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(showTextTemplates)];
     [rightSwipeUpRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
     [self.contentView addGestureRecognizer:rightSwipeUpRecognizer];
-    
+}
+
+- (void)firstRun
+{
     //first run
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (((int)[self getNextRand:30.0f max:60.0f] % 70) / 70.0f) * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         [self rightAndBack:nil];

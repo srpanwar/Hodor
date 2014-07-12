@@ -26,5 +26,6 @@
 - (IBAction)onBlock:(id)sender;
 
 - (void)flashHodor:(NSString *)text;
+- (void)firstRun;
 
 @end
