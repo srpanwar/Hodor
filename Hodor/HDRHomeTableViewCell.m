@@ -48,12 +48,15 @@
         
         listBox.collection = [NSMutableArray arrayWithArray:@[@"How is it going?",
                                                               @"Where are you?",
+                                                              @"Almost there",
+                                                              @"Ready?",
+                                                              @"I am ready",
                                                               @"Talk to you soon",
                                                               @"I'm running late",
-                                                              @"Almost there",
                                                               @"I am here",
                                                               @"I love you",
-                                                              @"Call me when you get this" ]];
+                                                              @"Call me when you get this",
+                                                              @"Yo!"]];
         
         listBox.callback = ^(NSString *text) {
             [self doText:text];
