@@ -17,6 +17,7 @@
 @property NSString *userWhoPinged;
 @property NSString *userPingedText;
 
+@property (weak, nonatomic) IBOutlet UILabel *pageTitleLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *shareBtn;
 @property (weak, nonatomic) IBOutlet UIButton *ratingBtn;

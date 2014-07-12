@@ -164,6 +164,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="6Rp-Za-5ne"/>
                     <connections>
+                        <outlet property="pageTitleLabel" destination="iuf-di-hVY" id="N9U-Ta-UpI"/>
                         <outlet property="ratingBtn" destination="bPv-rl-vsG" id="VI6-Ef-G2x"/>
                         <outlet property="shareBtn" destination="usr-YS-Iyp" id="4us-ej-mmY"/>
                         <outlet property="tableView" destination="eSI-sJ-9nx" id="l0i-9S-Q2W"/>
