@@ -62,6 +62,7 @@
                                                               @"Talk to you soon",
                                                               @"I'm running late",
                                                               @"I am here",
+                                                              @"Miss you",
                                                               @"I love you",
                                                               @"Call me when you get this",
                                                               @"Yo!"]];
