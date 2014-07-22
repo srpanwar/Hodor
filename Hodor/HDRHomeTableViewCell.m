@@ -107,7 +107,7 @@
 {
     self.flashLabel.text = text;
     self.flashLabel.alpha = 1;
-    [UIView animateWithDuration:1.0f delay:1.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    [UIView animateWithDuration:2.0f delay:5.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.flashLabel.alpha = 0;
     } completion:nil];
 }
