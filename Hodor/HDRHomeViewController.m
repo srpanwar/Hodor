@@ -11,6 +11,8 @@
 @interface HDRHomeViewController ()
 
 @property NSMutableArray *friends;
+@property NSCache *cachedCells;
+
 @end
 
 @implementation HDRHomeViewController
@@ -36,6 +38,7 @@
     self.ratingBtn.layer.cornerRadius = 20.0f;
     self.pageTitleLabel.text = [NSString stringWithFormat:@"HODOR + YOU(%@)", [HDRCurrentUser getCurrentUserName]];
     
+    self.cachedCells = [NSCache new];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
@@ -75,9 +78,16 @@
     
     if (indexPath.row < (self.friends.count))
     {
-        HDRHomeTableViewCell *cell1 = (HDRHomeTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"HDRHomeTableViewCell" owner:nil options:nil] lastObject];
-        cell1.user = self.friends[indexPath.row];
-        cell1.nameLabel.text = [cell1.user.name uppercaseString];
+        HDRUser *user = self.friends[indexPath.row];
+        HDRHomeTableViewCell *cell1 = (HDRHomeTableViewCell *)[self.cachedCells objectForKey:user.name];
+        if (!cell1)
+        {
+            cell1 = (HDRHomeTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"HDRHomeTableViewCell" owner:nil options:nil] lastObject];
+            [self.cachedCells setObject:cell1 forKey:user.name];
+        }
+
+        cell1.user = user;
+        cell1.nameLabel.text = [user.name uppercaseString];
         cell = cell1;
         
         //flash
@@ -98,12 +108,24 @@
     {
         if (indexPath.row == (self.friends.count + 1))
         {
-            HDRAddUserNameTableViewCell *cell2 = (HDRAddUserNameTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"HDRAddUserNameTableViewCell" owner:nil options:nil] lastObject];
+            HDRAddUserNameTableViewCell *cell2 = (HDRAddUserNameTableViewCell *)[self.cachedCells objectForKey:@"f9cd4d58-0e13-4ad9-8651-a17563c84c78"];
+            if (!cell2)
+            {
+                cell2 = (HDRAddUserNameTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"HDRAddUserNameTableViewCell" owner:nil options:nil] lastObject];
+                [self.cachedCells setObject:cell2 forKey:@"f9cd4d58-0e13-4ad9-8651-a17563c84c78"];
+            }
+
             cell = cell2;
         }
         else
         {
-            HDRInviteTableViewCell *cell3 = (HDRInviteTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"HDRInviteTableViewCell" owner:nil options:nil] lastObject];
+            HDRInviteTableViewCell *cell3 = (HDRInviteTableViewCell *)[self.cachedCells objectForKey:@"359900f3-bb9d-45a0-b650-4204baac4ea6"];
+            if (!cell3)
+            {
+                cell3 = (HDRInviteTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"HDRInviteTableViewCell" owner:nil options:nil] lastObject];
+                [self.cachedCells setObject:cell3 forKey:@"359900f3-bb9d-45a0-b650-4204baac4ea6"];
+            }
+            
             cell = cell3;
         }
     }
