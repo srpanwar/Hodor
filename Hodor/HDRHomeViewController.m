@@ -46,6 +46,7 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     [self colorifyRatings];
+    [self checkPushEnabled];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
 }
@@ -59,9 +60,22 @@
 {
     srand((unsigned)time(NULL));
     [self colorifyRatings];
+    [self checkPushEnabled];
     [self.tableView reloadData];
 }
 
+- (void)checkPushEnabled
+{
+    UIRemoteNotificationType types = [[UIApplication sharedApplication] enabledRemoteNotificationTypes];
+    if (types & UIRemoteNotificationTypeAlert)
+    {
+        self.enablePushView.hidden = YES;
+    }
+    else
+    {
+        self.enablePushView.hidden = NO;
+    }
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -135,18 +149,6 @@
     
     return cell;
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 
 // Call this method somewhere in your view controller setup code.
