@@ -159,7 +159,7 @@
                                     <action selector="rateTheApp:" destination="qmg-VW-uDI" eventType="touchUpInside" id="2wN-OS-hpi"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" id="4t7-8r-n6p">
+                            <view hidden="YES" contentMode="scaleToFill" id="4t7-8r-n6p">
                                 <rect key="frame" x="0.0" y="35" width="320" height="532"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
