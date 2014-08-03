@@ -16,10 +16,14 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *flashLabel;
 @property HDRUser* user;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIView *menuView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *busyIndicator;
 @property (weak, nonatomic) IBOutlet UIButton *blockBtn;
+
+@property (weak, nonatomic) IBOutlet UIButton *cancelLabel;
+@property (weak, nonatomic) IBOutlet UIButton *deleteLabel;
+@property (weak, nonatomic) IBOutlet UIButton *blockLabel;
+
 
 - (IBAction)onCancel:(id)sender;
 - (IBAction)onDelete:(id)sender;

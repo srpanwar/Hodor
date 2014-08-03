@@ -14,7 +14,7 @@
 {
     [super awakeFromNib];
     // Initialization code
-    
+        
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doContactSelection)];
     [self.contentView addGestureRecognizer:gestureRecognizer];
 }

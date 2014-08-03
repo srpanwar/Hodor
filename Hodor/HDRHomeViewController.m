@@ -36,6 +36,8 @@
     [self registerForKeyboardNotifications];
     self.shareBtn.layer.cornerRadius = 20.0f;
     self.ratingBtn.layer.cornerRadius = 20.0f;
+    
+    self.pageTitleLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:24];
     self.pageTitleLabel.text = [NSString stringWithFormat:@"HODOR + YOU(%@)", [HDRCurrentUser getCurrentUserName]];
     
     self.cachedCells = [NSCache new];
@@ -46,7 +48,7 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     [self colorifyRatings];
-    [self checkPushEnabled];
+    //[self checkPushEnabled];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
 }
@@ -60,7 +62,7 @@
 {
     srand((unsigned)time(NULL));
     [self colorifyRatings];
-    [self checkPushEnabled];
+    //[self checkPushEnabled];
     [self.tableView reloadData];
 }
 

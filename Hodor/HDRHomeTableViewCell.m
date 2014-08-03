@@ -18,7 +18,11 @@
     self.menuView.alpha = 0;
     self.flashLabel.alpha = 0;
     self.nameLabel.text = @"";
-
+    
+    self.cancelLabel.titleLabel.font =  [UIFont fontWithName:@"OpenSans-CondensedBold" size:28];
+    self.deleteLabel.titleLabel.font =  [UIFont fontWithName:@"OpenSans-CondensedBold" size:28];
+    self.blockLabel.titleLabel.font =  [UIFont fontWithName:@"OpenSans-CondensedBold" size:28];
+    
     //menu
     UISwipeGestureRecognizer *leftSwipeUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipe)];
     [leftSwipeUpRecognizer setDirection:UISwipeGestureRecognizerDirectionLeft];

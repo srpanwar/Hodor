@@ -83,10 +83,13 @@
             <color key="backgroundColor" red="0.094117656350135803" green="0.59215688705444336" blue="0.27058824896812439" alpha="0.90000000000000002" colorSpace="deviceRGB"/>
             <connections>
                 <outlet property="blockBtn" destination="VUE-X6-tco" id="oln-JO-PGZ"/>
+                <outlet property="blockLabel" destination="VUE-X6-tco" id="r5s-iT-b4d"/>
                 <outlet property="busyIndicator" destination="XZJ-Fw-9Gb" id="jIZ-Zs-Web"/>
+                <outlet property="cancelLabel" destination="R4K-xC-iV9" id="Oza-pp-ftw"/>
+                <outlet property="deleteLabel" destination="9cU-lB-7Lc" id="VPo-Yy-ptX"/>
                 <outlet property="flashLabel" destination="1we-o4-x5Y" id="SLH-uL-7Ll"/>
                 <outlet property="menuView" destination="SW8-Xc-EmZ" id="Emk-Ly-MSP"/>
-                <outlet property="nameLabel" destination="GRl-dr-nYt" id="ZmS-IA-ZUK"/>
+                <outlet property="nameLabel" destination="GRl-dr-nYt" id="fs7-wZ-br1"/>
             </connections>
         </tableViewCell>
     </objects>

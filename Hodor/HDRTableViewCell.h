@@ -10,6 +10,7 @@
 
 @interface HDRTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property UIViewController *viewController;
 @property UITableView *tableView;
 

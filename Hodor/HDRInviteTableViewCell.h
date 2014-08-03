@@ -15,4 +15,5 @@
 
 @interface HDRInviteTableViewCell : HDRTableViewCell<ABPeoplePickerNavigationControllerDelegate,MFMessageComposeViewControllerDelegate>
 
+
 @end

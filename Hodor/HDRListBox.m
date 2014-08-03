@@ -66,9 +66,9 @@
         
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"reuseIdentifier"];
         
-        cell.textLabel.font = [UIFont fontWithName:@"Arial Rounded MT Bold" size:22];
+        cell.textLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:23];
         cell.textLabel.text = self.collection[indexPath.row];
-        cell.textLabel.textColor = [UIColor colorWithWhite:0.2 alpha:1];
+        cell.textLabel.textColor = [UIColor colorWithWhite:0.27 alpha:0.9];
         cell.backgroundColor = [UIColor colorWithWhite:1.0f alpha:0.63];
         return cell;
 

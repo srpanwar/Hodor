@@ -15,8 +15,9 @@
     [super awakeFromNib];
     
     // Initialization code
+    self.textField.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:28];
     self.textField.delegate = self;
-    UIColor *color = [UIColor whiteColor];
+    UIColor *color = [UIColor colorWithWhite:0.95 alpha:0.8];
     self.textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"TYPE USERNAME TO ADD" attributes:@{NSForegroundColorAttributeName: color}];
 }
 
