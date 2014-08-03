@@ -53,7 +53,9 @@
                     <connections>
                         <outlet property="busyIndicator" destination="D9k-vU-wO0" id="vXm-86-UGk"/>
                         <outlet property="messageLabel" destination="QZg-32-ILV" id="4dL-8G-Xga"/>
+                        <outlet property="pageTitleLabel" destination="UuL-Yb-7Zo" id="7jH-lQ-BVq"/>
                         <outlet property="textField" destination="kks-cc-QYw" id="a04-i4-g2Z"/>
+                        <outlet property="welcomeLabel" destination="PhQ-3i-LGE" id="4Yb-ze-OBf"/>
                         <segue destination="qmg-VW-uDI" kind="push" identifier="HomeSegue" id="Fen-8x-3dO"/>
                     </connections>
                 </viewController>

@@ -34,6 +34,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.pageTitleLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:24];
+
+    self.welcomeLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:40];
+
+    self.textField.font= [UIFont fontWithName:@"OpenSans-CondensedBold" size:36];
+    
     self.messageLabel.alpha = 0;
     self.textField.delegate = self;
     

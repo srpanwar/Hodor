@@ -12,6 +12,8 @@
 #import "HDRUtils.h"
 
 @interface HDRSetupViewController : UIViewController<UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *pageTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *welcomeLabel;
 
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UILabel *messageLabel;
