@@ -8,40 +8,33 @@
 
 #import "HDRTableViewCell.h"
 
-@implementation HDRTableViewCell
+#define INDEX_COLOR_MAP @[\
+    [UIColor colorWithRed:220/255.0f green:196/255.0f blue:100/255.0f alpha:1], \
+    [UIColor colorWithRed:131/255.0f green:175/255.0f blue:155/255.0f alpha:1], \
+    [UIColor colorWithRed:2/255.0f green:119/255.0f blue:158/255.0f alpha:1], \
+    [UIColor colorWithRed:148/255.0f green:140/255.0f blue:117/255.0f alpha:1], \
+    [UIColor colorWithRed:166/255.0f green:157/255.0f blue:211/255.0f alpha:1], \
+    [UIColor colorWithRed:253/255.0f green:123/255.0f blue:159/255.0f alpha:1], \
+    [UIColor colorWithRed:83/255.0f green:205/255.0f blue:218/255.0f alpha:1], \
+    [UIColor colorWithRed:80/255.0f green:61/255.0f blue:166/255.0f alpha:1], \
+    [UIColor colorWithRed:163/255.0f green:200/255.0f blue:128/255.0f alpha:1], \
+    [UIColor colorWithRed:109/255.0f green:172/255.0f blue:173/255.0f alpha:1], \
+    [UIColor colorWithRed:232/255.0f green:147/255.0f blue:86/255.0f alpha:1], \
+    ]
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
+@implementation HDRTableViewCell
 
 - (void)awakeFromNib
 {
     self.nameLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:48];
-    self.nameLabel.textColor = [UIColor colorWithWhite:0.95 alpha:0.85];
-    [self colorify];
+    self.nameLabel.textColor = [UIColor colorWithWhite:0.95 alpha:0.9];
 }
 
 
-- (void)colorify
+- (void)colorify:(NSInteger)index
 {
-    // Initialization code
-    CGFloat red = [self getNextRand:90.0f max:230.0f];
-    CGFloat green = [self getNextRand:90.0f max:230.0f];
-    CGFloat blue = [self getNextRand:90.0f max:230.0f];
-    
-    int counter = 0;
-    while (counter++ < 2) {
-        red = [self getNextRand:90.0f max:230.0f];
-        green = [self getNextRand:90.0f max:230.0f];
-        blue = [self getNextRand:90.0f max:230.0f];
-    }
-    
-    self.backgroundColor = [UIColor colorWithRed:red/255.0f green:green/255.0f blue:blue/255.0f alpha:0.9];
+    UIColor *color = INDEX_COLOR_MAP[ index % INDEX_COLOR_MAP.count ];
+    self.backgroundColor = color;
 }
 
 - (CGFloat) getNextRand:(CGFloat)min max:(CGFloat)max

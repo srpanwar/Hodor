@@ -7,14 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HDRBaseViewController.h"
 
 @interface HDRTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property UIViewController *viewController;
+@property HDRBaseViewController *viewController;
 @property UITableView *tableView;
 
-- (void)colorify;
+- (void)colorify:(NSInteger)index;
 - (CGFloat) getNextRand:(CGFloat)min max:(CGFloat)max;
 
 @end

@@ -61,7 +61,7 @@
         HDRHomeViewController *controller = (HDRHomeViewController *)root.topViewController;
         controller.userWhoPinged = userName;
         controller.userPingedText = pingedText ? pingedText : @"hodor!!";
-        [controller.tableView reloadData];
+        [controller refreshView];
     }
 
 }

@@ -12,7 +12,7 @@
 #import "HDRAddUserNameTableViewCell.h"
 #import "HDRFriends.h"
 
-@interface HDRHomeViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface HDRHomeViewController : HDRBaseViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property NSString *userWhoPinged;
 @property NSString *userPingedText;

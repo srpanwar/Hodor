@@ -35,14 +35,16 @@
         HDRUser *user = [[HDRUser alloc] init];
         user.name = textField.text;
         user.isBlocked = NO;
+        
+        HDRUser *existingFriend = [[HDRFriends instance] getFriend:user.name];
+        if (existingFriend)
+        {
+            [[HDRFriends instance] deleteFriend:existingFriend];
+        }
+        
         [[HDRFriends instance] addFriend:user];
-        [self.tableView reloadData];
+        [self.viewController refreshView];
     }
-
-    self.textField.text = @"";
-    [self.addBtn setHidden:NO];
-    [self.textField setHidden:YES];
-    [textField resignFirstResponder];
 
     return YES;
 }

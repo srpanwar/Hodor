@@ -101,7 +101,6 @@
                 [self.busyIndicator stopAnimating];
                 [[HDRFriends instance] moveToTop:self.user];
                 [self.tableView moveRowAtIndexPath:[self.tableView indexPathForCell:self] toIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-                [self colorify];
             });
         });
         
@@ -138,7 +137,6 @@
                 [self.busyIndicator stopAnimating];
                 [[HDRFriends instance] moveToTop:self.user];
                 [self.tableView moveRowAtIndexPath:[self.tableView indexPathForCell:self] toIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-                [self colorify];
             });
         });
         
@@ -175,7 +173,7 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         [[HDRFriends instance] deleteFriend:self.user];
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tableView reloadData];
+            [self.viewController refreshView];
         });
     });
 }
@@ -192,7 +190,7 @@
         {
             [[HDRFriends instance] blockFriend:self.user];
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self.tableView reloadData];
+                [self.viewController refreshView];
             });
         }
     });
