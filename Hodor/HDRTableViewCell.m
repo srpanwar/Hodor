@@ -27,7 +27,7 @@
 - (void)awakeFromNib
 {
     self.nameLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:48];
-    self.nameLabel.textColor = [UIColor colorWithWhite:0.95 alpha:0.9];
+    self.nameLabel.textColor = [UIColor colorWithWhite:0.98 alpha:0.9];
 }
 
 
