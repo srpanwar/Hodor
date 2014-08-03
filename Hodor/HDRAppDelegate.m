@@ -12,18 +12,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    // Override point for customization after application launch.
-//    self.window.backgroundColor = [UIColor whiteColor];
-//    [self.window makeKeyAndVisible];
-    
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [[UITextField appearance] setTintColor:[UIColor whiteColor]];
     
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes: (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
 
-    [HDRCurrentUser setCurrentUserName:@"HEMAN"];
+    //[HDRCurrentUser setCurrentUserName:@"HEMAN"];
     
     return YES;
 }
