@@ -30,6 +30,8 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+    [self endEditing:YES];
+    
     if(textField.text.length)
     {
         HDRUser *user = [[HDRUser alloc] init];

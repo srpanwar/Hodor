@@ -69,8 +69,7 @@
                                                               @"Miss you",
                                                               @"I love you",
                                                               @"Call me when you get this",
-                                                              @"Oye!",
-                                                              @"Yo!"]];
+                                                              @"Oye!"]];
         
         listBox.callback = ^(NSString *text) {
             [self doText:text];

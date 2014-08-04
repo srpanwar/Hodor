@@ -70,7 +70,7 @@
 
 - (void)doShare
 {
-    NSString *string = [NSString stringWithFormat:@"Why 'Yo' when you can 'Hodor'! Add my 'Hodor' username %@ (if you don't have the app get it here http://goo.gl/68WSRK)", [HDRCurrentUser getCurrentUserName]];
+    NSString *string = [NSString stringWithFormat:@"Connect with me! Add my 'Hodor' username %@ (if you don't have the app get it here http://goo.gl/68WSRK)", [HDRCurrentUser getCurrentUserName]];
     
     UIActivityViewController *activityViewController =
     [[UIActivityViewController alloc] initWithActivityItems:@[string]
@@ -115,7 +115,7 @@
                 picker.messageComposeDelegate = self;
                 picker.recipients = @[mobile];
                 
-                picker.body = [NSString stringWithFormat:@"Why 'Yo' when you can 'Hodor'! Add my 'Hodor' username %@ (if you don't have the app get it here http://goo.gl/68WSRK)", [HDRCurrentUser getCurrentUserName]];
+                picker.body = [NSString stringWithFormat:@"Connect with me! Add my 'Hodor' username %@ (if you don't have the app get it here http://goo.gl/68WSRK)", [HDRCurrentUser getCurrentUserName]];
                 
                 [self.viewController presentViewController:picker animated:YES completion:nil];
             }
