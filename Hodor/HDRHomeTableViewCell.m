@@ -89,20 +89,18 @@
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         [[HDRNetworkProvider instance] sendText:name text:text];
+    });
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.6 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [self.busyIndicator stopAnimating];
+        self.nameLabel.hidden = NO;
+        self.nameLabel.text = @"SEND!";
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-            self.nameLabel.hidden = NO;
-            self.nameLabel.text = @"SEND!";
-            [self.busyIndicator stopAnimating];
-            
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-                self.nameLabel.text = [name uppercaseString];
-                [self.busyIndicator stopAnimating];
-                [[HDRFriends instance] moveToTop:self.user];
-                [self.tableView moveRowAtIndexPath:[self.tableView indexPathForCell:self] toIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-            });
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.6 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            self.nameLabel.text = [name uppercaseString];
+            [[HDRFriends instance] moveToTop:self.user];
+            [self.tableView moveRowAtIndexPath:[self.tableView indexPathForCell:self] toIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
         });
-        
     });
 }
 
@@ -125,21 +123,20 @@
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         [[HDRNetworkProvider instance] sendHODOR:name];
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-            self.nameLabel.hidden = NO;
-            self.nameLabel.text = @"HODORED!";
-            [self.busyIndicator stopAnimating];
-            
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-                self.nameLabel.text = [name uppercaseString];
-                [self.busyIndicator stopAnimating];
-                [[HDRFriends instance] moveToTop:self.user];
-                [self.tableView moveRowAtIndexPath:[self.tableView indexPathForCell:self] toIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-            });
-        });
-        
     });
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.6 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [self.busyIndicator stopAnimating];
+        self.nameLabel.hidden = NO;
+        self.nameLabel.text = @"HODORED!";
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.6 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            self.nameLabel.text = [name uppercaseString];
+            [[HDRFriends instance] moveToTop:self.user];
+            [self.tableView moveRowAtIndexPath:[self.tableView indexPathForCell:self] toIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        });
+    });
+
 }
 
 - (void)onSwipe
