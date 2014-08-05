@@ -47,6 +47,11 @@
         [[HDRFriends instance] addFriend:user];
         [self.viewController refreshView];
     }
+    else
+    {
+        [self.addBtn setHidden:NO];
+        [self.textField setHidden:YES];
+    }
 
     return YES;
 }
