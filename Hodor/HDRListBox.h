@@ -13,13 +13,14 @@ typedef void (^SelectionCallBack)(NSString *text);
 
 @interface HDRListBox : UIView<UITableViewDataSource, UITableViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UITextField *textBox;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property(readwrite, copy) SelectionCallBack callback;
 @property NSMutableArray *collection;
 
-@property(readwrite, copy) SelectionCallBack callback;
-
+- (IBAction)sendCustomText:(id)sender;
 - (void)show;
 - (void)close;
 

@@ -28,11 +28,12 @@
     self.collection = [[NSMutableArray alloc] init];
     
     //self.backgroundColor = [UIColor colorWithPatternImage:[[self imageWithView:[[UIApplication sharedApplication] keyWindow]] applyLightEffect]];
+    self.scrollView.contentSize = self.scrollView.bounds.size;
     
     UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(close)];
     [self.contentView addGestureRecognizer:singleTapGestureRecognizer];
 
-    
+    [self registerForKeyboardNotifications];
     [self animateUp];
 }
 
@@ -93,6 +94,9 @@
 
 - (void)close
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    
     CGRect frame = self.tableView.frame;
     frame.origin.y = [UIScreen mainScreen].bounds.size.height;
 
@@ -119,6 +123,17 @@
     }];
 }
 
+- (IBAction)sendCustomText:(id)sender
+{
+    NSString *text = self.textBox.text;
+    if (self.callback && text.length)
+    {
+        self.callback(text);
+    }
+    
+    [self close];
+}
+
 - (void)show
 {
     self.tableView.delegate = self;
@@ -135,4 +150,39 @@
     UIGraphicsEndImageContext();
     return snapshotImage;
 }
+
+- (void)registerForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
+    
+}
+
+// Called when the UIKeyboardDidShowNotification is sent.
+- (void)keyboardWasShown:(NSNotification*)aNotification
+{
+    NSDictionary* info = [aNotification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height + 10, 0.0);
+    self.scrollView.contentInset = contentInsets;
+    self.scrollView.scrollIndicatorInsets = contentInsets;
+    self.tableView.hidden = YES;
+}
+
+// Called when the UIKeyboardWillHideNotification is sent
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification
+{
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    self.scrollView.contentInset = contentInsets;
+    self.scrollView.scrollIndicatorInsets = contentInsets;
+    
+    self.tableView.hidden = NO;
+}
+
 @end

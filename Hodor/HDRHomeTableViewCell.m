@@ -16,7 +16,7 @@
     
     // Initialization code
     self.menuView.alpha = 0;
-    self.flashLabel.alpha = 0;
+    self.flashLabel.alpha = 1;
     self.nameLabel.text = @"";
     
     self.cancelLabel.titleLabel.font =  [UIFont fontWithName:@"OpenSans-CondensedBold" size:28];
