@@ -14,7 +14,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VIVEKIAN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="35" id="GRl-dr-nYt">
-                        <rect key="frame" x="0.0" y="11" width="320" height="62"/>
+                        <rect key="frame" x="0.0" y="11" width="286" height="62"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="41"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -29,10 +29,10 @@
                         <color key="shadowColor" white="0.45000000000000001" alpha="1" colorSpace="calibratedWhite"/>
                         <size key="shadowOffset" width="0.0" height="0.0"/>
                     </label>
-                    <imageView alpha="0.69999999999999973" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_hodor" id="oc3-WR-MXl">
+                    <imageView alpha="0.89999999999999991" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_hodor" id="oc3-WR-MXl">
                         <rect key="frame" x="280" y="29" width="31" height="31"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="0.21849338503649635" alpha="0.29999999999999999" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.21849338503649635" alpha="0.10000000000000001" colorSpace="calibratedWhite"/>
                     </imageView>
                     <view contentMode="scaleToFill" id="SW8-Xc-EmZ" userLabel="Menu View">
                         <rect key="frame" x="320" y="0.0" width="320" height="90"/>
@@ -84,6 +84,16 @@
                         <rect key="frame" x="141" y="26" width="37" height="37"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </activityIndicatorView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hWa-of-2x2">
+                        <rect key="frame" x="272" y="17" width="46" height="53"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="callHodor:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="54b-Z9-v67"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </tableViewCellContentView>

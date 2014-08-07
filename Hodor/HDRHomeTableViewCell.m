@@ -29,10 +29,6 @@
     [leftSwipeUpRecognizer setDirection:UISwipeGestureRecognizerDirectionLeft];
     [self.contentView addGestureRecognizer:leftSwipeUpRecognizer];
     
-    //send default
-    UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doHodor)];
-    [self.hodorImage addGestureRecognizer:singleTapGestureRecognizer];
-    
     //text
     UITapGestureRecognizer *singleTapGestureRecognizer2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showTextTemplatesUI)];
     [self.contentView addGestureRecognizer:singleTapGestureRecognizer2];
@@ -111,15 +107,6 @@
 }
 
 
-- (void)flashHodor:(NSString *)text
-{
-    self.flashLabel.text = text;
-    self.flashLabel.alpha = 1;
-    [UIView animateWithDuration:2.0f delay:5.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.flashLabel.alpha = 0;
-    } completion:nil];
-}
-
 - (void) doHodor
 {
     NSString *name = self.user.name;
@@ -157,6 +144,22 @@
             self.menuView.alpha = 1;
         }];
     }];
+}
+
+- (void)flashHodor:(NSString *)text
+{
+    self.flashLabel.text = text;
+    self.flashLabel.alpha = 1;
+    [UIView animateWithDuration:2.0f delay:5.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.flashLabel.alpha = 0;
+    } completion:nil];
+}
+
+#pragma mark IBACTIONS
+
+- (IBAction)callHodor:(id)sender
+{
+    [self doHodor];
 }
 
 - (IBAction)onCancel:(id)sender {

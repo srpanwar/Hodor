@@ -25,7 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *deleteLabel;
 @property (weak, nonatomic) IBOutlet UIButton *blockLabel;
 
-
+- (IBAction)callHodor:(id)sender;
 - (IBAction)onCancel:(id)sender;
 - (IBAction)onDelete:(id)sender;
 - (IBAction)onBlock:(id)sender;
