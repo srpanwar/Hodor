@@ -54,8 +54,7 @@
     if (root && [root.topViewController isKindOfClass:[HDRHomeViewController class]])
     {
         HDRHomeViewController *controller = (HDRHomeViewController *)root.topViewController;
-        controller.userWhoPinged = userName;
-        controller.userPingedText = pingedText ? pingedText : @"hodor!!";
+        [controller.userPingedData setObject:[userName uppercaseString] forKey:(pingedText ? pingedText : @"hodor!!")];
         [controller refreshView];
     }
 
