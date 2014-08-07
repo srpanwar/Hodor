@@ -32,9 +32,10 @@
     [super viewDidLoad];
     
     // Do any additional setup after loading the view.
+    [self registerForKeyboardNotifications];
     self.userPingedData = [[NSMutableDictionary alloc] init];
-    self.shareBtn.layer.cornerRadius = 20.0f;
-    self.ratingBtn.layer.cornerRadius = 20.0f;
+    self.shareBtn.layer.cornerRadius = 18.0f;
+    self.ratingBtn.layer.cornerRadius = 18.0f;
     
     self.pageTitleLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:24];
     self.pageTitleLabel.text = [NSString stringWithFormat:@"HODOR + YOU(%@)", [HDRCurrentUser getCurrentUserName]];
@@ -46,7 +47,7 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     [self colorifyRatings];
-    [self checkPushEnabled];
+    //[self checkPushEnabled];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
 }
@@ -60,7 +61,7 @@
 {
     srand((unsigned)time(NULL));
     [self colorifyRatings];
-    [self checkPushEnabled];
+    //[self checkPushEnabled];
     [self refreshView];
 }
 
@@ -157,6 +158,36 @@
 - (IBAction)rateTheApp:(id)sender
 {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/app/id892252299"]];
+}
+
+// Call this method somewhere in your view controller setup code.
+- (void)registerForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                                selector:@selector(keyboardWillBeHidden:)
+                                              name:UIKeyboardWillHideNotification object:nil];
+}
+
+// Called when the UIKeyboardDidShowNotification is sent.
+- (void)keyboardWillShow:(NSNotification*)aNotification
+{
+    NSDictionary* info = [aNotification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height + 30, 0.0);
+    self.tableView.contentInset = contentInsets;
+    self.tableView.scrollIndicatorInsets = contentInsets;
+}
+
+// Called when the UIKeyboardWillHideNotification is sent
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification
+{
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    self.tableView.contentInset = contentInsets;
+    self.tableView.scrollIndicatorInsets = contentInsets;
 }
 
 @end

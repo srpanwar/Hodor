@@ -18,6 +18,7 @@
     self.menuView.alpha = 0;
     self.flashLabel.alpha = 0;
     self.nameLabel.text = @"";
+    self.hodorImage.layer.cornerRadius = 15;
     
     self.cancelLabel.titleLabel.font =  [UIFont fontWithName:@"OpenSans-CondensedBold" size:28];
     self.deleteLabel.titleLabel.font =  [UIFont fontWithName:@"OpenSans-CondensedBold" size:28];
@@ -30,14 +31,12 @@
     
     //send default
     UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doHodor)];
-    [self.contentView addGestureRecognizer:singleTapGestureRecognizer];
+    [self.hodorImage addGestureRecognizer:singleTapGestureRecognizer];
     
     //text
-    UITapGestureRecognizer *doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showTextTemplates)];
-    doubleTapGestureRecognizer.delaysTouchesBegan = YES;
-    doubleTapGestureRecognizer.numberOfTapsRequired = 2;
-    [self.contentView addGestureRecognizer:doubleTapGestureRecognizer];
-    [singleTapGestureRecognizer requireGestureRecognizerToFail:doubleTapGestureRecognizer];
+    UITapGestureRecognizer *singleTapGestureRecognizer2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showTextTemplatesUI)];
+    [self.contentView addGestureRecognizer:singleTapGestureRecognizer2];
+
     
     UISwipeGestureRecognizer *rightSwipeUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(showTextTemplates)];
     [rightSwipeUpRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
@@ -55,29 +54,34 @@
 - (void)showTextTemplates
 {
     [self rightAndBack:^{
-        HDRListBox *listBox = (HDRListBox *)[[[NSBundle mainBundle] loadNibNamed:@"HDRListBox" owner:nil options:nil] lastObject];
-        [listBox setFrame:[UIScreen mainScreen].bounds];
-        
-        listBox.collection = [NSMutableArray arrayWithArray:@[@"How is it going?",
-                                                              @"Where are you?",
-                                                              @"Almost there",
-                                                              @"Ready?",
-                                                              @"I am ready",
-                                                              @"Talk to you soon",
-                                                              @"I'm running late",
-                                                              @"I am here",
-                                                              @"Miss you",
-                                                              @"I love you",
-                                                              @"Call me when you get this",
-                                                              @"Oye!"]];
-        
-        listBox.callback = ^(NSString *text) {
-            [self doText:text];
-        };
-        
-        [listBox show];
-        [self.viewController.navigationController.view addSubview:listBox];
+        [self showTextTemplatesUI];
     }];
+}
+
+- (void)showTextTemplatesUI
+{
+    HDRListBox *listBox = (HDRListBox *)[[[NSBundle mainBundle] loadNibNamed:@"HDRListBox" owner:nil options:nil] lastObject];
+    [listBox setFrame:[UIScreen mainScreen].bounds];
+    
+    listBox.collection = [NSMutableArray arrayWithArray:@[@"How is it going?",
+                                                          @"Where are you?",
+                                                          @"Almost there",
+                                                          @"Ready?",
+                                                          @"I am ready",
+                                                          @"Talk to you soon",
+                                                          @"I'm running late",
+                                                          @"I am here",
+                                                          @"Miss you",
+                                                          @"I love you",
+                                                          @"Call me when you get this",
+                                                          @"Oye!"]];
+    
+    listBox.callback = ^(NSString *text) {
+        [self doText:text];
+    };
+    
+    [listBox show];
+    [self.viewController.navigationController.view addSubview:listBox];
 }
 
 - (void)doText:(NSString *)text
@@ -85,6 +89,7 @@
     NSString *name = self.user.name;
     
     self.nameLabel.hidden = YES;
+    self.hodorImage.hidden = YES;
     [self.busyIndicator startAnimating];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
@@ -94,6 +99,7 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.6 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         [self.busyIndicator stopAnimating];
         self.nameLabel.hidden = NO;
+        self.hodorImage.hidden = NO;
         self.nameLabel.text = @"SEND!";
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.6 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
@@ -119,6 +125,7 @@
     NSString *name = self.user.name;
     
     self.nameLabel.hidden = YES;
+    self.hodorImage.hidden = YES;
     [self.busyIndicator startAnimating];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
@@ -128,6 +135,7 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.6 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         [self.busyIndicator stopAnimating];
         self.nameLabel.hidden = NO;
+        self.hodorImage.hidden = NO;
         self.nameLabel.text = @"HODORED!";
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.6 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{

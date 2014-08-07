@@ -29,6 +29,11 @@
                         <color key="shadowColor" white="0.45000000000000001" alpha="1" colorSpace="calibratedWhite"/>
                         <size key="shadowOffset" width="0.0" height="0.0"/>
                     </label>
+                    <imageView alpha="0.69999999999999973" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_hodor" id="oc3-WR-MXl">
+                        <rect key="frame" x="280" y="29" width="31" height="31"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="0.21849338503649635" alpha="0.29999999999999999" colorSpace="calibratedWhite"/>
+                    </imageView>
                     <view contentMode="scaleToFill" id="SW8-Xc-EmZ" userLabel="Menu View">
                         <rect key="frame" x="320" y="0.0" width="320" height="90"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -90,9 +95,13 @@
                 <outlet property="cancelLabel" destination="R4K-xC-iV9" id="Oza-pp-ftw"/>
                 <outlet property="deleteLabel" destination="9cU-lB-7Lc" id="VPo-Yy-ptX"/>
                 <outlet property="flashLabel" destination="1we-o4-x5Y" id="SLH-uL-7Ll"/>
+                <outlet property="hodorImage" destination="oc3-WR-MXl" id="CBU-Dh-ben"/>
                 <outlet property="menuView" destination="SW8-Xc-EmZ" id="Emk-Ly-MSP"/>
                 <outlet property="nameLabel" destination="GRl-dr-nYt" id="fs7-wZ-br1"/>
             </connections>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="icon_hodor" width="1500" height="1500"/>
+    </resources>
 </document>
