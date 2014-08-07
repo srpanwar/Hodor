@@ -28,8 +28,11 @@
     self.collection = [[NSMutableArray alloc] init];
     
     //self.backgroundColor = [UIColor colorWithPatternImage:[[self imageWithView:[[UIApplication sharedApplication] keyWindow]] applyLightEffect]];
+    self.textBox.delegate = self;
     self.scrollView.contentSize = self.scrollView.bounds.size;
-    
+    self.tableView.sectionHeaderHeight = 0.0;
+    self.tableView.sectionFooterHeight = 0.0;
+
     UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(close)];
     [self.contentView addGestureRecognizer:singleTapGestureRecognizer];
 
@@ -43,6 +46,22 @@
     [self.tableView reloadData];
 }
 
+#pragma mark - UITextFieldDelegate
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (self.textBox.text.length > 100)
+    {
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self sendCustomText:nil];
+    return YES;
+}
 
 #pragma mark - UITableViewDataSource, UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
