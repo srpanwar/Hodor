@@ -11,6 +11,7 @@
 @interface HDRUser : NSObject<NSCoding>
 
 @property NSString *name;
+@property NSString *notification;
 @property BOOL isBlocked;
 
 @end
