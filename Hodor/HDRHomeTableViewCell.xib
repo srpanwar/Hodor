@@ -30,9 +30,9 @@
                         <size key="shadowOffset" width="0.0" height="0.0"/>
                     </label>
                     <imageView alpha="0.89999999999999991" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_hodor" id="oc3-WR-MXl">
-                        <rect key="frame" x="280" y="29" width="31" height="31"/>
+                        <rect key="frame" x="276" y="25" width="35" height="35"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="0.21849338503649635" alpha="0.10000000000000001" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.21849338503649635" alpha="0.0" colorSpace="calibratedWhite"/>
                     </imageView>
                     <view contentMode="scaleToFill" id="SW8-Xc-EmZ" userLabel="Menu View">
                         <rect key="frame" x="320" y="0.0" width="320" height="90"/>

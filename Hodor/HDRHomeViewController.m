@@ -34,8 +34,6 @@
     // Do any additional setup after loading the view.
     [self registerForKeyboardNotifications];
     self.userPingedData = [[NSMutableDictionary alloc] init];
-    self.shareBtn.layer.cornerRadius = 18.0f;
-    self.ratingBtn.layer.cornerRadius = 18.0f;
     
     self.pageTitleLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:24];
     self.pageTitleLabel.text = [NSString stringWithFormat:@"HODOR + YOU(%@)", [HDRCurrentUser getCurrentUserName]];
