@@ -28,16 +28,16 @@
 		78237D041956BA6E00BE750D /* HDRNetworkProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 78237D031956BA6E00BE750D /* HDRNetworkProvider.m */; };
 		78237D071956BE1800BE750D /* HDRFriends.m in Sources */ = {isa = PBXBuildFile; fileRef = 78237D061956BE1800BE750D /* HDRFriends.m */; };
 		78237D0B1956BE5B00BE750D /* HDRUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 78237D0A1956BE5B00BE750D /* HDRUser.m */; };
-		786182C61994B24900B4BEFD /* 9.wav in Resources */ = {isa = PBXBuildFile; fileRef = 786182BC1994B24900B4BEFD /* 9.wav */; };
-		786182C71994B24900B4BEFD /* 4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 786182BD1994B24900B4BEFD /* 4.wav */; };
-		786182C81994B24900B4BEFD /* 7.wav in Resources */ = {isa = PBXBuildFile; fileRef = 786182BE1994B24900B4BEFD /* 7.wav */; };
-		786182C91994B24900B4BEFD /* 1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 786182BF1994B24900B4BEFD /* 1.wav */; };
-		786182CA1994B24900B4BEFD /* 2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 786182C01994B24900B4BEFD /* 2.wav */; };
-		786182CB1994B24900B4BEFD /* 5.wav in Resources */ = {isa = PBXBuildFile; fileRef = 786182C11994B24900B4BEFD /* 5.wav */; };
-		786182CC1994B24900B4BEFD /* 8.wav in Resources */ = {isa = PBXBuildFile; fileRef = 786182C21994B24900B4BEFD /* 8.wav */; };
-		786182CD1994B24900B4BEFD /* 6.wav in Resources */ = {isa = PBXBuildFile; fileRef = 786182C31994B24900B4BEFD /* 6.wav */; };
-		786182CE1994B24900B4BEFD /* 3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 786182C41994B24900B4BEFD /* 3.wav */; };
-		786182CF1994B24900B4BEFD /* 10.wav in Resources */ = {isa = PBXBuildFile; fileRef = 786182C51994B24900B4BEFD /* 10.wav */; };
+		786182DA1994C6FF00B4BEFD /* 1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 786182D01994C6FF00B4BEFD /* 1.wav */; };
+		786182DB1994C6FF00B4BEFD /* 2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 786182D11994C6FF00B4BEFD /* 2.wav */; };
+		786182DD1994C6FF00B4BEFD /* 4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 786182D31994C6FF00B4BEFD /* 4.wav */; };
+		786182DE1994C6FF00B4BEFD /* 5.wav in Resources */ = {isa = PBXBuildFile; fileRef = 786182D41994C6FF00B4BEFD /* 5.wav */; };
+		786182DF1994C6FF00B4BEFD /* 6.wav in Resources */ = {isa = PBXBuildFile; fileRef = 786182D51994C6FF00B4BEFD /* 6.wav */; };
+		786182E01994C6FF00B4BEFD /* 7.wav in Resources */ = {isa = PBXBuildFile; fileRef = 786182D61994C6FF00B4BEFD /* 7.wav */; };
+		786182E11994C6FF00B4BEFD /* 8.wav in Resources */ = {isa = PBXBuildFile; fileRef = 786182D71994C6FF00B4BEFD /* 8.wav */; };
+		786182E21994C6FF00B4BEFD /* 9.wav in Resources */ = {isa = PBXBuildFile; fileRef = 786182D81994C6FF00B4BEFD /* 9.wav */; };
+		786182E31994C6FF00B4BEFD /* 10.wav in Resources */ = {isa = PBXBuildFile; fileRef = 786182D91994C6FF00B4BEFD /* 10.wav */; };
+		786182E51994C88E00B4BEFD /* 3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 786182E41994C88E00B4BEFD /* 3.wav */; };
 		78745FEB198ECAE300650542 /* OpenSans-CondBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78745FEA198ECAE300650542 /* OpenSans-CondBold.ttf */; };
 		78745FF1198ED6EC00650542 /* HDRBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78745FF0198ED6EC00650542 /* HDRBaseViewController.m */; };
 		787956FE195898B800B903B2 /* HDRUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 787956FD195898B800B903B2 /* HDRUtils.m */; };
@@ -102,16 +102,16 @@
 		78237D061956BE1800BE750D /* HDRFriends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRFriends.m; sourceTree = "<group>"; };
 		78237D091956BE5B00BE750D /* HDRUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRUser.h; sourceTree = "<group>"; };
 		78237D0A1956BE5B00BE750D /* HDRUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRUser.m; sourceTree = "<group>"; };
-		786182BC1994B24900B4BEFD /* 9.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 9.wav; sourceTree = "<group>"; };
-		786182BD1994B24900B4BEFD /* 4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 4.wav; sourceTree = "<group>"; };
-		786182BE1994B24900B4BEFD /* 7.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 7.wav; sourceTree = "<group>"; };
-		786182BF1994B24900B4BEFD /* 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 1.wav; sourceTree = "<group>"; };
-		786182C01994B24900B4BEFD /* 2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 2.wav; sourceTree = "<group>"; };
-		786182C11994B24900B4BEFD /* 5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 5.wav; sourceTree = "<group>"; };
-		786182C21994B24900B4BEFD /* 8.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 8.wav; sourceTree = "<group>"; };
-		786182C31994B24900B4BEFD /* 6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 6.wav; sourceTree = "<group>"; };
-		786182C41994B24900B4BEFD /* 3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 3.wav; sourceTree = "<group>"; };
-		786182C51994B24900B4BEFD /* 10.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 10.wav; sourceTree = "<group>"; };
+		786182D01994C6FF00B4BEFD /* 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 1.wav; sourceTree = "<group>"; };
+		786182D11994C6FF00B4BEFD /* 2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 2.wav; sourceTree = "<group>"; };
+		786182D31994C6FF00B4BEFD /* 4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 4.wav; sourceTree = "<group>"; };
+		786182D41994C6FF00B4BEFD /* 5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 5.wav; sourceTree = "<group>"; };
+		786182D51994C6FF00B4BEFD /* 6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 6.wav; sourceTree = "<group>"; };
+		786182D61994C6FF00B4BEFD /* 7.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 7.wav; sourceTree = "<group>"; };
+		786182D71994C6FF00B4BEFD /* 8.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 8.wav; sourceTree = "<group>"; };
+		786182D81994C6FF00B4BEFD /* 9.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 9.wav; sourceTree = "<group>"; };
+		786182D91994C6FF00B4BEFD /* 10.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 10.wav; sourceTree = "<group>"; };
+		786182E41994C88E00B4BEFD /* 3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 3.wav; sourceTree = "<group>"; };
 		78745FEA198ECAE300650542 /* OpenSans-CondBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-CondBold.ttf"; sourceTree = "<group>"; };
 		78745FEF198ED6EC00650542 /* HDRBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRBaseViewController.h; sourceTree = "<group>"; };
 		78745FF0198ED6EC00650542 /* HDRBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRBaseViewController.m; sourceTree = "<group>"; };
@@ -243,16 +243,16 @@
 		786182BB1994B23A00B4BEFD /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				786182BC1994B24900B4BEFD /* 9.wav */,
-				786182BD1994B24900B4BEFD /* 4.wav */,
-				786182BE1994B24900B4BEFD /* 7.wav */,
-				786182BF1994B24900B4BEFD /* 1.wav */,
-				786182C01994B24900B4BEFD /* 2.wav */,
-				786182C11994B24900B4BEFD /* 5.wav */,
-				786182C21994B24900B4BEFD /* 8.wav */,
-				786182C31994B24900B4BEFD /* 6.wav */,
-				786182C41994B24900B4BEFD /* 3.wav */,
-				786182C51994B24900B4BEFD /* 10.wav */,
+				786182D01994C6FF00B4BEFD /* 1.wav */,
+				786182D11994C6FF00B4BEFD /* 2.wav */,
+				786182E41994C88E00B4BEFD /* 3.wav */,
+				786182D31994C6FF00B4BEFD /* 4.wav */,
+				786182D41994C6FF00B4BEFD /* 5.wav */,
+				786182D51994C6FF00B4BEFD /* 6.wav */,
+				786182D61994C6FF00B4BEFD /* 7.wav */,
+				786182D71994C6FF00B4BEFD /* 8.wav */,
+				786182D81994C6FF00B4BEFD /* 9.wav */,
+				786182D91994C6FF00B4BEFD /* 10.wav */,
 				78B1311A19592FFA00D74FD0 /* Hodor.wav */,
 				787F4785195800100064BFCE /* Hodor-Echo.wav */,
 				78237CDA1955853500BE750D /* Hodor1.wav */,
@@ -427,26 +427,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				786182C91994B24900B4BEFD /* 1.wav in Resources */,
+				786182E51994C88E00B4BEFD /* 3.wav in Resources */,
+				786182DB1994C6FF00B4BEFD /* 2.wav in Resources */,
 				78237CD719552D2E00BE750D /* MainStoryboard.storyboard in Resources */,
 				78237CE51955875900BE750D /* HDRHomeTableViewCell.xib in Resources */,
-				786182CA1994B24900B4BEFD /* 2.wav in Resources */,
 				78B1311B19592FFA00D74FD0 /* Hodor.wav in Resources */,
-				786182CB1994B24900B4BEFD /* 5.wav in Resources */,
-				786182CF1994B24900B4BEFD /* 10.wav in Resources */,
-				786182C71994B24900B4BEFD /* 4.wav in Resources */,
 				78CCE6A319552C46009EA16B /* InfoPlist.strings in Resources */,
+				786182E31994C6FF00B4BEFD /* 10.wav in Resources */,
+				786182DF1994C6FF00B4BEFD /* 6.wav in Resources */,
+				786182DE1994C6FF00B4BEFD /* 5.wav in Resources */,
+				786182E11994C6FF00B4BEFD /* 8.wav in Resources */,
 				78237CF3195698B200BE750D /* HDRInviteTableViewCell.xib in Resources */,
-				786182CC1994B24900B4BEFD /* 8.wav in Resources */,
 				787F4786195800100064BFCE /* Hodor-Echo.wav in Resources */,
-				786182CD1994B24900B4BEFD /* 6.wav in Resources */,
-				786182C61994B24900B4BEFD /* 9.wav in Resources */,
+				786182DA1994C6FF00B4BEFD /* 1.wav in Resources */,
+				786182DD1994C6FF00B4BEFD /* 4.wav in Resources */,
+				786182E01994C6FF00B4BEFD /* 7.wav in Resources */,
+				786182E21994C6FF00B4BEFD /* 9.wav in Resources */,
 				78237CEA1956814300BE750D /* HDRAddUserNameTableViewCell.xib in Resources */,
 				78CCE6AB19552C46009EA16B /* Images.xcassets in Resources */,
 				78745FEB198ECAE300650542 /* OpenSans-CondBold.ttf in Resources */,
-				786182CE1994B24900B4BEFD /* 3.wav in Resources */,
 				78237CDB1955853500BE750D /* Hodor1.wav in Resources */,
-				786182C81994B24900B4BEFD /* 7.wav in Resources */,
 				780AFEA6196FB52800596CC6 /* HDRListBox.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
