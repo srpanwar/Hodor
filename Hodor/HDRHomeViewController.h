@@ -14,8 +14,6 @@
 
 @interface HDRHomeViewController : HDRBaseViewController<UITableViewDataSource, UITableViewDelegate>
 
-@property NSMutableDictionary *userPingedData;
-
 @property (weak, nonatomic) IBOutlet UILabel *pageTitleLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *shareBtn;

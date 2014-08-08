@@ -18,7 +18,7 @@
     
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes: (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
 
-    //[HDRCurrentUser setCurrentUserName:@"HEMAN"];
+    //[HDRCurrentUser setCurrentUserName:@"SHAKTIMAN"];
     
     return YES;
 }
@@ -49,15 +49,19 @@
         [[HDRFriends instance] addFriend:newFriend];
     }
     
+    //store the ping data
     NSString *pingedText = [userInfo objectForKey:@"text"];
+    pingedText = (pingedText ? pingedText : @"hodor!!");
+    [[HDRFriends instance] setNotification:[userName uppercaseString] text:pingedText];
+    
+    //refresh the ui
     UINavigationController *root = (UINavigationController *)self.window.rootViewController;
-    if (root && [root.topViewController isKindOfClass:[HDRHomeViewController class]])
+    if (root && [root.topViewController isKindOfClass:[HDRHomeViewController class]] &&  [[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
     {
         HDRHomeViewController *controller = (HDRHomeViewController *)root.topViewController;
-        [controller.userPingedData setObject:[userName uppercaseString] forKey:(pingedText ? pingedText : @"hodor!!")];
         [controller refreshView];
     }
-
+    
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler

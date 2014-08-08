@@ -33,8 +33,7 @@
     
     // Do any additional setup after loading the view.
     [self registerForKeyboardNotifications];
-    self.userPingedData = [[NSMutableDictionary alloc] init];
-    
+
     self.pageTitleLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:24];
     self.pageTitleLabel.text = [NSString stringWithFormat:@"HODOR + YOU(%@)", [HDRCurrentUser getCurrentUserName]];
     
@@ -45,7 +44,7 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     [self colorifyRatings];
-    //[self checkPushEnabled];
+    [self checkPushEnabled];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
 }
@@ -58,8 +57,9 @@
 - (void)applicationWillEnterForeground:(NSNotification *)notification
 {
     srand((unsigned)time(NULL));
+    
     [self colorifyRatings];
-    //[self checkPushEnabled];
+    [self checkPushEnabled];
     [self refreshView];
 }
 
@@ -104,10 +104,10 @@
         cell = cell1;
         
         //flash
-        NSString *textMessage = [self.userPingedData objectForKey:cell1.nameLabel.text];
+        NSString *textMessage = user.notification;
         if (textMessage && textMessage.length)
         {
-            [self.userPingedData removeObjectForKey:cell1.nameLabel.text];
+            [[HDRFriends instance] setNotification:user.name text:@""];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                 [cell1 flashHodor: textMessage];
             });
