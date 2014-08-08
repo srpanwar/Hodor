@@ -155,6 +155,17 @@
     }
 }
 
+- (void)setNotification:(NSString *)userName text:(NSString *)text
+{
+    @synchronized(self)
+    {
+        HDRUser *user = [self findFriend:userName];
+        user.notification = text;
+        [self save];
+        self.refreshNeeded = YES;
+    }
+}
+
 - (void)save
 {
     [self writeArrayWithCustomObjToUserDefaults:@"HDRFriendsList" withArray:self.friendsList];

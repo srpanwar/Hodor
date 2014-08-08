@@ -21,4 +21,5 @@
 - (void) deleteFriend:(HDRUser *)user;
 - (void) blockFriend:(HDRUser *)user;
 
+- (void)setNotification:(NSString *)userName text:(NSString *)text;
 @end
