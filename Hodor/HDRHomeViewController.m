@@ -37,6 +37,9 @@
     self.pageTitleLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:24];
     self.pageTitleLabel.text = [NSString stringWithFormat:@"HODOR + YOU(%@)", [HDRCurrentUser getCurrentUserName]];
     
+    self.ratingBtn.layer.cornerRadius = 20.0f;
+    self.shareBtn.layer.cornerRadius = 20.0f;
+    
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
