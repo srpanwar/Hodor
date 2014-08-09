@@ -149,10 +149,23 @@
 - (void)flashHodor:(NSString *)text
 {
     self.flashLabel.text = text;
-    self.flashLabel.alpha = 1;
-    [UIView animateWithDuration:2.0f delay:5.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.flashLabel.alpha = 0;
-    } completion:nil];
+    
+    [UIView animateWithDuration:0.5f delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
+
+        self.flashLabel.alpha = 1;
+        self.nameLabel.alpha = 0.1;
+        
+    } completion:^(BOOL finished) {
+        
+        [UIView animateWithDuration:1.0f delay:3.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
+
+            self.flashLabel.alpha = 0;
+            self.nameLabel.alpha = 1;
+
+        } completion:nil];
+        
+    }];
+    
 }
 
 #pragma mark IBACTIONS
