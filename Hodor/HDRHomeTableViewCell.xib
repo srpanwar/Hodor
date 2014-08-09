@@ -29,7 +29,7 @@
                         <color key="shadowColor" white="0.45000000000000001" alpha="1" colorSpace="calibratedWhite"/>
                         <size key="shadowOffset" width="0.0" height="0.0"/>
                     </label>
-                    <imageView alpha="0.89999999999999991" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_hodor" id="oc3-WR-MXl">
+                    <imageView alpha="0.89999999999999991" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_hodor" id="oc3-WR-MXl">
                         <rect key="frame" x="276" y="25" width="35" height="35"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.21849338503649635" alpha="0.0" colorSpace="calibratedWhite"/>
