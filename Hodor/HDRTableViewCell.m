@@ -9,7 +9,7 @@
 #import "HDRTableViewCell.h"
 
 #define INDEX_COLOR_MAP @[\
-    [UIColor colorWithRed:220/255.0f green:196/255.0f blue:100/255.0f alpha:1], \
+    [UIColor colorWithRed:210/255.0f green:186/255.0f blue:90/255.0f alpha:1], \
     [UIColor colorWithRed:208/255.0f green:79/255.0f blue:119/255.0f alpha:1], \
     [UIColor colorWithRed:131/255.0f green:175/255.0f blue:155/255.0f alpha:1], \
     [UIColor colorWithRed:2/255.0f green:119/255.0f blue:158/255.0f alpha:1], \
