@@ -19,6 +19,8 @@
 
 - (BOOL)blockUser:(NSString *)userName;
 
+- (BOOL)unBlockUser:(NSString *)userName;
+
 - (void)sendHODOR:(NSString *)recipient;
 
 - (void)sendText:(NSString *)recipient text:(NSString *)text;

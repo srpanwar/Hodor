@@ -148,6 +148,32 @@
     return error == nil && response.statusCode == 200;
 }
 
+- (BOOL) unBlockUser:(NSString *)userName
+{
+    if (!userName)
+    {
+        return NO;
+    }
+    
+    //form the url
+    NSURL *url = [NSURL URLWithString:HODOR_SERVICE_ENDPOINT];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    
+    NSString *body = [NSString stringWithFormat:@"method=unblockuser&blocker=%@&blockee=%@", [HDRCurrentUser getCurrentUserName], userName];
+    body = [self doHash:body];
+    
+    request.HTTPMethod = @"POST";
+    request.HTTPBody = [body dataUsingEncoding:NSUTF8StringEncoding];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    NSError *error = nil;
+    NSHTTPURLResponse *response = nil;
+    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    return error == nil && response.statusCode == 200;
+}
+
+
 - (void)sendRemoteNotificationsDeviceToken:(NSString *)deviceToken
 {
     if (!deviceToken || ![HDRCurrentUser getCurrentUserName])// || [HDRCurrentUser isNotificationTokenSet])
