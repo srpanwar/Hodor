@@ -14,8 +14,9 @@
 
 @interface HDRHomeTableViewCell : HDRTableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *flashLabel;
 @property HDRUser* user;
+
+@property (weak, nonatomic) IBOutlet UILabel *flashLabel;
 @property (weak, nonatomic) IBOutlet UIView *menuView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *busyIndicator;
 @property (weak, nonatomic) IBOutlet UIButton *blockBtn;

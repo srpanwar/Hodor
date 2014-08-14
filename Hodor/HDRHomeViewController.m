@@ -197,6 +197,11 @@
     state = !state;
 }
 
+- (IBAction)gotoNounProject:(id)sender
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://thenounproject.com/simplisto/"]];
+}
+
 // Call this method somewhere in your view controller setup code.
 - (void)registerForKeyboardNotifications
 {

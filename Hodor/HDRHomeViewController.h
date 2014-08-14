@@ -24,6 +24,7 @@
 - (IBAction)doShare:(id)sender;
 - (IBAction)rateTheApp:(id)sender;
 - (IBAction)showMore:(id)sender;
+- (IBAction)gotoNounProject:(id)sender;
 
 
 @end
