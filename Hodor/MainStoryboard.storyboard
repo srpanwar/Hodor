@@ -131,14 +131,14 @@
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="0.72999999999999998" colorSpace="calibratedRGB"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="89" sectionHeaderHeight="22" sectionFooterHeight="22" id="eSI-sJ-9nx">
-                                <rect key="frame" x="0.0" y="35" width="320" height="534"/>
+                                <rect key="frame" x="0.0" y="35" width="320" height="513"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.80000000000000004" alpha="0.57999999999999996" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="usr-YS-Iyp">
-                                <rect key="frame" x="10" y="493" width="40" height="40"/>
+                                <rect key="frame" x="10" y="444" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="0.20000000000000001" colorSpace="calibratedWhite"/>
                                 <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
@@ -150,7 +150,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bPv-rl-vsG">
-                                <rect key="frame" x="10" y="445" width="40" height="40"/>
+                                <rect key="frame" x="10" y="395" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="0.20000000000000001" colorSpace="calibratedWhite"/>
                                 <inset key="contentEdgeInsets" minX="9" minY="10" maxX="9" maxY="9"/>
@@ -159,6 +159,18 @@
                                 </state>
                                 <connections>
                                     <action selector="rateTheApp:" destination="qmg-VW-uDI" eventType="touchUpInside" id="2wN-OS-hpi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="udK-FT-ths">
+                                <rect key="frame" x="10" y="493" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="0.20000000000000001" colorSpace="calibratedWhite"/>
+                                <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                                <state key="normal" title="Button" image="icon_all">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showMore:" destination="qmg-VW-uDI" eventType="touchUpInside" id="85L-0p-Kcf"/>
                                 </connections>
                             </button>
                             <view hidden="YES" contentMode="scaleToFill" id="4t7-8r-n6p">
@@ -193,6 +205,7 @@
                     <navigationItem key="navigationItem" id="6Rp-Za-5ne"/>
                     <connections>
                         <outlet property="enablePushView" destination="4t7-8r-n6p" id="83x-rF-hb4"/>
+                        <outlet property="moreBtn" destination="udK-FT-ths" id="nOy-Y3-GjQ"/>
                         <outlet property="pageTitleLabel" destination="iuf-di-hVY" id="N9U-Ta-UpI"/>
                         <outlet property="ratingBtn" destination="bPv-rl-vsG" id="VI6-Ef-G2x"/>
                         <outlet property="shareBtn" destination="usr-YS-Iyp" id="4us-ej-mmY"/>
@@ -224,8 +237,9 @@
     </scenes>
     <resources>
         <image name="enable_push2" width="640" height="1136"/>
+        <image name="icon_all" width="90" height="90"/>
         <image name="icon_heart" width="100" height="100"/>
-        <image name="icon_share" width="50" height="50"/>
+        <image name="icon_share" width="90" height="90"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

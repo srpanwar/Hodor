@@ -12,6 +12,9 @@
 
 @property NSMutableArray *friends;
 
+@property CGRect rateFrame;
+@property CGRect shareFrame;
+
 @end
 
 @implementation HDRHomeViewController
@@ -39,6 +42,14 @@
     
     self.ratingBtn.layer.cornerRadius = 20.0f;
     self.shareBtn.layer.cornerRadius = 20.0f;
+    self.moreBtn.layer.cornerRadius = 20.0f;
+    
+    self.ratingBtn.alpha = 0;
+    self.shareBtn.alpha = 0;
+    
+    self.rateFrame = self.ratingBtn.frame;
+    self.shareFrame = self.shareBtn.frame;
+    self.ratingBtn.frame = self.shareBtn.frame = self.moreBtn.frame;
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -159,6 +170,31 @@
 - (IBAction)rateTheApp:(id)sender
 {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/app/id892252299"]];
+}
+
+- (IBAction)showMore:(id)sender
+{
+    static BOOL state = YES;
+    if (state)
+    {
+        [UIView animateWithDuration:0.3f animations:^{
+            self.ratingBtn.frame = self.rateFrame;
+            self.shareBtn.frame = self.shareFrame;
+            self.ratingBtn.alpha = self.shareBtn.alpha = 1;
+            self.moreBtn.alpha = 0.8;
+        }];
+    }
+    else
+    {
+        [UIView animateWithDuration:0.3f animations:^{
+            self.ratingBtn.frame = self.moreBtn.frame;
+            self.shareBtn.frame = self.moreBtn.frame;
+            self.ratingBtn.alpha = self.shareBtn.alpha = 0;
+            self.moreBtn.alpha = 1;
+        }];
+    }
+    
+    state = !state;
 }
 
 // Call this method somewhere in your view controller setup code.
