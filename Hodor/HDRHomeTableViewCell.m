@@ -45,6 +45,8 @@
     //copy to clipboard
     UITapGestureRecognizer *singleTapGestureRecognizer3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cToClipboard)];
     [self.flashLabel addGestureRecognizer:singleTapGestureRecognizer3];
+
+//    [self flashHodor:@"this is a long text message http://google.com"];
 }
 
 - (void)firstRun
@@ -169,7 +171,7 @@
     [UIView animateWithDuration:0.5f delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
 
         self.flashLabel.alpha = 1;
-        self.nameLabel.alpha = self.hodorImage.alpha = 0.1;
+        self.nameLabel.alpha = self.hodorImage.alpha = 0.05;
         
     } completion:^(BOOL finished) {
         
