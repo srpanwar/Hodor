@@ -55,6 +55,8 @@
 		78CCE6B419552C46009EA16B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78CCE69C19552C46009EA16B /* UIKit.framework */; };
 		78CCE6BC19552C46009EA16B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 78CCE6BA19552C46009EA16B /* InfoPlist.strings */; };
 		78CCE6BE19552C46009EA16B /* HodorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 78CCE6BD19552C46009EA16B /* HodorTests.m */; };
+		78DA61FA199CA8E4006066CF /* 11.wav in Resources */ = {isa = PBXBuildFile; fileRef = 78DA61F8199CA8E4006066CF /* 11.wav */; };
+		78DA61FB199CA8E4006066CF /* 12.wav in Resources */ = {isa = PBXBuildFile; fileRef = 78DA61F9199CA8E4006066CF /* 12.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +137,8 @@
 		78CCE6B919552C46009EA16B /* HodorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HodorTests-Info.plist"; sourceTree = "<group>"; };
 		78CCE6BB19552C46009EA16B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		78CCE6BD19552C46009EA16B /* HodorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HodorTests.m; sourceTree = "<group>"; };
+		78DA61F8199CA8E4006066CF /* 11.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 11.wav; sourceTree = "<group>"; };
+		78DA61F9199CA8E4006066CF /* 12.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 12.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +257,8 @@
 				786182D71994C6FF00B4BEFD /* 8.wav */,
 				786182D81994C6FF00B4BEFD /* 9.wav */,
 				786182D91994C6FF00B4BEFD /* 10.wav */,
+				78DA61F8199CA8E4006066CF /* 11.wav */,
+				78DA61F9199CA8E4006066CF /* 12.wav */,
 				78B1311A19592FFA00D74FD0 /* Hodor.wav */,
 				787F4785195800100064BFCE /* Hodor-Echo.wav */,
 				78237CDA1955853500BE750D /* Hodor1.wav */,
@@ -429,6 +435,7 @@
 			files = (
 				786182E51994C88E00B4BEFD /* 3.wav in Resources */,
 				786182DB1994C6FF00B4BEFD /* 2.wav in Resources */,
+				78DA61FA199CA8E4006066CF /* 11.wav in Resources */,
 				78237CD719552D2E00BE750D /* MainStoryboard.storyboard in Resources */,
 				78237CE51955875900BE750D /* HDRHomeTableViewCell.xib in Resources */,
 				78B1311B19592FFA00D74FD0 /* Hodor.wav in Resources */,
@@ -444,6 +451,7 @@
 				786182E01994C6FF00B4BEFD /* 7.wav in Resources */,
 				786182E21994C6FF00B4BEFD /* 9.wav in Resources */,
 				78237CEA1956814300BE750D /* HDRAddUserNameTableViewCell.xib in Resources */,
+				78DA61FB199CA8E4006066CF /* 12.wav in Resources */,
 				78CCE6AB19552C46009EA16B /* Images.xcassets in Resources */,
 				78745FEB198ECAE300650542 /* OpenSans-CondBold.ttf in Resources */,
 				78237CDB1955853500BE750D /* Hodor1.wav in Resources */,
