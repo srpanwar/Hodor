@@ -15,6 +15,7 @@
     [super awakeFromNib];
     
     // Initialization code
+    self.busyImage.alpha = 0;
     self.menuView.alpha = 0;
     self.flashLabel.alpha = 0;
     
@@ -117,14 +118,13 @@
     
     self.nameLabel.hidden = YES;
     self.hodorImage.hidden = YES;
-    [self.busyIndicator startAnimating];
+//    [self.busyIndicator startAnimating];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         [[HDRNetworkProvider instance] sendText:name text:text];
     });
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.6 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        [self.busyIndicator stopAnimating];
+    [self rotateImageView:^{
         self.nameLabel.hidden = NO;
         self.hodorImage.hidden = NO;
         self.nameLabel.text = @"SEND!";
@@ -134,7 +134,20 @@
             [[HDRFriends instance] moveToTop:self.user];
             [self.tableView moveRowAtIndexPath:[self.tableView indexPathForCell:self] toIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
         });
-    });
+    }];
+    
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.6 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+//        [self.busyIndicator stopAnimating];
+//        self.nameLabel.hidden = NO;
+//        self.hodorImage.hidden = NO;
+//        self.nameLabel.text = @"SEND!";
+//        
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.6 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+//            self.nameLabel.text = [name uppercaseString];
+//            [[HDRFriends instance] moveToTop:self.user];
+//            [self.tableView moveRowAtIndexPath:[self.tableView indexPathForCell:self] toIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+//        });
+//    });
 }
 
 - (void) doHodor
@@ -143,14 +156,13 @@
     
     self.nameLabel.hidden = YES;
     self.hodorImage.hidden = YES;
-    [self.busyIndicator startAnimating];
+//    [self.busyIndicator startAnimating];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         [[HDRNetworkProvider instance] sendHODOR:name];
     });
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.6 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        [self.busyIndicator stopAnimating];
+
+    [self rotateImageView:^{
         self.nameLabel.hidden = NO;
         self.hodorImage.hidden = NO;
         self.nameLabel.text = @"HODORED!";
@@ -160,7 +172,21 @@
             [[HDRFriends instance] moveToTop:self.user];
             [self.tableView moveRowAtIndexPath:[self.tableView indexPathForCell:self] toIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
         });
-    });
+    }];
+
+    
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.6 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+//        [self.busyIndicator stopAnimating];
+//        self.nameLabel.hidden = NO;
+//        self.hodorImage.hidden = NO;
+//        self.nameLabel.text = @"HODORED!";
+//        
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.6 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+//            self.nameLabel.text = [name uppercaseString];
+//            [[HDRFriends instance] moveToTop:self.user];
+//            [self.tableView moveRowAtIndexPath:[self.tableView indexPathForCell:self] toIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+//        });
+//    });
 
 }
 
@@ -292,6 +318,34 @@
         }
         
     }];
+}
+
+- (void)rotateImageView:(void(^)(void))completionBlock
+{
+    self.busyImage.alpha = 1;
+    
+    //rotation
+    CABasicAnimation* rotationAnimation;
+    rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    rotationAnimation.toValue = [NSNumber numberWithFloat: M_PI * 2.0 /* full rotation*/ * 2 * 0.25 ];
+    rotationAnimation.duration = 0.4f;
+    rotationAnimation.cumulative = YES;
+    rotationAnimation.repeatCount = 4.5;
+    [self.busyImage.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
+    
+    [UIView animateWithDuration:0.5f
+                          delay:0.5f
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         self.busyImage.alpha = 0;
+                     } completion:^(BOOL finished) {
+                         dispatch_async(dispatch_get_main_queue(), ^{
+                             if (completionBlock)
+                             {
+                                 completionBlock();
+                             }
+                         });
+                     }];
 }
 
 @end

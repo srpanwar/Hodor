@@ -58,7 +58,7 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     [self colorifyRatings];
-    [self checkPushEnabled];
+    //[self checkPushEnabled];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
 }
@@ -73,7 +73,7 @@
     srand((unsigned)time(NULL));
     
     [self colorifyRatings];
-    [self checkPushEnabled];
+    //[self checkPushEnabled];
     [self refreshView];
 }
 

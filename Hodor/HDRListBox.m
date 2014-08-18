@@ -29,6 +29,7 @@
     
     //self.backgroundColor = [UIColor colorWithPatternImage:[[self imageWithView:[[UIApplication sharedApplication] keyWindow]] applyLightEffect]];
     self.textBox.delegate = self;
+    self.scrollView.scrollEnabled = NO;
     self.scrollView.contentSize = self.scrollView.bounds.size;
     self.tableView.sectionHeaderHeight = 0.0;
     self.tableView.sectionFooterHeight = 0.0;
@@ -38,6 +39,8 @@
 
     [self registerForKeyboardNotifications];
     [self animateUp];
+    
+    [self.textBox becomeFirstResponder];
 }
 
 - (void)refresh:(NSMutableArray *)items
@@ -66,7 +69,7 @@
 #pragma mark - UITableViewDataSource, UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 60.0f;
+    return 50.0f;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
@@ -86,7 +89,7 @@
         
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"reuseIdentifier"];
         
-        cell.textLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:23];
+        cell.textLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:22];
         cell.textLabel.text = self.collection[indexPath.row];
         cell.textLabel.textColor = [UIColor colorWithWhite:0.27 alpha:0.9];
         cell.backgroundColor = [UIColor colorWithWhite:1.0f alpha:0.63];
@@ -115,13 +118,15 @@
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
-    
-    CGRect frame = self.tableView.frame;
-    frame.origin.y = [UIScreen mainScreen].bounds.size.height;
 
+    CGRect bFrame = self.buttonsContainer.frame;
+    CGRect frame = self.tableView.frame;
+    bFrame.origin.y = frame.origin.y = [UIScreen mainScreen].bounds.size.height;
+    
     [UIView animateWithDuration:0.2f animations:^{
         self.alpha = 0;
         self.tableView.frame = frame;
+        self.buttonsContainer.frame = bFrame;
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
     }];
@@ -129,15 +134,20 @@
 
 - (void)animateUp
 {
+    CGRect bFrame = self.buttonsContainer.frame;
     CGRect frame = self.tableView.frame;
     CGFloat y = frame.origin.y;
+    CGFloat by = bFrame.origin.y;
     
-    frame.origin.y = [UIScreen mainScreen].bounds.size.height;
+    bFrame.origin.y = frame.origin.y = [UIScreen mainScreen].bounds.size.height;
     self.tableView.frame = frame;
+    self.buttonsContainer.frame = bFrame;
     
     frame.origin.y = y;
+    bFrame.origin.y = by;
     [UIView animateWithDuration:0.3f animations:^{
         self.tableView.frame = frame;
+        self.buttonsContainer.frame = bFrame;
         self.alpha = 1;
     }];
 }
@@ -191,7 +201,7 @@
     UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height + 10, 0.0);
     self.scrollView.contentInset = contentInsets;
     self.scrollView.scrollIndicatorInsets = contentInsets;
-    self.tableView.hidden = YES;
+    //self.tableView.hidden = YES;
 }
 
 // Called when the UIKeyboardWillHideNotification is sent

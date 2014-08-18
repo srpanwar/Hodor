@@ -33,6 +33,7 @@
     
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.textField setTintColor:[UIColor whiteColor]];
     
     self.pageTitleLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:24];
 

@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *busyIndicator;
 @property (weak, nonatomic) IBOutlet UIButton *blockBtn;
 @property (weak, nonatomic) IBOutlet UIImageView *hodorImage;
+@property (weak, nonatomic) IBOutlet UIImageView *busyImage;
 
 @property (weak, nonatomic) IBOutlet UIButton *cancelLabel;
 @property (weak, nonatomic) IBOutlet UIButton *deleteLabel;

@@ -95,6 +95,11 @@
                             <action selector="callHodor:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="54b-Z9-v67"/>
                         </connections>
                     </button>
+                    <imageView alpha="0.80000001192092896" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_hodor" id="j6M-39-Koh">
+                        <rect key="frame" x="131" y="16" width="57" height="57"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="0.21849338500000001" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </tableViewCellContentView>
@@ -102,6 +107,7 @@
             <connections>
                 <outlet property="blockBtn" destination="VUE-X6-tco" id="oln-JO-PGZ"/>
                 <outlet property="blockLabel" destination="VUE-X6-tco" id="r5s-iT-b4d"/>
+                <outlet property="busyImage" destination="j6M-39-Koh" id="7W3-Vy-ucm"/>
                 <outlet property="busyIndicator" destination="XZJ-Fw-9Gb" id="jIZ-Zs-Web"/>
                 <outlet property="cancelLabel" destination="R4K-xC-iV9" id="Oza-pp-ftw"/>
                 <outlet property="deleteLabel" destination="9cU-lB-7Lc" id="VPo-Yy-ptX"/>
