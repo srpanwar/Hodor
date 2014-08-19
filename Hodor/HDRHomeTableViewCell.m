@@ -28,6 +28,13 @@
     self.cancelLabel.titleLabel.font =  [UIFont fontWithName:@"OpenSans-CondensedBold" size:28];
     self.deleteLabel.titleLabel.font =  [UIFont fontWithName:@"OpenSans-CondensedBold" size:28];
     self.blockLabel.titleLabel.font =  [UIFont fontWithName:@"OpenSans-CondensedBold" size:28];
+    self.countBtn.titleLabel.font =  [UIFont fontWithName:@"OpenSans-CondensedBold" size:16];
+    
+    self.countBtn.layer.borderColor = [UIColor colorWithWhite:0.9 alpha:1].CGColor;
+    self.countBtn.layer.borderWidth = 1;
+    self.countBtn.layer.cornerRadius = 8;
+    [self.countBtn setTitle:[NSString stringWithFormat:@"%d", rand()%10] forState:UIControlStateNormal];
+    //self.countBtn.hidden = YES;
     
     //menu
     UISwipeGestureRecognizer *leftSwipeUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(showMenu)];
@@ -293,7 +300,9 @@
 
 - (void)rotateImageView:(void(^)(void))completionBlock
 {
-    [HDRUtils playSoundOutgoing];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [HDRUtils playSoundOutgoing];
+    });
     
     self.busyImage.alpha = 1;
     
