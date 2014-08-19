@@ -11,6 +11,7 @@
 #import "HDRNetworkProvider.h"
 #import "HDRFriends.h"
 #import "HDRListBox.h"
+#import "HDRUtils.h"
 
 @interface HDRHomeTableViewCell : HDRTableViewCell
 

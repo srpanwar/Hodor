@@ -12,5 +12,7 @@
 @interface HDRUtils : NSObject
 
 + (void) playSound;
++ (void) playSoundIncoming;
++ (void) playSoundOutgoing;
 
 @end

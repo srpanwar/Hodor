@@ -47,7 +47,7 @@
     UITapGestureRecognizer *singleTapGestureRecognizer3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cToClipboard)];
     [self.flashLabel addGestureRecognizer:singleTapGestureRecognizer3];
 
-//    [self flashHodor:@"this is a long text message http://google.com"];
+    //[self flashHodor:@"this is a long text message http://google.com"];
 }
 
 - (void)firstRun
@@ -118,7 +118,6 @@
     
     self.nameLabel.hidden = YES;
     self.hodorImage.hidden = YES;
-//    [self.busyIndicator startAnimating];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         [[HDRNetworkProvider instance] sendText:name text:text];
@@ -135,19 +134,6 @@
             [self.tableView moveRowAtIndexPath:[self.tableView indexPathForCell:self] toIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
         });
     }];
-    
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.6 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-//        [self.busyIndicator stopAnimating];
-//        self.nameLabel.hidden = NO;
-//        self.hodorImage.hidden = NO;
-//        self.nameLabel.text = @"SEND!";
-//        
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.6 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-//            self.nameLabel.text = [name uppercaseString];
-//            [[HDRFriends instance] moveToTop:self.user];
-//            [self.tableView moveRowAtIndexPath:[self.tableView indexPathForCell:self] toIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-//        });
-//    });
 }
 
 - (void) doHodor
@@ -156,7 +142,6 @@
     
     self.nameLabel.hidden = YES;
     self.hodorImage.hidden = YES;
-//    [self.busyIndicator startAnimating];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         [[HDRNetworkProvider instance] sendHODOR:name];
@@ -173,21 +158,6 @@
             [self.tableView moveRowAtIndexPath:[self.tableView indexPathForCell:self] toIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
         });
     }];
-
-    
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.6 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-//        [self.busyIndicator stopAnimating];
-//        self.nameLabel.hidden = NO;
-//        self.hodorImage.hidden = NO;
-//        self.nameLabel.text = @"HODORED!";
-//        
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.6 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-//            self.nameLabel.text = [name uppercaseString];
-//            [[HDRFriends instance] moveToTop:self.user];
-//            [self.tableView moveRowAtIndexPath:[self.tableView indexPathForCell:self] toIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-//        });
-//    });
-
 }
 
 - (void)flashHodor:(NSString *)text
@@ -201,6 +171,8 @@
         
     } completion:^(BOOL finished) {
         
+        [HDRUtils playSoundIncoming];
+        
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [UIView animateWithDuration:1.0f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                 
@@ -211,7 +183,6 @@
         });
         
     }];
-    
 }
 
 #pragma mark IBACTIONS
