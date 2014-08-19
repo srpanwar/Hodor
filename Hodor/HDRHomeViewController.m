@@ -11,6 +11,7 @@
 @interface HDRHomeViewController ()
 
 @property NSMutableArray *friends;
+@property NSCache *cachedCells;
 
 @property CGRect rateFrame;
 @property CGRect shareFrame;
@@ -38,6 +39,8 @@
     // Do any additional setup after loading the view.
     [self registerForKeyboardNotifications];
 
+    self.cachedCells = [[NSCache alloc] init];
+    
     self.pageTitleLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:24];
     self.pageTitleLabel.text = [NSString stringWithFormat:@"HODOR + YOU(%@)", [HDRCurrentUser getCurrentUserName]];
     
@@ -98,6 +101,7 @@
 - (void)refreshView
 {
     self.friends = [NSMutableArray arrayWithArray:[[HDRFriends instance] getFriends]];
+    [self.cachedCells removeAllObjects];
     [self.tableView reloadData];
 }
 
@@ -116,11 +120,20 @@
     if (indexPath.row < (self.friends.count))
     {
         HDRUser *user = self.friends[indexPath.row];
-        HDRHomeTableViewCell *cell1 = (HDRHomeTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"HDRHomeTableViewCell" owner:nil options:nil] lastObject];
+        HDRHomeTableViewCell *cell1 = [self.cachedCells objectForKey:user.name];
+        if (!cell1)
+        {
+            cell1 = (HDRHomeTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"HDRHomeTableViewCell" owner:nil options:nil] lastObject];
+            cell1.user = user;
+            cell1.nameLabel.text = [user.name uppercaseString];
+            
+            [self.cachedCells setObject:cell1 forKey:user.name];
+        }
 
-        cell1.user = user;
-        cell1.nameLabel.text = [user.name uppercaseString];
         cell = cell1;
+        
+        //fetch and show messages
+        [cell1 loadMessages];
         
         //flash
         NSString *textMessage = user.notification;

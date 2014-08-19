@@ -122,6 +122,11 @@
     return;
 }
 
+- (void)getMessages:(NSString *)username
+{
+    
+}
+
 
 - (BOOL) blockUser:(NSString *)userName
 {

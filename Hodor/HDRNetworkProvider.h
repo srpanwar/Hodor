@@ -27,4 +27,6 @@
 
 - (void)sendRemoteNotificationsDeviceToken:(NSString *)deviceToken;
 
+- (void)getMessages:(NSString *)username;
+
 @end

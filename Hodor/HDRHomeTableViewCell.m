@@ -65,6 +65,11 @@
     });
 }
 
+- (void)loadMessages
+{
+        
+}
+
 #pragma mark GESTURE ACTIONS
 
 - (void)cToClipboard

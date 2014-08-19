@@ -36,6 +36,7 @@
 - (IBAction)viewMessages:(id)sender;
 
 - (void)flashHodor:(NSString *)text;
+- (void)loadMessages;
 - (void)firstRun;
 
 @end
