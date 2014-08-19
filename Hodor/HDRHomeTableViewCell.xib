@@ -96,7 +96,7 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" id="JvF-yq-WM3">
-                        <rect key="frame" x="8" y="32" width="26" height="26"/>
+                        <rect key="frame" x="7" y="32" width="29" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <state key="normal" title="0">
                             <color key="titleColor" white="0.95000000000000007" alpha="1" colorSpace="calibratedWhite"/>
