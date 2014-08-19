@@ -277,6 +277,8 @@
                 message.toUser = [jMsg objectForKey:@"Receiver"];
                 message.content = [jMsg objectForKey:@"Content"];
                 message.notificationType = [(NSNumber *)[jMsg objectForKey:@"NotificationType"] integerValue];
+                message.createdDateString = [jMsg objectForKey:@"CreatedDate"];
+                
                 //message.createdDate = [(NSNumber *)[jMsg objectForKey:@"CreatedDate"] doubleValue];
                 
                 [messages addObject:message];

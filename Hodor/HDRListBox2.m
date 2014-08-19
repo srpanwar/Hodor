@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Troupe Of Vagrants. All rights reserved.
 //
 
-#import "HDRListBox.h"
+#import "HDRListBox2.h"
 
-@implementation HDRListBox
+@implementation HDRListBox2
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -33,14 +33,12 @@
     self.scrollView.contentSize = self.scrollView.bounds.size;
     self.tableView.sectionHeaderHeight = 0.0;
     self.tableView.sectionFooterHeight = 0.0;
-
+    
     UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(close)];
     [self.contentView addGestureRecognizer:singleTapGestureRecognizer];
-
+    
     [self registerForKeyboardNotifications];
     [self animateUp];
-    
-    [self.textBox becomeFirstResponder];
 }
 
 - (void)refresh:(NSMutableArray *)items
@@ -69,7 +67,18 @@
 #pragma mark - UITableViewDataSource, UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50.0f;
+    CGFloat height = 0;
+    HDRMessage *msg = [self.collection objectAtIndex:indexPath.row];
+    if (msg.content.length)
+    {
+        UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, 290.0f, MAXFLOAT)];
+        textView.font = [UIFont fontWithName:@"Helvetica-Light" size:15.0f];
+        textView.text = msg.content;
+        CGSize nSize = [textView sizeThatFits:CGSizeMake(290.0f, MAXFLOAT)];
+        height = 33.0f + 24.0f + nSize.height;
+    }
+    
+    return height;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
@@ -87,14 +96,26 @@
 {
     @try {
         
-        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"reuseIdentifier"];
+        HDRMessageTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"HDRMessageTableViewCell" owner:self options:nil] lastObject];
         
-        cell.textLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:22];
-        cell.textLabel.text = self.collection[indexPath.row];
-        cell.textLabel.textColor = [UIColor colorWithWhite:0.27 alpha:0.9];
-        cell.backgroundColor = [UIColor clearColor];
-        return cell;
+        HDRMessage *msg = [self.collection objectAtIndex:indexPath.row];
+        
+        cell.userLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:22];
+        cell.userLabel.text = [msg.fromUser uppercaseString];
 
+        cell.messageTextView.text = msg.content;
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS"];
+        NSDate *capturedStartDate = [formatter dateFromString: msg.createdDateString];
+        NSLog(@"%@", capturedStartDate);
+
+        cell.dateLabel.text = [HDRDateUtil getFormattedString:capturedStartDate];
+
+        cell.backgroundColor = [UIColor clearColor];
+        
+        return cell;
+        
     }
     @catch (NSException *exception) {
         return [[UITableViewCell alloc] init];
@@ -103,22 +124,11 @@
     }
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSString *text = self.collection[indexPath.row];
-    if (self.callback)
-    {
-        self.callback(text);
-    }
-    
-    [self close];
-}
-
 - (void)close
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
-
+    
     CGRect bFrame = self.buttonsContainer.frame;
     CGRect frame = self.tableView.frame;
     bFrame.origin.y = frame.origin.y = [UIScreen mainScreen].bounds.size.height;

@@ -230,8 +230,27 @@
     if (self.messages.count)
     {
         HDRMessage *msg = self.messages[self.self.messages.count - 1];
+        
+        //test hook
+        //msg.content = @"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do  Lorem ipsum dolor sit er elit lamet Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do  Lorem ipsum dolor sit er elit lamet";
+        
+        //set the last seen id
         [[HDRFriends instance] setLastSeenId:self.user.name last:msg.msgId];
-        self.countBtn.hidden = YES;
+        
+        //hide the count box
+        //self.countBtn.hidden = YES;
+        
+        //show the messages to the user
+        HDRListBox *listBox = (HDRListBox *)[[[NSBundle mainBundle] loadNibNamed:@"HDRListBox2" owner:nil options:nil] lastObject];
+        [listBox setFrame:[UIScreen mainScreen].bounds];
+        
+        listBox.collection = self.messages;
+        listBox.callback = ^(NSString *text) {
+            [self doText:text];
+        };
+        
+        [listBox show];
+        [self.viewController.navigationController.view addSubview:listBox];
     }
 }
 

@@ -62,6 +62,10 @@
 		78E785B619A2F95E00D992F7 /* outgoing.wav in Resources */ = {isa = PBXBuildFile; fileRef = 78E785B519A2F95E00D992F7 /* outgoing.wav */; };
 		78E785B919A32A8800D992F7 /* HDRDateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E785B819A32A8800D992F7 /* HDRDateUtil.m */; };
 		78E785BC19A32F2800D992F7 /* HDRMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E785BB19A32F2800D992F7 /* HDRMessage.m */; };
+		78E785C019A345DC00D992F7 /* HDRListBox2.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E785BF19A345DC00D992F7 /* HDRListBox2.m */; };
+		78E785C219A345EA00D992F7 /* HDRListBox2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78E785C119A345EA00D992F7 /* HDRListBox2.xib */; };
+		78E785C619A3484800D992F7 /* HDRMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E785C419A3484800D992F7 /* HDRMessageTableViewCell.m */; };
+		78E785C719A3484800D992F7 /* HDRMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78E785C519A3484800D992F7 /* HDRMessageTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +155,12 @@
 		78E785B819A32A8800D992F7 /* HDRDateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRDateUtil.m; sourceTree = "<group>"; };
 		78E785BA19A32F2800D992F7 /* HDRMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRMessage.h; sourceTree = "<group>"; };
 		78E785BB19A32F2800D992F7 /* HDRMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRMessage.m; sourceTree = "<group>"; };
+		78E785BE19A345DC00D992F7 /* HDRListBox2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRListBox2.h; sourceTree = "<group>"; };
+		78E785BF19A345DC00D992F7 /* HDRListBox2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRListBox2.m; sourceTree = "<group>"; };
+		78E785C119A345EA00D992F7 /* HDRListBox2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HDRListBox2.xib; sourceTree = "<group>"; };
+		78E785C319A3484800D992F7 /* HDRMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRMessageTableViewCell.h; sourceTree = "<group>"; };
+		78E785C419A3484800D992F7 /* HDRMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRMessageTableViewCell.m; sourceTree = "<group>"; };
+		78E785C519A3484800D992F7 /* HDRMessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HDRMessageTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +203,7 @@
 		78237CDC1955864500BE750D /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				78E785BD19A345C900D992F7 /* ListBox2 */,
 				780AFEA1196FB50D00596CC6 /* ListBox */,
 				78237CEB195690DC00BE750D /* Setup */,
 				78237CE01955873400BE750D /* Home */,
@@ -366,6 +377,19 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		78E785BD19A345C900D992F7 /* ListBox2 */ = {
+			isa = PBXGroup;
+			children = (
+				78E785BE19A345DC00D992F7 /* HDRListBox2.h */,
+				78E785BF19A345DC00D992F7 /* HDRListBox2.m */,
+				78E785C119A345EA00D992F7 /* HDRListBox2.xib */,
+				78E785C319A3484800D992F7 /* HDRMessageTableViewCell.h */,
+				78E785C419A3484800D992F7 /* HDRMessageTableViewCell.m */,
+				78E785C519A3484800D992F7 /* HDRMessageTableViewCell.xib */,
+			);
+			name = ListBox2;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -456,6 +480,7 @@
 				786182E51994C88E00B4BEFD /* 3.wav in Resources */,
 				786182DB1994C6FF00B4BEFD /* 2.wav in Resources */,
 				78DA61FA199CA8E4006066CF /* 11.wav in Resources */,
+				78E785C219A345EA00D992F7 /* HDRListBox2.xib in Resources */,
 				78237CD719552D2E00BE750D /* MainStoryboard.storyboard in Resources */,
 				78237CE51955875900BE750D /* HDRHomeTableViewCell.xib in Resources */,
 				78B1311B19592FFA00D74FD0 /* Hodor.wav in Resources */,
@@ -471,6 +496,7 @@
 				786182E01994C6FF00B4BEFD /* 7.wav in Resources */,
 				786182E21994C6FF00B4BEFD /* 9.wav in Resources */,
 				78237CEA1956814300BE750D /* HDRAddUserNameTableViewCell.xib in Resources */,
+				78E785C719A3484800D992F7 /* HDRMessageTableViewCell.xib in Resources */,
 				78DA61FB199CA8E4006066CF /* 12.wav in Resources */,
 				78CCE6AB19552C46009EA16B /* Images.xcassets in Resources */,
 				78745FEB198ECAE300650542 /* OpenSans-CondBold.ttf in Resources */,
@@ -505,9 +531,11 @@
 				78237D011956B78400BE750D /* HDRCommon.m in Sources */,
 				78CCE6A919552C46009EA16B /* HDRAppDelegate.m in Sources */,
 				78237CDF1955867500BE750D /* HDRHomeViewController.m in Sources */,
+				78E785C019A345DC00D992F7 /* HDRListBox2.m in Sources */,
 				78237CE41955875900BE750D /* HDRHomeTableViewCell.m in Sources */,
 				78237D071956BE1800BE750D /* HDRFriends.m in Sources */,
 				78237CEE195690FA00BE750D /* HDRSetupViewController.m in Sources */,
+				78E785C619A3484800D992F7 /* HDRMessageTableViewCell.m in Sources */,
 				780AFEA0196FB4F900596CC6 /* UIImage+ImageEffects.m in Sources */,
 				78237D0B1956BE5B00BE750D /* HDRUser.m in Sources */,
 				780AFEA5196FB52800596CC6 /* HDRListBox.m in Sources */,
