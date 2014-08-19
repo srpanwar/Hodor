@@ -30,9 +30,9 @@
     self.blockLabel.titleLabel.font =  [UIFont fontWithName:@"OpenSans-CondensedBold" size:28];
     self.countBtn.titleLabel.font =  [UIFont fontWithName:@"OpenSans-CondensedBold" size:16];
     
-    self.countBtn.layer.borderColor = [UIColor colorWithWhite:0.9 alpha:1].CGColor;
+    self.countBtn.layer.borderColor = [UIColor colorWithWhite:0.85 alpha:1].CGColor;
     self.countBtn.layer.borderWidth = 1;
-    self.countBtn.layer.cornerRadius = 8;
+    self.countBtn.layer.cornerRadius = 6;
     [self.countBtn setTitle:[NSString stringWithFormat:@"%d", rand()%10] forState:UIControlStateNormal];
     //self.countBtn.hidden = YES;
     
