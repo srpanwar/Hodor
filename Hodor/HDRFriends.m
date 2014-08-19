@@ -105,14 +105,14 @@
     return nil;
 }
 
-- (void) setLastSyncTimeNow:(NSString *)userName
+- (void) setLastSeenId:(NSString *)userName last:(NSInteger)lastid
 {
     @synchronized(self)
     {
         HDRUser *user = [self getFriend:userName];
         if (user)
         {
-            user.lastSeenId = [HDRDateUtil utcNowTicks];
+            user.lastSeenId = lastid;
             [self save];
         }
     }

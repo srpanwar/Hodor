@@ -10,10 +10,11 @@
 
 @interface HDRMessage : NSObject
 
+@property NSInteger msgId;
 @property NSString *fromUser;
 @property NSString *toUser;
 @property NSString *content;
 @property double createdDate;
-
+@property NSInteger notificationType;
 
 @end

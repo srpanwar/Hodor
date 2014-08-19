@@ -22,6 +22,6 @@
 - (void) deleteFriend:(HDRUser *)user;
 - (void) blockFriend:(HDRUser *)user;
 
-- (void) setLastSyncTimeNow:(NSString *)userName;
+- (void) setLastSeenId:(NSString *)userName last:(NSInteger)lastid;
 
 @end

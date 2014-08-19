@@ -229,7 +229,8 @@
 {
     if (self.messages.count)
     {
-        [[HDRFriends instance] setLastSyncTimeNow:self.user.name];
+        HDRMessage *msg = self.messages[self.self.messages.count - 1];
+        [[HDRFriends instance] setLastSeenId:self.user.name last:msg.msgId];
         self.countBtn.hidden = YES;
     }
 }

@@ -271,11 +271,13 @@
             {
                 NSDictionary *jMsg =  json[i];
                 HDRMessage *message = [[HDRMessage alloc] init];
-                
-                message.fromUser = [jMsg objectForKey:@"fromUser"];
-                message.toUser = [jMsg objectForKey:@"toUser"];
-                message.content = [jMsg objectForKey:@"content"];
-                message.createdDate = [(NSNumber *)[jMsg objectForKey:@"createdDate"] doubleValue];
+
+                message.msgId = [(NSNumber *)[jMsg objectForKey:@"ID"] integerValue];
+                message.fromUser = [jMsg objectForKey:@"Sender"];
+                message.toUser = [jMsg objectForKey:@"Receiver"];
+                message.content = [jMsg objectForKey:@"Content"];
+                message.notificationType = [(NSNumber *)[jMsg objectForKey:@"NotificationType"] integerValue];
+                //message.createdDate = [(NSNumber *)[jMsg objectForKey:@"CreatedDate"] doubleValue];
                 
                 [messages addObject:message];
             }
