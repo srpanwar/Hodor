@@ -241,9 +241,10 @@
         //self.countBtn.hidden = YES;
         
         //show the messages to the user
-        HDRListBox *listBox = (HDRListBox *)[[[NSBundle mainBundle] loadNibNamed:@"HDRListBox2" owner:nil options:nil] lastObject];
+        HDRListBox2 *listBox = (HDRListBox2 *)[[[NSBundle mainBundle] loadNibNamed:@"HDRListBox2" owner:nil options:nil] lastObject];
         [listBox setFrame:[UIScreen mainScreen].bounds];
         
+        listBox.fromLabel.text = [self.user.name uppercaseString];
         listBox.collection = self.messages;
         listBox.callback = ^(NSString *text) {
             [self doText:text];

@@ -16,6 +16,8 @@ typedef void (^SelectionCallBack)(NSString *text);
 
 @interface HDRListBox2 : UIView<UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate>
 
+@property (weak, nonatomic) IBOutlet UILabel *fromLabel;
+
 @property (weak, nonatomic) IBOutlet UIView *buttonsContainer;
 @property (weak, nonatomic) IBOutlet UITextField *textBox;
 @property (weak, nonatomic) IBOutlet UIView *contentView;

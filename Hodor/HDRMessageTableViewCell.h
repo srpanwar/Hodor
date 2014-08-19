@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface HDRMessageTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *userLabel;
 @property (weak, nonatomic) IBOutlet UITextView *messageTextView;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 

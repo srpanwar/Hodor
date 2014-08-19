@@ -27,6 +27,8 @@
     self.alpha = 0;
     self.collection = [[NSMutableArray alloc] init];
     
+    self.fromLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:22];
+
     //self.backgroundColor = [UIColor colorWithPatternImage:[[self imageWithView:[[UIApplication sharedApplication] keyWindow]] applyLightEffect]];
     self.textBox.delegate = self;
     self.scrollView.scrollEnabled = NO;
@@ -75,7 +77,7 @@
         textView.font = [UIFont fontWithName:@"Helvetica-Light" size:15.0f];
         textView.text = msg.content;
         CGSize nSize = [textView sizeThatFits:CGSizeMake(290.0f, MAXFLOAT)];
-        height = 33.0f + 24.0f + nSize.height;
+        height = 7.0f + 24.0f + nSize.height;
     }
     
     return height;
@@ -100,9 +102,6 @@
         
         HDRMessage *msg = [self.collection objectAtIndex:indexPath.row];
         
-        cell.userLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:22];
-        cell.userLabel.text = [msg.fromUser uppercaseString];
-
         cell.messageTextView.text = msg.content;
         
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
