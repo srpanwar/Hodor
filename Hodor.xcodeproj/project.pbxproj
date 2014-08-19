@@ -58,8 +58,8 @@
 		78CCE6BE19552C46009EA16B /* HodorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 78CCE6BD19552C46009EA16B /* HodorTests.m */; };
 		78DA61FA199CA8E4006066CF /* 11.wav in Resources */ = {isa = PBXBuildFile; fileRef = 78DA61F8199CA8E4006066CF /* 11.wav */; };
 		78DA61FB199CA8E4006066CF /* 12.wav in Resources */ = {isa = PBXBuildFile; fileRef = 78DA61F9199CA8E4006066CF /* 12.wav */; };
-		78E785A819A2F5B500D992F7 /* outgoing.wav in Resources */ = {isa = PBXBuildFile; fileRef = 78E785A719A2F5B500D992F7 /* outgoing.wav */; };
 		78E785AE19A2F71800D992F7 /* incoming.wav in Resources */ = {isa = PBXBuildFile; fileRef = 78E785AD19A2F71800D992F7 /* incoming.wav */; };
+		78E785B619A2F95E00D992F7 /* outgoing.wav in Resources */ = {isa = PBXBuildFile; fileRef = 78E785B519A2F95E00D992F7 /* outgoing.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,8 +143,8 @@
 		78CCE6BD19552C46009EA16B /* HodorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HodorTests.m; sourceTree = "<group>"; };
 		78DA61F8199CA8E4006066CF /* 11.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 11.wav; sourceTree = "<group>"; };
 		78DA61F9199CA8E4006066CF /* 12.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 12.wav; sourceTree = "<group>"; };
-		78E785A719A2F5B500D992F7 /* outgoing.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = outgoing.wav; sourceTree = "<group>"; };
 		78E785AD19A2F71800D992F7 /* incoming.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = incoming.wav; sourceTree = "<group>"; };
+		78E785B519A2F95E00D992F7 /* outgoing.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = outgoing.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,7 +266,7 @@
 				786182D91994C6FF00B4BEFD /* 10.wav */,
 				78DA61F8199CA8E4006066CF /* 11.wav */,
 				78DA61F9199CA8E4006066CF /* 12.wav */,
-				78E785A719A2F5B500D992F7 /* outgoing.wav */,
+				78E785B519A2F95E00D992F7 /* outgoing.wav */,
 				78E785AD19A2F71800D992F7 /* incoming.wav */,
 				78B1311A19592FFA00D74FD0 /* Hodor.wav */,
 				787F4785195800100064BFCE /* Hodor-Echo.wav */,
@@ -463,11 +463,11 @@
 				78237CEA1956814300BE750D /* HDRAddUserNameTableViewCell.xib in Resources */,
 				78DA61FB199CA8E4006066CF /* 12.wav in Resources */,
 				78CCE6AB19552C46009EA16B /* Images.xcassets in Resources */,
-				78E785A819A2F5B500D992F7 /* outgoing.wav in Resources */,
 				78745FEB198ECAE300650542 /* OpenSans-CondBold.ttf in Resources */,
 				78E785AE19A2F71800D992F7 /* incoming.wav in Resources */,
 				78237CDB1955853500BE750D /* Hodor1.wav in Resources */,
 				780AFEA6196FB52800596CC6 /* HDRListBox.xib in Resources */,
+				78E785B619A2F95E00D992F7 /* outgoing.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
