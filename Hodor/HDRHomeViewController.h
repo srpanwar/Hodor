@@ -20,11 +20,14 @@
 @property (weak, nonatomic) IBOutlet UIButton *ratingBtn;
 @property (weak, nonatomic) IBOutlet UIView *enablePushView;
 @property (weak, nonatomic) IBOutlet UIButton *moreBtn;
+@property (weak, nonatomic) IBOutlet UIButton *aboutBtn;
+@property (weak, nonatomic) IBOutlet UIButton *nounBtn;
 
 - (IBAction)doShare:(id)sender;
 - (IBAction)rateTheApp:(id)sender;
 - (IBAction)showMore:(id)sender;
 - (IBAction)gotoNounProject:(id)sender;
+- (IBAction)showNounLabel:(id)sender;
 
 
 @end

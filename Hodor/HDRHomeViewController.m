@@ -14,6 +14,7 @@
 
 @property CGRect rateFrame;
 @property CGRect shareFrame;
+@property CGRect aboutFrame;
 
 @end
 
@@ -43,13 +44,16 @@
     self.ratingBtn.layer.cornerRadius = 20.0f;
     self.shareBtn.layer.cornerRadius = 20.0f;
     self.moreBtn.layer.cornerRadius = 20.0f;
+    self.aboutBtn.layer.cornerRadius = 20.0f;
     
     self.ratingBtn.alpha = 0;
     self.shareBtn.alpha = 0;
+    self.aboutBtn.alpha = 0;
     
     self.rateFrame = self.ratingBtn.frame;
     self.shareFrame = self.shareBtn.frame;
-    self.ratingBtn.frame = self.shareBtn.frame = self.moreBtn.frame;
+    self.aboutFrame = self.aboutBtn.frame;
+    self.aboutBtn.frame = self.ratingBtn.frame = self.shareBtn.frame = self.moreBtn.frame;
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -181,7 +185,8 @@
         [UIView animateWithDuration:0.3f animations:^{
             self.ratingBtn.frame = self.rateFrame;
             self.shareBtn.frame = self.shareFrame;
-            self.ratingBtn.alpha = self.shareBtn.alpha = 1;
+            self.aboutBtn.frame = self.aboutFrame;
+            self.aboutBtn.alpha = self.ratingBtn.alpha = self.shareBtn.alpha = 1;
             self.moreBtn.alpha = 0.8;
         }];
     }
@@ -190,7 +195,8 @@
         [UIView animateWithDuration:0.3f animations:^{
             self.ratingBtn.frame = self.moreBtn.frame;
             self.shareBtn.frame = self.moreBtn.frame;
-            self.ratingBtn.alpha = self.shareBtn.alpha = 0;
+            self.aboutBtn.frame = self.aboutFrame;
+            self.aboutBtn.alpha = self.ratingBtn.alpha = self.shareBtn.alpha = 0;
             self.moreBtn.alpha = 1;
         }];
     }
@@ -201,6 +207,31 @@
 - (IBAction)gotoNounProject:(id)sender
 {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://thenounproject.com/simplisto/"]];
+}
+
+- (IBAction)showNounLabel:(id)sender
+{
+    [self showMore:sender];
+ 
+    CGRect frame = self.nounBtn.frame;
+    frame.origin.x = 0;
+    
+    [UIView animateWithDuration:0.3f animations:^{
+        self.nounBtn.frame = frame;
+    } completion:^(BOOL finished) {
+        CGRect frame2 = self.nounBtn.frame;
+        frame2.origin.x = -1 * frame2.size.width;
+        
+        [UIView animateWithDuration:0.3f animations:^{
+            
+            self.nounBtn.frame = frame2;
+            
+        } completion:^(BOOL finished) {
+            
+        }];
+        
+    }];
+
 }
 
 // Call this method somewhere in your view controller setup code.
