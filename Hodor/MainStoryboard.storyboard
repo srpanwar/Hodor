@@ -142,7 +142,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KOc-FS-tJC">
-                                <rect key="frame" x="10" y="349" width="41" height="42"/>
+                                <rect key="frame" x="8" y="354" width="41" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="0.70000000000000007" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Bold" family="Bodoni 72" pointSize="24"/>
@@ -156,7 +156,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bPv-rl-vsG">
-                                <rect key="frame" x="10" y="400" width="40" height="40"/>
+                                <rect key="frame" x="8" y="403" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
                                 <inset key="contentEdgeInsets" minX="9" minY="10" maxX="9" maxY="9"/>
@@ -168,7 +168,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="usr-YS-Iyp">
-                                <rect key="frame" x="10" y="449" width="40" height="40"/>
+                                <rect key="frame" x="8" y="452" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
                                 <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
@@ -180,7 +180,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="udK-FT-ths">
-                                <rect key="frame" x="10" y="498" width="40" height="40"/>
+                                <rect key="frame" x="8" y="502" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="0.40000000000000002" colorSpace="calibratedWhite"/>
                                 <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
