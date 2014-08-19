@@ -32,8 +32,8 @@
     
     self.countBtn.layer.borderColor = [UIColor colorWithWhite:0.9 alpha:1].CGColor;
     self.countBtn.layer.borderWidth = 1;
-    self.countBtn.layer.cornerRadius = 6;
-    [self.countBtn setTitle:[NSString stringWithFormat:@"%d", rand()%99] forState:UIControlStateNormal];
+    self.countBtn.layer.cornerRadius = 13.5;
+    [self.countBtn setTitle:[NSString stringWithFormat:@"%d", rand()%200] forState:UIControlStateNormal];
     //self.countBtn.hidden = YES;
     
     //menu
