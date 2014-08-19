@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *moreBtn;
 @property (weak, nonatomic) IBOutlet UIButton *aboutBtn;
 @property (weak, nonatomic) IBOutlet UIButton *nounBtn;
+@property (weak, nonatomic) IBOutlet UIView *overlayVew;
 
 - (IBAction)doShare:(id)sender;
 - (IBAction)rateTheApp:(id)sender;
