@@ -195,7 +195,7 @@
         [UIView animateWithDuration:0.3f animations:^{
             self.ratingBtn.frame = self.moreBtn.frame;
             self.shareBtn.frame = self.moreBtn.frame;
-            self.aboutBtn.frame = self.aboutFrame;
+            self.aboutBtn.frame = self.moreBtn.frame;
             self.aboutBtn.alpha = self.ratingBtn.alpha = self.shareBtn.alpha = 0;
             self.moreBtn.alpha = 1;
         }];
@@ -219,17 +219,15 @@
     [UIView animateWithDuration:0.3f animations:^{
         self.nounBtn.frame = frame;
     } completion:^(BOOL finished) {
+
         CGRect frame2 = self.nounBtn.frame;
         frame2.origin.x = -1 * frame2.size.width;
         
-        [UIView animateWithDuration:0.3f animations:^{
-            
-            self.nounBtn.frame = frame2;
-            
-        } completion:^(BOOL finished) {
-            
-        }];
-        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:0.5f animations:^{
+                self.nounBtn.frame = frame2;
+            }];
+        });
     }];
 
 }
