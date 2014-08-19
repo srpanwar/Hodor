@@ -106,18 +106,7 @@
     HDRListBox *listBox = (HDRListBox *)[[[NSBundle mainBundle] loadNibNamed:@"HDRListBox" owner:nil options:nil] lastObject];
     [listBox setFrame:[UIScreen mainScreen].bounds];
     
-    listBox.collection = [NSMutableArray arrayWithArray:@[@"How is it going?",
-                                                          @"Where are you?",
-                                                          @"Almost there",
-                                                          @"Ready?",
-                                                          @"I am ready",
-                                                          @"Talk to you soon",
-                                                          @"I'm running late",
-                                                          @"I am here",
-                                                          @"Miss you",
-                                                          @"I love you",
-                                                          @"Call me when you get this",
-                                                          @"Oye!"]];
+    listBox.collection = [HDRNetworkProvider instance].triviaList;
     
     listBox.callback = ^(NSString *text) {
         [self doText:text];

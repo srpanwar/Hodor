@@ -14,6 +14,8 @@
 
 @interface HDRNetworkProvider : NSObject
 
+@property NSMutableArray *triviaList;
+
 + (HDRNetworkProvider *) instance;
 
 - (BOOL)createUserName:(NSString *)userName;
@@ -29,5 +31,7 @@
 - (void)sendRemoteNotificationsDeviceToken:(NSString *)deviceToken;
 
 - (NSMutableArray *)fetchMessages:(NSString *)from after:(NSInteger)lastSeenId;
+
+- (void) refreshTriviaList;
 
 @end

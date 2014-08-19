@@ -22,6 +22,18 @@
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
             that = [[self alloc] init];
+            that.triviaList = [NSMutableArray arrayWithArray:@[@"How is it going?",
+                                                               @"Where are you?",
+                                                               @"Almost there",
+                                                               @"Ready?",
+                                                               @"I am ready",
+                                                               @"Talk to you soon",
+                                                               @"I'm running late",
+                                                               @"I am here",
+                                                               @"Miss you",
+                                                               @"I love you",
+                                                               @"Call me when you get this",
+                                                               @"Oye!"]];
         });
     }
     return that;
@@ -201,7 +213,6 @@
     return error == nil && response.statusCode == 200;
 }
 
-
 - (void)sendRemoteNotificationsDeviceToken:(NSString *)deviceToken
 {
     if (!deviceToken || ![HDRCurrentUser getCurrentUserName])// || [HDRCurrentUser isNotificationTokenSet])
@@ -229,6 +240,55 @@
         [HDRCurrentUser setNotificationTokenSet];
     }
 }
+
+
+- (void) refreshTriviaList
+{
+    NSMutableArray *list = [[NSMutableArray alloc] init];
+    NSURL *url = [NSURL URLWithString:[[NSString alloc] initWithFormat:@"https://hodorcdn.s3.amazonaws.com/trivia.txt"]];
+    
+    //fetch the data
+    NSData* data = [NSData dataWithContentsOfURL:url];
+    if (!data)
+    {
+        return;
+    }
+    
+    //parse the results
+    NSError* error;
+    NSArray* json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions
+                                                                    error:&error];
+                  
+    if (json)
+    {
+        for(int i = 0; i < json.count; i++)
+        {
+            NSString *text =  json[i];
+            [list addObject:text];
+        }
+        
+        if (list.count > 0)
+        {
+            self.triviaList = list;
+        }
+        else
+        {
+            self.triviaList = [NSMutableArray arrayWithArray:@[@"How is it going?",
+                                                               @"Where are you?",
+                                                               @"Almost there",
+                                                               @"Ready?",
+                                                               @"I am ready",
+                                                               @"Talk to you soon",
+                                                               @"I'm running late",
+                                                               @"I am here",
+                                                               @"Miss you",
+                                                               @"I love you",
+                                                               @"Call me when you get this",
+                                                               @"Oye!"]];
+        }
+    }
+}
+
 
 - (NSString *)doHash:(NSString *)input
 {

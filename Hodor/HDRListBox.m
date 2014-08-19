@@ -69,7 +69,7 @@
 #pragma mark - UITableViewDataSource, UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50.0f;
+    return 60.0f;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
@@ -89,7 +89,9 @@
         
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"reuseIdentifier"];
         
-        cell.textLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:22];
+        cell.textLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:20];
+        cell.textLabel.minimumScaleFactor = 0.7;
+        cell.textLabel.numberOfLines = 2;
         cell.textLabel.text = self.collection[indexPath.row];
         cell.textLabel.textColor = [UIColor colorWithWhite:0.27 alpha:0.9];
         cell.backgroundColor = [UIColor clearColor];
