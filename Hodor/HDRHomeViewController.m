@@ -134,16 +134,6 @@
         
         //fetch and show messages
         [cell1 loadMessages];
-        
-        //flash
-        NSString *textMessage = user.notification;
-        if (textMessage && textMessage.length)
-        {
-            [[HDRFriends instance] setNotification:user.name text:@""];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-                [cell1 flashHodor: textMessage];
-            });
-        }
     }
     else
     {

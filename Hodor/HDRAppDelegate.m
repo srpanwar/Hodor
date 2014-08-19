@@ -57,6 +57,8 @@
     UINavigationController *root = (UINavigationController *)self.window.rootViewController;
     if (root && [root.topViewController isKindOfClass:[HDRHomeViewController class]] &&  [[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
     {
+        [HDRUtils playSoundIncoming];
+        
         HDRHomeViewController *controller = (HDRHomeViewController *)root.topViewController;
         [controller refreshView];
     }

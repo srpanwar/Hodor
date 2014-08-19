@@ -17,13 +17,10 @@
     // Initialization code
     self.busyImage.alpha = 0;
     self.menuView.alpha = 0;
-    self.flashLabel.alpha = 0;
     
-    self.flashLabel.text = @"";
     self.nameLabel.text = @"";
     
     self.hodorImage.layer.cornerRadius = 15;
-    self.flashLabel.layer.cornerRadius = 5;
     
     self.cancelLabel.titleLabel.font =  [UIFont fontWithName:@"OpenSans-CondensedBold" size:28];
     self.deleteLabel.titleLabel.font =  [UIFont fontWithName:@"OpenSans-CondensedBold" size:28];
@@ -49,12 +46,6 @@
 //    UISwipeGestureRecognizer *rightSwipeUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(showTextTemplates)];
 //    [rightSwipeUpRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
 //    [nameLabel addGestureRecognizer:rightSwipeUpRecognizer];
-
-    //copy to clipboard
-    UITapGestureRecognizer *singleTapGestureRecognizer3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cToClipboard)];
-    [self.flashLabel addGestureRecognizer:singleTapGestureRecognizer3];
-
-    //[self flashHodor:@"this is a long text message http://google.com"];
 }
 
 - (void)firstRun
@@ -74,7 +65,7 @@
 
 - (void)cToClipboard
 {
-    NSString *cpString = self.flashLabel.text;
+    NSString *cpString = @"";
     UIPasteboard *pb = [UIPasteboard generalPasteboard];
     [pb setString:cpString];
 }
@@ -169,31 +160,6 @@
             [[HDRFriends instance] moveToTop:self.user];
             [self.tableView moveRowAtIndexPath:[self.tableView indexPathForCell:self] toIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
         });
-    }];
-}
-
-- (void)flashHodor:(NSString *)text
-{
-    self.flashLabel.text = text;
-    
-    [UIView animateWithDuration:0.5f delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
-
-        self.flashLabel.alpha = 1;
-        self.nameLabel.alpha = self.hodorImage.alpha = 0.05;
-        
-    } completion:^(BOOL finished) {
-        
-        [HDRUtils playSoundIncoming];
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [UIView animateWithDuration:1.0f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-                
-                self.flashLabel.alpha = 0;
-                self.nameLabel.alpha = self.hodorImage.alpha = 1;
-                
-            } completion:nil];
-        });
-        
     }];
 }
 

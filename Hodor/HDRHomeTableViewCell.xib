@@ -20,16 +20,6 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="this is a long text message that should be wrapped" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="15" id="1we-o4-x5Y">
-                        <rect key="frame" x="10" y="13" width="300" height="62"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="0.20000000000000001" alpha="0.050000000000000003" colorSpace="calibratedWhite"/>
-                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="21"/>
-                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                        <color key="shadowColor" white="0.45000000000000001" alpha="1" colorSpace="calibratedWhite"/>
-                        <size key="shadowOffset" width="0.0" height="0.0"/>
-                    </label>
                     <imageView alpha="0.80000000000000004" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_hodor" id="oc3-WR-MXl">
                         <rect key="frame" x="276" y="26" width="37" height="37"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -130,7 +120,6 @@
                 <outlet property="cancelLabel" destination="R4K-xC-iV9" id="Oza-pp-ftw"/>
                 <outlet property="countBtn" destination="JvF-yq-WM3" id="yBK-ek-rEB"/>
                 <outlet property="deleteLabel" destination="9cU-lB-7Lc" id="VPo-Yy-ptX"/>
-                <outlet property="flashLabel" destination="1we-o4-x5Y" id="SLH-uL-7Ll"/>
                 <outlet property="hodorImage" destination="oc3-WR-MXl" id="CBU-Dh-ben"/>
                 <outlet property="menuView" destination="SW8-Xc-EmZ" id="Emk-Ly-MSP"/>
                 <outlet property="nameLabel" destination="GRl-dr-nYt" id="fs7-wZ-br1"/>
