@@ -34,7 +34,7 @@
     self.countBtn.layer.borderWidth = 1;
     self.countBtn.layer.cornerRadius = 13.5;
     [self.countBtn setTitle:[NSString stringWithFormat:@"%d", rand()%200] forState:UIControlStateNormal];
-    //self.countBtn.hidden = YES;
+    self.countBtn.hidden = YES;
     
     //menu
     UISwipeGestureRecognizer *leftSwipeUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(showMenu)];
@@ -239,6 +239,9 @@
         }
     });
 
+}
+
+- (IBAction)viewMessages:(id)sender {
 }
 
 

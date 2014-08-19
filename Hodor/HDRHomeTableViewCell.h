@@ -33,6 +33,7 @@
 - (IBAction)onCancel:(id)sender;
 - (IBAction)onDelete:(id)sender;
 - (IBAction)onBlock:(id)sender;
+- (IBAction)viewMessages:(id)sender;
 
 - (void)flashHodor:(NSString *)text;
 - (void)firstRun;
