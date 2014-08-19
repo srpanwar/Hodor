@@ -8,6 +8,12 @@
 
 #import "HDRHomeTableViewCell.h"
 
+@interface HDRHomeTableViewCell ()
+
+@property NSMutableArray *messages;
+
+@end
+
 @implementation HDRHomeTableViewCell
 
 - (void)awakeFromNib
@@ -15,12 +21,12 @@
     [super awakeFromNib];
     
     // Initialization code
+    self.messages = [[NSMutableArray alloc] init];
+    
     self.busyImage.alpha = 0;
     self.menuView.alpha = 0;
     
     self.nameLabel.text = @"";
-    
-    self.hodorImage.layer.cornerRadius = 15;
     
     self.cancelLabel.titleLabel.font =  [UIFont fontWithName:@"OpenSans-CondensedBold" size:28];
     self.deleteLabel.titleLabel.font =  [UIFont fontWithName:@"OpenSans-CondensedBold" size:28];
@@ -33,6 +39,8 @@
     [self.countBtn setTitle:[NSString stringWithFormat:@"%d", rand()%200] forState:UIControlStateNormal];
     self.countBtn.hidden = YES;
     
+    self.hodorImage.layer.cornerRadius = 15;
+    
     //menu
     UISwipeGestureRecognizer *leftSwipeUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(showMenu)];
     [leftSwipeUpRecognizer setDirection:UISwipeGestureRecognizerDirectionLeft];
@@ -41,11 +49,6 @@
     //text
     UITapGestureRecognizer *singleTapGestureRecognizer2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showTextTemplatesUI)];
     [self.nameLabel addGestureRecognizer:singleTapGestureRecognizer2];
-
-    //more action
-//    UISwipeGestureRecognizer *rightSwipeUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(showTextTemplates)];
-//    [rightSwipeUpRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
-//    [nameLabel addGestureRecognizer:rightSwipeUpRecognizer];
 }
 
 - (void)firstRun
@@ -57,8 +60,18 @@
 }
 
 - (void)loadMessages
-{
-        
+{    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        self.countBtn.hidden = YES;
+        self.messages = [[HDRNetworkProvider instance] fetchMessages:self.user.name after:self.user.lastSyncTime];
+        if (self.messages.count)
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.countBtn.hidden = NO;
+                [self.countBtn setTitle:[NSString stringWithFormat:@"%lu", self.messages.count] forState:UIControlStateNormal];
+            });
+        }
+    });
 }
 
 #pragma mark GESTURE ACTIONS
@@ -212,7 +225,13 @@
 
 }
 
-- (IBAction)viewMessages:(id)sender {
+- (IBAction)viewMessages:(id)sender
+{
+    if (self.messages.count)
+    {
+        [[HDRFriends instance] setLastSyncTimeNow:self.user.name];
+        self.countBtn.hidden = YES;
+    }
 }
 
 
@@ -305,6 +324,15 @@
 }
 
 @end
+
+
+
+
+
+//more action
+//    UISwipeGestureRecognizer *rightSwipeUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(showTextTemplates)];
+//    [rightSwipeUpRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
+//    [nameLabel addGestureRecognizer:rightSwipeUpRecognizer];
 
 
 

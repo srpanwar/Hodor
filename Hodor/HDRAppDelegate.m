@@ -51,7 +51,6 @@
     //store the ping data
     NSString *pingedText = [userInfo objectForKey:@"text"];
     pingedText = (pingedText ? pingedText : @"hodor!!");
-    [[HDRFriends instance] setNotification:[userName uppercaseString] text:pingedText];
     
     //refresh the ui
     UINavigationController *root = (UINavigationController *)self.window.rootViewController;

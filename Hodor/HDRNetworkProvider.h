@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CommonCrypto/CommonDigest.h>
 #import "HDRCommon.h"
+#import "HDRMessage.h"
 #import "HDRCurrentUser.h"
 
 @interface HDRNetworkProvider : NSObject
@@ -27,6 +28,6 @@
 
 - (void)sendRemoteNotificationsDeviceToken:(NSString *)deviceToken;
 
-- (void)getMessages:(NSString *)username;
+- (NSMutableArray *)fetchMessages:(NSString *)from after:(double)lastSyncTime;
 
 @end

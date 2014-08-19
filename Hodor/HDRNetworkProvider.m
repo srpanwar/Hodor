@@ -122,9 +122,32 @@
     return;
 }
 
-- (void)getMessages:(NSString *)username
+- (NSMutableArray *)fetchMessages:(NSString *)from after:(double)lastSyncTime
 {
+    NSMutableArray *messages = [[NSMutableArray alloc] init];
     
+    //form the url
+    NSURL *url = [NSURL URLWithString:HODOR_SERVICE_ENDPOINT];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    
+    NSString *body = [NSString stringWithFormat:@"method=fetchmessages&from=%@&to=%@&after=%f", from, [HDRCurrentUser getCurrentUserName], lastSyncTime];
+    body = [self doHash:body];
+    
+    request.HTTPMethod = @"POST";
+    request.HTTPBody = [body dataUsingEncoding:NSUTF8StringEncoding];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    NSError *error = nil;
+    NSHTTPURLResponse *response = nil;
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    //parse the results
+    if ( error == nil && response.statusCode == 200)
+    {
+        messages = [self parseData:data];
+    }
+    
+    return messages;
 }
 
 
@@ -230,6 +253,38 @@
                                                                  CFSTR("￼=,!$&'()*+;@?\n\"<>#\t :/%-=^_`{|}~"), 
                                                                  kCFStringEncodingUTF8));
 }
+
+
+- (NSMutableArray *)parseData:(NSData *)responseData
+{
+    NSMutableArray *messages = [[NSMutableArray alloc] init];
+    if (responseData)
+    {
+        //parse out the json data
+        NSError* error;
+        NSArray* json = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions
+                                                          error:&error];
+        
+        if (json)
+        {
+            for(int i = 0; i < json.count; i++)
+            {
+                NSDictionary *jMsg =  json[i];
+                HDRMessage *message = [[HDRMessage alloc] init];
+                
+                message.fromUser = [jMsg objectForKey:@"fromUser"];
+                message.toUser = [jMsg objectForKey:@"toUser"];
+                message.content = [jMsg objectForKey:@"content"];
+                message.createdDate = [(NSNumber *)[jMsg objectForKey:@"createdDate"] doubleValue];
+                
+                [messages addObject:message];
+            }
+        }
+    }
+    
+    return messages;
+}
+
 
 @end
 

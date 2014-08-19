@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "HDRUser.h"
+#import "HDRDateUtil.h"
 
 @interface HDRFriends : NSObject
 
@@ -21,5 +22,6 @@
 - (void) deleteFriend:(HDRUser *)user;
 - (void) blockFriend:(HDRUser *)user;
 
-- (void)setNotification:(NSString *)userName text:(NSString *)text;
+- (void) setLastSyncTimeNow:(NSString *)userName;
+
 @end

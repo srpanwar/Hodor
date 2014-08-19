@@ -105,6 +105,20 @@
     return nil;
 }
 
+- (void) setLastSyncTimeNow:(NSString *)userName
+{
+    @synchronized(self)
+    {
+        HDRUser *user = [self getFriend:userName];
+        if (user)
+        {
+            user.lastSyncTime = [HDRDateUtil utcNowTicks];
+            [self save];
+        }
+    }
+
+}
+
 
 - (HDRUser *)findFriend:(NSString *)userName
 {
@@ -150,17 +164,6 @@
     @synchronized(self)
     {
         user.isBlocked = YES;
-        [self save];
-        self.refreshNeeded = YES;
-    }
-}
-
-- (void)setNotification:(NSString *)userName text:(NSString *)text
-{
-    @synchronized(self)
-    {
-        HDRUser *user = [self findFriend:userName];
-        user.notification = text;
         [self save];
         self.refreshNeeded = YES;
     }
