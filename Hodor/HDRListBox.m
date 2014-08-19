@@ -40,7 +40,7 @@
     [self registerForKeyboardNotifications];
     [self animateUp];
     
-    [self.textBox becomeFirstResponder];
+    //[self.textBox becomeFirstResponder];
 }
 
 - (void)refresh:(NSMutableArray *)items
@@ -201,7 +201,7 @@
     UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height + 10, 0.0);
     self.scrollView.contentInset = contentInsets;
     self.scrollView.scrollIndicatorInsets = contentInsets;
-    //self.tableView.hidden = YES;
+    self.tableView.hidden = YES;
 }
 
 // Called when the UIKeyboardWillHideNotification is sent
