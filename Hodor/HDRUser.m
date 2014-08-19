@@ -13,7 +13,7 @@
 - (void)encodeWithCoder:(NSCoder *)encoder {
     //Encode properties, other class variables, etc
     [encoder encodeObject:self.name forKey:@"name"];
-    [encoder encodeObject:[NSNumber numberWithBool:self.lastSyncTime] forKey:@"lastSyncTime"];
+    [encoder encodeObject:[NSNumber numberWithInteger:self.lastSeenId] forKey:@"lastSeenId"];
     [encoder encodeObject:[NSNumber numberWithBool:self.isBlocked] forKey:@"isBlocked"];
 }
 
@@ -21,7 +21,7 @@
     if((self = [super init])) {
         //decode properties, other class vars
         self.name = [decoder decodeObjectForKey:@"name"];
-        self.lastSyncTime = [(NSNumber *)[decoder decodeObjectForKey:@"lastSyncTime"] doubleValue];
+        self.lastSeenId = [(NSNumber *)[decoder decodeObjectForKey:@"lastSeenId"] integerValue];
         self.isBlocked = [(NSNumber *)[decoder decodeObjectForKey:@"isBlocked"] boolValue];
     }
     return self;

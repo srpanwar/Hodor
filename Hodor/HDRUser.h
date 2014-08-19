@@ -11,7 +11,7 @@
 @interface HDRUser : NSObject<NSCoding>
 
 @property NSString *name;
-@property double lastSyncTime;
+@property NSInteger lastSeenId;
 @property BOOL isBlocked;
 
 @end

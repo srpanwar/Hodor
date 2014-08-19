@@ -122,7 +122,7 @@
     return;
 }
 
-- (NSMutableArray *)fetchMessages:(NSString *)from after:(double)lastSyncTime
+- (NSMutableArray *)fetchMessages:(NSString *)from after:(NSInteger)lastSeenId
 {
     NSMutableArray *messages = [[NSMutableArray alloc] init];
     
@@ -130,7 +130,7 @@
     NSURL *url = [NSURL URLWithString:HODOR_SERVICE_ENDPOINT];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     
-    NSString *body = [NSString stringWithFormat:@"method=fetchmessages&from=%@&to=%@&after=%f", from, [HDRCurrentUser getCurrentUserName], lastSyncTime];
+    NSString *body = [NSString stringWithFormat:@"method=fetchmessages&from=%@&to=%@&after=%lu", from, [HDRCurrentUser getCurrentUserName], lastSeenId];
     body = [self doHash:body];
     
     request.HTTPMethod = @"POST";

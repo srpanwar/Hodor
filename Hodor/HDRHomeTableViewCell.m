@@ -63,7 +63,7 @@
 {    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         self.countBtn.hidden = YES;
-        self.messages = [[HDRNetworkProvider instance] fetchMessages:self.user.name after:self.user.lastSyncTime];
+        self.messages = [[HDRNetworkProvider instance] fetchMessages:self.user.name after:self.user.lastSeenId];
         if (self.messages.count)
         {
             dispatch_async(dispatch_get_main_queue(), ^{

@@ -112,7 +112,7 @@
         HDRUser *user = [self getFriend:userName];
         if (user)
         {
-            user.lastSyncTime = [HDRDateUtil utcNowTicks];
+            user.lastSeenId = [HDRDateUtil utcNowTicks];
             [self save];
         }
     }

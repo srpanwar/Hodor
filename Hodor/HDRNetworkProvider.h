@@ -28,6 +28,6 @@
 
 - (void)sendRemoteNotificationsDeviceToken:(NSString *)deviceToken;
 
-- (NSMutableArray *)fetchMessages:(NSString *)from after:(double)lastSyncTime;
+- (NSMutableArray *)fetchMessages:(NSString *)from after:(NSInteger)lastSeenId;
 
 @end
