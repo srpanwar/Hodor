@@ -63,11 +63,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
 }
 
-- (void)colorifyRatings
-{
-    self.ratingBtn.imageView.image = [self.ratingBtn.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    self.ratingBtn.imageView.tintColor = [UIColor colorWithRed:200/255.0f green:40/255.0f blue:40/255.0f alpha:0.7];
-}
 - (void)applicationWillEnterForeground:(NSNotification *)notification
 {
     srand((unsigned)time(NULL));
@@ -75,6 +70,12 @@
     [self colorifyRatings];
     //[self checkPushEnabled];
     [self refreshView];
+}
+
+- (void)colorifyRatings
+{
+    self.ratingBtn.imageView.image = [self.ratingBtn.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    self.ratingBtn.imageView.tintColor = [UIColor colorWithRed:200/255.0f green:40/255.0f blue:40/255.0f alpha:0.7];
 }
 
 - (void)checkPushEnabled

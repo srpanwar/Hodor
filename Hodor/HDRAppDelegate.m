@@ -59,7 +59,6 @@
     {
         HDRHomeViewController *controller = (HDRHomeViewController *)root.topViewController;
         [controller refreshView];
-        [HDRUtils playSound];
     }
     
 }

@@ -293,6 +293,8 @@
 
 - (void)rotateImageView:(void(^)(void))completionBlock
 {
+    [HDRUtils playSoundOutgoing];
+    
     self.busyImage.alpha = 1;
     
     //rotation

@@ -59,7 +59,7 @@
 		78DA61FA199CA8E4006066CF /* 11.wav in Resources */ = {isa = PBXBuildFile; fileRef = 78DA61F8199CA8E4006066CF /* 11.wav */; };
 		78DA61FB199CA8E4006066CF /* 12.wav in Resources */ = {isa = PBXBuildFile; fileRef = 78DA61F9199CA8E4006066CF /* 12.wav */; };
 		78E7859D19A2EE9D00D992F7 /* incoming.wav in Resources */ = {isa = PBXBuildFile; fileRef = 78E7859B19A2EE9D00D992F7 /* incoming.wav */; };
-		78E7859E19A2EE9D00D992F7 /* outgoing.wav in Resources */ = {isa = PBXBuildFile; fileRef = 78E7859C19A2EE9D00D992F7 /* outgoing.wav */; };
+		78E785A019A2F2EF00D992F7 /* outgoing.wav in Resources */ = {isa = PBXBuildFile; fileRef = 78E7859F19A2F2EF00D992F7 /* outgoing.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,7 +144,7 @@
 		78DA61F8199CA8E4006066CF /* 11.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 11.wav; sourceTree = "<group>"; };
 		78DA61F9199CA8E4006066CF /* 12.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 12.wav; sourceTree = "<group>"; };
 		78E7859B19A2EE9D00D992F7 /* incoming.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = incoming.wav; sourceTree = "<group>"; };
-		78E7859C19A2EE9D00D992F7 /* outgoing.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = outgoing.wav; sourceTree = "<group>"; };
+		78E7859F19A2F2EF00D992F7 /* outgoing.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = outgoing.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,7 +267,7 @@
 				78DA61F8199CA8E4006066CF /* 11.wav */,
 				78DA61F9199CA8E4006066CF /* 12.wav */,
 				78E7859B19A2EE9D00D992F7 /* incoming.wav */,
-				78E7859C19A2EE9D00D992F7 /* outgoing.wav */,
+				78E7859F19A2F2EF00D992F7 /* outgoing.wav */,
 				78B1311A19592FFA00D74FD0 /* Hodor.wav */,
 				787F4785195800100064BFCE /* Hodor-Echo.wav */,
 				78237CDA1955853500BE750D /* Hodor1.wav */,
@@ -453,7 +453,6 @@
 				786182E31994C6FF00B4BEFD /* 10.wav in Resources */,
 				786182DF1994C6FF00B4BEFD /* 6.wav in Resources */,
 				786182DE1994C6FF00B4BEFD /* 5.wav in Resources */,
-				78E7859E19A2EE9D00D992F7 /* outgoing.wav in Resources */,
 				786182E11994C6FF00B4BEFD /* 8.wav in Resources */,
 				78237CF3195698B200BE750D /* HDRInviteTableViewCell.xib in Resources */,
 				787F4786195800100064BFCE /* Hodor-Echo.wav in Resources */,
@@ -468,6 +467,7 @@
 				78E7859D19A2EE9D00D992F7 /* incoming.wav in Resources */,
 				78237CDB1955853500BE750D /* Hodor1.wav in Resources */,
 				780AFEA6196FB52800596CC6 /* HDRListBox.xib in Resources */,
+				78E785A019A2F2EF00D992F7 /* outgoing.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
