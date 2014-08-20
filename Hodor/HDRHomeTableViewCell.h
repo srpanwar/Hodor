@@ -18,7 +18,9 @@
 
 @property HDRUser* user;
 
+@property (weak, nonatomic) IBOutlet UIView *metaView;
 @property (weak, nonatomic) IBOutlet UIView *menuView;
+
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *busyIndicator;
 @property (weak, nonatomic) IBOutlet UIButton *blockBtn;
 @property (weak, nonatomic) IBOutlet UIImageView *hodorImage;

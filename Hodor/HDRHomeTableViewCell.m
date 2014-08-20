@@ -62,7 +62,7 @@
 {    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         self.countBtn.hidden = YES;
-        self.messages = [[HDRNetworkProvider instance] fetchMessages:self.user.name after:self.user.lastSeenId]; //self.user.lastSeenId
+        self.messages = [[HDRNetworkProvider instance] fetchMessages:self.user.name after:0]; //self.user.lastSeenId
         if (self.messages.count)
         {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -118,22 +118,19 @@
 
 - (void)doText:(NSString *)text
 {
-    NSString *name = self.user.name;
-    
-    self.nameLabel.hidden = YES;
-    self.hodorImage.hidden = YES;
+    //hide the metadataview
+    self.metaView.hidden = YES;
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        [[HDRNetworkProvider instance] sendText:name text:text];
+        [[HDRNetworkProvider instance] sendText:self.user.name text:text];
     });
     
     [self rotateImageView:^{
-        self.nameLabel.hidden = NO;
-        self.hodorImage.hidden = NO;
+        self.metaView.hidden = NO;
         self.nameLabel.text = @"SEND!";
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.6 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-            self.nameLabel.text = [name uppercaseString];
+            self.nameLabel.text = [self.user.name uppercaseString];
             [[HDRFriends instance] moveToTop:self.user];
             [self.tableView moveRowAtIndexPath:[self.tableView indexPathForCell:self] toIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
         });
@@ -142,22 +139,19 @@
 
 - (void) doHodor
 {
-    NSString *name = self.user.name;
-    
-    self.nameLabel.hidden = YES;
-    self.hodorImage.hidden = YES;
+    //hide the metadataview
+    self.metaView.hidden = YES;
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        [[HDRNetworkProvider instance] sendHODOR:name];
+        [[HDRNetworkProvider instance] sendHODOR:self.user.name];
     });
 
     [self rotateImageView:^{
-        self.nameLabel.hidden = NO;
-        self.hodorImage.hidden = NO;
+        self.metaView.hidden = NO;
         self.nameLabel.text = @"HODORED!";
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.6 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-            self.nameLabel.text = [name uppercaseString];
+            self.nameLabel.text = [self.user.name uppercaseString];
             [[HDRFriends instance] moveToTop:self.user];
             [self.tableView moveRowAtIndexPath:[self.tableView indexPathForCell:self] toIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
         });

@@ -31,8 +31,10 @@
 
     //self.backgroundColor = [UIColor colorWithPatternImage:[[self imageWithView:[[UIApplication sharedApplication] keyWindow]] applyLightEffect]];
     self.textBox.delegate = self;
+    
     self.scrollView.scrollEnabled = NO;
     self.scrollView.contentSize = self.scrollView.bounds.size;
+    
     self.tableView.sectionHeaderHeight = 0.0;
     self.tableView.sectionFooterHeight = 0.0;
     
@@ -42,13 +44,6 @@
     [self.tableView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:nil]];
     
     [self registerForKeyboardNotifications];
-    [self animateUp];
-}
-
-- (void)refresh:(NSMutableArray *)items
-{
-    self.collection = items;
-    [self.tableView reloadData];
 }
 
 #pragma mark - UITextFieldDelegate
@@ -152,9 +147,10 @@
     CGRect hFrame = self.headeView.frame;
     CGRect frame = self.tableView.frame;
     
-    CGFloat y = frame.origin.y;
+    CGFloat y = [UIScreen mainScreen].bounds.size.height - self.tableView.contentSize.height - bFrame.size.height - 5;// frame.origin.y;
+    y = fmaxf(y, 70.0f);
     CGFloat by = bFrame.origin.y;
-    CGFloat hy = hFrame.origin.y;
+    CGFloat hy = y - hFrame.size.height;
     
     hFrame.origin.y = bFrame.origin.y = frame.origin.y = [UIScreen mainScreen].bounds.size.height;
     self.tableView.frame = frame;
@@ -187,6 +183,12 @@
 {
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+
+    [self.tableView beginUpdates];
+    [self.tableView reloadData];
+    [self.tableView endUpdates];
+    
+    [self animateUp];
 }
 
 
