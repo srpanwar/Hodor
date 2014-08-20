@@ -67,7 +67,7 @@
         {
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.countBtn.hidden = NO;
-                [self.countBtn setTitle:[NSString stringWithFormat:@"%lu", self.messages.count] forState:UIControlStateNormal];
+                [self.countBtn setTitle:[NSString stringWithFormat:@"%lu", (unsigned long)self.messages.count] forState:UIControlStateNormal];
             });
         }
     });

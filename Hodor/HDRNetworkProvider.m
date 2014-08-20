@@ -142,7 +142,7 @@
     NSURL *url = [NSURL URLWithString:HODOR_SERVICE_ENDPOINT];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     
-    NSString *body = [NSString stringWithFormat:@"method=fetchmessages&from=%@&to=%@&after=%lu", from, [HDRCurrentUser getCurrentUserName], lastSeenId];
+    NSString *body = [NSString stringWithFormat:@"method=fetchmessages&from=%@&to=%@&after=%lu", from, [HDRCurrentUser getCurrentUserName], (long)lastSeenId];
     body = [self doHash:body];
     
     request.HTTPMethod = @"POST";
