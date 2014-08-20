@@ -27,7 +27,7 @@
     self.alpha = 0;
     self.collection = [[NSMutableArray alloc] init];
     
-    self.fromLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:22];
+    self.fromLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:24];
 
     //self.backgroundColor = [UIColor colorWithPatternImage:[[self imageWithView:[[UIApplication sharedApplication] keyWindow]] applyLightEffect]];
     self.textBox.delegate = self;
@@ -38,6 +38,8 @@
     
     UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(close)];
     [self.contentView addGestureRecognizer:singleTapGestureRecognizer];
+    
+    [self.tableView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:nil]];
     
     [self registerForKeyboardNotifications];
     [self animateUp];
@@ -74,7 +76,7 @@
     if (msg.content.length)
     {
         UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, 290.0f, MAXFLOAT)];
-        textView.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:15.0f];
+        textView.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:17.0f];
         textView.text = msg.content;
         CGSize nSize = [textView sizeThatFits:CGSizeMake(290.0f, MAXFLOAT)];
         height = 7.0f + 18.0f + nSize.height;
@@ -129,13 +131,15 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
     
     CGRect bFrame = self.buttonsContainer.frame;
+    CGRect hFrame = self.headeView.frame;
     CGRect frame = self.tableView.frame;
-    bFrame.origin.y = frame.origin.y = [UIScreen mainScreen].bounds.size.height;
+    hFrame.origin.y = bFrame.origin.y = frame.origin.y = [UIScreen mainScreen].bounds.size.height;
     
     [UIView animateWithDuration:0.2f animations:^{
         self.alpha = 0;
         self.tableView.frame = frame;
         self.buttonsContainer.frame = bFrame;
+        self.headeView.frame = hFrame;
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
     }];
@@ -144,19 +148,25 @@
 - (void)animateUp
 {
     CGRect bFrame = self.buttonsContainer.frame;
+    CGRect hFrame = self.headeView.frame;
     CGRect frame = self.tableView.frame;
+    
     CGFloat y = frame.origin.y;
     CGFloat by = bFrame.origin.y;
+    CGFloat hy = hFrame.origin.y;
     
-    bFrame.origin.y = frame.origin.y = [UIScreen mainScreen].bounds.size.height;
+    hFrame.origin.y = bFrame.origin.y = frame.origin.y = [UIScreen mainScreen].bounds.size.height;
     self.tableView.frame = frame;
     self.buttonsContainer.frame = bFrame;
+    self.headeView.frame = hFrame;
     
     frame.origin.y = y;
     bFrame.origin.y = by;
+    hFrame.origin.y = hy;
     [UIView animateWithDuration:0.3f animations:^{
         self.tableView.frame = frame;
         self.buttonsContainer.frame = bFrame;
+        self.headeView.frame = hFrame;
         self.alpha = 1;
     }];
 }
@@ -210,7 +220,9 @@
     UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height + 10, 0.0);
     self.scrollView.contentInset = contentInsets;
     self.scrollView.scrollIndicatorInsets = contentInsets;
-    //self.tableView.hidden = YES;
+    
+    self.tableView.hidden = YES;
+    self.headeView.hidden = YES;
 }
 
 // Called when the UIKeyboardWillHideNotification is sent
@@ -221,6 +233,7 @@
     self.scrollView.scrollIndicatorInsets = contentInsets;
     
     self.tableView.hidden = NO;
+    self.headeView.hidden = NO;
 }
 
 @end

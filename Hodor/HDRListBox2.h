@@ -18,6 +18,7 @@ typedef void (^SelectionCallBack)(NSString *text);
 
 @property (weak, nonatomic) IBOutlet UILabel *fromLabel;
 
+@property (weak, nonatomic) IBOutlet UIView *headeView;
 @property (weak, nonatomic) IBOutlet UIView *buttonsContainer;
 @property (weak, nonatomic) IBOutlet UITextField *textBox;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
