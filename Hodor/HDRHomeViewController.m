@@ -81,7 +81,7 @@
     
     [self colorifyRatings];
     //[self checkPushEnabled];
-    [self refreshView];
+    [self refreshView:NO];
 }
 
 - (void)colorifyRatings
@@ -104,10 +104,15 @@
     }
 }
 
-- (void)refreshView
+- (void)refreshView:(BOOL)clearCache
 {
     self.friends = [NSMutableArray arrayWithArray:[[HDRFriends instance] getFriends]];
-    [self.cachedCells removeAllObjects];
+    
+    if (clearCache)
+    {
+        [self.cachedCells removeAllObjects];
+    }
+    
     [self.tableView reloadData];
 }
 
@@ -159,6 +164,8 @@
     
     cell.viewController = self;
     cell.tableView = tableView;
+    
+    //colorify the tableview
     [cell colorify:indexPath.row];
     
     return cell;

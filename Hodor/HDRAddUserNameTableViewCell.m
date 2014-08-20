@@ -51,7 +51,7 @@
         }
         
         [[HDRFriends instance] addFriend:user];
-        [self.viewController refreshView];
+        [self.viewController refreshView:NO];
     }
     else
     {

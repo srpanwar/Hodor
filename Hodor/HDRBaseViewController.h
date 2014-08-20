@@ -10,6 +10,6 @@
 
 @interface HDRBaseViewController : UIViewController
 
-- (void)refreshView;
+- (void)refreshView:(BOOL)clearCache;
 
 @end

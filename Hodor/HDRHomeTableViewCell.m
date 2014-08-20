@@ -190,7 +190,7 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         [[HDRFriends instance] deleteFriend:self.user];
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.viewController refreshView];
+            [self.viewController refreshView:YES];
         });
     });
 }
@@ -207,7 +207,7 @@
         {
             [[HDRFriends instance] blockFriend:self.user];
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self.viewController refreshView];
+                [self.viewController refreshView:YES];
             });
         }
     });
