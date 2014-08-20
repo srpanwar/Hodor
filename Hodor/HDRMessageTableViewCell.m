@@ -13,6 +13,7 @@
 - (void)awakeFromNib
 {
     // Initialization code
+    self.messageTextView.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:18.0f];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

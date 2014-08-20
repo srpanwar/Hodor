@@ -76,10 +76,10 @@
     if (msg.content.length)
     {
         UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, 290.0f, MAXFLOAT)];
-        textView.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:17.0f];
+        textView.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:18.0f];
         textView.text = msg.content;
         CGSize nSize = [textView sizeThatFits:CGSizeMake(290.0f, MAXFLOAT)];
-        height = 7.0f + 18.0f + nSize.height;
+        height = 15.0f + nSize.height;
     }
     
     return height;
@@ -105,13 +105,14 @@
         HDRMessage *msg = [self.collection objectAtIndex:indexPath.row];
         
         cell.messageTextView.text = msg.content;
+        [cell.messageTextView sizeToFit];
         
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS"];
         NSDate *capturedStartDate = [formatter dateFromString: msg.createdDateString];
         NSLog(@"%@", capturedStartDate);
 
-        cell.dateLabel.text = [HDRDateUtil getFormattedString:capturedStartDate];
+        cell.dateLabel.text = [HDRDateUtil getFormattedString:[HDRDateUtil toLocal:        [capturedStartDate timeIntervalSince1970]]];
 
         cell.backgroundColor = [UIColor clearColor];
         
