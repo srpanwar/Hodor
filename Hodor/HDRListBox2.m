@@ -30,7 +30,6 @@
     self.fromLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:24];
 
     //self.backgroundColor = [UIColor colorWithPatternImage:[[self imageWithView:[[UIApplication sharedApplication] keyWindow]] applyLightEffect]];
-    self.textBox.delegate = self;
     
     self.scrollView.scrollEnabled = NO;
     self.scrollView.contentSize = self.scrollView.bounds.size;
@@ -44,23 +43,6 @@
     [self.tableView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:nil]];
     
     [self registerForKeyboardNotifications];
-}
-
-#pragma mark - UITextFieldDelegate
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-{
-    if (self.textBox.text.length > 100)
-    {
-        return NO;
-    }
-    
-    return YES;
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [self sendCustomText:nil];
-    return YES;
 }
 
 #pragma mark - UITableViewDataSource, UITableViewDelegate
@@ -126,15 +108,13 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
     
-    CGRect bFrame = self.buttonsContainer.frame;
     CGRect hFrame = self.headeView.frame;
     CGRect frame = self.tableView.frame;
-    hFrame.origin.y = bFrame.origin.y = frame.origin.y = [UIScreen mainScreen].bounds.size.height;
+    hFrame.origin.y = frame.origin.y = [UIScreen mainScreen].bounds.size.height;
     
     [UIView animateWithDuration:0.2f animations:^{
         self.alpha = 0;
         self.tableView.frame = frame;
-        self.buttonsContainer.frame = bFrame;
         self.headeView.frame = hFrame;
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
@@ -143,40 +123,24 @@
 
 - (void)animateUp
 {
-    CGRect bFrame = self.buttonsContainer.frame;
     CGRect hFrame = self.headeView.frame;
     CGRect frame = self.tableView.frame;
     
-    CGFloat y = [UIScreen mainScreen].bounds.size.height - self.tableView.contentSize.height - bFrame.size.height;
+    CGFloat y = [UIScreen mainScreen].bounds.size.height - self.tableView.contentSize.height;
     y = fmaxf(y, 75.0f);
-    CGFloat by = bFrame.origin.y;
     CGFloat hy = y - hFrame.size.height;
     
-    hFrame.origin.y = bFrame.origin.y = frame.origin.y = [UIScreen mainScreen].bounds.size.height;
+    hFrame.origin.y = frame.origin.y = [UIScreen mainScreen].bounds.size.height;
     self.tableView.frame = frame;
-    self.buttonsContainer.frame = bFrame;
     self.headeView.frame = hFrame;
     
     frame.origin.y = y;
-    bFrame.origin.y = by;
     hFrame.origin.y = hy;
     [UIView animateWithDuration:0.3f animations:^{
         self.tableView.frame = frame;
-        self.buttonsContainer.frame = bFrame;
         self.headeView.frame = hFrame;
         self.alpha = 1;
     }];
-}
-
-- (IBAction)sendCustomText:(id)sender
-{
-    NSString *text = self.textBox.text;
-    if (self.callback && text.length)
-    {
-        self.callback(text);
-    }
-    
-    [self close];
 }
 
 - (void)show

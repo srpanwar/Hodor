@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UIImage+ImageEffects.h"
+#import "HDRTranslator.h"
 
 typedef void (^SelectionCallBack)(NSString *text);
 
@@ -18,6 +19,9 @@ typedef void (^SelectionCallBack)(NSString *text);
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIView *translatedView;
+@property (weak, nonatomic) IBOutlet UILabel *translatedLabel;
+
 @property(readwrite, copy) SelectionCallBack callback;
 @property NSMutableArray *collection;
 

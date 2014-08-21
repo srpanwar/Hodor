@@ -8,6 +8,12 @@
 
 #import "HDRListBox.h"
 
+@interface HDRListBox ()
+
+@property HDRTranslator *translator;
+
+@end
+
 @implementation HDRListBox
 
 - (id)initWithFrame:(CGRect)frame
@@ -26,6 +32,9 @@
     
     self.alpha = 0;
     self.collection = [[NSMutableArray alloc] init];
+    self.translator = [[HDRTranslator alloc] init];
+    self.translatedLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:20];
+    self.translatedView.hidden = YES;
     
     //self.backgroundColor = [UIColor colorWithPatternImage:[[self imageWithView:[[UIApplication sharedApplication] keyWindow]] applyLightEffect]];
     self.textBox.delegate = self;
@@ -37,6 +46,10 @@
     UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(close)];
     [self.contentView addGestureRecognizer:singleTapGestureRecognizer];
 
+    UITapGestureRecognizer *singleTapGestureRecognizer2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sendTranslatedText)];
+    [self.translatedView addGestureRecognizer:singleTapGestureRecognizer2];
+
+    
     [self registerForKeyboardNotifications];
     [self animateUp];
     
@@ -57,6 +70,17 @@
         return NO;
     }
     
+    if ([[string stringByTrimmingCharactersInSet:[NSCharacterSet alphanumericCharacterSet]] isEqualToString:@""])
+    {
+        NSString *text = [textField.text stringByReplacingCharactersInRange:range withString:string];
+        self.translatedLabel.text = [self.translator translate:text];
+    }
+    else
+    {
+        self.translatedLabel.text = [NSString stringWithFormat:@"%@%@", self.translatedLabel.text, string];
+    }
+    
+    self.translatedView.hidden = !self.translatedLabel.text.length;
     return YES;
 }
 
@@ -164,6 +188,19 @@
     
     [self close];
 }
+
+
+- (void)sendTranslatedText
+{
+    NSString *text = self.translatedLabel.text;
+    if (self.callback && text.length)
+    {
+        self.callback(text);
+    }
+    
+    [self close];
+}
+
 
 - (void)show
 {

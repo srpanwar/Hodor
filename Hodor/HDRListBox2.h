@@ -19,15 +19,12 @@ typedef void (^SelectionCallBack)(NSString *text);
 @property (weak, nonatomic) IBOutlet UILabel *fromLabel;
 
 @property (weak, nonatomic) IBOutlet UIView *headeView;
-@property (weak, nonatomic) IBOutlet UIView *buttonsContainer;
-@property (weak, nonatomic) IBOutlet UITextField *textBox;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property(readwrite, copy) SelectionCallBack callback;
 @property NSMutableArray *collection;
 
-- (IBAction)sendCustomText:(id)sender;
 - (void)show;
 - (void)close;
 
