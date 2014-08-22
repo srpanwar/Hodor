@@ -140,7 +140,7 @@
                             <view contentMode="scaleToFill" id="mmu-yH-Zcg" userLabel="View - Overlay">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.40000000000000002" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.80000000000000004" alpha="0.70000000000000007" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KOc-FS-tJC">
                                 <rect key="frame" x="8" y="354" width="41" height="40"/>
