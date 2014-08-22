@@ -117,7 +117,7 @@
         cell.textLabel.minimumScaleFactor = 0.7;
         cell.textLabel.numberOfLines = 2;
         cell.textLabel.text = self.collection[indexPath.row];
-        cell.textLabel.textColor = [UIColor colorWithWhite:0.27 alpha:0.9];
+        cell.textLabel.textColor = [UIColor colorWithWhite:0.27 alpha:1];
         cell.backgroundColor = [UIColor clearColor];
         return cell;
 
