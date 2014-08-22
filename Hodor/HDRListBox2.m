@@ -48,15 +48,15 @@
 #pragma mark - UITableViewDataSource, UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGFloat height = 0;
+    CGFloat height = 30.0f;
     HDRMessage *msg = [self.collection objectAtIndex:indexPath.row];
     if (msg.content.length)
     {
         UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, 290.0f, MAXFLOAT)];
-        textView.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:18.0f];
+        textView.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:22.0f];
         textView.text = msg.content;
         CGSize nSize = [textView sizeThatFits:CGSizeMake(290.0f, MAXFLOAT)];
-        height = 15.0f + nSize.height;
+        height += nSize.height;
     }
     
     return height;
@@ -81,17 +81,8 @@
         
         HDRMessage *msg = [self.collection objectAtIndex:indexPath.row];
         
-        cell.messageTextView.text = msg.content;
-        [cell.messageTextView sizeToFit];
-        
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS"];
-        NSDate *capturedStartDate = [formatter dateFromString: msg.createdDateString];
-        NSLog(@"%@", capturedStartDate);
-
-        cell.dateLabel.text = [HDRDateUtil getFormattedString:[HDRDateUtil toLocal:        [capturedStartDate timeIntervalSince1970]]];
-
-        cell.backgroundColor = [UIColor clearColor];
+        [cell setDatasource:msg];
+        [cell colorify:indexPath.row];
         
         return cell;
         
@@ -127,13 +118,14 @@
     CGRect frame = self.tableView.frame;
     
     CGFloat y = [UIScreen mainScreen].bounds.size.height - self.tableView.contentSize.height;
-    y = fmaxf(y, 75.0f);
+    y = fmaxf(y, 200.0f);
     CGFloat hy = y - hFrame.size.height;
     
     hFrame.origin.y = frame.origin.y = [UIScreen mainScreen].bounds.size.height;
     self.tableView.frame = frame;
     self.headeView.frame = hFrame;
     
+    frame.size.height = [UIScreen mainScreen].bounds.size.height - y;
     frame.origin.y = y;
     hFrame.origin.y = hy;
     [UIView animateWithDuration:0.3f animations:^{

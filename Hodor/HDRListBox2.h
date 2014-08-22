@@ -10,7 +10,6 @@
 #import "UIImage+ImageEffects.h"
 #import "HDRMessageTableViewCell.h"
 #import "HDRMessage.h"
-#import "HDRDateUtil.h"
 
 typedef void (^SelectionCallBack)(NSString *text);
 
