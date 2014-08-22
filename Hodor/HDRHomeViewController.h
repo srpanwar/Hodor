@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIImage+ImageEffects.h"
 #import "HDRInviteTableViewCell.h"
 #import "HDRHomeTableViewCell.h"
 #import "HDRAddUserNameTableViewCell.h"

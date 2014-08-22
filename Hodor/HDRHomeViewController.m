@@ -43,7 +43,7 @@
     
     self.pageTitleLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:24];
     self.pageTitleLabel.text = [NSString stringWithFormat:@"HODOR + YOU(%@)", [HDRCurrentUser getCurrentUserName]];
-    
+
     self.ratingBtn.layer.cornerRadius = 20.0f;
     self.shareBtn.layer.cornerRadius = 20.0f;
     self.moreBtn.layer.cornerRadius = 20.0f;
@@ -73,6 +73,23 @@
     [self.overlayVew addGestureRecognizer:singleTapGestureRecognizer];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.overlayVew.backgroundColor = [UIColor colorWithPatternImage:[[self imageWithView:self.view] applyLightEffect]];
+    });
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.overlayVew.backgroundColor = [UIColor colorWithPatternImage:[[self imageWithView:self.view] applyLightEffect]];
+    });
+}
+
+- (UIImage *) imageWithView:(UIView *)view
+{
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 0.0f);
+    [view drawViewHierarchyInRect:view.bounds afterScreenUpdates:NO];
+    UIImage * snapshotImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return snapshotImage;
 }
 
 - (void)applicationWillEnterForeground:(NSNotification *)notification

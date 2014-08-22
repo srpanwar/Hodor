@@ -62,7 +62,7 @@
 {    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         self.countBtn.hidden = YES;
-        self.messages = [[HDRNetworkProvider instance] fetchMessages:self.user.name after:0]; //self.user.lastSeenId
+        self.messages = [[HDRNetworkProvider instance] fetchMessages:self.user.name after:self.user.lastSeenId]; //self.user.lastSeenId
         if (self.messages.count)
         {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -212,7 +212,7 @@
 {
     if (self.messages.count)
     {
-        HDRMessage *msg = self.messages[self.self.messages.count - 1];
+        HDRMessage *msg = self.messages[0];
         
         //test hook
         //msg.content = @"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do  Lorem ipsum dolor sit er elit lamet Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do  Lorem ipsum dolor sit er elit lamet";
