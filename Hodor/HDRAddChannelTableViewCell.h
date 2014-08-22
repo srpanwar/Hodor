@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HDRTableViewCell.h"
+#import "HDRUser.h"
+#import "HDRFriends.h"
+#import "HDRNetworkProvider.h"
 
-@interface HDRAddChannelTableViewCell : UITableViewCell
+@interface HDRAddChannelTableViewCell : HDRTableViewCell<UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *textField;
+
+@property (weak, nonatomic) IBOutlet UIButton *addBtn;
+- (IBAction)startEditing:(id)sender;
 
 @end
