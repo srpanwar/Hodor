@@ -29,7 +29,7 @@
 - (void)awakeFromNib
 {
     // Initialization code
-    self.messageTextView.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:22.0f];
+    self.messageTextView.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:18.0f];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -66,7 +66,8 @@
 
 - (void)colorify:(NSInteger)index
 {
-    UIColor *color = INDEX_COLOR_MAP2[(INDEX_COLOR_MAP2.count - index % INDEX_COLOR_MAP2.count) -1 ];
+    UIColor *color = index %2 == 0 ? [UIColor colorWithWhite:0.96 alpha:1] : [UIColor colorWithWhite:0.94 alpha:1];
+    //INDEX_COLOR_MAP2[(INDEX_COLOR_MAP2.count - index % INDEX_COLOR_MAP2.count) -1 ];
     self.backgroundColor = color;
 }
 
