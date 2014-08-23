@@ -35,6 +35,7 @@
 - (IBAction)viewMessages:(id)sender;
 
 - (void)loadMessages;
+- (NSMutableArray *)loadMessagesNetwork;
 
 - (void)firstRun;
 - (void)rightAndBack:(void (^)(void))callback;

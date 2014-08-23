@@ -21,6 +21,10 @@
     self.nameLabel.text = @"#ANYWHERE";
 }
 
+- (NSMutableArray *)loadMessagesNetwork
+{
+    return [[HDRNetworkProvider instance] fetchMessages:@"srpanwar" after:self.user.lastSeenId];
+}
 @end
 
 

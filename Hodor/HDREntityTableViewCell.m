@@ -46,7 +46,7 @@
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         self.countBtn.hidden = YES;
-        self.messages = [[HDRNetworkProvider instance] fetchMessages:self.user.name after:self.user.lastSeenId]; //self.user.lastSeenId
+        self.messages = [self loadMessagesNetwork];
         if (self.messages.count)
         {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -57,6 +57,10 @@
     });
 }
 
+- (NSMutableArray *)loadMessagesNetwork
+{
+    return [[HDRNetworkProvider instance] fetchMessages:self.user.name after:self.user.lastSeenId]; //self.user.lastSeenId
+}
 
 #pragma mark GESTURE ACTIONS
 
