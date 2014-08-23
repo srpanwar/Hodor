@@ -210,16 +210,30 @@
                                 <color key="backgroundColor" white="0.23349110401459855" alpha="0.90000000000000002" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tFM-dJ-IyC">
-                                <rect key="frame" x="-320" y="540" width="320" height="28"/>
+                                <rect key="frame" x="-320" y="528" width="320" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="0.70000000000000007" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <state key="normal" title="Shouting Face by AVA ROWELL from The Noun Project">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="gotoNounProject:" destination="qmg-VW-uDI" eventType="touchUpInside" id="mZ9-iG-WIt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="N2s-HZ-wE6">
+                                <rect key="frame" x="-320" y="487" width="320" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Checkout this awesome site http://lingojam.com/">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="gotoLingoJam:" destination="qmg-VW-uDI" eventType="touchUpInside" id="1Uz-dB-i6K"/>
+                                    <action selector="gotoNounProject:" destination="qmg-VW-uDI" eventType="touchUpInside" id="0BY-Hx-8xd"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -229,6 +243,7 @@
                     <connections>
                         <outlet property="aboutBtn" destination="KOc-FS-tJC" id="VHm-3Q-lBv"/>
                         <outlet property="enablePushView" destination="4t7-8r-n6p" id="83x-rF-hb4"/>
+                        <outlet property="lingoJamBtn" destination="N2s-HZ-wE6" id="PXA-Qp-eHC"/>
                         <outlet property="moreBtn" destination="udK-FT-ths" id="nOy-Y3-GjQ"/>
                         <outlet property="nounBtn" destination="tFM-dJ-IyC" id="bpl-xV-8Sm"/>
                         <outlet property="overlayVew" destination="mmu-yH-Zcg" id="Fbq-Aw-F7C"/>

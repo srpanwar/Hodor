@@ -266,24 +266,36 @@
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://thenounproject.com/simplisto/"]];
 }
 
+- (IBAction)gotoLingoJam:(id)sender
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://lingojam.com/"]];
+}
+
 - (IBAction)showNounLabel:(id)sender
 {
-    [self showMore:sender];
- 
-    CGRect frame = self.nounBtn.frame;
-    frame.origin.x = 0;
+    CGRect frame1 = self.nounBtn.frame;
+    CGRect frame2 = self.lingoJamBtn.frame;
+    frame1.origin.x = 0;
+    frame2.origin.x = 0;
     
     [UIView animateWithDuration:0.3f animations:^{
-        self.nounBtn.frame = frame;
+        self.nounBtn.frame = frame1;
+        self.lingoJamBtn.frame = frame2;
     } completion:^(BOOL finished) {
 
-        CGRect frame2 = self.nounBtn.frame;
-        frame2.origin.x = -1 * frame2.size.width;
+        CGRect frame3 = self.nounBtn.frame;
+        frame3.origin.x = -1 * frame3.size.width;
+
+        CGRect frame4 = self.lingoJamBtn.frame;
+        frame4.origin.x = -1 * frame4.size.width;
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [UIView animateWithDuration:0.5f animations:^{
-                self.nounBtn.frame = frame2;
+                self.nounBtn.frame = frame3;
+                self.lingoJamBtn.frame = frame4;
             }];
+            
+            [self showMore:sender];
         });
     }];
 
