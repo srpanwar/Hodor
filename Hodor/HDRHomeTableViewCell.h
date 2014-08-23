@@ -18,16 +18,15 @@
 
 @property (weak, nonatomic) IBOutlet UIView *menuView;
 
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *busyIndicator;
-@property (weak, nonatomic) IBOutlet UIButton *blockBtn;
-
 @property (weak, nonatomic) IBOutlet UIButton *cancelLabel;
 @property (weak, nonatomic) IBOutlet UIButton *deleteLabel;
+
 @property (weak, nonatomic) IBOutlet UIButton *blockLabel;
-@property (weak, nonatomic) IBOutlet UIButton *countBtn;
+
 
 - (IBAction)onCancel:(id)sender;
 - (IBAction)onDelete:(id)sender;
+
 - (IBAction)onBlock:(id)sender;
 
 

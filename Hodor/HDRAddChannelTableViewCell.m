@@ -35,18 +35,13 @@
     if(textField.text.length)
     {
         HDRUser *user = [[HDRUser alloc] init];
-        user.name = textField.text;
+        user.name = [NSString stringWithFormat:@"#%@", textField.text];
         user.isBlocked = NO;
+        user.userType = 1;
         
         HDRUser *existingFriend = [[HDRFriends instance] getFriend:user.name];
         if (existingFriend)
         {
-            if (existingFriend.isBlocked)
-            {
-                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                    [[HDRNetworkProvider instance]unBlockUser:user.name];
-                });
-            }
             [[HDRFriends instance] deleteFriend:existingFriend];
         }
         

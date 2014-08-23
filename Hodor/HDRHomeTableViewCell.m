@@ -64,7 +64,6 @@
     }];
 }
 
-
 - (IBAction)onDelete:(id)sender
 {
     self.menuView.alpha = 0;

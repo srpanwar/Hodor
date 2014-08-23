@@ -37,6 +37,7 @@
         HDRUser *user = [[HDRUser alloc] init];
         user.name = textField.text;
         user.isBlocked = NO;
+        user.userType = 0;
         
         HDRUser *existingFriend = [[HDRFriends instance] getFriend:user.name];
         if (existingFriend)

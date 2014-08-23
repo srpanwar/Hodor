@@ -36,7 +36,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="callHodor:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="5zs-TE-DHp"/>
+                                    <action selector="callHodor:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="I1U-2S-dCy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fms-3B-AE2">
@@ -55,7 +55,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="viewMessages:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="lh1-cp-45M"/>
+                                    <action selector="viewMessages:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="baO-B7-OIg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -67,13 +67,14 @@
                         <color key="backgroundColor" white="0.21849338500000001" alpha="0.0" colorSpace="calibratedWhite"/>
                     </imageView>
                 </subviews>
+                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             </tableViewCellContentView>
             <connections>
-                <outlet property="busyImage" destination="WiF-XZ-T7V" id="FrK-i0-xiD"/>
-                <outlet property="countBtn" destination="Fms-3B-AE2" id="XAX-yq-us8"/>
-                <outlet property="hodorImage" destination="oRG-Ip-VlP" id="pAC-na-Zos"/>
-                <outlet property="metaView" destination="IJF-YP-9qu" id="6xr-3Z-Ufq"/>
-                <outlet property="nameLabel" destination="Cpv-0M-yDQ" id="PXW-8x-xDn"/>
+                <outlet property="busyImage" destination="WiF-XZ-T7V" id="Xm9-pa-fU2"/>
+                <outlet property="countBtn" destination="Fms-3B-AE2" id="daS-UQ-WgJ"/>
+                <outlet property="hodorImage" destination="oRG-Ip-VlP" id="HHd-fP-cfv"/>
+                <outlet property="metaView" destination="IJF-YP-9qu" id="ytv-9M-FDU"/>
+                <outlet property="nameLabel" destination="Cpv-0M-yDQ" id="NQQ-o2-DNt"/>
             </connections>
         </tableViewCell>
     </objects>
