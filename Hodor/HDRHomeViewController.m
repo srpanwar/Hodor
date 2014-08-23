@@ -59,8 +59,10 @@
     self.aboutFrame = self.aboutBtn.frame;
     self.aboutBtn.frame = self.ratingBtn.frame = self.shareBtn.frame = self.moreBtn.frame;
     
+    self.nounBtn.layer.cornerRadius = 5;
     self.nounBtn.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.nounBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
+    self.lingoJamBtn.layer.cornerRadius = 5;
     self.lingoJamBtn.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.lingoJamBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
     
@@ -299,8 +301,8 @@
     
     CGRect frame1 = self.nounBtn.frame;
     CGRect frame2 = self.lingoJamBtn.frame;
-    frame1.origin.x = 0;
-    frame2.origin.x = 0;
+    frame1.origin.x = -10;
+    frame2.origin.x = 10;
     
     [UIView animateWithDuration:0.3f animations:^{
         self.nounBtn.frame = frame1;
@@ -311,7 +313,7 @@
         frame3.origin.x = -1 * frame3.size.width;
 
         CGRect frame4 = self.lingoJamBtn.frame;
-        frame4.origin.x = -1 * frame4.size.width;
+        frame4.origin.x = frame4.size.width;
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [UIView animateWithDuration:0.5f animations:^{
