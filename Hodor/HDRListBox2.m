@@ -35,7 +35,7 @@
     self.scrollView.contentSize = self.scrollView.bounds.size;
     
     self.tableView.sectionHeaderHeight = 0.0;
-    self.tableView.sectionFooterHeight = 0.0;
+    //self.tableView.sectionFooterHeight = 0.0;
     
     UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(close)];
     [self.contentView addGestureRecognizer:singleTapGestureRecognizer];

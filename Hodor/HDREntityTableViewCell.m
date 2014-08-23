@@ -34,7 +34,7 @@
     [self.nameLabel addGestureRecognizer:singleTapGestureRecognizer];
     
     //text
-    UITapGestureRecognizer *doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showTextTemplatesUI)];
+    UITapGestureRecognizer *doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(resetMessageReadCounter)];
     doubleTapGestureRecognizer.numberOfTapsRequired = 2;
     [self.nameLabel addGestureRecognizer:doubleTapGestureRecognizer];
     
