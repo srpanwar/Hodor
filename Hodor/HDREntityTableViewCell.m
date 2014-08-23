@@ -62,6 +62,7 @@
     return [[HDRNetworkProvider instance] fetchMessages:self.user.name after:self.user.lastSeenId]; //self.user.lastSeenId
 }
 
+
 #pragma mark GESTURE ACTIONS
 
 - (void)showTextTemplates
@@ -128,6 +129,7 @@
     }];
 }
 
+
 #pragma mark IBACTIONS
 
 - (IBAction)callHodor:(id)sender
@@ -164,7 +166,6 @@
         [self.viewController.navigationController.view addSubview:listBox];
     }
 }
-
 
 
 #pragma mark Animation

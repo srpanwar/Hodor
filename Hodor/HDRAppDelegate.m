@@ -23,6 +23,9 @@
         [[HDRNetworkProvider instance] refreshTriviaList];
     });
     
+    //update if needed
+    [HDRUpdater update];
+    
     return YES;
 }
 

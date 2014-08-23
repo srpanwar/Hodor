@@ -15,7 +15,7 @@
     [encoder encodeObject:self.name forKey:@"name"];
     [encoder encodeObject:[NSNumber numberWithInteger:self.lastSeenId] forKey:@"lastSeenId"];
     [encoder encodeObject:[NSNumber numberWithBool:self.isBlocked] forKey:@"isBlocked"];
-    [encoder encodeObject:[NSNumber numberWithBool:self.userType] forKey:@"userType"];
+    [encoder encodeObject:[NSNumber numberWithInteger:self.userType] forKey:@"userType"];
     
 }
 

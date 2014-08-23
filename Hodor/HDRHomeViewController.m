@@ -135,11 +135,10 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     self.friends = [NSMutableArray arrayWithArray:[[HDRFriends instance] getFriends]];
-    return self.friends.count + 4;
+    return self.friends.count + 2;
 }
 
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
-// Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     HDRTableViewCell *cell = nil;
@@ -147,20 +146,21 @@
     if (indexPath.row < (self.friends.count))
     {
         HDRUser *user = self.friends[indexPath.row];
-        HDRHomeTableViewCell *cell1 = [self.cachedCells objectForKey:user.name];
-        if (!cell1)
+        HDRHomeTableViewCell *cellX = [self.cachedCells objectForKey:user.name];
+        if (!cellX)
         {
-            cell1 = (HDRHomeTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"HDRHomeTableViewCell" owner:nil options:nil] lastObject];
-            cell1.user = user;
-            cell1.nameLabel.text = [user.name uppercaseString];
+            NSString *nibName = user.userType == 2 ? @"HDRAnywhereTableViewCell" : @"HDRHomeTableViewCell";
+            cellX = (HDRHomeTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:nibName owner:nil options:nil] lastObject];
+            cellX.user = user;
+            cellX.nameLabel.text = [user.name uppercaseString];
             
-            [self.cachedCells setObject:cell1 forKey:user.name];
+            [self.cachedCells setObject:cellX forKey:user.name];
         }
 
-        cell = cell1;
+        cell = cellX;
         
         //fetch and show messages
-        [cell1 loadMessages];
+        [cellX loadMessages];
     }
     else
     {
@@ -168,26 +168,19 @@
         {
             case 0:
             {
-                HDRAnywhereTableViewCell *cellX = (HDRAnywhereTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"HDRAnywhereTableViewCell" owner:nil options:nil] lastObject];
+                HDRInviteTableViewCell *cellX = (HDRInviteTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"HDRInviteTableViewCell" owner:nil options:nil] lastObject];
                 
                 cell = cellX;
             }
                 break;
             case 1:
             {
-                HDRInviteTableViewCell *cellX = (HDRInviteTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"HDRInviteTableViewCell" owner:nil options:nil] lastObject];
-                
-                cell = cellX;
-            }
-                break;
-            case 2:
-            {
                 HDRAddUserNameTableViewCell *cellX = (HDRAddUserNameTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"HDRAddUserNameTableViewCell" owner:nil options:nil] lastObject];
                 
                 cell = cellX;
             }
                 break;
-            case 3:
+            case 2:
             {
                 HDRAddChannelTableViewCell *cellX = (HDRAddChannelTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"HDRAddChannelTableViewCell" owner:nil options:nil] lastObject];
                 
