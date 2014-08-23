@@ -30,8 +30,21 @@
     self.hodorImage.layer.cornerRadius = 15;
     
     //text
-    UITapGestureRecognizer *singleTapGestureRecognizer2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showTextTemplatesUI)];
-    [self.nameLabel addGestureRecognizer:singleTapGestureRecognizer2];
+    UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showTextTemplatesUI)];
+    [self.nameLabel addGestureRecognizer:singleTapGestureRecognizer];
+    
+    //text
+    UITapGestureRecognizer *doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showTextTemplatesUI)];
+    doubleTapGestureRecognizer.numberOfTapsRequired = 2;
+    [self.nameLabel addGestureRecognizer:doubleTapGestureRecognizer];
+    
+    [singleTapGestureRecognizer requireGestureRecognizerToFail:doubleTapGestureRecognizer];
+}
+
+- (void)resetMessageReadCounter
+{
+    self.user.lastSeenId = MAX(0, self.user.lastSeenId - 5);
+    [self loadMessages];
 }
 
 - (void)firstRun

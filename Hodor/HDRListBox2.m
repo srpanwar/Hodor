@@ -53,7 +53,7 @@
     if (msg.content.length)
     {
         UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, 290.0f, MAXFLOAT)];
-        textView.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:18.0f];
+        textView.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:20.0f];
         textView.text = msg.content;
         CGSize nSize = [textView sizeThatFits:CGSizeMake(290.0f, MAXFLOAT)];
         height += nSize.height;
