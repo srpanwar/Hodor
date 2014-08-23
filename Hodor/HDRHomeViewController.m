@@ -59,6 +59,11 @@
     self.aboutFrame = self.aboutBtn.frame;
     self.aboutBtn.frame = self.ratingBtn.frame = self.shareBtn.frame = self.moreBtn.frame;
     
+    self.nounBtn.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.nounBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
+    self.lingoJamBtn.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.lingoJamBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
+    
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
@@ -273,6 +278,8 @@
 
 - (IBAction)showNounLabel:(id)sender
 {
+    [self showMore:sender];
+    
     CGRect frame1 = self.nounBtn.frame;
     CGRect frame2 = self.lingoJamBtn.frame;
     frame1.origin.x = 0;
@@ -294,8 +301,6 @@
                 self.nounBtn.frame = frame3;
                 self.lingoJamBtn.frame = frame4;
             }];
-            
-            [self showMore:sender];
         });
     }];
 
