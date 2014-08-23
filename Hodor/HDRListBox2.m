@@ -48,7 +48,7 @@
 #pragma mark - UITableViewDataSource, UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGFloat height = 30.0f;
+    CGFloat height = 50.0f;
     HDRMessage *msg = [self.collection objectAtIndex:indexPath.row];
     if (msg.content.length)
     {
