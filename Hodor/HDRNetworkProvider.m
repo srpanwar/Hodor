@@ -83,6 +83,11 @@
     [self sendHODOR:@"sendhodortochannel" recipient:recipient];
 }
 
+- (void)sendHODORToAnywhere:(NSString *)recipient
+{
+    [self sendHODOR:@"sendhodortoanywhere" recipient:recipient];
+}
+
 -(void) sendHODOR:(NSString *)recipient
 {
     [self sendHODOR:@"sendhodor" recipient:recipient];
@@ -121,9 +126,14 @@
     [self sendText:@"sendtexttochannel" recipient:recipient text:text];
 }
 
+- (void)sendTextToAnywhere:(NSString *)recipient text:(NSString *)text
+{
+    [self sendText:@"sendtexttochannel" recipient:recipient text:text];
+}
+
 - (void)sendText:(NSString *)recipient text:(NSString *)text
 {
-    [self sendText:@"sendtext" recipient:recipient text:text];
+    [self sendText:@"sendtexttoanywhere" recipient:recipient text:text];
 }
 
 - (void)sendText:(NSString *)method recipient:(NSString *)recipient text:(NSString *)text

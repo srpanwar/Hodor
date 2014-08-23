@@ -26,10 +26,11 @@
 
 - (void)sendHODOR:(NSString *)recipient;
 - (void)sendHODORToChannel:(NSString *)recipient;
+- (void)sendHODORToAnywhere:(NSString *)recipient;
 
 - (void)sendText:(NSString *)recipient text:(NSString *)text;
 - (void)sendTextToChannel:(NSString *)recipient text:(NSString *)text;
-
+- (void)sendTextToAnywhere:(NSString *)recipient text:(NSString *)text;
 
 - (void)sendRemoteNotificationsDeviceToken:(NSString *)deviceToken;
 
