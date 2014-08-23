@@ -18,7 +18,7 @@
 
 - (NSMutableArray *)loadMessagesNetwork
 {
-    return [[HDRNetworkProvider instance] fetchAnywhereMessages:self.user.lastSeenId];
+    return [[HDRNetworkProvider instance] fetchHereMessages:self.user.lastSeenId];
 }
 
 - (void)doTextNetwork:(NSString *)text

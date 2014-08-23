@@ -210,6 +210,22 @@
     return messages;
 }
 
+- (NSMutableArray *)fetchHereMessages:(NSInteger)lastSeenId
+{
+    NSMutableArray *messages = [[NSMutableArray alloc] init];
+    
+    //form the url
+    NSString *body = [NSString stringWithFormat:@"method=fetchheremessages&after=%lu&latitude=%f&longitude=%f", (long)lastSeenId, 0.0f, 0.0f];
+    NSData *data = [self doNetwork:body];
+    
+    //parse the results
+    if (data)
+    {
+        messages = [self parseData:data];
+    }
+    
+    return messages;
+}
 
 - (BOOL) blockUser:(NSString *)userName
 {
