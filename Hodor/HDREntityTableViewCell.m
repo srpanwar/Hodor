@@ -93,7 +93,7 @@
     self.metaView.hidden = YES;
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        [[HDRNetworkProvider instance] sendText:self.user.name text:text];
+        [self doTextNetwork:text];
     });
     
     [self rotateImageView:self.busyImage callback:^{
@@ -108,13 +108,23 @@
     }];
 }
 
+- (void)doTextNetwork:(NSString *)text
+{
+    [[HDRNetworkProvider instance] sendText:self.user.name text:text];
+}
+
+- (void)doHodorNetwork
+{
+    [[HDRNetworkProvider instance] sendHODOR:self.user.name];
+}
+
 - (void) doHodor
 {
     //hide the metadataview
     self.metaView.hidden = YES;
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        [[HDRNetworkProvider instance] sendHODOR:self.user.name];
+        [self doHodorNetwork];
     });
     
     [self rotateImageView:self.busyImage callback:^{

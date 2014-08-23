@@ -31,6 +31,9 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *countBtn;
 
+- (void)doHodorNetwork;
+- (void)doTextNetwork:(NSString *)text;
+
 - (IBAction)callHodor:(id)sender;
 - (IBAction)viewMessages:(id)sender;
 

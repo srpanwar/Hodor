@@ -25,12 +25,17 @@
 - (BOOL)unBlockUser:(NSString *)userName;
 
 - (void)sendHODOR:(NSString *)recipient;
+- (void)sendHODORToChannel:(NSString *)recipient;
 
 - (void)sendText:(NSString *)recipient text:(NSString *)text;
+- (void)sendTextToChannel:(NSString *)recipient text:(NSString *)text;
+
 
 - (void)sendRemoteNotificationsDeviceToken:(NSString *)deviceToken;
 
 - (NSMutableArray *)fetchMessages:(NSString *)from after:(NSInteger)lastSeenId;
+
+- (NSMutableArray *)fetchAnywhereMessages:(NSInteger)lastSeenId;
 
 - (void) refreshTriviaList;
 

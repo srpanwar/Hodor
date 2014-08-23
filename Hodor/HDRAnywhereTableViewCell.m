@@ -23,8 +23,19 @@
 
 - (NSMutableArray *)loadMessagesNetwork
 {
-    return [[HDRNetworkProvider instance] fetchMessages:@"srpanwar" after:self.user.lastSeenId];
+    return [[HDRNetworkProvider instance] fetchAnywhereMessages:self.user.lastSeenId];
 }
+
+- (void)doTextNetwork:(NSString *)text
+{
+    [[HDRNetworkProvider instance] sendTextToChannel:self.user.name text:text];
+}
+
+- (void)doHodorNetwork
+{
+    [[HDRNetworkProvider instance] sendHODORToChannel:self.user.name];
+}
+
 @end
 
 

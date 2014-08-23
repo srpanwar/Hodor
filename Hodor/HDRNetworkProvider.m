@@ -78,7 +78,17 @@
 }
 
 
+-(void) sendHODORToChannel:(NSString *)recipient
+{
+    [self sendHODOR:@"sendhodortochannel" recipient:recipient];
+}
+
 -(void) sendHODOR:(NSString *)recipient
+{
+    [self sendHODOR:@"sendhodor" recipient:recipient];
+}
+
+-(void) sendHODOR:(NSString *)method recipient:(NSString *)recipient
 {
     if (!recipient)
     {
@@ -89,7 +99,7 @@
     NSURL *url = [NSURL URLWithString:HODOR_SERVICE_ENDPOINT];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     
-    NSString *body = [NSString stringWithFormat:@"method=sendhodor&sender=%@&recipient=%@", [HDRCurrentUser getCurrentUserName], recipient];
+    NSString *body = [NSString stringWithFormat:@"method=%@&sender=%@&recipient=%@", method, [HDRCurrentUser getCurrentUserName], recipient];
     body = [self doHash:body];
     
     request.HTTPMethod = @"POST";
@@ -106,7 +116,17 @@
     return;
 }
 
+- (void)sendTextToChannel:(NSString *)recipient text:(NSString *)text
+{
+    [self sendText:@"sendtexttochannel" recipient:recipient text:text];
+}
+
 - (void)sendText:(NSString *)recipient text:(NSString *)text
+{
+    [self sendText:@"sendtext" recipient:recipient text:text];
+}
+
+- (void)sendText:(NSString *)method recipient:(NSString *)recipient text:(NSString *)text
 {
     if (!recipient || !text)
     {
@@ -117,7 +137,7 @@
     NSURL *url = [NSURL URLWithString:HODOR_SERVICE_ENDPOINT];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     
-    NSString *body = [NSString stringWithFormat:@"method=sendtext&sender=%@&recipient=%@&text=%@", [HDRCurrentUser getCurrentUserName], recipient, text];
+    NSString *body = [NSString stringWithFormat:@"method=%@&sender=%@&recipient=%@&text=%@", method, [HDRCurrentUser getCurrentUserName], recipient, text];
     body = [self doHash:body];
     
     request.HTTPMethod = @"POST";
@@ -143,6 +163,34 @@
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     
     NSString *body = [NSString stringWithFormat:@"method=fetchmessages&from=%@&to=%@&after=%lu", from, [HDRCurrentUser getCurrentUserName], (long)lastSeenId];
+    body = [self doHash:body];
+    
+    request.HTTPMethod = @"POST";
+    request.HTTPBody = [body dataUsingEncoding:NSUTF8StringEncoding];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    NSError *error = nil;
+    NSHTTPURLResponse *response = nil;
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    //parse the results
+    if ( error == nil && response.statusCode == 200)
+    {
+        messages = [self parseData:data];
+    }
+    
+    return messages;
+}
+
+- (NSMutableArray *)fetchAnywhereMessages:(NSInteger)lastSeenId
+{
+    NSMutableArray *messages = [[NSMutableArray alloc] init];
+    
+    //form the url
+    NSURL *url = [NSURL URLWithString:HODOR_SERVICE_ENDPOINT];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    
+    NSString *body = [NSString stringWithFormat:@"method=fetchanywheremessages&after=%lu", (long)lastSeenId];
     body = [self doHash:body];
     
     request.HTTPMethod = @"POST";
