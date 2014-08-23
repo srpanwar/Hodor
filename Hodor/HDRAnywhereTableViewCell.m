@@ -30,14 +30,14 @@
 {
     NSString *name = [self.user.name stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"#"]];
     
-    [[HDRNetworkProvider instance] sendTextToChannel:name text:text];
+    [[HDRNetworkProvider instance] sendTextToAnywhere:name text:text];
 }
 
 - (void)doHodorNetwork
 {
     NSString *name = [self.user.name stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"#"]];
 
-    [[HDRNetworkProvider instance] sendHODORToChannel:name];
+    [[HDRNetworkProvider instance] sendHODORToAnywhere:name];
 }
 
 @end

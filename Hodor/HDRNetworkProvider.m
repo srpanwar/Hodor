@@ -128,12 +128,12 @@
 
 - (void)sendTextToAnywhere:(NSString *)recipient text:(NSString *)text
 {
-    [self sendText:@"sendtexttochannel" recipient:recipient text:text];
+    [self sendText:@"sendtexttoanywhere" recipient:recipient text:text];
 }
 
 - (void)sendText:(NSString *)recipient text:(NSString *)text
 {
-    [self sendText:@"sendtexttoanywhere" recipient:recipient text:text];
+    [self sendText:@"sendtext" recipient:recipient text:text];
 }
 
 - (void)sendText:(NSString *)method recipient:(NSString *)recipient text:(NSString *)text
