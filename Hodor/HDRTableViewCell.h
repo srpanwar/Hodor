@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "HDRBaseViewController.h"
 
+
 @interface HDRTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;

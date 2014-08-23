@@ -15,6 +15,8 @@
     [encoder encodeObject:self.name forKey:@"name"];
     [encoder encodeObject:[NSNumber numberWithInteger:self.lastSeenId] forKey:@"lastSeenId"];
     [encoder encodeObject:[NSNumber numberWithBool:self.isBlocked] forKey:@"isBlocked"];
+    [encoder encodeObject:[NSNumber numberWithBool:self.userType] forKey:@"userType"];
+    
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
@@ -23,6 +25,7 @@
         self.name = [decoder decodeObjectForKey:@"name"];
         self.lastSeenId = [(NSNumber *)[decoder decodeObjectForKey:@"lastSeenId"] integerValue];
         self.isBlocked = [(NSNumber *)[decoder decodeObjectForKey:@"isBlocked"] boolValue];
+        self.userType = [(NSNumber *)[decoder decodeObjectForKey:@"userType"] integerValue];
     }
     return self;
 }

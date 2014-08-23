@@ -13,5 +13,6 @@
 @property NSString *name;
 @property NSInteger lastSeenId;
 @property BOOL isBlocked;
+@property NSInteger userType;
 
 @end

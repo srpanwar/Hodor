@@ -12,6 +12,8 @@
 #import "HDRHomeTableViewCell.h"
 #import "HDRAddUserNameTableViewCell.h"
 #import "HDRAddChannelTableViewCell.h"
+#import "HDRAnywhereTableViewCell.h"
+
 #import "HDRFriends.h"
 
 @interface HDRHomeViewController : HDRBaseViewController<UITableViewDataSource, UITableViewDelegate>
