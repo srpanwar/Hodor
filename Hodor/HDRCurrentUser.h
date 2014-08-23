@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 
 @interface HDRCurrentUser : NSObject
 
@@ -21,5 +22,8 @@
 
 +(BOOL)isNotificationTokenSet;
 +(void) setNotificationTokenSet;
+
++ (CLLocationCoordinate2D) getLastLocation;
++ (void) setLastLocation:(CLLocationCoordinate2D) coordinate;
 
 @end

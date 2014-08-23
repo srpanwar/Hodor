@@ -10,6 +10,7 @@
 #import <CommonCrypto/CommonDigest.h>
 #import "HDRCommon.h"
 #import "HDRMessage.h"
+#import "HDRLocationManager.h"
 #import "HDRCurrentUser.h"
 
 @interface HDRNetworkProvider : NSObject

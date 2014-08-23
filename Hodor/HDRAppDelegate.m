@@ -11,7 +11,7 @@
 @implementation HDRAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+{    
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
@@ -19,6 +19,11 @@
 
     //[HDRCurrentUser setCurrentUserName:@"SRPANWAR"];
     
+    if([CLLocationManager locationServicesEnabled])
+    {
+        [[HDRLocationManager instance].locationManager startUpdatingLocation];
+    }
+
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [[HDRNetworkProvider instance] refreshTriviaList];
     });
@@ -99,6 +104,11 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [[HDRNetworkProvider instance] sendRemoteNotificationsDeviceToken:[HDRCurrentUser getDeviceToken]];
     });
+    
+    if([CLLocationManager locationServicesEnabled])
+    {
+        [[HDRLocationManager instance].locationManager stopUpdatingLocation];
+    }
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -109,6 +119,11 @@
         [[HDRNetworkProvider instance] refreshTriviaList];
         [[HDRNetworkProvider instance] sendRemoteNotificationsDeviceToken:[HDRCurrentUser getDeviceToken]];
     });
+    
+    if([CLLocationManager locationServicesEnabled])
+    {
+        [[HDRLocationManager instance].locationManager startUpdatingLocation];
+    }
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

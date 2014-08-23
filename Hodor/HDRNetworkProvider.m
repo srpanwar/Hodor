@@ -89,7 +89,7 @@
 
 - (void)sendHODORToAnywhere
 {
-    NSString *body = [NSString stringWithFormat:@"method=sendhodortoanywhere&sender=%@&latitude=%f&longitude=%f", [HDRCurrentUser getCurrentUserName], 0.0f, 0.0f];
+    NSString *body = [NSString stringWithFormat:@"method=sendhodortoanywhere&sender=%@&latitude=%f&longitude=%f", [HDRCurrentUser getCurrentUserName], [HDRCurrentUser getLastLocation].latitude, [HDRCurrentUser getLastLocation].longitude];
     
     NSData *responseData = [self doNetwork:body];
     NSString *ret = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
@@ -101,7 +101,7 @@
 
 - (void)sendHODORToHere
 {
-    NSString *body = [NSString stringWithFormat:@"method=sendhodortohere&sender=%@&latitude=%f&longitude=%f", [HDRCurrentUser getCurrentUserName], 0.0f, 0.0f];
+    NSString *body = [NSString stringWithFormat:@"method=sendhodortohere&sender=%@&latitude=%f&longitude=%f", [HDRCurrentUser getCurrentUserName], [HDRCurrentUser getLastLocation].latitude, [HDRCurrentUser getLastLocation].longitude];
     
     NSData *responseData = [self doNetwork:body];
     NSString *ret = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
@@ -151,7 +151,7 @@
         return;
     }
     
-    NSString *body = [NSString stringWithFormat:@"method=sendtexttoanywhere&sender=%@&text=%@&latitude=%f&longitude=%f", [HDRCurrentUser getCurrentUserName], text, 0.0f, 0.0f];
+    NSString *body = [NSString stringWithFormat:@"method=sendtexttoanywhere&sender=%@&text=%@&latitude=%f&longitude=%f", [HDRCurrentUser getCurrentUserName], text, [HDRCurrentUser getLastLocation].latitude, [HDRCurrentUser getLastLocation].longitude];
     
     NSData *responseData = [self doNetwork:body];
     NSString *ret = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
@@ -167,7 +167,7 @@
         return;
     }
     
-    NSString *body = [NSString stringWithFormat:@"method=sendtexttohere&sender=%@&text=%@&latitude=%f&longitude=%f", [HDRCurrentUser getCurrentUserName], text, 0.0f, 0.0f];
+    NSString *body = [NSString stringWithFormat:@"method=sendtexttohere&sender=%@&text=%@&latitude=%f&longitude=%f", [HDRCurrentUser getCurrentUserName], text, [HDRCurrentUser getLastLocation].latitude, [HDRCurrentUser getLastLocation].longitude];
 
     NSData *responseData = [self doNetwork:body];
     NSString *ret = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
@@ -215,7 +215,7 @@
     NSMutableArray *messages = [[NSMutableArray alloc] init];
     
     //form the url
-    NSString *body = [NSString stringWithFormat:@"method=fetchheremessages&after=%lu&latitude=%f&longitude=%f", (long)lastSeenId, 0.0f, 0.0f];
+    NSString *body = [NSString stringWithFormat:@"method=fetchheremessages&after=%lu&latitude=%f&longitude=%f", (long)lastSeenId, [HDRCurrentUser getLastLocation].latitude, [HDRCurrentUser getLastLocation].longitude];
     NSData *data = [self doNetwork:body];
     
     //parse the results

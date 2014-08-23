@@ -52,6 +52,8 @@
 		78B2210519A928520059E0AB /* HDRUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B2210419A928520059E0AB /* HDRUpdater.m */; };
 		78B2210919A941C40059E0AB /* HDRHereTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B2210719A941C40059E0AB /* HDRHereTableViewCell.m */; };
 		78B2210A19A941C40059E0AB /* HDRHereTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78B2210819A941C40059E0AB /* HDRHereTableViewCell.xib */; };
+		78B2210D19A952CB0059E0AB /* HDRLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B2210C19A952CB0059E0AB /* HDRLocationManager.m */; };
+		78B2210F19A9531E0059E0AB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78B2210E19A9531E0059E0AB /* MapKit.framework */; };
 		78CCB9B719A5909100A5BA99 /* HDRTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = 78CCB9B619A5909100A5BA99 /* HDRTranslator.m */; };
 		78CCE69919552C46009EA16B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78CCE69819552C46009EA16B /* Foundation.framework */; };
 		78CCE69B19552C46009EA16B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78CCE69A19552C46009EA16B /* CoreGraphics.framework */; };
@@ -153,6 +155,9 @@
 		78B2210619A941C40059E0AB /* HDRHereTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRHereTableViewCell.h; sourceTree = "<group>"; };
 		78B2210719A941C40059E0AB /* HDRHereTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRHereTableViewCell.m; sourceTree = "<group>"; };
 		78B2210819A941C40059E0AB /* HDRHereTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HDRHereTableViewCell.xib; sourceTree = "<group>"; };
+		78B2210B19A952CB0059E0AB /* HDRLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRLocationManager.h; sourceTree = "<group>"; };
+		78B2210C19A952CB0059E0AB /* HDRLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRLocationManager.m; sourceTree = "<group>"; };
+		78B2210E19A9531E0059E0AB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		78CCB9B519A5909100A5BA99 /* HDRTranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRTranslator.h; sourceTree = "<group>"; };
 		78CCB9B619A5909100A5BA99 /* HDRTranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRTranslator.m; sourceTree = "<group>"; };
 		78CCE69519552C46009EA16B /* Hodor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hodor.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,6 +197,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78B2210F19A9531E0059E0AB /* MapKit.framework in Frameworks */,
 				786057E819A2DA940007C505 /* AVFoundation.framework in Frameworks */,
 				78237CF919569B7F00BE750D /* AddressBook.framework in Frameworks */,
 				78237CFA19569B7F00BE750D /* AddressBookUI.framework in Frameworks */,
@@ -272,6 +278,8 @@
 				78E785B819A32A8800D992F7 /* HDRDateUtil.m */,
 				787956FC195898B800B903B2 /* HDRUtils.h */,
 				787956FD195898B800B903B2 /* HDRUtils.m */,
+				78B2210B19A952CB0059E0AB /* HDRLocationManager.h */,
+				78B2210C19A952CB0059E0AB /* HDRLocationManager.m */,
 				78237D021956BA6E00BE750D /* HDRNetworkProvider.h */,
 				78237D031956BA6E00BE750D /* HDRNetworkProvider.m */,
 				78237CFC1956A22000BE750D /* HDRCurrentUser.h */,
@@ -405,6 +413,7 @@
 		78CCE69719552C46009EA16B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				78B2210E19A9531E0059E0AB /* MapKit.framework */,
 				786057E719A2DA940007C505 /* AVFoundation.framework */,
 				78237CF719569B7F00BE750D /* AddressBook.framework */,
 				78237CF819569B7F00BE750D /* AddressBookUI.framework */,
@@ -624,6 +633,7 @@
 				78237D011956B78400BE750D /* HDRCommon.m in Sources */,
 				78CCE6A919552C46009EA16B /* HDRAppDelegate.m in Sources */,
 				78237CDF1955867500BE750D /* HDRHomeViewController.m in Sources */,
+				78B2210D19A952CB0059E0AB /* HDRLocationManager.m in Sources */,
 				78E785C019A345DC00D992F7 /* HDRListBox2.m in Sources */,
 				78237CE41955875900BE750D /* HDRHomeTableViewCell.m in Sources */,
 				78B2210919A941C40059E0AB /* HDRHereTableViewCell.m in Sources */,

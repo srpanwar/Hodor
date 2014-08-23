@@ -14,6 +14,7 @@ NSString *userName;
 NSString *UUID;
 NSString *UUENCID;
 NSString *deviceToken;
+CLLocationCoordinate2D lastUserLocation;
 
 +(NSString *) getCurrentUserName
 {
@@ -97,6 +98,21 @@ NSString *deviceToken;
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:@"set" forKey:@"HDRNotificationTokenSet"];
     return;
+}
+
++(CLLocationCoordinate2D) getLastLocation
+{
+    //get the last good known coordinate
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    lastUserLocation = CLLocationCoordinate2DMake([defaults doubleForKey:@"LGKLatitude"], [defaults doubleForKey:@"LGKLongitude"]);
+    return lastUserLocation;
+}
+
++(void) setLastLocation:(CLLocationCoordinate2D) coordinate
+{
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setDouble:coordinate.latitude forKey:@"LGKLatitude"];
+    [defaults setDouble:coordinate.longitude forKey:@"LGKLongitude"];
 }
 
 @end

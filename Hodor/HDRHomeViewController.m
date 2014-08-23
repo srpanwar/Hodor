@@ -86,7 +86,24 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         self.overlayVew.backgroundColor = [UIColor colorWithPatternImage:[[self imageWithView:self.view] applyBlurWithRadius:30 tintColor:[UIColor clearColor] saturationDeltaFactor:0 maskImage:nil]];
     });
+    
+    //add the refresh control
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl setTintColor:[UIColor whiteColor]];
+     
+    // Configure Refresh Control
+    [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    
+    // Configure View Controller
+    [self.tableView addSubview:refreshControl];
 }
+
+- (void)refresh:(UIRefreshControl *)sender
+{
+    [self refreshView:YES];
+    [sender endRefreshing];
+};
+
 
 - (UIImage *) imageWithView:(UIView *)view
 {
