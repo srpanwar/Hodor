@@ -39,32 +39,19 @@
     return that;
 }
 
--(BOOL) createUserName:(NSString *)userName
+- (BOOL) createUserName:(NSString *)userName
 {    
     if (!userName)
     {
         return NO;
     }
     
-    //form the url
-    NSURL *url = [NSURL URLWithString:HODOR_SERVICE_ENDPOINT];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-    
     NSString *body = [NSString stringWithFormat:@"method=createuser&username=%@", userName];
-    body = [self doHash:body];
-
-    
-    request.HTTPMethod = @"POST";
-    request.HTTPBody = [body dataUsingEncoding:NSUTF8StringEncoding];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    
-    NSError *error = nil;
-    NSHTTPURLResponse *response = nil;
-    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    NSData *responseData = [self doNetwork:body];
     NSString *uuid = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
 
     //mark it delivered in db
-    if(error == nil && response.statusCode == 200 && uuid && uuid.length && ![EMPTY_GUID isEqualToString:uuid])
+    if(uuid && uuid.length && ![EMPTY_GUID isEqualToString:uuid])
     {
         [HDRCurrentUser setUUID:uuid];
         [HDRCurrentUser setCurrentUserName:userName];
@@ -77,88 +64,113 @@
     return NO;
 }
 
-
--(void) sendHODORToChannel:(NSString *)recipient
-{
-    [self sendHODOR:@"sendhodortochannel" recipient:recipient];
-}
-
-- (void)sendHODORToAnywhere:(NSString *)recipient
-{
-    [self sendHODOR:@"sendhodortoanywhere" recipient:recipient];
-}
-
 -(void) sendHODOR:(NSString *)recipient
 {
-    [self sendHODOR:@"sendhodor" recipient:recipient];
-}
-
--(void) sendHODOR:(NSString *)method recipient:(NSString *)recipient
-{
-    if (!recipient)
-    {
-        return;
-    }
+    NSString *body = [NSString stringWithFormat:@"method=sendhodor&sender=%@&recipient=%@", [HDRCurrentUser getCurrentUserName], recipient];
     
-    //form the url
-    NSURL *url = [NSURL URLWithString:HODOR_SERVICE_ENDPOINT];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-    
-    NSString *body = [NSString stringWithFormat:@"method=%@&sender=%@&recipient=%@", method, [HDRCurrentUser getCurrentUserName], recipient];
-    body = [self doHash:body];
-    
-    request.HTTPMethod = @"POST";
-    request.HTTPBody = [body dataUsingEncoding:NSUTF8StringEncoding];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-
-    NSError *error = nil;
-    NSHTTPURLResponse *response = nil;
-    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    NSData *responseData = [self doNetwork:body];
     NSString *ret = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-    
     NSLog(@"%@",ret);
     
     return;
 }
 
-- (void)sendTextToChannel:(NSString *)recipient text:(NSString *)text
+-(void) sendHODORToChannel:(NSString *)channel
 {
-    [self sendText:@"sendtexttochannel" recipient:recipient text:text];
+    NSString *body = [NSString stringWithFormat:@"method=sendhodortochannel&sender=%@&channel=%@", [HDRCurrentUser getCurrentUserName], channel];
+    
+    NSData *responseData = [self doNetwork:body];
+    NSString *ret = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+    NSLog(@"%@",ret);
+    
+    return;
+    
 }
 
-- (void)sendTextToAnywhere:(NSString *)recipient text:(NSString *)text
+- (void)sendHODORToAnywhere
 {
-    [self sendText:@"sendtexttoanywhere" recipient:recipient text:text];
+    NSString *body = [NSString stringWithFormat:@"method=sendhodortoanywhere&sender=%@&latitude=%f&longitude=%f", [HDRCurrentUser getCurrentUserName], 0.0f, 0.0f];
+    
+    NSData *responseData = [self doNetwork:body];
+    NSString *ret = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+    NSLog(@"%@",ret);
+    
+    return;
 }
+
+
+- (void)sendHODORToHere
+{
+    NSString *body = [NSString stringWithFormat:@"method=sendhodortohere&sender=%@&latitude=%f&longitude=%f", [HDRCurrentUser getCurrentUserName], 0.0f, 0.0f];
+    
+    NSData *responseData = [self doNetwork:body];
+    NSString *ret = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+    NSLog(@"%@",ret);
+    
+    return;
+}
+
+
 
 - (void)sendText:(NSString *)recipient text:(NSString *)text
-{
-    [self sendText:@"sendtext" recipient:recipient text:text];
-}
-
-- (void)sendText:(NSString *)method recipient:(NSString *)recipient text:(NSString *)text
 {
     if (!recipient || !text)
     {
         return;
     }
     
-    //form the url
-    NSURL *url = [NSURL URLWithString:HODOR_SERVICE_ENDPOINT];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    NSString *body = [NSString stringWithFormat:@"method=sendtext&sender=%@&recipient=%@&text=%@", [HDRCurrentUser getCurrentUserName], recipient, text];
     
-    NSString *body = [NSString stringWithFormat:@"method=%@&sender=%@&recipient=%@&text=%@", method, [HDRCurrentUser getCurrentUserName], recipient, text];
-    body = [self doHash:body];
-    
-    request.HTTPMethod = @"POST";
-    request.HTTPBody = [body dataUsingEncoding:NSUTF8StringEncoding];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    
-    NSError *error = nil;
-    NSHTTPURLResponse *response = nil;
-    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    NSData *responseData = [self doNetwork:body];
     NSString *ret = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+    NSLog(@"%@",ret);
     
+    return;
+}
+
+- (void)sendTextToChannel:(NSString *)channel text:(NSString *)text
+{
+    if (!channel || !text)
+    {
+        return;
+    }
+    
+    NSString *body = [NSString stringWithFormat:@"method=sendtexttochannel&sender=%@&channel=%@&text=%@", [HDRCurrentUser getCurrentUserName], channel, text];
+    
+    NSData *responseData = [self doNetwork:body];
+    NSString *ret = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+    NSLog(@"%@",ret);
+    
+    return;
+}
+
+- (void)sendTextToAnywhere:(NSString *)text
+{
+    if (!text)
+    {
+        return;
+    }
+    
+    NSString *body = [NSString stringWithFormat:@"method=sendtexttoanywhere&sender=%@&text=%@&latitude=%f&longitude=%f", [HDRCurrentUser getCurrentUserName], text, 0.0f, 0.0f];
+    
+    NSData *responseData = [self doNetwork:body];
+    NSString *ret = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+    NSLog(@"%@",ret);
+    
+    return;
+}
+
+- (void)sendTextToHere:(NSString *)text
+{
+    if (!text)
+    {
+        return;
+    }
+    
+    NSString *body = [NSString stringWithFormat:@"method=sendtexttohere&sender=%@&text=%@&latitude=%f&longitude=%f", [HDRCurrentUser getCurrentUserName], text, 0.0f, 0.0f];
+
+    NSData *responseData = [self doNetwork:body];
+    NSString *ret = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
     NSLog(@"%@",ret);
     
     return;
@@ -168,23 +180,12 @@
 {
     NSMutableArray *messages = [[NSMutableArray alloc] init];
     
-    //form the url
-    NSURL *url = [NSURL URLWithString:HODOR_SERVICE_ENDPOINT];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-    
     NSString *body = [NSString stringWithFormat:@"method=fetchmessages&from=%@&to=%@&after=%lu", from, [HDRCurrentUser getCurrentUserName], (long)lastSeenId];
-    body = [self doHash:body];
-    
-    request.HTTPMethod = @"POST";
-    request.HTTPBody = [body dataUsingEncoding:NSUTF8StringEncoding];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    
-    NSError *error = nil;
-    NSHTTPURLResponse *response = nil;
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+
+    NSData *data = [self doNetwork:body];
     
     //parse the results
-    if ( error == nil && response.statusCode == 200)
+    if (data)
     {
         messages = [self parseData:data];
     }
@@ -197,22 +198,11 @@
     NSMutableArray *messages = [[NSMutableArray alloc] init];
     
     //form the url
-    NSURL *url = [NSURL URLWithString:HODOR_SERVICE_ENDPOINT];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-    
     NSString *body = [NSString stringWithFormat:@"method=fetchanywheremessages&after=%lu", (long)lastSeenId];
-    body = [self doHash:body];
-    
-    request.HTTPMethod = @"POST";
-    request.HTTPBody = [body dataUsingEncoding:NSUTF8StringEncoding];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    
-    NSError *error = nil;
-    NSHTTPURLResponse *response = nil;
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    NSData *data = [self doNetwork:body];
     
     //parse the results
-    if ( error == nil && response.statusCode == 200)
+    if (data)
     {
         messages = [self parseData:data];
     }
@@ -228,22 +218,10 @@
         return NO;
     }
     
-    //form the url
-    NSURL *url = [NSURL URLWithString:HODOR_SERVICE_ENDPOINT];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-    
     NSString *body = [NSString stringWithFormat:@"method=blockuser&blocker=%@&blockee=%@", [HDRCurrentUser getCurrentUserName], userName];
-    body = [self doHash:body];
+    NSHTTPURLResponse *response = [self doNetworkResponse:body];
     
-    request.HTTPMethod = @"POST";
-    request.HTTPBody = [body dataUsingEncoding:NSUTF8StringEncoding];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    
-    NSError *error = nil;
-    NSHTTPURLResponse *response = nil;
-    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    
-    return error == nil && response.statusCode == 200;
+    return response && response.statusCode == 200;
 }
 
 - (BOOL) unBlockUser:(NSString *)userName
@@ -253,22 +231,10 @@
         return NO;
     }
     
-    //form the url
-    NSURL *url = [NSURL URLWithString:HODOR_SERVICE_ENDPOINT];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-    
     NSString *body = [NSString stringWithFormat:@"method=unblockuser&blocker=%@&blockee=%@", [HDRCurrentUser getCurrentUserName], userName];
-    body = [self doHash:body];
+    NSHTTPURLResponse *response = [self doNetworkResponse:body];
     
-    request.HTTPMethod = @"POST";
-    request.HTTPBody = [body dataUsingEncoding:NSUTF8StringEncoding];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    
-    NSError *error = nil;
-    NSHTTPURLResponse *response = nil;
-    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    
-    return error == nil && response.statusCode == 200;
+    return response && response.statusCode == 200;
 }
 
 - (void)sendRemoteNotificationsDeviceToken:(NSString *)deviceToken
@@ -278,24 +244,12 @@
         return;
     }
     
-    //form the url
-    NSURL *url = [NSURL URLWithString:HODOR_SERVICE_ENDPOINT];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-    
     NSString *body = [NSString stringWithFormat:@"method=setdevicetoken&username=%@&devicetoken=%@", [HDRCurrentUser getCurrentUserName], [self stringWithPercentEscape:deviceToken]];
-    body = [self doHash:body];
+    NSHTTPURLResponse *response = [self doNetworkResponse:body];
     
-    request.HTTPMethod = @"POST";
-    request.HTTPBody = [body dataUsingEncoding:NSUTF8StringEncoding];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    
-    NSError *error = nil;
-    NSHTTPURLResponse *response = nil;
-    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    
-    if (error == nil && response.statusCode == 200)
+    if (response && response.statusCode == 200)
     {
-        [HDRCurrentUser setNotificationTokenSet];
+        //[HDRCurrentUser setNotificationTokenSet];
     }
 }
 
@@ -407,6 +361,43 @@
     return messages;
 }
 
+- (NSData *)doNetwork:(NSString *)body
+{
+    //form the url
+    NSURL *url = [NSURL URLWithString:HODOR_SERVICE_ENDPOINT];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    
+    body = [self doHash:body];
+    
+    request.HTTPMethod = @"POST";
+    request.HTTPBody = [body dataUsingEncoding:NSUTF8StringEncoding];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    NSError *error = nil;
+    NSHTTPURLResponse *response = nil;
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    return responseData;
+}
+
+- (NSHTTPURLResponse *)doNetworkResponse:(NSString *)body
+{
+    //form the url
+    NSURL *url = [NSURL URLWithString:HODOR_SERVICE_ENDPOINT];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    
+    body = [self doHash:body];
+    
+    request.HTTPMethod = @"POST";
+    request.HTTPBody = [body dataUsingEncoding:NSUTF8StringEncoding];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    NSError *error = nil;
+    NSHTTPURLResponse *response = nil;
+    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    return response;
+}
 
 @end
 

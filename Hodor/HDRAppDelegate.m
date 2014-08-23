@@ -17,7 +17,7 @@
     
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes: (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
 
-    //[HDRCurrentUser setCurrentUserName:@"SHAKTIMAN"];
+    //[HDRCurrentUser setCurrentUserName:@"SRPANWAR"];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [[HDRNetworkProvider instance] refreshTriviaList];

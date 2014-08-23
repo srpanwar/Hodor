@@ -16,6 +16,10 @@
 
 #define HODOR_SERVICE_ENDPOINT @"http://hodorservice.cloudapp.net/rest/default.aspx"
 
+#define USER_CHANNEL_ID 1
+#define ANYWHERE_CHANNEL_ID 2
+#define HERE_CHANNEL_ID 3
+
 @interface HDRCommon : NSObject
 
 @end

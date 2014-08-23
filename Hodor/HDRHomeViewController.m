@@ -149,7 +149,18 @@
         HDRHomeTableViewCell *cellX = [self.cachedCells objectForKey:user.name];
         if (!cellX)
         {
-            NSString *nibName = user.userType == 2 ? @"HDRAnywhereTableViewCell" : @"HDRHomeTableViewCell";
+            NSString *nibName = @"HDRHomeTableViewCell";
+            switch (user.userType) {
+                case 2:
+                    nibName = @"HDRAnywhereTableViewCell";
+                    break;
+                case 3:
+                    nibName = @"HDRHereTableViewCell";
+                    break;
+                default:
+                    break;
+            }
+
             cellX = (HDRHomeTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:nibName owner:nil options:nil] lastObject];
             cellX.user = user;
             cellX.nameLabel.text = [user.name uppercaseString];

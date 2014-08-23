@@ -28,16 +28,12 @@
 
 - (void)doTextNetwork:(NSString *)text
 {
-    NSString *name = [self.user.name stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"#"]];
-    
-    [[HDRNetworkProvider instance] sendTextToAnywhere:name text:text];
+    [[HDRNetworkProvider instance] sendTextToAnywhere:text];
 }
 
 - (void)doHodorNetwork
 {
-    NSString *name = [self.user.name stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"#"]];
-
-    [[HDRNetworkProvider instance] sendHODORToAnywhere:name];
+    [[HDRNetworkProvider instance] sendHODORToAnywhere];
 }
 
 @end
