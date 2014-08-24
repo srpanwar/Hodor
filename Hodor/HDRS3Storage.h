@@ -18,7 +18,7 @@
 
 + (id) instance;
 
-- (BOOL)uploadProfilePicture:(NSData *)imageData filename:(NSString *)fileName;
-- (BOOL)uploadMessagePicture:(NSData *)imageData filename:(NSString *)fileName;
+- (BOOL)uploadProfilePicture:(NSData *)imageData fileName:(NSString *)fileName;
+- (BOOL)uploadMessagePicture:(NSData *)imageData fileName:(NSString *)fileName;
 
 @end

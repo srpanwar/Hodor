@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "UIImage+ImageEffects.h"
+#import "HDRImageUtil.h"
 #import "HDRTranslator.h"
+#import "HDRS3Storage.h"
 
-typedef void (^SelectionCallBack)(NSString *text);
+typedef void (^SelectionCallBack)(NSString *text, NSString *picture);
 
-@interface HDRListBox : UIView<UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate>
+@interface HDRListBox : UIView<UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *buttonsContainer;
 @property (weak, nonatomic) IBOutlet UITextField *textBox;
@@ -24,7 +26,9 @@ typedef void (^SelectionCallBack)(NSString *text);
 
 @property(readwrite, copy) SelectionCallBack callback;
 @property NSMutableArray *collection;
+@property UIViewController *viewController;
 
+- (IBAction)sendPicture:(id)sender;
 - (IBAction)sendCustomText:(id)sender;
 - (void)show;
 - (void)close;

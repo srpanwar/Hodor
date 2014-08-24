@@ -11,7 +11,7 @@
 #import "HDRListTableViewCell.h"
 #import "HDRMessage.h"
 
-typedef void (^SelectionCallBack)(NSString *text);
+typedef void (^SelectionCallBack)(NSString *text, NSString *picture);
 
 @interface HDRListBox2 : UIView<UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate>
 

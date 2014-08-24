@@ -32,7 +32,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *countBtn;
 
 - (void)doHodorNetwork;
-- (void)doTextNetwork:(NSString *)text;
+- (void)doTextNetwork:(NSString *)text picture:(NSString *)picture;
 
 - (IBAction)callHodor:(id)sender;
 - (IBAction)viewMessages:(id)sender;

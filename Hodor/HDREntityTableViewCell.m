@@ -86,21 +86,21 @@
     
     listBox.collection = [HDRNetworkProvider instance].triviaList;
     
-    listBox.callback = ^(NSString *text) {
-        [self doText:text];
+    listBox.callback = ^(NSString *text, NSString *picture) {
+        [self doText:text picture:picture];
     };
     
     [listBox show];
     [self.viewController.navigationController.view addSubview:listBox];
 }
 
-- (void)doText:(NSString *)text
+- (void)doText:(NSString *)text picture:(NSString *)picture
 {
     //hide the metadataview
     self.metaView.hidden = YES;
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        [self doTextNetwork:text];
+        [self doTextNetwork:text picture:picture];
     });
     
     [self rotateImageView:self.busyImage callback:^{
@@ -115,9 +115,12 @@
     }];
 }
 
-- (void)doTextNetwork:(NSString *)text
+- (void)doTextNetwork:(NSString *)text picture:(NSString *)picture
 {
-    [[HDRNetworkProvider instance] sendText:self.user.name text:text];
+    if (text && text.length)
+    {
+        [[HDRNetworkProvider instance] sendText:self.user.name text:text];
+    }
 }
 
 - (void)doHodorNetwork
@@ -172,9 +175,7 @@
         
         listBox.fromLabel.text = [self.user.name uppercaseString];
         listBox.collection = self.messages;
-        listBox.callback = ^(NSString *text) {
-            [self doText:text];
-        };
+        listBox.callback = nil;
         
         listBox.showUserName = NO;
         [listBox show];

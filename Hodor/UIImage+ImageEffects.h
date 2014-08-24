@@ -97,6 +97,9 @@
 
 @interface UIImage (ImageEffects)
 
+- (UIImage *)imageRotatedByRadians:(CGFloat)radians;
+- (UIImage *)imageRotatedByDegrees:(CGFloat)degrees;
+
 - (UIImage *)applyLightEffect;
 - (UIImage *)applyExtraLightEffect;
 - (UIImage *)applyDarkEffect;

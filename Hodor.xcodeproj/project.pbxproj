@@ -62,6 +62,7 @@
 		78B2212019A9BFE40059E0AB /* HDRS3Storage.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B2211F19A9BFE40059E0AB /* HDRS3Storage.m */; };
 		78B2212319A9C02C0059E0AB /* AWSRuntime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78B2212119A9C02C0059E0AB /* AWSRuntime.framework */; };
 		78B2212419A9C02C0059E0AB /* AWSS3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78B2212219A9C02C0059E0AB /* AWSS3.framework */; };
+		78B2212719A9C5540059E0AB /* UIImageView+FastLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B2212619A9C5540059E0AB /* UIImageView+FastLoad.m */; };
 		78CCB9B719A5909100A5BA99 /* HDRTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = 78CCB9B619A5909100A5BA99 /* HDRTranslator.m */; };
 		78CCE69919552C46009EA16B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78CCE69819552C46009EA16B /* Foundation.framework */; };
 		78CCE69B19552C46009EA16B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78CCE69A19552C46009EA16B /* CoreGraphics.framework */; };
@@ -178,6 +179,8 @@
 		78B2211F19A9BFE40059E0AB /* HDRS3Storage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRS3Storage.m; sourceTree = "<group>"; };
 		78B2212119A9C02C0059E0AB /* AWSRuntime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSRuntime.framework; path = "../../../../Users/srpanwar/Downloads/aws-ios-sdk-1.7.1/AWSRuntime.framework"; sourceTree = "<group>"; };
 		78B2212219A9C02C0059E0AB /* AWSS3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSS3.framework; path = "../../../../Users/srpanwar/Downloads/aws-ios-sdk-1.7.1/AWSS3.framework"; sourceTree = "<group>"; };
+		78B2212519A9C5540059E0AB /* UIImageView+FastLoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+FastLoad.h"; sourceTree = "<group>"; };
+		78B2212619A9C5540059E0AB /* UIImageView+FastLoad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+FastLoad.m"; sourceTree = "<group>"; };
 		78CCB9B519A5909100A5BA99 /* HDRTranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRTranslator.h; sourceTree = "<group>"; };
 		78CCB9B619A5909100A5BA99 /* HDRTranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRTranslator.m; sourceTree = "<group>"; };
 		78CCE69519552C46009EA16B /* Hodor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hodor.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -296,6 +299,8 @@
 			children = (
 				780AFE9E196FB4F900596CC6 /* UIImage+ImageEffects.h */,
 				780AFE9F196FB4F900596CC6 /* UIImage+ImageEffects.m */,
+				78B2212519A9C5540059E0AB /* UIImageView+FastLoad.h */,
+				78B2212619A9C5540059E0AB /* UIImageView+FastLoad.m */,
 				78B2211A19A9BD6F0059E0AB /* HDRImageUtil.h */,
 				78B2211B19A9BD6F0059E0AB /* HDRImageUtil.m */,
 				78E785B719A32A8800D992F7 /* HDRDateUtil.h */,
@@ -675,6 +680,7 @@
 				78B2212019A9BFE40059E0AB /* HDRS3Storage.m in Sources */,
 				78B2211319A969040059E0AB /* HDRPictureTableViewCell.m in Sources */,
 				78B220F819A916A60059E0AB /* HDREntityTableViewCell.m in Sources */,
+				78B2212719A9C5540059E0AB /* UIImageView+FastLoad.m in Sources */,
 				78237CFE1956A22000BE750D /* HDRCurrentUser.m in Sources */,
 				78237D041956BA6E00BE750D /* HDRNetworkProvider.m in Sources */,
 				78237D011956B78400BE750D /* HDRCommon.m in Sources */,

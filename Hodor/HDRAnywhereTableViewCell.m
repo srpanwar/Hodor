@@ -26,7 +26,7 @@
     return [[HDRNetworkProvider instance] fetchAnywhereMessages:self.user.lastSeenId];
 }
 
-- (void)doTextNetwork:(NSString *)text
+- (void)doTextNetwork:(NSString *)text picture:(NSString *)picture
 {
     [[HDRNetworkProvider instance] sendTextToAnywhere:text];
 }

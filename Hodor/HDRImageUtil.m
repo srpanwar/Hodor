@@ -10,6 +10,27 @@
 
 @implementation HDRImageUtil
 
++ (UIImage *) scaleDownImage:(UIImage *)chosenImage
+{
+    NSData *imgData = UIImageJPEGRepresentation(chosenImage, 1);
+    if (imgData.length <= 1*1024*1024)
+    {
+        return chosenImage;
+    }
+    
+    CGFloat width = chosenImage.size.width / 3;
+    CGFloat height = chosenImage.size.height / 3;
+    
+    CGSize destinationSize = CGSizeMake(width, height);
+    UIGraphicsBeginImageContext(destinationSize);
+    [chosenImage drawInRect:CGRectMake(0,0,destinationSize.width,destinationSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
+
+
 +(void) fetchAndSetThumbnailImage:(NSString *)imageName fillImage:(UIImageView *)imageView
 {
     [self fetchAndSetImageBackground:imageName fillImage:imageView inBucket:MESSAGE_PICTURE_ENDPOINT isThumbail:YES withCalback:nil];

@@ -132,7 +132,7 @@
     NSString *text = self.collection[indexPath.row];
     if (self.callback)
     {
-        self.callback(text);
+        self.callback(text, nil);
     }
     
     [self close];
@@ -176,12 +176,17 @@
     }];
 }
 
+- (IBAction)sendPicture:(id)sender
+{
+    
+}
+
 - (IBAction)sendCustomText:(id)sender
 {
     NSString *text = self.textBox.text;
     if (self.callback && text.length)
     {
-        self.callback(text);
+        self.callback(text, nil);
     }
     
     [self close];
@@ -193,7 +198,7 @@
     NSString *text = self.translatedLabel.text;
     if (self.callback && text.length)
     {
-        self.callback(text);
+        self.callback(text, nil);
     }
     
     [self close];
@@ -207,7 +212,48 @@
     [self animateUp];
 }
 
+#pragma mark - Picture
+- (void)addPictures:(UIImagePickerControllerSourceType) sourceType
+{
+    UIImagePickerController *pickerController = [[UIImagePickerController alloc] init];
+    pickerController.delegate = self;
+    pickerController.allowsEditing = NO;
+    pickerController.videoQuality = UIImagePickerControllerQualityTypeHigh;
+    pickerController.sourceType = sourceType;
+    
+    [self.viewController presentViewController:pickerController animated:YES completion:NULL];
+}
 
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *chosenImage = info[UIImagePickerControllerOriginalImage];
+    if(picker.sourceType == UIImagePickerControllerSourceTypeCamera &&
+       picker.cameraDevice == UIImagePickerControllerCameraDeviceFront)
+    {
+        chosenImage = [chosenImage imageRotatedByDegrees:(chosenImage.size.width > chosenImage.size.height ? 180 : 90)];
+    }
+    
+    UIImage *newImage = [HDRImageUtil scaleDownImage:chosenImage];
+    NSString *fileName = [[NSUUID UUID] UUIDString];
+    
+    //save the image
+    BOOL uploaded = [[HDRS3Storage instance] uploadMessagePicture:UIImagePNGRepresentation(newImage) fileName:fileName];
+    if (uploaded)
+    {
+        if (self.callback)
+        {
+            self.callback(nil, fileName);
+        }
+        
+        [self close];
+    }
+    
+    [picker dismissViewControllerAnimated:YES completion:^{
+
+    }];
+}
+
+#pragma mark - Utils
 //[UIApplication sharedApplication] keyWindow]
 - (UIImage *) imageWithView:(UIView *)view
 {

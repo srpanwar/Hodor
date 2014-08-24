@@ -11,6 +11,8 @@
 
 @interface HDRImageUtil : NSObject
 
++ (UIImage *) scaleDownImage:(UIImage *)chosenImage;
+
 +(void) saveImageToLibrary:(NSString *)fileName;
 
 +(void) fetchAndSetThumbnailImage:(NSString *)imageName fillImage:(UIImageView *)imageView;

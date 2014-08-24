@@ -23,20 +23,30 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="keep it short :)" minimumFontSize="17" id="WWq-c9-ZfK">
-                                            <rect key="frame" x="11" y="10" width="251" height="30"/>
+                                            <rect key="frame" x="44" y="10" width="223" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Idz-pV-ekq">
-                                            <rect key="frame" x="269" y="10" width="46" height="30"/>
+                                            <rect key="frame" x="273" y="9" width="43" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                             <state key="normal" title="Send">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
                                                 <action selector="sendCustomText:" destination="iN0-l3-epB" eventType="touchUpInside" id="FVD-AV-hgT"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vc3-WM-fmC">
+                                            <rect key="frame" x="0.0" y="14" width="40" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" image="icon_camera">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="sendPicture:" destination="iN0-l3-epB" eventType="touchUpInside" id="m2A-Tl-KBl"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -87,4 +97,7 @@
             </connections>
         </view>
     </objects>
+    <resources>
+        <image name="icon_camera" width="28" height="19"/>
+    </resources>
 </document>
