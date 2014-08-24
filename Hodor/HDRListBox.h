@@ -13,6 +13,7 @@
 #import "HDRS3Storage.h"
 
 typedef void (^SelectionCallBack)(NSString *text, NSString *picture);
+typedef void (^CallBack)(void);
 
 @interface HDRListBox : UIView<UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
@@ -25,6 +26,9 @@ typedef void (^SelectionCallBack)(NSString *text, NSString *picture);
 @property (weak, nonatomic) IBOutlet UILabel *translatedLabel;
 
 @property(readwrite, copy) SelectionCallBack callback;
+@property(readwrite, copy) CallBack progress;
+@property(readwrite, copy) CallBack failed;
+
 @property NSMutableArray *collection;
 @property UIViewController *viewController;
 

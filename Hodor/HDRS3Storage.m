@@ -35,12 +35,12 @@
     return self;
 }
 
-- (BOOL)uploadProfilePicture:(NSData *)imageData filename:(NSString *)fileName
+- (BOOL)uploadProfilePicture:(NSData *)imageData fileName:(NSString *)fileName
 {
     return [self uploadImage:imageData fileName:fileName inBucket:PROFILE_PICTURE_BUCKET];
 }
 
-- (BOOL)uploadMessagePicture:(NSData *)imageData filename:(NSString *)fileName
+- (BOOL)uploadMessagePicture:(NSData *)imageData fileName:(NSString *)fileName
 {
     return [self uploadImage:imageData fileName:fileName inBucket:MESSAGE_PICTURE_BUCKET];
 }

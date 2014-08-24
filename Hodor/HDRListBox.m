@@ -178,7 +178,7 @@
 
 - (IBAction)sendPicture:(id)sender
 {
-    
+    [self addPictures:UIImagePickerControllerSourceTypeCamera];
 }
 
 - (IBAction)sendCustomText:(id)sender
@@ -233,23 +233,38 @@
         chosenImage = [chosenImage imageRotatedByDegrees:(chosenImage.size.width > chosenImage.size.height ? 180 : 90)];
     }
     
-    UIImage *newImage = [HDRImageUtil scaleDownImage:chosenImage];
-    NSString *fileName = [[NSUUID UUID] UUIDString];
-    
-    //save the image
-    BOOL uploaded = [[HDRS3Storage instance] uploadMessagePicture:UIImagePNGRepresentation(newImage) fileName:fileName];
-    if (uploaded)
-    {
-        if (self.callback)
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        UIImage *newImage = [HDRImageUtil scaleDownImage:chosenImage];
+        NSString *fileName = [[NSUUID UUID] UUIDString];
+        
+        //save the image
+        BOOL uploaded = [[HDRS3Storage instance] uploadMessagePicture:UIImagePNGRepresentation(newImage) fileName:fileName];
+        if (uploaded)
         {
-            self.callback(nil, fileName);
+            if (self.callback)
+            {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.callback(nil, fileName);
+                });
+            }
+        }
+        else
+        {
+            if (self.failed)
+            {
+                self.failed();
+            }
         }
         
         [self close];
-    }
+    });
     
     [picker dismissViewControllerAnimated:YES completion:^{
-
+        if (self.progress)
+        {
+            self.progress();
+        }
+        [self close];
     }];
 }
 
