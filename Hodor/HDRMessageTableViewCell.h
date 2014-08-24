@@ -11,7 +11,5 @@
 
 @interface HDRMessageTableViewCell : HDRListTableViewCell
 @property (weak, nonatomic) IBOutlet UITextView *messageTextView;
-@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *userLabel;
 
 @end

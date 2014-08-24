@@ -8,6 +8,12 @@
 
 #import "HDRListBox2.h"
 
+@interface HDRListBox2 ()
+
+@property NSCache *cachedCells;
+
+@end
+
 @implementation HDRListBox2
 
 - (id)initWithFrame:(CGRect)frame
@@ -25,6 +31,7 @@
     [super awakeFromNib];
     
     self.alpha = 0;
+    self.cachedCells = [[NSCache alloc] init];
     self.collection = [[NSMutableArray alloc] init];
     
     self.fromLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:24];
@@ -85,28 +92,30 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    UITableViewCell *cellX = [self.cachedCells objectForKey:indexPath];
+    if (cellX)
+    {
+        return cellX;
+    }
+    
     @try {
         HDRMessage *msg = [self.collection objectAtIndex:indexPath.row];
+        HDRListTableViewCell *cell = nil;
         if (msg.picture.length)
         {
-            HDRPictureTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"HDRPictureTableViewCell" owner:self options:nil] lastObject];
-            
-            [cell setShowUserName:self.showUserName];
-            [cell setDatasource:msg];
-            [cell colorify:indexPath.row];
-            
-            return cell;
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"HDRPictureTableViewCell" owner:self options:nil] lastObject];
         }
         else
         {
-            HDRMessageTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"HDRMessageTableViewCell" owner:self options:nil] lastObject];
-            
-            [cell setShowUserName:self.showUserName];
-            [cell setDatasource:msg];
-            [cell colorify:indexPath.row];
-            
-            return cell;
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"HDRMessageTableViewCell" owner:self options:nil] lastObject];
         }
+        
+        [cell setShowUserName:self.showUserName];
+        [cell setDatasource:msg];
+        [cell colorify:indexPath.row];
+        [self.cachedCells setObject:cell forKey:indexPath];
+        
+        return cell;
         
     }
     @catch (NSException *exception) {

@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UIImage+ImageEffects.h"
-#import "HDRPictureTableViewCell.h"
-#import "HDRMessageTableViewCell.h"
+#import "HDRListTableViewCell.h"
 #import "HDRMessage.h"
 
 typedef void (^SelectionCallBack)(NSString *text);

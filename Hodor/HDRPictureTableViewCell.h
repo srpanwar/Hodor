@@ -11,8 +11,7 @@
 
 @interface HDRPictureTableViewCell : HDRListTableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *pictureView;
-@property (weak, nonatomic) IBOutlet UILabel *userLabel;
+
 
 @end

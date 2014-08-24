@@ -12,6 +12,10 @@
 
 @interface HDRListTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *userLabel;
+
+
 @property HDRMessage *message;
 @property BOOL showUserName;
 
