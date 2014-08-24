@@ -43,6 +43,7 @@
 		78745FF1198ED6EC00650542 /* HDRBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78745FF0198ED6EC00650542 /* HDRBaseViewController.m */; };
 		787956FE195898B800B903B2 /* HDRUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 787956FD195898B800B903B2 /* HDRUtils.m */; };
 		787F4786195800100064BFCE /* Hodor-Echo.wav in Resources */ = {isa = PBXBuildFile; fileRef = 787F4785195800100064BFCE /* Hodor-Echo.wav */; };
+		789F974C19AAA30A00BC323C /* CooperHewitt-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 789F974B19AAA30A00BC323C /* CooperHewitt-Book.otf */; };
 		78B1311B19592FFA00D74FD0 /* Hodor.wav in Resources */ = {isa = PBXBuildFile; fileRef = 78B1311A19592FFA00D74FD0 /* Hodor.wav */; };
 		78B220E919A732FC0059E0AB /* HDRAddChannelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B220E719A732FC0059E0AB /* HDRAddChannelTableViewCell.m */; };
 		78B220EA19A732FC0059E0AB /* HDRAddChannelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78B220E819A732FC0059E0AB /* HDRAddChannelTableViewCell.xib */; };
@@ -150,6 +151,7 @@
 		787956FC195898B800B903B2 /* HDRUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRUtils.h; sourceTree = "<group>"; };
 		787956FD195898B800B903B2 /* HDRUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRUtils.m; sourceTree = "<group>"; };
 		787F4785195800100064BFCE /* Hodor-Echo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Hodor-Echo.wav"; sourceTree = "<group>"; };
+		789F974B19AAA30A00BC323C /* CooperHewitt-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CooperHewitt-Book.otf"; sourceTree = "<group>"; };
 		78B1311A19592FFA00D74FD0 /* Hodor.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Hodor.wav; sourceTree = "<group>"; };
 		78B220E619A732FC0059E0AB /* HDRAddChannelTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRAddChannelTableViewCell.h; sourceTree = "<group>"; };
 		78B220E719A732FC0059E0AB /* HDRAddChannelTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRAddChannelTableViewCell.m; sourceTree = "<group>"; };
@@ -489,6 +491,7 @@
 			children = (
 				78745FEA198ECAE300650542 /* OpenSans-CondBold.ttf */,
 				78B2211819A97A100059E0AB /* OpenSans-CondLight.ttf */,
+				789F974B19AAA30A00BC323C /* CooperHewitt-Book.otf */,
 				78CCE6A019552C46009EA16B /* Hodor-Info.plist */,
 				78CCE6A119552C46009EA16B /* InfoPlist.strings */,
 				78CCE6A419552C46009EA16B /* main.m */,
@@ -648,6 +651,7 @@
 				78B220EA19A732FC0059E0AB /* HDRAddChannelTableViewCell.xib in Resources */,
 				78745FEB198ECAE300650542 /* OpenSans-CondBold.ttf in Resources */,
 				78B220EF19A913C00059E0AB /* HDRAnywhereTableViewCell.xib in Resources */,
+				789F974C19AAA30A00BC323C /* CooperHewitt-Book.otf in Resources */,
 				78E785AE19A2F71800D992F7 /* incoming.wav in Resources */,
 				78237CDB1955853500BE750D /* Hodor1.wav in Resources */,
 				780AFEA6196FB52800596CC6 /* HDRListBox.xib in Resources */,

@@ -30,7 +30,7 @@
 {
     [super awakeFromNib];
     self.dateLabel.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:11.0f];
-    self.userLabel.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:12.0f];
+    self.userLabel.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:15.0f];
 }
 - (void)setDatasource:(HDRMessage *)msg
 {
@@ -58,7 +58,7 @@
 
 - (void)colorify:(NSInteger)index
 {
-    UIColor *color = index %2 == 0 ? [UIColor colorWithWhite:0.94 alpha:1] : [UIColor colorWithWhite:0.93 alpha:1];
+    UIColor *color = index %2 == 0 ? [UIColor colorWithWhite:0.93 alpha:1] : [UIColor colorWithWhite:0.91 alpha:1];
     //INDEX_COLOR_MAP2[(INDEX_COLOR_MAP2.count - index % INDEX_COLOR_MAP2.count) -1 ];
     self.backgroundColor = color;
 }

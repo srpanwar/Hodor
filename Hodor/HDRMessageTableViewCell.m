@@ -14,7 +14,7 @@
 {
     [super awakeFromNib];
     // Initialization code
-   // self.messageTextView.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:21.0f];
+    self.messageTextView.font = [UIFont fontWithName:@"CooperHewitt-Book" size:16.0f];
 }
 
 - (void)layoutSubviews
@@ -24,7 +24,7 @@
     [self.messageTextView sizeToFit];
     CGPoint center = self.contentView.center;
     center.x = 12 + self.messageTextView.frame.size.width/2;
-    center.y -= 13;
+    center.y += 13;
     [self.messageTextView setCenter:center];
 }
 

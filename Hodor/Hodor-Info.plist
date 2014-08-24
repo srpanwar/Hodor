@@ -26,6 +26,7 @@
 	<array>
 		<string>OpenSans-CondBold.ttf</string>
 		<string>OpenSans-CondLight.ttf</string>
+		<string>CooperHewitt-Book.otf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>
