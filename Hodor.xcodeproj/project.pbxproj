@@ -59,6 +59,9 @@
 		78B2211719A96B390059E0AB /* HDRListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B2211619A96B390059E0AB /* HDRListTableViewCell.m */; };
 		78B2211919A97A100059E0AB /* OpenSans-CondLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78B2211819A97A100059E0AB /* OpenSans-CondLight.ttf */; };
 		78B2211C19A9BD6F0059E0AB /* HDRImageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B2211B19A9BD6F0059E0AB /* HDRImageUtil.m */; };
+		78B2212019A9BFE40059E0AB /* HDRS3Storage.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B2211F19A9BFE40059E0AB /* HDRS3Storage.m */; };
+		78B2212319A9C02C0059E0AB /* AWSRuntime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78B2212119A9C02C0059E0AB /* AWSRuntime.framework */; };
+		78B2212419A9C02C0059E0AB /* AWSS3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78B2212219A9C02C0059E0AB /* AWSS3.framework */; };
 		78CCB9B719A5909100A5BA99 /* HDRTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = 78CCB9B619A5909100A5BA99 /* HDRTranslator.m */; };
 		78CCE69919552C46009EA16B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78CCE69819552C46009EA16B /* Foundation.framework */; };
 		78CCE69B19552C46009EA16B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78CCE69A19552C46009EA16B /* CoreGraphics.framework */; };
@@ -171,6 +174,10 @@
 		78B2211819A97A100059E0AB /* OpenSans-CondLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-CondLight.ttf"; sourceTree = "<group>"; };
 		78B2211A19A9BD6F0059E0AB /* HDRImageUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRImageUtil.h; sourceTree = "<group>"; };
 		78B2211B19A9BD6F0059E0AB /* HDRImageUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRImageUtil.m; sourceTree = "<group>"; };
+		78B2211E19A9BFE40059E0AB /* HDRS3Storage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRS3Storage.h; sourceTree = "<group>"; };
+		78B2211F19A9BFE40059E0AB /* HDRS3Storage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRS3Storage.m; sourceTree = "<group>"; };
+		78B2212119A9C02C0059E0AB /* AWSRuntime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSRuntime.framework; path = "../../../../Users/srpanwar/Downloads/aws-ios-sdk-1.7.1/AWSRuntime.framework"; sourceTree = "<group>"; };
+		78B2212219A9C02C0059E0AB /* AWSS3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSS3.framework; path = "../../../../Users/srpanwar/Downloads/aws-ios-sdk-1.7.1/AWSS3.framework"; sourceTree = "<group>"; };
 		78CCB9B519A5909100A5BA99 /* HDRTranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRTranslator.h; sourceTree = "<group>"; };
 		78CCB9B619A5909100A5BA99 /* HDRTranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRTranslator.m; sourceTree = "<group>"; };
 		78CCE69519552C46009EA16B /* Hodor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hodor.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -210,6 +217,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78B2212319A9C02C0059E0AB /* AWSRuntime.framework in Frameworks */,
+				78B2212419A9C02C0059E0AB /* AWSS3.framework in Frameworks */,
 				78B2210F19A9531E0059E0AB /* MapKit.framework in Frameworks */,
 				786057E819A2DA940007C505 /* AVFoundation.framework in Frameworks */,
 				78237CF919569B7F00BE750D /* AddressBook.framework in Frameworks */,
@@ -293,14 +302,8 @@
 				78E785B819A32A8800D992F7 /* HDRDateUtil.m */,
 				787956FC195898B800B903B2 /* HDRUtils.h */,
 				787956FD195898B800B903B2 /* HDRUtils.m */,
-				78B2210B19A952CB0059E0AB /* HDRLocationManager.h */,
-				78B2210C19A952CB0059E0AB /* HDRLocationManager.m */,
-				78237D021956BA6E00BE750D /* HDRNetworkProvider.h */,
-				78237D031956BA6E00BE750D /* HDRNetworkProvider.m */,
 				78237CFC1956A22000BE750D /* HDRCurrentUser.h */,
 				78237CFD1956A22000BE750D /* HDRCurrentUser.m */,
-				78237D051956BE1800BE750D /* HDRFriends.h */,
-				78237D061956BE1800BE750D /* HDRFriends.m */,
 				78237CFF1956B78400BE750D /* HDRCommon.h */,
 				78237D001956B78400BE750D /* HDRCommon.m */,
 				78CCB9B519A5909100A5BA99 /* HDRTranslator.h */,
@@ -406,6 +409,21 @@
 			name = User;
 			sourceTree = "<group>";
 		};
+		78B2211D19A9BFB80059E0AB /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				78237D051956BE1800BE750D /* HDRFriends.h */,
+				78237D061956BE1800BE750D /* HDRFriends.m */,
+				78B2210B19A952CB0059E0AB /* HDRLocationManager.h */,
+				78B2210C19A952CB0059E0AB /* HDRLocationManager.m */,
+				78237D021956BA6E00BE750D /* HDRNetworkProvider.h */,
+				78237D031956BA6E00BE750D /* HDRNetworkProvider.m */,
+				78B2211E19A9BFE40059E0AB /* HDRS3Storage.h */,
+				78B2211F19A9BFE40059E0AB /* HDRS3Storage.m */,
+			);
+			name = Provider;
+			sourceTree = "<group>";
+		};
 		78CCE68C19552C46009EA16B = {
 			isa = PBXGroup;
 			children = (
@@ -428,6 +446,8 @@
 		78CCE69719552C46009EA16B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				78B2212119A9C02C0059E0AB /* AWSRuntime.framework */,
+				78B2212219A9C02C0059E0AB /* AWSS3.framework */,
 				78B2210E19A9531E0059E0AB /* MapKit.framework */,
 				786057E719A2DA940007C505 /* AVFoundation.framework */,
 				78237CF719569B7F00BE750D /* AddressBook.framework */,
@@ -446,6 +466,7 @@
 				786182BB1994B23A00B4BEFD /* Sounds */,
 				78237CDC1955864500BE750D /* View Controllers */,
 				78237CFB1956A20900BE750D /* Utils */,
+				78B2211D19A9BFB80059E0AB /* Provider */,
 				78237D081956BE4D00BE750D /* Model */,
 				78745FEF198ED6EC00650542 /* HDRBaseViewController.h */,
 				78745FF0198ED6EC00650542 /* HDRBaseViewController.m */,
@@ -651,6 +672,7 @@
 				78B2211719A96B390059E0AB /* HDRListTableViewCell.m in Sources */,
 				78B2210519A928520059E0AB /* HDRUpdater.m in Sources */,
 				78CCB9B719A5909100A5BA99 /* HDRTranslator.m in Sources */,
+				78B2212019A9BFE40059E0AB /* HDRS3Storage.m in Sources */,
 				78B2211319A969040059E0AB /* HDRPictureTableViewCell.m in Sources */,
 				78B220F819A916A60059E0AB /* HDREntityTableViewCell.m in Sources */,
 				78237CFE1956A22000BE750D /* HDRCurrentUser.m in Sources */,
@@ -793,6 +815,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/srpanwar/Downloads/aws-ios-sdk-1.7.1",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Hodor/Hodor-Prefix.pch";
 				INFOPLIST_FILE = "Hodor/Hodor-Info.plist";
@@ -809,6 +835,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/srpanwar/Downloads/aws-ios-sdk-1.7.1",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Hodor/Hodor-Prefix.pch";
 				INFOPLIST_FILE = "Hodor/Hodor-Info.plist";

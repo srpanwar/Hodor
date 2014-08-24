@@ -16,6 +16,9 @@
 
 #define HODOR_SERVICE_ENDPOINT @"http://hodorservice.cloudapp.net/rest/default.aspx"
 
+#define ACCESS_KEY_ID @"AKIAIALMT6IGGLWNGDAQ"
+#define SECRET_KEY @"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"
+
 #define PROFILE_PICTURE_BUCKET @"hodorprofilepictures"
 #define MESSAGE_PICTURE_BUCKET @"hodormsgpictures"
 
