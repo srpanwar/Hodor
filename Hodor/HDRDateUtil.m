@@ -81,12 +81,34 @@
     return [formatter stringFromDate:senderDate];
 }
 
+
 +(NSString *) getFormattedShortString:(NSDate *)date
 {
+    NSDate *now = [NSDate date];
     NSDate *senderDate = date;
+    NSString *format = nil;
+    
+    if (([HDRDateUtil getComponent:NSCalendarUnitYear date:now] != [HDRDateUtil getComponent:NSCalendarUnitYear date:senderDate]) ||
+        ([HDRDateUtil getComponent:NSCalendarUnitMonth date:now] != [HDRDateUtil getComponent:NSCalendarUnitMonth date:senderDate]) ||
+        ([HDRDateUtil getComponent:NSCalendarUnitWeekOfMonth date:now] != [HDRDateUtil getComponent:NSCalendarUnitWeekOfMonth date:senderDate]) ||
+        ([HDRDateUtil getComponent:NSCalendarUnitWeekday date:now] != [HDRDateUtil getComponent:NSCalendarUnitWeekday date:senderDate])
+        )
+    {
+        format = @"MMM d, yyyy hh:mm aaa";
+    }
+    else
+    {
+        format = @"hh:mm a";
+    }
+    
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"EEE, MMM d, yyyy"];
+    [formatter setDateFormat:format];
     return [formatter stringFromDate:senderDate];
+//
+//    NSDate *senderDate = date;
+//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//    [formatter setDateFormat:@"EEE, MMM d, yyyy"];
+//    return [formatter stringFromDate:senderDate];
 }
 
 
