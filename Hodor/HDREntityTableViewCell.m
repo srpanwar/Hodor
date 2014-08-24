@@ -43,7 +43,8 @@
 
 - (void)resetMessageReadCounter
 {
-    self.user.lastSeenId = MAX(0, self.user.lastSeenId - 50);
+    self.user.lastSeenId = 0;// MAX(0, self.user.lastSeenId - 50);
+    [[HDRFriends instance] setLastSeenId:self.user.name last:self.user.lastSeenId];
     [self loadMessages];
 }
 

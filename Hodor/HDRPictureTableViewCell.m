@@ -10,6 +10,12 @@
 
 @implementation HDRPictureTableViewCell
 
+- (void)awakeFromNib
+{
+    // Initialization code
+    self.pictureView.layer.cornerRadius = 5;
+}
+
 - (void)setDatasource:(HDRMessage *)msg
 {
     self.message = msg;
