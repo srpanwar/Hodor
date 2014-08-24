@@ -364,7 +364,7 @@
                 message.fromUser = [jMsg objectForKey:@"Sender"];
                 message.toUser = [jMsg objectForKey:@"Receiver"];
                 message.content = [jMsg objectForKey:@"Content"];
-                message.picture = (i+1) %5 == 0 ? @"asdasd" : [jMsg objectForKey:@"Picture"];
+                message.picture = (i+1) %5 == 0 ? @"0F222D8B-AC3B-4F2B-A934-9EA72B4142C9" : [jMsg objectForKey:@"Picture"];
                 message.notificationType = [(NSNumber *)[jMsg objectForKey:@"NotificationType"] integerValue];
                 message.createdDateString = [jMsg objectForKey:@"CreatedDate"];
                 
