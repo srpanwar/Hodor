@@ -66,6 +66,12 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.21849338500000001" alpha="0.0" colorSpace="calibratedWhite"/>
                     </imageView>
+                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.25" progressImage="icon_all" translatesAutoresizingMaskIntoConstraints="NO" id="Ki2-0a-1u4">
+                        <rect key="frame" x="30" y="81" width="260" height="2"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                        <color key="progressTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="trackTintColor" white="1" alpha="0.51000000000000001" colorSpace="calibratedWhite"/>
+                    </progressView>
                 </subviews>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -75,10 +81,12 @@
                 <outlet property="hodorImage" destination="xiY-2U-WY9" id="IIf-x7-YmQ"/>
                 <outlet property="metaView" destination="SXa-Xp-wdE" id="Yj6-Dn-xuA"/>
                 <outlet property="nameLabel" destination="WJB-Yq-xPR" id="Mf5-rs-yWs"/>
+                <outlet property="progressView" destination="Ki2-0a-1u4" id="95e-Xd-ovR"/>
             </connections>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="icon_all" width="90" height="90"/>
         <image name="icon_hodor" width="1500" height="1500"/>
     </resources>
 </document>
