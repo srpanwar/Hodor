@@ -10,5 +10,15 @@
 
 @implementation HDRMessage
 
+- (id)init
+{
+    self = [super init];
+    if (self)
+    {
+        self.picture = @"";
+    }
+    
+    return self;
+}
 
 @end

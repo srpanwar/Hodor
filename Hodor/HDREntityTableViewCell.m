@@ -43,7 +43,7 @@
 
 - (void)resetMessageReadCounter
 {
-    self.user.lastSeenId = MAX(0, self.user.lastSeenId - 5);
+    self.user.lastSeenId = MAX(0, self.user.lastSeenId - 50);
     [self loadMessages];
 }
 

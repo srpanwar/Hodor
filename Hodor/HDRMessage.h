@@ -14,6 +14,7 @@
 @property NSString *fromUser;
 @property NSString *toUser;
 @property NSString *content;
+@property NSString *picture;
 @property NSString *createdDateString;
 @property double createdDate;
 @property NSInteger notificationType;

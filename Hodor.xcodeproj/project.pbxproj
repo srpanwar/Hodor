@@ -54,6 +54,9 @@
 		78B2210A19A941C40059E0AB /* HDRHereTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78B2210819A941C40059E0AB /* HDRHereTableViewCell.xib */; };
 		78B2210D19A952CB0059E0AB /* HDRLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B2210C19A952CB0059E0AB /* HDRLocationManager.m */; };
 		78B2210F19A9531E0059E0AB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78B2210E19A9531E0059E0AB /* MapKit.framework */; };
+		78B2211319A969040059E0AB /* HDRPictureTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B2211119A969040059E0AB /* HDRPictureTableViewCell.m */; };
+		78B2211419A969040059E0AB /* HDRPictureTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78B2211219A969040059E0AB /* HDRPictureTableViewCell.xib */; };
+		78B2211719A96B390059E0AB /* HDRListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B2211619A96B390059E0AB /* HDRListTableViewCell.m */; };
 		78CCB9B719A5909100A5BA99 /* HDRTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = 78CCB9B619A5909100A5BA99 /* HDRTranslator.m */; };
 		78CCE69919552C46009EA16B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78CCE69819552C46009EA16B /* Foundation.framework */; };
 		78CCE69B19552C46009EA16B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78CCE69A19552C46009EA16B /* CoreGraphics.framework */; };
@@ -158,6 +161,11 @@
 		78B2210B19A952CB0059E0AB /* HDRLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRLocationManager.h; sourceTree = "<group>"; };
 		78B2210C19A952CB0059E0AB /* HDRLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRLocationManager.m; sourceTree = "<group>"; };
 		78B2210E19A9531E0059E0AB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		78B2211019A969040059E0AB /* HDRPictureTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRPictureTableViewCell.h; sourceTree = "<group>"; };
+		78B2211119A969040059E0AB /* HDRPictureTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRPictureTableViewCell.m; sourceTree = "<group>"; };
+		78B2211219A969040059E0AB /* HDRPictureTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HDRPictureTableViewCell.xib; sourceTree = "<group>"; };
+		78B2211519A96B390059E0AB /* HDRListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRListTableViewCell.h; sourceTree = "<group>"; };
+		78B2211619A96B390059E0AB /* HDRListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRListTableViewCell.m; sourceTree = "<group>"; };
 		78CCB9B519A5909100A5BA99 /* HDRTranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRTranslator.h; sourceTree = "<group>"; };
 		78CCB9B619A5909100A5BA99 /* HDRTranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRTranslator.m; sourceTree = "<group>"; };
 		78CCE69519552C46009EA16B /* Hodor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hodor.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -482,6 +490,11 @@
 				78E785C319A3484800D992F7 /* HDRMessageTableViewCell.h */,
 				78E785C419A3484800D992F7 /* HDRMessageTableViewCell.m */,
 				78E785C519A3484800D992F7 /* HDRMessageTableViewCell.xib */,
+				78B2211019A969040059E0AB /* HDRPictureTableViewCell.h */,
+				78B2211119A969040059E0AB /* HDRPictureTableViewCell.m */,
+				78B2211219A969040059E0AB /* HDRPictureTableViewCell.xib */,
+				78B2211519A96B390059E0AB /* HDRListTableViewCell.h */,
+				78B2211619A96B390059E0AB /* HDRListTableViewCell.m */,
 			);
 			name = ListBox2;
 			sourceTree = "<group>";
@@ -581,6 +594,7 @@
 				78237CE51955875900BE750D /* HDRHomeTableViewCell.xib in Resources */,
 				78B1311B19592FFA00D74FD0 /* Hodor.wav in Resources */,
 				78CCE6A319552C46009EA16B /* InfoPlist.strings in Resources */,
+				78B2211419A969040059E0AB /* HDRPictureTableViewCell.xib in Resources */,
 				78B2210A19A941C40059E0AB /* HDRHereTableViewCell.xib in Resources */,
 				786182E31994C6FF00B4BEFD /* 10.wav in Resources */,
 				786182DF1994C6FF00B4BEFD /* 6.wav in Resources */,
@@ -625,8 +639,10 @@
 				78CCE6A519552C46009EA16B /* main.m in Sources */,
 				78237CE91956814300BE750D /* HDRAddUserNameTableViewCell.m in Sources */,
 				78E785BC19A32F2800D992F7 /* HDRMessage.m in Sources */,
+				78B2211719A96B390059E0AB /* HDRListTableViewCell.m in Sources */,
 				78B2210519A928520059E0AB /* HDRUpdater.m in Sources */,
 				78CCB9B719A5909100A5BA99 /* HDRTranslator.m in Sources */,
+				78B2211319A969040059E0AB /* HDRPictureTableViewCell.m in Sources */,
 				78B220F819A916A60059E0AB /* HDREntityTableViewCell.m in Sources */,
 				78237CFE1956A22000BE750D /* HDRCurrentUser.m in Sources */,
 				78237D041956BA6E00BE750D /* HDRNetworkProvider.m in Sources */,

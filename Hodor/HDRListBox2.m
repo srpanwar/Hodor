@@ -48,18 +48,28 @@
 #pragma mark - UITableViewDataSource, UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGFloat height = 50.0f;
     HDRMessage *msg = [self.collection objectAtIndex:indexPath.row];
-    if (msg.content.length)
+    
+    if (msg.picture.length)
     {
-        UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, 290.0f, MAXFLOAT)];
-        textView.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:20.0f];
-        textView.text = msg.content;
-        CGSize nSize = [textView sizeThatFits:CGSizeMake(290.0f, MAXFLOAT)];
-        height += nSize.height;
+        return 190.0f;
+    }
+    else
+    {
+        if (msg.content.length)
+        {
+            CGFloat height = 40.0f;
+            UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, 290.0f, MAXFLOAT)];
+            textView.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:20.0f];
+            textView.text = msg.content;
+            CGSize nSize = [textView sizeThatFits:CGSizeMake(290.0f, MAXFLOAT)];
+            height += nSize.height;
+            
+            return height;
+        }
     }
     
-    return height;
+    return 0;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
@@ -76,15 +86,25 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     @try {
-        
-        HDRMessageTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"HDRMessageTableViewCell" owner:self options:nil] lastObject];
-        
         HDRMessage *msg = [self.collection objectAtIndex:indexPath.row];
-        
-        [cell setDatasource:msg];
-        [cell colorify:indexPath.row];
-        
-        return cell;
+        if (msg.picture.length)
+        {
+            HDRPictureTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"HDRPictureTableViewCell" owner:self options:nil] lastObject];
+                        
+            [cell setDatasource:msg];
+            [cell colorify:indexPath.row];
+            
+            return cell;
+        }
+        else
+        {
+            HDRMessageTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"HDRMessageTableViewCell" owner:self options:nil] lastObject];
+            
+            [cell setDatasource:msg];
+            [cell colorify:indexPath.row];
+            
+            return cell;
+        }
         
     }
     @catch (NSException *exception) {

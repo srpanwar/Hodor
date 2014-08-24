@@ -7,14 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HDRMessage.h"
-#import "HDRDateUtil.h"
+#import "HDRListTableViewCell.h"
 
-@interface HDRMessageTableViewCell : UITableViewCell
+@interface HDRMessageTableViewCell : HDRListTableViewCell
 @property (weak, nonatomic) IBOutlet UITextView *messageTextView;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
-- (void)colorify:(NSInteger)index;
-- (void)setDatasource:(HDRMessage *)msg;
 
 @end

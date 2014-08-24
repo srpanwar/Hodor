@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UIImage+ImageEffects.h"
+#import "HDRPictureTableViewCell.h"
 #import "HDRMessageTableViewCell.h"
 #import "HDRMessage.h"
 
