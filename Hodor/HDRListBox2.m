@@ -59,7 +59,7 @@
     
     if (msg.picture.length)
     {
-        return 190.0f;
+        return 195.0f;
     }
     else
     {
@@ -67,7 +67,8 @@
         {
             CGFloat height = 40.0f;
             UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, 290.0f, MAXFLOAT)];
-            textView.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:20.0f];
+            textView.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:21.0f];
+            //textView.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:17.0f];
             textView.text = msg.content;
             CGSize nSize = [textView sizeThatFits:CGSizeMake(290.0f, MAXFLOAT)];
             height += nSize.height;
@@ -149,7 +150,7 @@
     CGRect frame = self.tableView.frame;
     
     CGFloat y = [UIScreen mainScreen].bounds.size.height - self.tableView.contentSize.height;
-    y = fmaxf(y, 200.0f);
+    y = fmaxf(y, 100.0f);
     CGFloat hy = y - hFrame.size.height;
     
     hFrame.origin.y = frame.origin.y = [UIScreen mainScreen].bounds.size.height;

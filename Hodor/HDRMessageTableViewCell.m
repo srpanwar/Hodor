@@ -14,7 +14,7 @@
 {
     [super awakeFromNib];
     // Initialization code
-    self.messageTextView.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:20.0f];
+    self.messageTextView.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:21.0f];
 }
 
 - (void)layoutSubviews
@@ -31,7 +31,7 @@
 - (void)setDatasource:(HDRMessage *)msg
 {
     [super setDatasource:msg];
-    self.messageTextView.text = [msg.content capitalizedString];
+    self.messageTextView.text = msg.content;
 }
 
 @end
