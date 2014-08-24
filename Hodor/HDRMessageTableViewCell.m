@@ -31,7 +31,7 @@
 - (void)setDatasource:(HDRMessage *)msg
 {
     [super setDatasource:msg];
-    self.messageTextView.text = msg.content;
+    self.messageTextView.text = [msg.content capitalizedString];
 }
 
 @end
