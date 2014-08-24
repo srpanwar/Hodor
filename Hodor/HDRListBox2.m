@@ -67,8 +67,8 @@
         {
             CGFloat height = 40.0f;
             UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, 290.0f, MAXFLOAT)];
-            textView.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:21.0f];
-            //textView.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:17.0f];
+           // textView.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:21.0f];
+            textView.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:17.0f];
             textView.text = msg.content;
             CGSize nSize = [textView sizeThatFits:CGSizeMake(290.0f, MAXFLOAT)];
             height += nSize.height;
@@ -140,7 +140,10 @@
         self.tableView.frame = frame;
         self.headeView.frame = hFrame;
     } completion:^(BOOL finished) {
-        [self removeFromSuperview];
+        if (self.superview)
+        {
+            [self removeFromSuperview];
+        }
     }];
 }
 

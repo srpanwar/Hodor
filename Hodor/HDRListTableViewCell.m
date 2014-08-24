@@ -29,8 +29,8 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    self.dateLabel.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:14.0f];
-    self.userLabel.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:15.0f];
+    self.dateLabel.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:11.0f];
+    self.userLabel.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:12.0f];
 }
 - (void)setDatasource:(HDRMessage *)msg
 {
