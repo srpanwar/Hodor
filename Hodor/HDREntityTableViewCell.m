@@ -35,10 +35,10 @@
     
     //text
     UITapGestureRecognizer *doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(resetMessageReadCounter)];
-    doubleTapGestureRecognizer.numberOfTapsRequired = 2;
+    doubleTapGestureRecognizer.numberOfTouchesRequired = 2;
     [self.nameLabel addGestureRecognizer:doubleTapGestureRecognizer];
     
-    [singleTapGestureRecognizer requireGestureRecognizerToFail:doubleTapGestureRecognizer];
+//    [singleTapGestureRecognizer requireGestureRecognizerToFail:doubleTapGestureRecognizer];
 }
 
 - (void)resetMessageReadCounter
