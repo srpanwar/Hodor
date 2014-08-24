@@ -52,22 +52,25 @@
         
         NSArray *words = [sentence componentsSeparatedByString:@" "];
         NSMutableArray *nWords = [[NSMutableArray alloc] init];
+        NSCharacterSet *nonAlpha = [[NSCharacterSet alphanumericCharacterSet] invertedSet];
         
         for (int i = 0; i < words.count; i++)
         {
-            NSString *word = words[i];
-            NSInteger wordIndex = [self.words1 indexOfObject:word];
+            NSString *originalWord = words[i];
+            NSString *alphaNumericWord = [originalWord stringByTrimmingCharactersInSet:nonAlpha];
+            
+            NSInteger wordIndex = [self.words1 indexOfObject:alphaNumericWord];
             
             if (wordIndex != NSNotFound)
             {
-                [nWords addObject:self.words2[wordIndex]];
+                [nWords addObject:[originalWord stringByReplacingOccurrencesOfString:alphaNumericWord withString:self.words2[wordIndex]]];
             }
             else
             {
-                NSInteger preIndex = [self.prefixes1 indexOfObject:word];
+                NSInteger preIndex = [self.prefixes1 indexOfObject:alphaNumericWord];
                 if (preIndex != NSNotFound)
                 {
-                    [nWords addObject:self.prefixes2[preIndex]];
+                    [nWords addObject:[originalWord stringByReplacingOccurrencesOfString:alphaNumericWord withString:self.prefixes2[wordIndex]]];
                 }
                 else
                 {
@@ -75,10 +78,14 @@
                     for (int j = 0; j < self.suffixes1.count; j++)
                     {
                         NSString *suffix = self.suffixes1[j];
-                        if ([word hasSuffix:suffix])
+                        if ([alphaNumericWord hasSuffix:suffix])
                         {
-                            NSRange textRange = [word rangeOfString:suffix];
-                            [nWords addObject:[word stringByReplacingCharactersInRange:textRange withString:self.suffixes2[j]]];
+                            NSRange textRange = [alphaNumericWord rangeOfString:suffix];
+                            
+                            NSString *suffAlphaNumericWord = [alphaNumericWord stringByReplacingCharactersInRange:textRange withString:self.suffixes2[j]];
+                            
+                            [nWords addObject:[originalWord stringByReplacingOccurrencesOfString:alphaNumericWord withString:suffAlphaNumericWord]];
+                            
                             useOriginal = NO;
                             break;
                         }
@@ -87,7 +94,7 @@
                     
                     if (useOriginal)
                     {
-                        [nWords addObject:word];
+                        [nWords addObject:originalWord];
                     }
                     
                 }
