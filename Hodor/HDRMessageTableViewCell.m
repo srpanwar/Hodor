@@ -14,7 +14,7 @@
 {
     // Initialization code
     self.messageTextView.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:20.0f];
-    self.dateLabel.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:12.0f];
+    self.dateLabel.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:11.0f];
 }
 
 - (void)layoutSubviews

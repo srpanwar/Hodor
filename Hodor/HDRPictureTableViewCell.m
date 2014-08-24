@@ -14,7 +14,7 @@
 {
     // Initialization code
     self.pictureView.layer.cornerRadius = 5;
-    self.dateLabel.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:12.0f];
+    self.dateLabel.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:11.0f];
 }
 
 - (void)setDatasource:(HDRMessage *)msg
