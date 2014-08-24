@@ -15,11 +15,24 @@
     [super awakeFromNib];
     // Initialization code
     self.pictureView.layer.cornerRadius = 5;
+    
+    CGRect frame = self.pictureView.frame;
+    CGFloat x = frame.origin.x;
+    frame.origin.x = -1 * frame.size.width/4;
+    self.pictureView.frame = frame;
+    
+    frame.origin.x = x;
+    
+    [UIView animateWithDuration:0.4f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.pictureView.frame = frame;
+    } completion:nil];
 }
 
 - (void)setDatasource:(HDRMessage *)msg
 {
     [super setDatasource:msg];
+    
+    [HDRImageUtil fetchAndSetThumbnailImage:msg.picture fillImage:self.pictureView];
 }
 
 @end

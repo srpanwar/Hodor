@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HDRImageUtil.h"
 #import "HDRListTableViewCell.h"
 
 @interface HDRPictureTableViewCell : HDRListTableViewCell
