@@ -77,7 +77,7 @@
 {
     NSDate *senderDate = date;
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"EEE, MMM d, yyyy 'at' hh:mm aaa"];
+    [formatter setDateFormat:@"MMM d, yyyy hh:mm aaa"];
     return [formatter stringFromDate:senderDate];
 }
 

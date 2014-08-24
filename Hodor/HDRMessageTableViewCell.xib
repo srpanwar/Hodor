@@ -27,7 +27,7 @@
                         <rect key="frame" x="18" y="121" width="280" height="16"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="10"/>
-                        <color key="textColor" white="0.25" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="textColor" white="0.10000000000000001" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>

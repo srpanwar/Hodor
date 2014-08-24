@@ -14,6 +14,7 @@
 {
     // Initialization code
     self.pictureView.layer.cornerRadius = 5;
+    self.dateLabel.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:12.0f];
 }
 
 - (void)setDatasource:(HDRMessage *)msg
@@ -25,7 +26,14 @@
     NSDate *capturedStartDate = [formatter dateFromString: msg.createdDateString];
     NSLog(@"%@", capturedStartDate);
     
-    self.dateLabel.text = [HDRDateUtil getFormattedString:[HDRDateUtil toLocal:[capturedStartDate timeIntervalSince1970]]];
+    if (self.showUserName)
+    {
+        self.dateLabel.text = [[NSString stringWithFormat:@"%@, %@", msg.fromUser, [HDRDateUtil getFormattedString:[HDRDateUtil toLocal:[capturedStartDate timeIntervalSince1970]]]] uppercaseString];
+    }
+    else
+    {
+        self.dateLabel.text = [[HDRDateUtil getFormattedString:[HDRDateUtil toLocal:[capturedStartDate timeIntervalSince1970]]] uppercaseString];
+    }
     
     self.backgroundColor = [UIColor clearColor];
 }

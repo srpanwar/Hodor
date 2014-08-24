@@ -25,6 +25,8 @@ typedef void (^SelectionCallBack)(NSString *text);
 @property(readwrite, copy) SelectionCallBack callback;
 @property NSMutableArray *collection;
 
+@property BOOL showUserName;
+
 - (void)show;
 - (void)close;
 

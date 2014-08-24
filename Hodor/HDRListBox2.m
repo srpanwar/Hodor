@@ -90,7 +90,8 @@
         if (msg.picture.length)
         {
             HDRPictureTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"HDRPictureTableViewCell" owner:self options:nil] lastObject];
-                        
+            
+            [cell setShowUserName:self.showUserName];
             [cell setDatasource:msg];
             [cell colorify:indexPath.row];
             
@@ -100,6 +101,7 @@
         {
             HDRMessageTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"HDRMessageTableViewCell" owner:self options:nil] lastObject];
             
+            [cell setShowUserName:self.showUserName];
             [cell setDatasource:msg];
             [cell colorify:indexPath.row];
             

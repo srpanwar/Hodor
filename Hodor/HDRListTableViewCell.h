@@ -13,6 +13,7 @@
 @interface HDRListTableViewCell : UITableViewCell
 
 @property HDRMessage *message;
+@property BOOL showUserName;
 
 - (void)colorify:(NSInteger)index;
 - (void)setDatasource:(HDRMessage *)msg;

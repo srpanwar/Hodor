@@ -176,6 +176,7 @@
             [self doText:text];
         };
         
+        listBox.showUserName = NO;
         [listBox show];
         [self.viewController.navigationController.view addSubview:listBox];
     }
