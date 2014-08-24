@@ -51,8 +51,6 @@
 
     
     [self registerForKeyboardNotifications];
-    [self animateUp];
-    
     //[self.textBox becomeFirstResponder];
 }
 
@@ -206,6 +204,7 @@
 {
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    [self animateUp];
 }
 
 

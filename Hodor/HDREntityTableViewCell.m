@@ -78,13 +78,6 @@
 
 #pragma mark GESTURE ACTIONS
 
-- (void)showTextTemplates
-{
-    [self rightAndBack:^{
-        [self showTextTemplatesUI];
-    }];
-}
-
 - (void)showTextTemplatesUI
 {
     HDRListBox *listBox = (HDRListBox *)[[[NSBundle mainBundle] loadNibNamed:@"HDRListBox" owner:nil options:nil] lastObject];
@@ -171,9 +164,6 @@
         
         //set the last seen id
         [[HDRFriends instance] setLastSeenId:self.user.name last:msg.msgId];
-        
-        //hide the count box
-        //self.countBtn.hidden = YES;
         
         //show the messages to the user
         HDRListBox2 *listBox = (HDRListBox2 *)[[[NSBundle mainBundle] loadNibNamed:@"HDRListBox2" owner:nil options:nil] lastObject];
@@ -280,3 +270,8 @@
 }
 
 @end
+
+
+//    [self rightAndBack:^{
+//
+//    }];
