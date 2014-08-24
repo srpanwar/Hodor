@@ -141,10 +141,8 @@
 
 - (void)doTextNetwork:(NSString *)text picture:(NSString *)picture
 {
-    if (text && text.length)
-    {
-        [[HDRNetworkProvider instance] sendText:self.user.name text:text];
-    }
+    text = text ? text : @"";
+    [[HDRNetworkProvider instance] sendText:self.user.name text:text picture:picture];
 }
 
 - (void)doHodorNetwork

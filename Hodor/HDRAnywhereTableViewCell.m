@@ -28,7 +28,8 @@
 
 - (void)doTextNetwork:(NSString *)text picture:(NSString *)picture
 {
-    [[HDRNetworkProvider instance] sendTextToAnywhere:text];
+    text = text ? text : @"";
+    [[HDRNetworkProvider instance] sendTextToAnywhere:text picture:picture];
 }
 
 - (void)doHodorNetwork

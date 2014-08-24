@@ -30,10 +30,10 @@
 - (void)sendHODORToAnywhere;
 - (void)sendHODORToHere;
 
-- (void)sendText:(NSString *)recipient text:(NSString *)text;
-- (void)sendTextToChannel:(NSString *)channel text:(NSString *)text;
-- (void)sendTextToAnywhere:(NSString *)text;
-- (void)sendTextToHere:(NSString *)text;
+- (void)sendText:(NSString *)recipient text:(NSString *)text picture:(NSString *)picture;
+- (void)sendTextToChannel:(NSString *)channel text:(NSString *)text picture:(NSString *)picture;
+- (void)sendTextToAnywhere:(NSString *)text picture:(NSString *)picture;
+- (void)sendTextToHere:(NSString *)text picture:(NSString *)picture;
 
 - (void)sendRemoteNotificationsDeviceToken:(NSString *)deviceToken;
 

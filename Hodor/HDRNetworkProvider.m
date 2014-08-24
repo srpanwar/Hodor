@@ -98,7 +98,6 @@
     return;
 }
 
-
 - (void)sendHODORToHere
 {
     NSString *body = [NSString stringWithFormat:@"method=sendhodortohere&sender=%@&latitude=%f&longitude=%f", [HDRCurrentUser getCurrentUserName], [HDRCurrentUser getLastLocation].latitude, [HDRCurrentUser getLastLocation].longitude];
@@ -111,15 +110,14 @@
 }
 
 
-
-- (void)sendText:(NSString *)recipient text:(NSString *)text
+- (void)sendText:(NSString *)recipient text:(NSString *)text picture:(NSString *)picture;
 {
     if (!recipient || !text)
     {
         return;
     }
     
-    NSString *body = [NSString stringWithFormat:@"method=sendtext&sender=%@&recipient=%@&text=%@", [HDRCurrentUser getCurrentUserName], recipient, text];
+    NSString *body = [NSString stringWithFormat:@"method=sendtext&sender=%@&recipient=%@&text=%@&picture=%@", [HDRCurrentUser getCurrentUserName], recipient, text, picture];
     
     NSData *responseData = [self doNetwork:body];
     NSString *ret = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
@@ -128,14 +126,14 @@
     return;
 }
 
-- (void)sendTextToChannel:(NSString *)channel text:(NSString *)text
+- (void)sendTextToChannel:(NSString *)channel text:(NSString *)text picture:(NSString *)picture;
 {
     if (!channel || !text)
     {
         return;
     }
     
-    NSString *body = [NSString stringWithFormat:@"method=sendtexttochannel&sender=%@&channel=%@&text=%@", [HDRCurrentUser getCurrentUserName], channel, text];
+    NSString *body = [NSString stringWithFormat:@"method=sendtexttochannel&sender=%@&channel=%@&text=%@&picture=%@", [HDRCurrentUser getCurrentUserName], channel, text, picture];
     
     NSData *responseData = [self doNetwork:body];
     NSString *ret = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
@@ -144,14 +142,14 @@
     return;
 }
 
-- (void)sendTextToAnywhere:(NSString *)text
+- (void)sendTextToAnywhere:(NSString *)text picture:(NSString *)picture;
 {
     if (!text)
     {
         return;
     }
     
-    NSString *body = [NSString stringWithFormat:@"method=sendtexttoanywhere&sender=%@&text=%@&latitude=%f&longitude=%f", [HDRCurrentUser getCurrentUserName], text, [HDRCurrentUser getLastLocation].latitude, [HDRCurrentUser getLastLocation].longitude];
+    NSString *body = [NSString stringWithFormat:@"method=sendtexttoanywhere&sender=%@&text=%@&picture=%@&latitude=%f&longitude=%f", [HDRCurrentUser getCurrentUserName], text, picture, [HDRCurrentUser getLastLocation].latitude, [HDRCurrentUser getLastLocation].longitude];
     
     NSData *responseData = [self doNetwork:body];
     NSString *ret = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
@@ -160,14 +158,14 @@
     return;
 }
 
-- (void)sendTextToHere:(NSString *)text
+- (void)sendTextToHere:(NSString *)text picture:(NSString *)picture;
 {
     if (!text)
     {
         return;
     }
     
-    NSString *body = [NSString stringWithFormat:@"method=sendtexttohere&sender=%@&text=%@&latitude=%f&longitude=%f", [HDRCurrentUser getCurrentUserName], text, [HDRCurrentUser getLastLocation].latitude, [HDRCurrentUser getLastLocation].longitude];
+    NSString *body = [NSString stringWithFormat:@"method=sendtexttohere&sender=%@&text=%@&picture=%@&latitude=%f&longitude=%f", [HDRCurrentUser getCurrentUserName], text, picture, [HDRCurrentUser getLastLocation].latitude, [HDRCurrentUser getLastLocation].longitude];
 
     NSData *responseData = [self doNetwork:body];
     NSString *ret = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
@@ -175,6 +173,7 @@
     
     return;
 }
+
 
 - (NSMutableArray *)fetchMessages:(NSString *)from after:(NSInteger)lastSeenId
 {
