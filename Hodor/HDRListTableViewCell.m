@@ -58,7 +58,7 @@
 
 - (void)colorify:(NSInteger)index
 {
-    UIColor *color = index %2 == 0 ? [UIColor colorWithWhite:0.95 alpha:1] : [UIColor colorWithWhite:0.93 alpha:1];
+    UIColor *color = index %2 == 0 ? [UIColor colorWithWhite:0.94 alpha:1] : [UIColor colorWithWhite:0.93 alpha:1];
     //INDEX_COLOR_MAP2[(INDEX_COLOR_MAP2.count - index % INDEX_COLOR_MAP2.count) -1 ];
     self.backgroundColor = color;
 }

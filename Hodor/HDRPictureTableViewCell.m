@@ -14,7 +14,7 @@
 {
     [super awakeFromNib];
     // Initialization code
-    self.pictureView.layer.cornerRadius = 5;
+    self.pictureView.layer.cornerRadius = 8;
     
     CGRect frame = self.pictureView.frame;
     CGFloat x = frame.origin.x;
