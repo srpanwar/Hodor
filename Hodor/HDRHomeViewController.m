@@ -315,7 +315,7 @@
         CGRect frame4 = self.lingoJamBtn.frame;
         frame4.origin.x = frame4.size.width;
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [UIView animateWithDuration:0.5f animations:^{
                 self.nounBtn.frame = frame3;
                 self.lingoJamBtn.frame = frame4;

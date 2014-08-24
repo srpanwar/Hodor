@@ -19,11 +19,13 @@
 
     //[HDRCurrentUser setCurrentUserName:@"SRPANWAR"];
     
+    //start location update
     if([CLLocationManager locationServicesEnabled])
     {
         [[HDRLocationManager instance].locationManager startUpdatingLocation];
     }
 
+    //fetch the predefined message list
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [[HDRNetworkProvider instance] refreshTriviaList];
     });
