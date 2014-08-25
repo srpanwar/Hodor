@@ -349,6 +349,7 @@
     {
         //parse out the json data
         NSError* error;
+        NSString *str = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
         NSArray* json = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions
                                                           error:&error];
         
@@ -360,14 +361,19 @@
                 HDRMessage *message = [[HDRMessage alloc] init];
 
                 message.msgId = [(NSNumber *)[jMsg objectForKey:@"ID"] integerValue];
+                
                 message.fromUser = [jMsg objectForKey:@"Sender"];
                 //message.toUser = [jMsg objectForKey:@"Receiver"];
-                message.content = [jMsg objectForKey:@"Content"];
-                //message.picture = (i+1) %5 == 0 ? @"0F222D8B-AC3B-4F2B-A934-9EA72B4142C9" : [jMsg objectForKey:@"Picture"];
-                message.picture = [jMsg objectForKey:@"Picture"];
-                message.notificationType = [(NSNumber *)[jMsg objectForKey:@"NotificationType"] integerValue];
-                message.createdDateString = [jMsg objectForKey:@"CreatedDate"];
                 
+                message.content = [jMsg objectForKey:@"Content"];
+                message.content = [message.content isKindOfClass:[NSNull class]] ? @"" : message.content;
+                
+                message.picture = [jMsg objectForKey:@"Picture"];
+                message.picture = [message.picture isKindOfClass:[NSNull class]] ? @"" : message.picture;
+                
+                message.notificationType = [(NSNumber *)[jMsg objectForKey:@"NotificationType"] integerValue];
+                
+                message.createdDateString = [jMsg objectForKey:@"CreatedDate"];
                 //message.createdDate = [(NSNumber *)[jMsg objectForKey:@"CreatedDate"] doubleValue];
                 
                 [messages addObject:message];
