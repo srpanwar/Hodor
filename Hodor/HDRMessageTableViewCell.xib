@@ -19,7 +19,7 @@
                         <color key="tintColor" white="0.92000000000000004" alpha="1" colorSpace="calibratedWhite"/>
                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do  Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do </string>
                         <color key="textColor" white="0.92000000000000004" alpha="1" colorSpace="calibratedWhite"/>
-                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="15"/>
+                        <fontDescription key="fontDescription" name="AmericanTypewriter-CondensedBold" family="American Typewriter" pointSize="21"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
                     </textView>
@@ -27,7 +27,7 @@
                         <rect key="frame" x="5" y="10" width="133" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
-                        <color key="textColor" white="0.88" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="textColor" white="0.84999999999999998" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                         <size key="shadowOffset" width="0.0" height="1"/>
                     </label>
@@ -35,7 +35,7 @@
                         <rect key="frame" x="172" y="10" width="133" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
-                        <color key="textColor" white="0.88" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="textColor" white="0.84999999999999998" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                         <size key="shadowOffset" width="0.0" height="1"/>
                     </label>

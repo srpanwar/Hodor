@@ -117,7 +117,7 @@
         return;
     }
     
-    NSString *body = [NSString stringWithFormat:@"method=sendtext&sender=%@&recipient=%@&text=%@&picture=%@", [HDRCurrentUser getCurrentUserName], recipient, text, picture];
+    NSString *body = [NSString stringWithFormat:@"method=sendtext2&sender=%@&recipient=%@&text=%@&picture=%@", [HDRCurrentUser getCurrentUserName], recipient, text, picture];
     
     NSData *responseData = [self doNetwork:body];
     NSString *ret = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];

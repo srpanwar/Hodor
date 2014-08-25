@@ -27,7 +27,7 @@
                         <rect key="frame" x="10" y="10" width="133" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
-                        <color key="textColor" white="0.88" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="textColor" white="0.84999999999999998" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                         <size key="shadowOffset" width="0.0" height="1"/>
                     </label>
@@ -35,7 +35,7 @@
                         <rect key="frame" x="172" y="10" width="133" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
-                        <color key="textColor" white="0.88" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="textColor" white="0.84999999999999998" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                         <size key="shadowOffset" width="0.0" height="1"/>
                     </label>
