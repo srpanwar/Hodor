@@ -62,10 +62,6 @@
         [[HDRFriends instance] addFriend:newFriend];
     }
     
-    //store the ping data
-    NSString *pingedText = [userInfo objectForKey:@"text"];
-    pingedText = (pingedText ? pingedText : @"hodor!!");
-    
     //refresh the ui
     UINavigationController *root = (UINavigationController *)self.window.rootViewController;
     if (root && [root.topViewController isKindOfClass:[HDRHomeViewController class]] &&  [[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
