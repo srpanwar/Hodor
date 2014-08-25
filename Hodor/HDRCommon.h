@@ -14,7 +14,8 @@
 #define EMPTY_GUID @"00000000-0000-0000-0000-000000000000"
 #define ENC_GUID @"2711ea6a-d68a-4ffe-a431-6373325795bf"
 
-#define HODOR_SERVICE_ENDPOINT @"http://hodorservice.cloudapp.net/rest/default.aspx"
+//#define HODOR_SERVICE_ENDPOINT @"http://hodorservice.cloudapp.net/rest/default.aspx"
+#define HODOR_SERVICE_ENDPOINT @"http://d4da3633fd7844a2b2804b495cc1814f.cloudapp.net/rest/default.aspx"
 
 #define ACCESS_KEY_ID @"AKIAIALMT6IGGLWNGDAQ"
 #define SECRET_KEY @"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"

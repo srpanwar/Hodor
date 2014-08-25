@@ -142,6 +142,7 @@
 - (void)doTextNetwork:(NSString *)text picture:(NSString *)picture
 {
     text = text ? text : @"";
+    picture = picture ? picture : @"";
     [[HDRNetworkProvider instance] sendText:self.user.name text:text picture:picture];
 }
 
