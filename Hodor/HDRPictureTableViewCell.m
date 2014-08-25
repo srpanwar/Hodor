@@ -15,6 +15,8 @@
     [super awakeFromNib];
     // Initialization code
     self.pictureView.layer.cornerRadius = 8;
+    self.pictureView.layer.borderColor = [UIColor colorWithWhite:0.85 alpha:1].CGColor;
+    self.pictureView.layer.borderWidth = 1;
     
     CGRect frame = self.pictureView.frame;
     CGFloat x = frame.origin.x;
