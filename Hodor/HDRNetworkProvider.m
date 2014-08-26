@@ -214,7 +214,7 @@
     NSMutableArray *messages = [[NSMutableArray alloc] init];
     
     //form the url
-    NSString *body = [NSString stringWithFormat:@"method=fetchheremessages&after=%lu&latitude=%f&longitude=%f&address=%@", (long)lastSeenId, [HDRCurrentUser getLastLocation].latitude, [HDRCurrentUser getLastLocation].longitude, [HDRCurrentUser getAddress]];
+    NSString *body = [NSString stringWithFormat:@"method=fetchheremessages&after=%lu&latitude=%f&longitude=%f", (long)lastSeenId, [HDRCurrentUser getLastLocation].latitude, [HDRCurrentUser getLastLocation].longitude];
     NSData *data = [self doNetwork:body];
     
     //parse the results
