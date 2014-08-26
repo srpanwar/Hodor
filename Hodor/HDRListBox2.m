@@ -69,7 +69,9 @@
             UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, 270.0f, MAXFLOAT)];
             //textView.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:23.0f];
             //textView.font = [UIFont fontWithName:@"CooperHewitt-Book" size:16.0f];
-            textView.font = [UIFont fontWithName:@"AmericanTypewriter-Condensed" size:22.0f];
+            textView.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:25.0f];
+            //textView.font = [UIFont fontWithName:@"AmericanTypewriter-Condensed" size:22.0f];
+            
             textView.text = msg.content;
             CGSize nSize = [textView sizeThatFits:CGSizeMake(290.0f, MAXFLOAT)];
             height += nSize.height + 10;

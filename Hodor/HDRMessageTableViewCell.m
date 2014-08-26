@@ -15,7 +15,14 @@
     [super awakeFromNib];
     // Initialization code
     //self.messageTextView.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:21.0f];
+    self.messageTextView.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:24.0f];
 //        self.messageTextView.font = [UIFont fontWithName:@"CooperHewitt-Book" size:16.0f];
+    
+    self.messageTextView.textColor = [UIColor colorWithWhite:0.9 alpha:1];
+    self.messageTextView.layer.shadowColor = [[UIColor colorWithWhite:0.4 alpha:1] CGColor];
+    self.messageTextView.layer.shadowOffset = CGSizeMake(0, 1.0f);
+    self.messageTextView.layer.shadowOpacity = 1.0f;
+    self.messageTextView.layer.shadowRadius = 1.0f;
 }
 
 - (void)layoutSubviews

@@ -9,19 +9,19 @@
 #import "HDRListTableViewCell.h"
 
 #define INDEX_COLOR_MAP2 @[\
-[UIColor colorWithRed:210/255.0f green:186/255.0f blue:90/255.0f alpha:0.7], \
-[UIColor colorWithRed:208/255.0f green:79/255.0f blue:119/255.0f alpha:0.7], \
-[UIColor colorWithRed:131/255.0f green:175/255.0f blue:155/255.0f alpha:0.7], \
-[UIColor colorWithRed:2/255.0f green:119/255.0f blue:158/255.0f alpha:0.7], \
-[UIColor colorWithRed:148/255.0f green:140/255.0f blue:117/255.0f alpha:0.7], \
-[UIColor colorWithRed:209/255.0f green:117/255.0f blue:141/255.0f alpha:0.7], \
-[UIColor colorWithRed:166/255.0f green:157/255.0f blue:211/255.0f alpha:0.7], \
-[UIColor colorWithRed:253/255.0f green:123/255.0f blue:159/255.0f alpha:0.7], \
-[UIColor colorWithRed:83/255.0f green:205/255.0f blue:218/255.0f alpha:0.7], \
-[UIColor colorWithRed:80/255.0f green:61/255.0f blue:166/255.0f alpha:0.7], \
-[UIColor colorWithRed:163/255.0f green:200/255.0f blue:128/255.0f alpha:0.7], \
-[UIColor colorWithRed:109/255.0f green:172/255.0f blue:173/255.0f alpha:0.7], \
-[UIColor colorWithRed:232/255.0f green:147/255.0f blue:86/255.0f alpha:0.7], \
+[UIColor colorWithRed:200/255.0f green:176/255.0f blue:80/255.0f alpha:0.7], \
+[UIColor colorWithRed:198/255.0f green:69/255.0f blue:109/255.0f alpha:0.7], \
+[UIColor colorWithRed:121/255.0f green:165/255.0f blue:145/255.0f alpha:0.7], \
+[UIColor colorWithRed:2/255.0f green:109/255.0f blue:148/255.0f alpha:0.7], \
+[UIColor colorWithRed:138/255.0f green:130/255.0f blue:107/255.0f alpha:0.7], \
+[UIColor colorWithRed:199/255.0f green:107/255.0f blue:131/255.0f alpha:0.7], \
+[UIColor colorWithRed:156/255.0f green:147/255.0f blue:201/255.0f alpha:0.7], \
+[UIColor colorWithRed:243/255.0f green:113/255.0f blue:149/255.0f alpha:0.7], \
+[UIColor colorWithRed:73/255.0f green:195/255.0f blue:208/255.0f alpha:0.7], \
+[UIColor colorWithRed:70/255.0f green:51/255.0f blue:156/255.0f alpha:0.7], \
+[UIColor colorWithRed:153/255.0f green:190/255.0f blue:118/255.0f alpha:0.7], \
+[UIColor colorWithRed:99/255.0f green:162/255.0f blue:163/255.0f alpha:0.7], \
+[UIColor colorWithRed:222/255.0f green:137/255.0f blue:76/255.0f alpha:0.7], \
 ]
 
 @implementation HDRListTableViewCell
