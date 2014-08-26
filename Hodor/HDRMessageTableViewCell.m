@@ -25,14 +25,14 @@
     [self.messageTextView sizeToFit];
     CGPoint center = self.contentView.center;
     center.x = 20 + self.messageTextView.frame.size.width/2;
-    center.y += 10;
+    center.y += 12;
     [self.messageTextView setCenter:center];
 }
 
 - (void)setDatasource:(HDRMessage *)msg
 {
     [super setDatasource:msg];
-    self.messageTextView.text = [msg.content capitalizedString];
+    self.messageTextView.text = msg.content;
 }
 
 @end
