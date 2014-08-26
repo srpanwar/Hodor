@@ -121,9 +121,9 @@ CLLocationCoordinate2D lastUserLocation;
     return address;
 }
 
-+ (void) setAddress:(NSString *)address
++ (void) setAddress:(NSString *)addr
 {
-    address = address;
+    address = addr;
 }
 
 
