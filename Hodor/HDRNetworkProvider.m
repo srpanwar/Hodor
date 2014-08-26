@@ -376,6 +376,7 @@
                 message.createdDateString = [jMsg objectForKey:@"CreatedDate"];
                 
                 message.address = [jMsg objectForKey:@"Address"];
+                message.address = [message.address isKindOfClass:[NSNull class]] ? @"Earth" : message.address;
                 
                 //message.createdDate = [(NSNumber *)[jMsg objectForKey:@"CreatedDate"] doubleValue];
                 

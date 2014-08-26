@@ -16,7 +16,7 @@
     if (self)
     {
         self.picture = @"";
-        self.address = @"Seattle, United States";
+        self.address = @"Earth";
     }
     
     return self;
