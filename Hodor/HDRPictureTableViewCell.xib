@@ -19,7 +19,7 @@
                         <color key="color" cocoaTouchSystemColor="darkTextColor"/>
                     </activityIndicatorView>
                     <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="MLk-XN-fyC">
-                        <rect key="frame" x="25" y="43" width="270" height="155"/>
+                        <rect key="frame" x="25" y="43" width="260" height="155"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.80000000000000004" alpha="0.5" colorSpace="calibratedWhite"/>
                     </imageView>
