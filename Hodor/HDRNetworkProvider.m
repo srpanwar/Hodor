@@ -89,7 +89,7 @@
 
 - (void)sendHODORToAnywhere
 {
-    NSString *body = [NSString stringWithFormat:@"method=sendhodortoanywhere&sender=%@&latitude=%f&longitude=%f", [HDRCurrentUser getCurrentUserName], [HDRCurrentUser getLastLocation].latitude, [HDRCurrentUser getLastLocation].longitude];
+    NSString *body = [NSString stringWithFormat:@"method=sendhodortoanywhere&sender=%@&latitude=%f&longitude=%f&address=%@", [HDRCurrentUser getCurrentUserName], [HDRCurrentUser getLastLocation].latitude, [HDRCurrentUser getLastLocation].longitude, [HDRCurrentUser getAddress]];
     
     NSData *responseData = [self doNetwork:body];
     NSString *ret = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
@@ -100,7 +100,7 @@
 
 - (void)sendHODORToHere
 {
-    NSString *body = [NSString stringWithFormat:@"method=sendhodortohere&sender=%@&latitude=%f&longitude=%f", [HDRCurrentUser getCurrentUserName], [HDRCurrentUser getLastLocation].latitude, [HDRCurrentUser getLastLocation].longitude];
+    NSString *body = [NSString stringWithFormat:@"method=sendhodortohere&sender=%@&latitude=%f&longitude=%f&address=%@", [HDRCurrentUser getCurrentUserName], [HDRCurrentUser getLastLocation].latitude, [HDRCurrentUser getLastLocation].longitude, [HDRCurrentUser getAddress]];
     
     NSData *responseData = [self doNetwork:body];
     NSString *ret = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
@@ -149,7 +149,7 @@
         return;
     }
     
-    NSString *body = [NSString stringWithFormat:@"method=sendtexttoanywhere&sender=%@&text=%@&picture=%@&latitude=%f&longitude=%f", [HDRCurrentUser getCurrentUserName], text, picture, [HDRCurrentUser getLastLocation].latitude, [HDRCurrentUser getLastLocation].longitude];
+    NSString *body = [NSString stringWithFormat:@"method=sendtexttoanywhere&sender=%@&text=%@&picture=%@&latitude=%f&longitude=%f&address=%@", [HDRCurrentUser getCurrentUserName], text, picture, [HDRCurrentUser getLastLocation].latitude, [HDRCurrentUser getLastLocation].longitude, [HDRCurrentUser getAddress]];
     
     NSData *responseData = [self doNetwork:body];
     NSString *ret = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
@@ -165,7 +165,7 @@
         return;
     }
     
-    NSString *body = [NSString stringWithFormat:@"method=sendtexttohere&sender=%@&text=%@&picture=%@&latitude=%f&longitude=%f", [HDRCurrentUser getCurrentUserName], text, picture, [HDRCurrentUser getLastLocation].latitude, [HDRCurrentUser getLastLocation].longitude];
+    NSString *body = [NSString stringWithFormat:@"method=sendtexttohere&sender=%@&text=%@&picture=%@&latitude=%f&longitude=%f&address=%@", [HDRCurrentUser getCurrentUserName], text, picture, [HDRCurrentUser getLastLocation].latitude, [HDRCurrentUser getLastLocation].longitude, [HDRCurrentUser getAddress]];
 
     NSData *responseData = [self doNetwork:body];
     NSString *ret = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
@@ -214,7 +214,7 @@
     NSMutableArray *messages = [[NSMutableArray alloc] init];
     
     //form the url
-    NSString *body = [NSString stringWithFormat:@"method=fetchheremessages&after=%lu&latitude=%f&longitude=%f", (long)lastSeenId, [HDRCurrentUser getLastLocation].latitude, [HDRCurrentUser getLastLocation].longitude];
+    NSString *body = [NSString stringWithFormat:@"method=fetchheremessages&after=%lu&latitude=%f&longitude=%f&address=%@", (long)lastSeenId, [HDRCurrentUser getLastLocation].latitude, [HDRCurrentUser getLastLocation].longitude, [HDRCurrentUser getAddress]];
     NSData *data = [self doNetwork:body];
     
     //parse the results
@@ -349,7 +349,7 @@
     {
         //parse out the json data
         NSError* error;
-        NSString *str = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+        //NSString *str = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
         NSArray* json = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions
                                                           error:&error];
         
@@ -374,6 +374,9 @@
                 message.notificationType = [(NSNumber *)[jMsg objectForKey:@"NotificationType"] integerValue];
                 
                 message.createdDateString = [jMsg objectForKey:@"CreatedDate"];
+                
+                message.address = [jMsg objectForKey:@"Address"];
+                
                 //message.createdDate = [(NSNumber *)[jMsg objectForKey:@"CreatedDate"] doubleValue];
                 
                 [messages addObject:message];

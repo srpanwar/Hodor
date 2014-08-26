@@ -14,6 +14,7 @@ NSString *userName;
 NSString *UUID;
 NSString *UUENCID;
 NSString *deviceToken;
+NSString *address;
 CLLocationCoordinate2D lastUserLocation;
 
 +(NSString *) getCurrentUserName
@@ -114,5 +115,16 @@ CLLocationCoordinate2D lastUserLocation;
     [defaults setDouble:coordinate.latitude forKey:@"LGKLatitude"];
     [defaults setDouble:coordinate.longitude forKey:@"LGKLongitude"];
 }
+
++ (NSString *) getAddress
+{
+    return address;
+}
+
++ (void) setAddress:(NSString *)address
+{
+    address = address;
+}
+
 
 @end

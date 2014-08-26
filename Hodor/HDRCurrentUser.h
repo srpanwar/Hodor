@@ -26,4 +26,7 @@
 + (CLLocationCoordinate2D) getLastLocation;
 + (void) setLastLocation:(CLLocationCoordinate2D) coordinate;
 
++ (NSString *) getAddress;
++ (void) setAddress:(NSString *)address;
+
 @end
