@@ -59,7 +59,7 @@
     
     if (msg.picture.length)
     {
-        return 235.0f;
+        return 241.0f;
     }
     else
     {
@@ -76,7 +76,7 @@
             
             textView.text = msg.content;
             CGSize nSize = [textView sizeThatFits:CGSizeMake(290.0f, MAXFLOAT)];
-            height += nSize.height + 15;
+            height += nSize.height + 21;
             
             return fmaxf(height, 190.0f);
         }
