@@ -57,8 +57,6 @@
                 
                 //if address is mising then try to geocode lat lon
                 CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-                CLLocation *location = [[CLLocation alloc] initWithLatitude:location.coordinate.latitude longitude:location.coordinate.longitude];
-                
                 [geocoder reverseGeocodeLocation:location completionHandler: ^(NSArray* placemarks, NSError* error){
                     if ([placemarks count] > 0)
                     {
