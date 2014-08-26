@@ -24,7 +24,7 @@
                         <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
                     </textView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nwl-KU-xby">
-                        <rect key="frame" x="5" y="10" width="133" height="21"/>
+                        <rect key="frame" x="18" y="10" width="115" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                         <color key="textColor" white="0.84999999999999998" alpha="1" colorSpace="calibratedWhite"/>
@@ -32,20 +32,43 @@
                         <size key="shadowOffset" width="0.0" height="1"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZnC-JZ-bb9">
-                        <rect key="frame" x="172" y="10" width="133" height="21"/>
+                        <rect key="frame" x="167" y="10" width="133" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                         <color key="textColor" white="0.84999999999999998" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                         <size key="shadowOffset" width="0.0" height="1"/>
                     </label>
+                    <view contentMode="scaleToFill" id="TOe-V5-wlL">
+                        <rect key="frame" x="23" y="121" width="280" height="26"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_location" id="xdS-MW-NBV">
+                                <rect key="frame" x="4" y="6" width="10" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iRi-60-ZHH">
+                                <rect key="frame" x="21.5" y="2" width="231" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.84999999999999998" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
                 </subviews>
             </tableViewCellContentView>
             <connections>
+                <outlet property="addressLabel" destination="iRi-60-ZHH" id="zIU-Ir-vhb"/>
+                <outlet property="addressView" destination="TOe-V5-wlL" id="Sob-H3-ybZ"/>
                 <outlet property="dateLabel" destination="ZnC-JZ-bb9" id="FuD-iD-Vn0"/>
                 <outlet property="messageTextView" destination="3LA-ct-DU2" id="O94-OB-WJa"/>
                 <outlet property="userLabel" destination="nwl-KU-xby" id="Kp8-fo-pOS"/>
             </connections>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="icon_location" width="100" height="175"/>
+    </resources>
 </document>

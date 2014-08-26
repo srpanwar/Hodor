@@ -31,6 +31,9 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *countBtn;
 
+@property BOOL showUserName;
+@property BOOL showLocation;
+
 - (void)doHodorNetwork;
 - (void)doTextNetwork:(NSString *)text picture:(NSString *)picture;
 

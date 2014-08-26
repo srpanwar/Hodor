@@ -31,27 +31,29 @@
     [super awakeFromNib];
     self.dateLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:12.0f];
     self.userLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:16.0f];
+    self.addressLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:14.0f];
 }
+
+
 - (void)setDatasource:(HDRMessage *)msg
 {
     self.message = msg;
     
-    self.userLabel.text = [NSString stringWithFormat:@"从 %@", [msg.fromUser uppercaseString]];
+    //set addres
+    self.addressLabel.text = msg.address;
     
+    //set user value
+    self.userLabel.text = [msg.fromUser uppercaseString];
+    //[NSString stringWithFormat:@"从 %@", [msg.fromUser uppercaseString]];
     
+    //format date
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS"];
     NSDate *capturedStartDate = [formatter dateFromString: msg.createdDateString];
-    NSLog(@"%@", capturedStartDate);
-    
-    if (self.showUserName)
-    {
-        self.dateLabel.text = [[NSString stringWithFormat:@"%@, %@", msg.fromUser, [HDRDateUtil getFormattedString:[HDRDateUtil toLocal:[capturedStartDate timeIntervalSince1970]]]] uppercaseString];
-    }
-    else
-    {
-        self.dateLabel.text = [[HDRDateUtil getFormattedShortString:[HDRDateUtil toLocal:[capturedStartDate timeIntervalSince1970]]] uppercaseString];
-    }
+    self.dateLabel.text = [[HDRDateUtil getFormattedShortString:[HDRDateUtil toLocal:[capturedStartDate timeIntervalSince1970]]] uppercaseString];
+
+    self.userLabel.hidden = !self.showUserName;
+    self.addressView.hidden = !self.showLocation;
     
     self.backgroundColor = [UIColor clearColor];
 }

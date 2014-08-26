@@ -25,6 +25,7 @@ typedef void (^SelectionCallBack)(NSString *text, NSString *picture);
 @property NSMutableArray *collection;
 
 @property BOOL showUserName;
+@property BOOL showLocation;
 
 - (void)show;
 - (void)close;

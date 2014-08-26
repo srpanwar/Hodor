@@ -59,7 +59,7 @@
     
     if (msg.picture.length)
     {
-        return 215.0f;
+        return 235.0f;
     }
     else
     {
@@ -67,16 +67,18 @@
         {
             CGFloat height = 40.0f;
             UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, 270.0f, MAXFLOAT)];
+            
             //textView.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:23.0f];
             //textView.font = [UIFont fontWithName:@"CooperHewitt-Book" size:16.0f];
-            textView.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:25.0f];
             //textView.font = [UIFont fontWithName:@"AmericanTypewriter-Condensed" size:22.0f];
+            
+            textView.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:32.0f];
             
             textView.text = msg.content;
             CGSize nSize = [textView sizeThatFits:CGSizeMake(290.0f, MAXFLOAT)];
-            height += nSize.height + 10;
+            height += nSize.height + 15;
             
-            return height;
+            return fmaxf(height, 190.0f);
         }
     }
     
@@ -115,6 +117,7 @@
         }
         
         [cell setShowUserName:self.showUserName];
+        [cell setShowLocation:self.showLocation];
         [cell setDatasource:msg];
         [cell colorify:indexPath.row];
         [self.cachedCells setObject:cell forKey:indexPath];

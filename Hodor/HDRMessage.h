@@ -18,5 +18,6 @@
 @property NSString *createdDateString;
 @property double createdDate;
 @property NSInteger notificationType;
+@property NSString *address;
 
 @end

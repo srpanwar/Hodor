@@ -21,6 +21,8 @@
     [super awakeFromNib];
     
     // Initialization code
+    self.showLocation = NO;
+    self.showUserName = YES;
     
     self.cancelLabel.titleLabel.font =  [UIFont fontWithName:@"OpenSans-CondensedBold" size:28];
     self.deleteLabel.titleLabel.font =  [UIFont fontWithName:@"OpenSans-CondensedBold" size:28];

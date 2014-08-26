@@ -200,7 +200,9 @@
         listBox.collection = self.messages;
         listBox.callback = nil;
         
-        listBox.showUserName = NO;
+        listBox.showUserName = self.showUserName;
+        listBox.showLocation = self.showLocation;
+        
         [listBox show];
         [self.viewController.navigationController.view addSubview:listBox];
     }

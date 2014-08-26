@@ -13,6 +13,8 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
+    self.showLocation = YES;
+    self.showUserName = YES;
     self.nameLabel.text = @"#HERE";
 }
 
