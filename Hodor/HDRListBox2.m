@@ -59,7 +59,7 @@
     
     if (msg.picture.length)
     {
-        return 241.0f;
+        return 387.0f;
     }
     else
     {

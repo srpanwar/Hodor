@@ -43,6 +43,8 @@
     self.tableView.sectionHeaderHeight = 0.0;
     self.tableView.sectionFooterHeight = 0.0;
 
+    [self.buttonsContainer addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(intercept)]];
+    
     UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(close)];
     [self.contentView addGestureRecognizer:singleTapGestureRecognizer];
 
@@ -52,6 +54,11 @@
     
     [self registerForKeyboardNotifications];
     //[self.textBox becomeFirstResponder];
+}
+
+- (void)intercept
+{
+    
 }
 
 - (void)refresh:(NSMutableArray *)items

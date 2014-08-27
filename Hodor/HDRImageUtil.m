@@ -18,8 +18,8 @@
         return chosenImage;
     }
     
-    CGFloat width = chosenImage.size.width / 4;
-    CGFloat height = chosenImage.size.height / 4;
+    CGFloat width = chosenImage.size.width / 4.5f;
+    CGFloat height = chosenImage.size.height / 4.5f;
     
     CGSize destinationSize = CGSizeMake(width, height);
     UIGraphicsBeginImageContext(destinationSize);

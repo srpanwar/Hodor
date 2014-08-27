@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIImage+ImageEffects.h"
 #import "HDRImageUtil.h"
 #import "HDRListTableViewCell.h"
 
 @interface HDRPictureTableViewCell : HDRListTableViewCell
 
+@property (weak, nonatomic) IBOutlet UIView *pictureBackground;
 @property (weak, nonatomic) IBOutlet UIImageView *pictureView;
 
 

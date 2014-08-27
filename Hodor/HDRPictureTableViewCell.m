@@ -14,34 +14,40 @@
 {
     [super awakeFromNib];
     // Initialization code
-    self.pictureView.layer.cornerRadius = 8;
-    self.pictureView.layer.borderColor = [UIColor colorWithWhite:0.85 alpha:1].CGColor;
-    self.pictureView.layer.borderWidth = 1;
-    
 }
 
 - (void)layoutSubviews
 {
+    static BOOL first = YES;
     [super layoutSubviews];
     
-    CGRect frame = self.pictureView.frame;
-    CGFloat x = frame.origin.x;
-    frame.origin.x = -1 * frame.size.width/4;
-    self.pictureView.frame = frame;
-    
-    frame.origin.x = x;
-    frame.origin.y = frame.origin.y + (self.showLocation ? 0 : 10.0f);
-    
-    [UIView animateWithDuration:0.4f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    if (first)
+    {
+        CGRect frame = self.pictureView.frame;
+        CGFloat x = frame.origin.x;
+        frame.origin.x = -1 * frame.size.width/4;
         self.pictureView.frame = frame;
-    } completion:nil];
+        
+        frame.origin.x = x;
+        frame.origin.y = frame.origin.y + (self.showLocation ? 0 : 10.0f);
+        
+        [UIView animateWithDuration:0.4f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            self.pictureView.frame = frame;
+        } completion:nil];
+    }
+    
+    first = NO;
 }
 
 - (void)setDatasource:(HDRMessage *)msg
 {
     [super setDatasource:msg];
     
-    [HDRImageUtil fetchAndSetThumbnailImage:msg.picture fillImage:self.pictureView];
+    [HDRImageUtil fetchAndSetThumbnailImage:msg.picture fillImage:self.pictureView withCalback:^{
+        UIColor *pattern = [UIColor colorWithPatternImage:[self.pictureView.image applyDarkEffect]];
+        self.pictureBackground.backgroundColor = pattern;
+        self.pictureBackground.alpha = 0.6;
+    }];
 }
 
 @end
