@@ -70,15 +70,15 @@
 #pragma mark - UITextFieldDelegate
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    if (self.textBox.text.length > 100)
+    NSString *message = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    if (message.length > 140)
     {
         return NO;
     }
     
     if ([[string stringByTrimmingCharactersInSet:[NSCharacterSet alphanumericCharacterSet]] isEqualToString:@""])
     {
-        NSString *text = [textField.text stringByReplacingCharactersInRange:range withString:string];
-        self.translatedLabel.text = [self.translator translate:text];
+        self.translatedLabel.text = [self.translator translate:message];
     }
     else
     {
