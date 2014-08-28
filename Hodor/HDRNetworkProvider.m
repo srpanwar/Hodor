@@ -97,7 +97,7 @@
 {
     NSMutableArray *messages = [[NSMutableArray alloc] init];
     
-    NSString *body = [NSString stringWithFormat:@"method=fetchmessages&from=%@&to=%@&after=%lu", from, [HDRCurrentUser getCurrentUserName], (long)lastSeenId];
+    NSString *body = [NSString stringWithFormat:@"method=fetchmessages2&from=%@&to=%@&after=%lu", from, [HDRCurrentUser getCurrentUserName], (long)lastSeenId];
 
     NSData *data = [self doNetwork:body];
     
