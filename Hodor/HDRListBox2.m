@@ -78,7 +78,7 @@
             CGSize nSize = [textView sizeThatFits:CGSizeMake(290.0f, MAXFLOAT)];
             height += nSize.height + 21;
             
-            return fmaxf(height, 190.0f);
+            return fmaxf(height, 130.0f);
         }
     }
     
