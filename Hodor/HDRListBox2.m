@@ -36,13 +36,10 @@
     
     self.fromLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:24];
 
-    //self.backgroundColor = [UIColor colorWithPatternImage:[[self imageWithView:[[UIApplication sharedApplication] keyWindow]] applyLightEffect]];
-    
     self.scrollView.scrollEnabled = NO;
     self.scrollView.contentSize = self.scrollView.bounds.size;
     
     self.tableView.sectionHeaderHeight = 0.0;
-    //self.tableView.sectionFooterHeight = 0.0;
     
     UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(close)];
     [self.contentView addGestureRecognizer:singleTapGestureRecognizer];
@@ -57,29 +54,22 @@
 {
     HDRMessage *msg = [self.collection objectAtIndex:indexPath.row];
     
-    if (msg.picture.length)
+    if (msg.content.length)
     {
-        return 347.0f;
-    }
-    else
-    {
-        if (msg.content.length)
-        {
-            CGFloat height = 40.0f;
-            UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, 270.0f, MAXFLOAT)];
-            
-            //textView.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:23.0f];
-            //textView.font = [UIFont fontWithName:@"CooperHewitt-Book" size:16.0f];
-            //textView.font = [UIFont fontWithName:@"AmericanTypewriter-Condensed" size:22.0f];
-            
-            textView.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:32.0f];
-            
-            textView.text = msg.content;
-            CGSize nSize = [textView sizeThatFits:CGSizeMake(290.0f, MAXFLOAT)];
-            height += nSize.height + 21;
-            
-            return fmaxf(height, 130.0f);
-        }
+        CGFloat height = 40.0f;
+        UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, 270.0f, MAXFLOAT)];
+        
+        //textView.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:23.0f];
+        //textView.font = [UIFont fontWithName:@"CooperHewitt-Book" size:16.0f];
+        //textView.font = [UIFont fontWithName:@"AmericanTypewriter-Condensed" size:22.0f];
+        
+        textView.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:32.0f];
+        
+        textView.text = msg.content;
+        CGSize nSize = [textView sizeThatFits:CGSizeMake(290.0f, MAXFLOAT)];
+        height += nSize.height + 21;
+        
+        return fmaxf(height, 140.0f);
     }
     
     return 0;
@@ -106,20 +96,14 @@
     
     @try {
         HDRMessage *msg = [self.collection objectAtIndex:indexPath.row];
-        HDRListTableViewCell *cell = nil;
-        if (msg.picture.length)
-        {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"HDRPictureTableViewCell" owner:self options:nil] lastObject];
-        }
-        else
-        {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"HDRMessageTableViewCell" owner:self options:nil] lastObject];
-        }
+        HDRListTableViewCell *cell = cell = [[[NSBundle mainBundle] loadNibNamed:@"HDRMessageTableViewCell" owner:self options:nil] lastObject];
         
         [cell setShowUserName:self.showUserName];
         [cell setShowLocation:self.showLocation];
+        
         [cell setDatasource:msg];
         [cell colorify:indexPath.row];
+        
         [self.cachedCells setObject:cell forKey:indexPath];
         
         return cell;

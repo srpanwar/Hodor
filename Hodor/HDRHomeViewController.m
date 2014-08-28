@@ -82,10 +82,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        self.overlayVew.backgroundColor = [UIColor colorWithPatternImage:[[self imageWithView:self.view] applyLightEffect]];
-    });
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
         self.overlayVew.backgroundColor = [UIColor colorWithPatternImage:[[self imageWithView:self.view] applyBlurWithRadius:30 tintColor:[UIColor clearColor] saturationDeltaFactor:0 maskImage:nil]];
     });
     
@@ -173,19 +169,7 @@
         HDRHomeTableViewCell *cellX = [self.cachedCells objectForKey:user.name];
         if (!cellX)
         {
-            NSString *nibName = @"HDRHomeTableViewCell";
-            switch (user.userType) {
-                case 2:
-                    nibName = @"HDRAnywhereTableViewCell";
-                    break;
-                case 3:
-                    nibName = @"HDRHereTableViewCell";
-                    break;
-                default:
-                    break;
-            }
-
-            cellX = (HDRHomeTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:nibName owner:nil options:nil] lastObject];
+            cellX = (HDRHomeTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"HDRHomeTableViewCell" owner:nil options:nil] lastObject];
             cellX.user = user;
             cellX.nameLabel.text = [user.name uppercaseString];
             
@@ -211,13 +195,6 @@
             case 1:
             {
                 HDRAddUserNameTableViewCell *cellX = (HDRAddUserNameTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"HDRAddUserNameTableViewCell" owner:nil options:nil] lastObject];
-                
-                cell = cellX;
-            }
-                break;
-            case 2:
-            {
-                HDRAddChannelTableViewCell *cellX = (HDRAddChannelTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"HDRAddChannelTableViewCell" owner:nil options:nil] lastObject];
                 
                 cell = cellX;
             }

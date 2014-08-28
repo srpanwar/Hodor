@@ -53,7 +53,6 @@
 
     
     [self registerForKeyboardNotifications];
-    //[self.textBox becomeFirstResponder];
 }
 
 - (void)intercept
@@ -183,11 +182,6 @@
     }];
 }
 
-- (IBAction)sendPicture:(id)sender
-{
-    [self addPictures:UIImagePickerControllerSourceTypeCamera];
-}
-
 - (IBAction)sendCustomText:(id)sender
 {
     NSString *text = self.textBox.text;
@@ -217,62 +211,6 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self animateUp];
-}
-
-#pragma mark - Picture
-- (void)addPictures:(UIImagePickerControllerSourceType) sourceType
-{
-    UIImagePickerController *pickerController = [[UIImagePickerController alloc] init];
-    pickerController.delegate = self;
-    pickerController.allowsEditing = NO;
-    pickerController.videoQuality = UIImagePickerControllerQualityTypeHigh;
-    pickerController.sourceType = sourceType;
-    
-    [self.viewController presentViewController:pickerController animated:YES completion:NULL];
-}
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-    UIImage *chosenImage = info[UIImagePickerControllerOriginalImage];
-    if(picker.sourceType == UIImagePickerControllerSourceTypeCamera &&
-       picker.cameraDevice == UIImagePickerControllerCameraDeviceFront)
-    {
-        chosenImage = [chosenImage imageRotatedByDegrees:(chosenImage.size.width > chosenImage.size.height ? 180 : 90)];
-    }
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        UIImage *newImage = [HDRImageUtil scaleDownImage:chosenImage];
-        NSString *fileName = [[NSUUID UUID] UUIDString];
-        
-        //save the image
-        BOOL uploaded = [[HDRS3Storage instance] uploadMessagePicture:UIImagePNGRepresentation(newImage) fileName:fileName];
-        if (uploaded)
-        {
-            if (self.callback)
-            {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    self.callback(nil, fileName);
-                });
-            }
-        }
-        else
-        {
-            if (self.failed)
-            {
-                self.failed();
-            }
-        }
-        
-        [self close];
-    });
-    
-    [picker dismissViewControllerAnimated:YES completion:^{
-        if (self.progress)
-        {
-            self.progress();
-        }
-        [self close];
-    }];
 }
 
 #pragma mark - Utils

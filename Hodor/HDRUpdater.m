@@ -31,25 +31,25 @@
 
 + (void)migrateToV20
 {
-    //anywhere
-    {
-        HDRUser *user = [[HDRUser alloc] init];
-        user.name = @"#ANYWHERE";
-        user.lastSeenId = 0;
-        user.isBlocked = 0;
-        user.userType = ANYWHERE_CHANNEL_ID;
-        [[HDRFriends instance] addFriend:user];
-    }
-    
-    //here
-    {
-        HDRUser *user = [[HDRUser alloc] init];
-        user.name = @"#HERE";
-        user.lastSeenId = 0;
-        user.isBlocked = 0;
-        user.userType = HERE_CHANNEL_ID;
-        [[HDRFriends instance] addFriend:user];
-    }
+//    //anywhere
+//    {
+//        HDRUser *user = [[HDRUser alloc] init];
+//        user.name = @"#ANYWHERE";
+//        user.lastSeenId = 0;
+//        user.isBlocked = 0;
+//        user.userType = ANYWHERE_CHANNEL_ID;
+//        [[HDRFriends instance] addFriend:user];
+//    }
+//    
+//    //here
+//    {
+//        HDRUser *user = [[HDRUser alloc] init];
+//        user.name = @"#HERE";
+//        user.lastSeenId = 0;
+//        user.isBlocked = 0;
+//        user.userType = HERE_CHANNEL_ID;
+//        [[HDRFriends instance] addFriend:user];
+//    }
 }
 
 @end

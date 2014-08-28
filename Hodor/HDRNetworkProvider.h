@@ -10,7 +10,6 @@
 #import <CommonCrypto/CommonDigest.h>
 #import "HDRCommon.h"
 #import "HDRMessage.h"
-#import "HDRLocationManager.h"
 #import "HDRCurrentUser.h"
 
 @interface HDRNetworkProvider : NSObject
@@ -26,14 +25,8 @@
 - (BOOL)unBlockUser:(NSString *)userName;
 
 - (void)sendHODOR:(NSString *)recipient;
-- (void)sendHODORToChannel:(NSString *)channel;
-- (void)sendHODORToAnywhere;
-- (void)sendHODORToHere;
 
 - (void)sendText:(NSString *)recipient text:(NSString *)text picture:(NSString *)picture;
-- (void)sendTextToChannel:(NSString *)channel text:(NSString *)text picture:(NSString *)picture;
-- (void)sendTextToAnywhere:(NSString *)text picture:(NSString *)picture;
-- (void)sendTextToHere:(NSString *)text picture:(NSString *)picture;
 
 - (void)sendRemoteNotificationsDeviceToken:(NSString *)deviceToken;
 

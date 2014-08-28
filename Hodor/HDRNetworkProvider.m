@@ -75,40 +75,6 @@
     return;
 }
 
--(void) sendHODORToChannel:(NSString *)channel
-{
-    NSString *body = [NSString stringWithFormat:@"method=sendhodortochannel&sender=%@&channel=%@", [HDRCurrentUser getCurrentUserName], channel];
-    
-    NSData *responseData = [self doNetwork:body];
-    NSString *ret = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-    NSLog(@"%@",ret);
-    
-    return;
-    
-}
-
-- (void)sendHODORToAnywhere
-{
-    NSString *body = [NSString stringWithFormat:@"method=sendhodortoanywhere&sender=%@&latitude=%f&longitude=%f&address=%@", [HDRCurrentUser getCurrentUserName], [HDRCurrentUser getLastLocation].latitude, [HDRCurrentUser getLastLocation].longitude, [HDRCurrentUser getAddress]];
-    
-    NSData *responseData = [self doNetwork:body];
-    NSString *ret = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-    NSLog(@"%@",ret);
-    
-    return;
-}
-
-- (void)sendHODORToHere
-{
-    NSString *body = [NSString stringWithFormat:@"method=sendhodortohere&sender=%@&latitude=%f&longitude=%f&address=%@", [HDRCurrentUser getCurrentUserName], [HDRCurrentUser getLastLocation].latitude, [HDRCurrentUser getLastLocation].longitude, [HDRCurrentUser getAddress]];
-    
-    NSData *responseData = [self doNetwork:body];
-    NSString *ret = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-    NSLog(@"%@",ret);
-    
-    return;
-}
-
 
 - (void)sendText:(NSString *)recipient text:(NSString *)text picture:(NSString *)picture;
 {
@@ -119,54 +85,6 @@
     
     NSString *body = [NSString stringWithFormat:@"method=sendtext2&sender=%@&recipient=%@&text=%@&picture=%@", [HDRCurrentUser getCurrentUserName], recipient, text, picture];
     
-    NSData *responseData = [self doNetwork:body];
-    NSString *ret = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-    NSLog(@"%@",ret);
-    
-    return;
-}
-
-- (void)sendTextToChannel:(NSString *)channel text:(NSString *)text picture:(NSString *)picture;
-{
-    if (!channel || !text)
-    {
-        return;
-    }
-    
-    NSString *body = [NSString stringWithFormat:@"method=sendtexttochannel&sender=%@&channel=%@&text=%@&picture=%@", [HDRCurrentUser getCurrentUserName], channel, text, picture];
-    
-    NSData *responseData = [self doNetwork:body];
-    NSString *ret = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-    NSLog(@"%@",ret);
-    
-    return;
-}
-
-- (void)sendTextToAnywhere:(NSString *)text picture:(NSString *)picture;
-{
-    if (!text)
-    {
-        return;
-    }
-    
-    NSString *body = [NSString stringWithFormat:@"method=sendtexttoanywhere&sender=%@&text=%@&picture=%@&latitude=%f&longitude=%f&address=%@", [HDRCurrentUser getCurrentUserName], text, picture, [HDRCurrentUser getLastLocation].latitude, [HDRCurrentUser getLastLocation].longitude, [HDRCurrentUser getAddress]];
-    
-    NSData *responseData = [self doNetwork:body];
-    NSString *ret = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-    NSLog(@"%@",ret);
-    
-    return;
-}
-
-- (void)sendTextToHere:(NSString *)text picture:(NSString *)picture;
-{
-    if (!text)
-    {
-        return;
-    }
-    
-    NSString *body = [NSString stringWithFormat:@"method=sendtexttohere&sender=%@&text=%@&picture=%@&latitude=%f&longitude=%f&address=%@", [HDRCurrentUser getCurrentUserName], text, picture, [HDRCurrentUser getLastLocation].latitude, [HDRCurrentUser getLastLocation].longitude, [HDRCurrentUser getAddress]];
-
     NSData *responseData = [self doNetwork:body];
     NSString *ret = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
     NSLog(@"%@",ret);
@@ -192,39 +110,6 @@
     return messages;
 }
 
-- (NSMutableArray *)fetchAnywhereMessages:(NSInteger)lastSeenId
-{
-    NSMutableArray *messages = [[NSMutableArray alloc] init];
-    
-    //form the url
-    NSString *body = [NSString stringWithFormat:@"method=fetchanywheremessages&after=%lu", (long)lastSeenId];
-    NSData *data = [self doNetwork:body];
-    
-    //parse the results
-    if (data)
-    {
-        messages = [self parseData:data];
-    }
-    
-    return messages;
-}
-
-- (NSMutableArray *)fetchHereMessages:(NSInteger)lastSeenId
-{
-    NSMutableArray *messages = [[NSMutableArray alloc] init];
-    
-    //form the url
-    NSString *body = [NSString stringWithFormat:@"method=fetchheremessages&after=%lu&latitude=%f&longitude=%f", (long)lastSeenId, [HDRCurrentUser getLastLocation].latitude, [HDRCurrentUser getLastLocation].longitude];
-    NSData *data = [self doNetwork:body];
-    
-    //parse the results
-    if (data)
-    {
-        messages = [self parseData:data];
-    }
-    
-    return messages;
-}
 
 - (BOOL) blockUser:(NSString *)userName
 {

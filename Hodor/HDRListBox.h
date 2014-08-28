@@ -32,7 +32,6 @@ typedef void (^CallBack)(void);
 @property NSMutableArray *collection;
 @property UIViewController *viewController;
 
-- (IBAction)sendPicture:(id)sender;
 - (IBAction)sendCustomText:(id)sender;
 - (void)show;
 - (void)close;

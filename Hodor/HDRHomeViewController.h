@@ -11,8 +11,6 @@
 #import "HDRInviteTableViewCell.h"
 #import "HDRHomeTableViewCell.h"
 #import "HDRAddUserNameTableViewCell.h"
-#import "HDRAddChannelTableViewCell.h"
-#import "HDRAnywhereTableViewCell.h"
 
 #import "HDRFriends.h"
 
