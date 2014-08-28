@@ -17,20 +17,6 @@
 #define HODOR_SERVICE_ENDPOINT @"http://hodorservice.cloudapp.net/rest/default.aspx"
 //#define HODOR_SERVICE_ENDPOINT @"http://d4da3633fd7844a2b2804b495cc1814f.cloudapp.net/rest/default.aspx"
 
-#define ACCESS_KEY_ID @"AKIAIALMT6IGGLWNGDAQ"
-#define SECRET_KEY @"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"
-
-#define PROFILE_PICTURE_BUCKET @"hodorprofilepictures"
-#define MESSAGE_PICTURE_BUCKET @"hodormsgpictures"
-
-#define PROFILE_PICTURE_ENDPOINT @"https://hodorprofilepictures.s3.amazonaws.com/%@"
-#define MESSAGE_PICTURE_ENDPOINT @"https://hodormsgpictures.s3.amazonaws.com/%@"
-
-
-#define USER_CHANNEL_ID 1
-#define ANYWHERE_CHANNEL_ID 2
-#define HERE_CHANNEL_ID 3
-
 @interface HDRCommon : NSObject
 
 @end
