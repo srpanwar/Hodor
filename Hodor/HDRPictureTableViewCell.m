@@ -13,7 +13,9 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
+    
     // Initialization code
+    //self.pictureView.layer.cornerRadius = 5;
 }
 
 - (void)layoutSubviews
@@ -46,7 +48,7 @@
     [HDRImageUtil fetchAndSetThumbnailImage:msg.picture fillImage:self.pictureView withCalback:^{
         UIColor *pattern = [UIColor colorWithPatternImage:[self.pictureView.image applyDarkEffect]];
         self.pictureBackground.backgroundColor = pattern;
-        self.pictureBackground.alpha = 0.6;
+        self.pictureBackground.alpha = 0.7;
     }];
 }
 

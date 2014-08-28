@@ -40,7 +40,7 @@
                         <size key="shadowOffset" width="0.0" height="1"/>
                     </label>
                     <view contentMode="scaleToFill" id="TOe-V5-wlL">
-                        <rect key="frame" x="23" y="121" width="280" height="23"/>
+                        <rect key="frame" x="23" y="120" width="280" height="23"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_location" id="xdS-MW-NBV">
