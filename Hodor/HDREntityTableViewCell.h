@@ -27,7 +27,6 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *busyImage;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *busyIndicator;
-@property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 
 @property (weak, nonatomic) IBOutlet UIButton *countBtn;
 

@@ -27,8 +27,6 @@
     self.countBtn.layer.cornerRadius = 13.5;
     self.countBtn.hidden = YES;
     
-    self.progressView.hidden = YES;
-    
     self.hodorImage.layer.cornerRadius = 15;
     
     //text
@@ -92,36 +90,15 @@
         [self doText:text picture:picture];
     };
     
-    listBox.progress = ^() {
-        self.progressView.hidden = NO;
-        [self doProgress];
-    };
-
-    listBox.failed = ^() {
-        self.progressView.hidden = YES;
-        self.progressView.progress = 0.25;
-    };
     
     [listBox show];
     [self.viewController.navigationController.view addSubview:listBox];
-}
-
-- (void)doProgress
-{
-    if (self.progressView.progress >= 0.95)
-        return;
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.progressView.progress = fminf(self.progressView.progress * 1.5, 0.95);
-        [self doProgress];
-    });
 }
 
 - (void)doText:(NSString *)text picture:(NSString *)picture
 {
     //hide the metadataview
     self.metaView.hidden = YES;
-    self.progressView.hidden = YES;
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         [self doTextNetwork:text picture:picture];

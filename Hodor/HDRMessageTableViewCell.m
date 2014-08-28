@@ -34,7 +34,7 @@
     [self.messageTextView sizeToFit];
     CGPoint center = self.contentView.center;
     center.x = 20 + self.messageTextView.frame.size.width/2;
-    center.y += (self.showLocation ? 2: 5);
+    center.y += (self.showLocation ? 2 : 5);
     [self.messageTextView setCenter:center];
 }
 
