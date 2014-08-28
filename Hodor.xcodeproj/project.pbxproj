@@ -50,7 +50,6 @@
 		78B2210F19A9531E0059E0AB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78B2210E19A9531E0059E0AB /* MapKit.framework */; };
 		78B2211719A96B390059E0AB /* HDRListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B2211619A96B390059E0AB /* HDRListTableViewCell.m */; };
 		78B2211919A97A100059E0AB /* OpenSans-CondLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78B2211819A97A100059E0AB /* OpenSans-CondLight.ttf */; };
-		78B2211C19A9BD6F0059E0AB /* HDRImageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B2211B19A9BD6F0059E0AB /* HDRImageUtil.m */; };
 		78B2212319A9C02C0059E0AB /* AWSRuntime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78B2212119A9C02C0059E0AB /* AWSRuntime.framework */; };
 		78B2212419A9C02C0059E0AB /* AWSS3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78B2212219A9C02C0059E0AB /* AWSS3.framework */; };
 		78B2212719A9C5540059E0AB /* UIImageView+FastLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B2212619A9C5540059E0AB /* UIImageView+FastLoad.m */; };
@@ -151,8 +150,6 @@
 		78B2211519A96B390059E0AB /* HDRListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRListTableViewCell.h; sourceTree = "<group>"; };
 		78B2211619A96B390059E0AB /* HDRListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRListTableViewCell.m; sourceTree = "<group>"; };
 		78B2211819A97A100059E0AB /* OpenSans-CondLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-CondLight.ttf"; sourceTree = "<group>"; };
-		78B2211A19A9BD6F0059E0AB /* HDRImageUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRImageUtil.h; sourceTree = "<group>"; };
-		78B2211B19A9BD6F0059E0AB /* HDRImageUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRImageUtil.m; sourceTree = "<group>"; };
 		78B2212119A9C02C0059E0AB /* AWSRuntime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSRuntime.framework; path = "../../../../Users/srpanwar/Downloads/aws-ios-sdk-1.7.1/AWSRuntime.framework"; sourceTree = "<group>"; };
 		78B2212219A9C02C0059E0AB /* AWSS3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSS3.framework; path = "../../../../Users/srpanwar/Downloads/aws-ios-sdk-1.7.1/AWSS3.framework"; sourceTree = "<group>"; };
 		78B2212519A9C5540059E0AB /* UIImageView+FastLoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+FastLoad.h"; sourceTree = "<group>"; };
@@ -274,8 +271,6 @@
 				780AFE9F196FB4F900596CC6 /* UIImage+ImageEffects.m */,
 				78B2212519A9C5540059E0AB /* UIImageView+FastLoad.h */,
 				78B2212619A9C5540059E0AB /* UIImageView+FastLoad.m */,
-				78B2211A19A9BD6F0059E0AB /* HDRImageUtil.h */,
-				78B2211B19A9BD6F0059E0AB /* HDRImageUtil.m */,
 				78E785B719A32A8800D992F7 /* HDRDateUtil.h */,
 				78E785B819A32A8800D992F7 /* HDRDateUtil.m */,
 				787956FC195898B800B903B2 /* HDRUtils.h */,
@@ -625,7 +620,6 @@
 				78E785C619A3484800D992F7 /* HDRMessageTableViewCell.m in Sources */,
 				780AFEA0196FB4F900596CC6 /* UIImage+ImageEffects.m in Sources */,
 				78237D0B1956BE5B00BE750D /* HDRUser.m in Sources */,
-				78B2211C19A9BD6F0059E0AB /* HDRImageUtil.m in Sources */,
 				780AFEA5196FB52800596CC6 /* HDRListBox.m in Sources */,
 				78237CF61956991300BE750D /* HDRTableViewCell.m in Sources */,
 				78E785B919A32A8800D992F7 /* HDRDateUtil.m in Sources */,

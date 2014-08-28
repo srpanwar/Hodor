@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "UIImage+ImageEffects.h"
-#import "HDRImageUtil.h"
 #import "HDRTranslator.h"
 
 typedef void (^SelectionCallBack)(NSString *text, NSString *picture);
