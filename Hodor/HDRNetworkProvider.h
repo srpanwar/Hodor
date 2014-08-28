@@ -31,8 +31,6 @@
 - (void)sendRemoteNotificationsDeviceToken:(NSString *)deviceToken;
 
 - (NSMutableArray *)fetchMessages:(NSString *)from after:(NSInteger)lastSeenId;
-- (NSMutableArray *)fetchAnywhereMessages:(NSInteger)lastSeenId;
-- (NSMutableArray *)fetchHereMessages:(NSInteger)lastSeenId;
 
 - (void) refreshTriviaList;
 

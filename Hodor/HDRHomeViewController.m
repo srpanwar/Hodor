@@ -73,7 +73,7 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     [self colorifyRatings];
-    [self checkPushEnabled];
+    //[self checkPushEnabled];
     
     //add the tap gesture on the overlay view
     UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showMore:)];
@@ -117,7 +117,7 @@
     srand((unsigned)time(NULL));
     
     [self colorifyRatings];
-    [self checkPushEnabled];
+    //[self checkPushEnabled];
     [self refreshView:NO];
 }
 
