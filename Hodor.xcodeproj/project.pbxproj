@@ -50,8 +50,6 @@
 		78B2210F19A9531E0059E0AB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78B2210E19A9531E0059E0AB /* MapKit.framework */; };
 		78B2211719A96B390059E0AB /* HDRListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B2211619A96B390059E0AB /* HDRListTableViewCell.m */; };
 		78B2211919A97A100059E0AB /* OpenSans-CondLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78B2211819A97A100059E0AB /* OpenSans-CondLight.ttf */; };
-		78B2212319A9C02C0059E0AB /* AWSRuntime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78B2212119A9C02C0059E0AB /* AWSRuntime.framework */; };
-		78B2212419A9C02C0059E0AB /* AWSS3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78B2212219A9C02C0059E0AB /* AWSS3.framework */; };
 		78B2212719A9C5540059E0AB /* UIImageView+FastLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B2212619A9C5540059E0AB /* UIImageView+FastLoad.m */; };
 		78CCB9B719A5909100A5BA99 /* HDRTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = 78CCB9B619A5909100A5BA99 /* HDRTranslator.m */; };
 		78CCE69919552C46009EA16B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78CCE69819552C46009EA16B /* Foundation.framework */; };
@@ -193,8 +191,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78B2212319A9C02C0059E0AB /* AWSRuntime.framework in Frameworks */,
-				78B2212419A9C02C0059E0AB /* AWSS3.framework in Frameworks */,
 				78B2210F19A9531E0059E0AB /* MapKit.framework in Frameworks */,
 				786057E819A2DA940007C505 /* AVFoundation.framework in Frameworks */,
 				78237CF919569B7F00BE750D /* AddressBook.framework in Frameworks */,
