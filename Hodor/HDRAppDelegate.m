@@ -24,7 +24,7 @@
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes: (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
     }
 
-    [HDRCurrentUser setCurrentUserName:@"SRPANWAR"];
+    //[HDRCurrentUser setCurrentUserName:@"SRPANWAR"];
     
     //fetch the predefined message list
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
