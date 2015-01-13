@@ -38,7 +38,7 @@
     
     //self.backgroundColor = [UIColor colorWithPatternImage:[[self imageWithView:[[UIApplication sharedApplication] keyWindow]] applyLightEffect]];
     self.textBox.delegate = self;
-    self.scrollView.scrollEnabled = NO;
+    self.scrollView.scrollEnabled = YES;
     self.scrollView.contentSize = self.scrollView.bounds.size;
     self.tableView.sectionHeaderHeight = 0.0;
     self.tableView.sectionFooterHeight = 0.0;
@@ -240,9 +240,9 @@
 - (void)keyboardWasShown:(NSNotification*)aNotification
 {
     NSDictionary* info = [aNotification userInfo];
-    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
     
-    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height + 10, 0.0);
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height + 1, 0.0);
     self.scrollView.contentInset = contentInsets;
     self.scrollView.scrollIndicatorInsets = contentInsets;
     self.tableView.hidden = YES;
