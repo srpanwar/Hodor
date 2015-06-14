@@ -67,7 +67,7 @@
     [self.busyIndicator startAnimating];
 
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        [[HDRFriends instance] deleteFriend:self.user];
+        [[HDRFriendsProvider instance] deleteFriend:self.user];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.viewController refreshView:YES];
         });
@@ -84,7 +84,7 @@
         BOOL status = [[HDRNetworkProvider instance] blockUser:self.user.name];
         if (status)
         {
-            [[HDRFriends instance] blockFriend:self.user];
+            [[HDRFriendsProvider instance] blockFriend:self.user];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.viewController refreshView:YES];
             });

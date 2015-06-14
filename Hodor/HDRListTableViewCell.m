@@ -50,7 +50,7 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS"];
     NSDate *capturedStartDate = [formatter dateFromString: msg.createdDateString];
-    self.dateLabel.text = [[HDRDateUtil getFormattedShortString:[HDRDateUtil toLocal:[capturedStartDate timeIntervalSince1970]]] uppercaseString];
+    self.dateLabel.text = [[[NSDate toLocal:[capturedStartDate timeIntervalSince1970]] getShortFormattedString] uppercaseString];
 
     self.userLabel.hidden = !self.showUserName;
     self.addressView.hidden = !self.showLocation;

@@ -68,12 +68,12 @@
     NSString *userName = [userInfo objectForKey:@"sender"];
     userName = [userName stringByReplacingOccurrencesOfString:@" " withString:@""];
     
-    if (userName && userName.length && ![[HDRFriends instance] isFriend:userName])
+    if (userName && userName.length && ![[HDRFriendsProvider instance] isFriend:userName])
     {
         HDRUser *newFriend = [[HDRUser alloc] init];
         newFriend.name = [userName uppercaseString];
         newFriend.isBlocked = NO;
-        [[HDRFriends instance] addFriend:newFriend];
+        [[HDRFriendsProvider instance] addFriend:newFriend];
     }
     
     //refresh the ui

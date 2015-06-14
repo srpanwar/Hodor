@@ -39,7 +39,7 @@
         user.isBlocked = NO;
         user.userType = 0;
         
-        HDRUser *existingFriend = [[HDRFriends instance] getFriend:user.name];
+        HDRUser *existingFriend = [[HDRFriendsProvider instance] getFriend:user.name];
         if (existingFriend)
         {
             if (existingFriend.isBlocked)
@@ -48,10 +48,10 @@
                     [[HDRNetworkProvider instance]unBlockUser:user.name];
                 });
             }
-            [[HDRFriends instance] deleteFriend:existingFriend];
+            [[HDRFriendsProvider instance] deleteFriend:existingFriend];
         }
         
-        [[HDRFriends instance] addFriend:user];
+        [[HDRFriendsProvider instance] addFriend:user];
         [self.viewController refreshView:NO];
     }
     else

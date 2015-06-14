@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "HDRMessage.h"
-#import "HDRDateUtil.h"
+#import "NSDate+Util.h"
 
 @interface HDRListTableViewCell : UITableViewCell
 

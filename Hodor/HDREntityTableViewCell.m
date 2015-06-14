@@ -44,7 +44,7 @@
 - (void)resetMessageReadCounter
 {
     self.user.lastSeenId = 0;// MAX(0, self.user.lastSeenId - 50);
-    [[HDRFriends instance] setLastSeenId:self.user.name last:self.user.lastSeenId];
+    [[HDRFriendsProvider instance] setLastSeenId:self.user.name last:self.user.lastSeenId];
     [self loadMessages];
 }
 
@@ -110,7 +110,7 @@
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.6 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
             self.nameLabel.text = [self.user.name uppercaseString];
-            [[HDRFriends instance] moveToTop:self.user];
+            [[HDRFriendsProvider instance] moveToTop:self.user];
             [self.tableView moveRowAtIndexPath:[self.tableView indexPathForCell:self] toIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
         });
     }];
@@ -143,7 +143,7 @@
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.6 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
             self.nameLabel.text = [self.user.name uppercaseString];
-            [[HDRFriends instance] moveToTop:self.user];
+            [[HDRFriendsProvider instance] moveToTop:self.user];
             [self.tableView moveRowAtIndexPath:[self.tableView indexPathForCell:self] toIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
         });
     }];
@@ -167,7 +167,7 @@
         //msg.content = @"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do  Lorem ipsum dolor sit er elit lamet Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do  Lorem ipsum dolor sit er elit lamet";
         
         //set the last seen id
-        [[HDRFriends instance] setLastSeenId:self.user.name last:msg.msgId];
+        [[HDRFriendsProvider instance] setLastSeenId:self.user.name last:msg.msgId];
         
         //show the messages to the user
         HDRListBox2 *listBox = (HDRListBox2 *)[[[NSBundle mainBundle] loadNibNamed:@"HDRListBox2" owner:nil options:nil] lastObject];

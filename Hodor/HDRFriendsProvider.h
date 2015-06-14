@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "HDRUser.h"
-#import "HDRDateUtil.h"
+#import "NSDate+Util.h"
 
-@interface HDRFriends : NSObject
+@interface HDRFriendsProvider : NSObject
 
-+ (HDRFriends *) instance;
++ (HDRFriendsProvider *) instance;
 
 - (HDRUser *)getFriend:(NSString *)userName;
 - (NSMutableArray *)getFriends;

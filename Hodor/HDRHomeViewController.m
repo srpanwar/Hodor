@@ -142,7 +142,7 @@
 
 - (void)refreshView:(BOOL)clearCache
 {
-    self.friends = [NSMutableArray arrayWithArray:[[HDRFriends instance] getFriends]];
+    self.friends = [NSMutableArray arrayWithArray:[[HDRFriendsProvider instance] getFriends]];
     
     if (clearCache)
     {
@@ -154,7 +154,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    self.friends = [NSMutableArray arrayWithArray:[[HDRFriends instance] getFriends]];
+    self.friends = [NSMutableArray arrayWithArray:[[HDRFriendsProvider instance] getFriends]];
     return self.friends.count + 2;
 }
 

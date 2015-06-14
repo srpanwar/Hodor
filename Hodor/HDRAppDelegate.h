@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HDRFriends.h"
+#import "HDRFriendsProvider.h"
 #import "HDRNetworkProvider.h"
 #import "HDRUtils.h"
 #import "HDRUpdater.h"

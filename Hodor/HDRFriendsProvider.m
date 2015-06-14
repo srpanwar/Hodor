@@ -6,20 +6,20 @@
 //  Copyright (c) 2014 Troupe Of Vagrants. All rights reserved.
 //
 
-#import "HDRFriends.h"
+#import "HDRFriendsProvider.h"
 
-@interface HDRFriends ()
+@interface HDRFriendsProvider ()
 
 @property NSMutableArray *friendsList;
 @property BOOL refreshNeeded;
 
 @end
 
-@implementation HDRFriends
+@implementation HDRFriendsProvider
 
-+ (HDRFriends *) instance
++ (HDRFriendsProvider *) instance
 {
-    static HDRFriends *that = nil;
+    static HDRFriendsProvider *that = nil;
     @synchronized(self)
     {
         static dispatch_once_t onceToken;

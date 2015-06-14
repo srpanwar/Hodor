@@ -12,7 +12,7 @@
 #import "HDRHomeTableViewCell.h"
 #import "HDRAddUserNameTableViewCell.h"
 
-#import "HDRFriends.h"
+#import "HDRFriendsProvider.h"
 
 @interface HDRHomeViewController : HDRBaseViewController<UITableViewDataSource, UITableViewDelegate>
 

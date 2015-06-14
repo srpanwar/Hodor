@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "HDREntityTableViewCell.h"
 #import "HDRNetworkProvider.h"
-#import "HDRFriends.h"
+#import "HDRFriendsProvider.h"
 #import "HDRListBox.h"
 #import "HDRListBox2.h"
 #import "HDRUtils.h"

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "HDRTableViewCell.h"
 #import "HDRUser.h"
-#import "HDRFriends.h"
+#import "HDRFriendsProvider.h"
 #import "HDRNetworkProvider.h"
 
 @interface HDRAddUserNameTableViewCell : HDRTableViewCell<UITextFieldDelegate>

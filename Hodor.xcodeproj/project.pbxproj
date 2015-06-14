@@ -25,7 +25,7 @@
 		78237CFE1956A22000BE750D /* HDRCurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 78237CFD1956A22000BE750D /* HDRCurrentUser.m */; };
 		78237D011956B78400BE750D /* HDRCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 78237D001956B78400BE750D /* HDRCommon.m */; };
 		78237D041956BA6E00BE750D /* HDRNetworkProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 78237D031956BA6E00BE750D /* HDRNetworkProvider.m */; };
-		78237D071956BE1800BE750D /* HDRFriends.m in Sources */ = {isa = PBXBuildFile; fileRef = 78237D061956BE1800BE750D /* HDRFriends.m */; };
+		78237D071956BE1800BE750D /* HDRFriendsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 78237D061956BE1800BE750D /* HDRFriendsProvider.m */; };
 		78237D0B1956BE5B00BE750D /* HDRUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 78237D0A1956BE5B00BE750D /* HDRUser.m */; };
 		786057E819A2DA940007C505 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 786057E719A2DA940007C505 /* AVFoundation.framework */; };
 		78745FEB198ECAE300650542 /* OpenSans-CondBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78745FEA198ECAE300650542 /* OpenSans-CondBold.ttf */; };
@@ -51,7 +51,6 @@
 		78CCE6B419552C46009EA16B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78CCE69C19552C46009EA16B /* UIKit.framework */; };
 		78CCE6BC19552C46009EA16B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 78CCE6BA19552C46009EA16B /* InfoPlist.strings */; };
 		78CCE6BE19552C46009EA16B /* HodorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 78CCE6BD19552C46009EA16B /* HodorTests.m */; };
-		78E785B919A32A8800D992F7 /* HDRDateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E785B819A32A8800D992F7 /* HDRDateUtil.m */; };
 		78E785BC19A32F2800D992F7 /* HDRMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E785BB19A32F2800D992F7 /* HDRMessage.m */; };
 		78E785C019A345DC00D992F7 /* HDRListBox2.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E785BF19A345DC00D992F7 /* HDRListBox2.m */; };
 		78E785C219A345EA00D992F7 /* HDRListBox2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78E785C119A345EA00D992F7 /* HDRListBox2.xib */; };
@@ -76,6 +75,7 @@
 		78F1D9A41B2D516D000796F9 /* incoming.wav in Resources */ = {isa = PBXBuildFile; fileRef = 78F1D9921B2D516D000796F9 /* incoming.wav */; };
 		78F1D9A51B2D516D000796F9 /* outgoing.wav in Resources */ = {isa = PBXBuildFile; fileRef = 78F1D9931B2D516D000796F9 /* outgoing.wav */; };
 		78F1D9A91B2D51EE000796F9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 78F1D9A81B2D51EE000796F9 /* Localizable.strings */; };
+		78F1D9B21B2D569D000796F9 /* NSDate+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F1D9B11B2D569D000796F9 /* NSDate+Util.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,8 +118,8 @@
 		78237D001956B78400BE750D /* HDRCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRCommon.m; sourceTree = "<group>"; };
 		78237D021956BA6E00BE750D /* HDRNetworkProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRNetworkProvider.h; sourceTree = "<group>"; };
 		78237D031956BA6E00BE750D /* HDRNetworkProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRNetworkProvider.m; sourceTree = "<group>"; };
-		78237D051956BE1800BE750D /* HDRFriends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRFriends.h; sourceTree = "<group>"; };
-		78237D061956BE1800BE750D /* HDRFriends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRFriends.m; sourceTree = "<group>"; };
+		78237D051956BE1800BE750D /* HDRFriendsProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRFriendsProvider.h; sourceTree = "<group>"; };
+		78237D061956BE1800BE750D /* HDRFriendsProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRFriendsProvider.m; sourceTree = "<group>"; };
 		78237D091956BE5B00BE750D /* HDRUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRUser.h; sourceTree = "<group>"; };
 		78237D0A1956BE5B00BE750D /* HDRUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRUser.m; sourceTree = "<group>"; };
 		786057E719A2DA940007C505 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -159,8 +159,6 @@
 		78CCE6B919552C46009EA16B /* HodorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HodorTests-Info.plist"; sourceTree = "<group>"; };
 		78CCE6BB19552C46009EA16B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		78CCE6BD19552C46009EA16B /* HodorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HodorTests.m; sourceTree = "<group>"; };
-		78E785B719A32A8800D992F7 /* HDRDateUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRDateUtil.h; sourceTree = "<group>"; };
-		78E785B819A32A8800D992F7 /* HDRDateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRDateUtil.m; sourceTree = "<group>"; };
 		78E785BA19A32F2800D992F7 /* HDRMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRMessage.h; sourceTree = "<group>"; };
 		78E785BB19A32F2800D992F7 /* HDRMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRMessage.m; sourceTree = "<group>"; };
 		78E785BE19A345DC00D992F7 /* HDRListBox2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRListBox2.h; sourceTree = "<group>"; };
@@ -188,6 +186,8 @@
 		78F1D9921B2D516D000796F9 /* incoming.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = incoming.wav; path = Sounds/incoming.wav; sourceTree = "<group>"; };
 		78F1D9931B2D516D000796F9 /* outgoing.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = outgoing.wav; path = Sounds/outgoing.wav; sourceTree = "<group>"; };
 		78F1D9A81B2D51EE000796F9 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		78F1D9B01B2D569D000796F9 /* NSDate+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Util.h"; sourceTree = "<group>"; };
+		78F1D9B11B2D569D000796F9 /* NSDate+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Util.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,8 +269,8 @@
 		78237CFB1956A20900BE750D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				78E785B719A32A8800D992F7 /* HDRDateUtil.h */,
-				78E785B819A32A8800D992F7 /* HDRDateUtil.m */,
+				78F1D9B01B2D569D000796F9 /* NSDate+Util.h */,
+				78F1D9B11B2D569D000796F9 /* NSDate+Util.m */,
 				787956FC195898B800B903B2 /* HDRUtils.h */,
 				787956FD195898B800B903B2 /* HDRUtils.m */,
 				78237CFC1956A22000BE750D /* HDRCurrentUser.h */,
@@ -352,8 +352,8 @@
 		78B2211D19A9BFB80059E0AB /* Provider */ = {
 			isa = PBXGroup;
 			children = (
-				78237D051956BE1800BE750D /* HDRFriends.h */,
-				78237D061956BE1800BE750D /* HDRFriends.m */,
+				78237D051956BE1800BE750D /* HDRFriendsProvider.h */,
+				78237D061956BE1800BE750D /* HDRFriendsProvider.m */,
 				78237D021956BA6E00BE750D /* HDRNetworkProvider.h */,
 				78237D031956BA6E00BE750D /* HDRNetworkProvider.m */,
 			);
@@ -404,11 +404,11 @@
 				78F1D9AD1B2D525F000796F9 /* Updater */,
 				78F1D9AF1B2D5291000796F9 /* Categories */,
 				78237CFB1956A20900BE750D /* Utils */,
+				78B2211D19A9BFB80059E0AB /* Provider */,
+				78237D081956BE4D00BE750D /* Model */,
 				78F1D9AB1B2D5204000796F9 /* Fonts */,
 				78F1D9AA1B2D51F5000796F9 /* Resources */,
 				786182BB1994B23A00B4BEFD /* Sounds */,
-				78B2211D19A9BFB80059E0AB /* Provider */,
-				78237D081956BE4D00BE750D /* Model */,
 				78CCE69F19552C46009EA16B /* Supporting Files */,
 			);
 			path = Hodor;
@@ -657,16 +657,16 @@
 				78237D011956B78400BE750D /* HDRCommon.m in Sources */,
 				78CCE6A919552C46009EA16B /* HDRAppDelegate.m in Sources */,
 				78237CDF1955867500BE750D /* HDRHomeViewController.m in Sources */,
+				78F1D9B21B2D569D000796F9 /* NSDate+Util.m in Sources */,
 				78E785C019A345DC00D992F7 /* HDRListBox2.m in Sources */,
 				78237CE41955875900BE750D /* HDRHomeTableViewCell.m in Sources */,
-				78237D071956BE1800BE750D /* HDRFriends.m in Sources */,
+				78237D071956BE1800BE750D /* HDRFriendsProvider.m in Sources */,
 				78237CEE195690FA00BE750D /* HDRSetupViewController.m in Sources */,
 				78E785C619A3484800D992F7 /* HDRMessageTableViewCell.m in Sources */,
 				780AFEA0196FB4F900596CC6 /* UIImage+ImageEffects.m in Sources */,
 				78237D0B1956BE5B00BE750D /* HDRUser.m in Sources */,
 				780AFEA5196FB52800596CC6 /* HDRListBox.m in Sources */,
 				78237CF61956991300BE750D /* HDRTableViewCell.m in Sources */,
-				78E785B919A32A8800D992F7 /* HDRDateUtil.m in Sources */,
 				78237CF2195698B200BE750D /* HDRInviteTableViewCell.m in Sources */,
 				78745FF1198ED6EC00650542 /* HDRBaseViewController.m in Sources */,
 			);
