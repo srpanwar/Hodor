@@ -58,6 +58,15 @@
     return [self getObjectForKey:@"messageTemplateEndPoint"];
 }
 
+- (NSString *)homePageUrl
+{
+    return [self getObjectForKey:@"homePageUrl"];
+}
+
+- (NSString *)itunesUrl
+{
+    return [self getObjectForKey:@"itunesUrl"];
+}
 
 - (NSString *)getObjectForKey:(NSString *)key
 {

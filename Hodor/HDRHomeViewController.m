@@ -169,7 +169,8 @@
         HDRHomeTableViewCell *cellX = [self.cachedCells objectForKey:user.name];
         if (!cellX)
         {
-            cellX = (HDRHomeTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"HDRHomeTableViewCell" owner:nil options:nil] lastObject];
+            cellX = (HDRHomeTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"HDRHomeTableViewCell"
+                                                                           owner:nil options:nil] lastObject];
             cellX.user = user;
             cellX.nameLabel.text = [user.name uppercaseString];
             
@@ -214,23 +215,20 @@
 
 - (IBAction)doShare:(id)sender
 {
-    NSString *string = @"Connect with me using 'Hodor'!!";
-    NSURL *URL = [NSURL URLWithString:@"http://troupeofvagrants.weebly.com/hodor.html"];
+    NSString *string = [NSString stringWithFormat:NSLocalizedString(@"inviteMessage", @""), [HDRSession getCurrentUserName]];
+    NSURL *URL = [NSURL URLWithString:[[HDRConfig instance] homePageUrl]];
     
     UIActivityViewController *activityViewController =
     [[UIActivityViewController alloc] initWithActivityItems:@[string, URL]
                                       applicationActivities:nil];
     [self.navigationController presentViewController:activityViewController
                                             animated:YES
-                                          completion:^{
-                                              // ...
-                                          }];
-
+                                          completion:nil];
 }
 
 - (IBAction)rateTheApp:(id)sender
 {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/app/id892252299"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[[HDRConfig instance] itunesUrl]]];
 }
 
 - (IBAction)showMore:(id)sender

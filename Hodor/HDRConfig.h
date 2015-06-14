@@ -15,6 +15,8 @@
 
 @property (readonly) NSString *serviceEndPoint;
 @property (readonly) NSString *messageTemplateEndPoint;
+@property (readonly) NSString *homePageUrl;
+@property (readonly) NSString *itunesUrl;
 
 + (HDRConfig *) instance;
 

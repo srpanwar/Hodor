@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>itunesUrl</key>
+	<string>itms-apps://itunes.apple.com/app/id892252299</string>
+	<key>homePageUrl</key>
+	<string>http://troupeofvagrants.weebly.com/hodor.html</string>
 	<key>serviceEndPoint</key>
 	<string>http://hodorservice.cloudapp.net/rest/default.aspx</string>
 	<key>messageTemplateEndPoint</key>
