@@ -19,8 +19,8 @@
 
 @interface HDREntityTableViewCell : HDRTableViewCell
 
-@property HDRUser* user;
-@property NSMutableArray *messages;
+@property (nonatomic) HDRUser* user;
+@property (nonatomic) NSMutableArray *messages;
 
 @property (weak, nonatomic) IBOutlet UIView *metaView;
 @property (weak, nonatomic) IBOutlet UIImageView *hodorImage;
@@ -30,8 +30,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *countBtn;
 
-@property BOOL showUserName;
-@property BOOL showLocation;
+@property (nonatomic) BOOL showUserName;
+@property (nonatomic) BOOL showLocation;
 
 - (void)doHodorNetwork;
 - (void)doTextNetwork:(NSString *)text picture:(NSString *)picture;

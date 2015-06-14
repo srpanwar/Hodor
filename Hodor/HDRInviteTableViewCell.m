@@ -40,12 +40,20 @@
                 {
                     CFErrorRef error = nil;
                     ABAddressBookRemoveRecord(addressBook, person, &error);
-                    NSLog(@"Removing %@",(__bridge NSString *)ABRecordCopyCompositeName(person));
+                    
+                    NSString *personName = (__bridge NSString *)ABRecordCopyCompositeName(person);
+                    NSLog(@"Removing %@",personName);
+                    CFRelease((__bridge CFTypeRef)(personName));
                 }
                 
-                CFRelease(phones);
+                if (phones)
+                {
+                    CFRelease(phones);
+                }
             }
         }
+        
+        CFRelease((__bridge CFTypeRef)(allContacts));
         
         CFErrorRef saveError = nil;
         ABAddressBookSave(addressBook, &saveError);
@@ -103,7 +111,11 @@
         ABMultiValueRef phones = ABRecordCopyValue(person, property);
         long count = ABMultiValueGetCount(phones);
         mobile = (__bridge_transfer NSString *)ABMultiValueCopyValueAtIndex(phones, identifier % count);
+        if (phones) {
+            CFRelease(phones);
+        }
     }
+    
     NSLog(@"%@", mobile);
     
     if (mobile && mobile.length)
@@ -120,6 +132,10 @@
                 [self.viewController presentViewController:picker animated:YES completion:nil];
             }
         }];
+    }
+    
+    if (mobile) {
+        CFRelease(CFBridgingRetain(mobile));
     }
     
     return NO;

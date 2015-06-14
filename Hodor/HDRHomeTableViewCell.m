@@ -8,12 +8,6 @@
 
 #import "HDRHomeTableViewCell.h"
 
-@interface HDRHomeTableViewCell ()
-
-@property NSMutableArray *messages;
-
-@end
-
 @implementation HDRHomeTableViewCell
 
 - (void)awakeFromNib
