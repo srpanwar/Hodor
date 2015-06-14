@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HDRCommon.h"
+#import "HDRConfig.h"
 #import "HDRFriendsProvider.h"
 
 @interface HDRUpdater : NSObject

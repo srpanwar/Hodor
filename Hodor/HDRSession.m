@@ -6,18 +6,17 @@
 //  Copyright (c) 2014 Troupe Of Vagrants. All rights reserved.
 //
 
-#import "HDRCurrentUser.h"
+#import "HDRSession.h"
 
-@implementation HDRCurrentUser
+@implementation HDRSession
 
-NSString *userName;
-NSString *UUID;
-NSString *UUENCID;
-NSString *deviceToken;
-NSString *address;
-CLLocationCoordinate2D lastUserLocation;
+static NSString *userName;
+static NSString *UUID;
+static NSString *UUENCID;
+static NSString *deviceToken;
+static NSString *address;
 
-+(NSString *) getCurrentUserName
++ (NSString *) getCurrentUserName
 {
     if (!userName)
     {
@@ -28,7 +27,7 @@ CLLocationCoordinate2D lastUserLocation;
 }
 
 
-+(void) setCurrentUserName:(NSString *) name
++ (void) setCurrentUserName:(NSString *) name
 {
     if (name)
     {
@@ -39,7 +38,7 @@ CLLocationCoordinate2D lastUserLocation;
     return;
 }
 
-+(NSString *) getDeviceToken
++ (NSString *) getDeviceToken
 {
     if (!deviceToken)
     {
@@ -50,7 +49,7 @@ CLLocationCoordinate2D lastUserLocation;
 }
 
 
-+(void) setDeviceToken:(NSString *) dt
++ (void) setDeviceToken:(NSString *) dt
 {
     if (dt)
     {
@@ -63,10 +62,8 @@ CLLocationCoordinate2D lastUserLocation;
 
 
 
-
-+(NSString *) getUUID
++ (NSString *) getUUID
 {
-    //get the last good known coordinate
     if (!UUID)
     {
         NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
@@ -85,7 +82,7 @@ CLLocationCoordinate2D lastUserLocation;
     }
 }
 
-+(BOOL)isNotificationTokenSet
++ (BOOL)isNotificationTokenSet
 {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     NSString *flag = [defaults stringForKey:@"HDRNotificationTokenSet"];
@@ -94,26 +91,11 @@ CLLocationCoordinate2D lastUserLocation;
 }
 
 
-+(void) setNotificationTokenSet
++ (void) setNotificationTokenSet
 {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:@"set" forKey:@"HDRNotificationTokenSet"];
     return;
-}
-
-+(CLLocationCoordinate2D) getLastLocation
-{
-    //get the last good known coordinate
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    lastUserLocation = CLLocationCoordinate2DMake([defaults doubleForKey:@"LGKLatitude"], [defaults doubleForKey:@"LGKLongitude"]);
-    return lastUserLocation;
-}
-
-+(void) setLastLocation:(CLLocationCoordinate2D) coordinate
-{
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setDouble:coordinate.latitude forKey:@"LGKLatitude"];
-    [defaults setDouble:coordinate.longitude forKey:@"LGKLongitude"];
 }
 
 + (NSString *) getAddress

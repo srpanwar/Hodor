@@ -51,12 +51,12 @@
     NSString *uuid = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
 
     //mark it delivered in db
-    if(uuid && uuid.length && ![EMPTY_GUID isEqualToString:uuid])
+    if(uuid && uuid.length && ![[[HDRConfig instance] emptyGuid] isEqualToString:uuid])
     {
-        [HDRCurrentUser setUUID:uuid];
-        [HDRCurrentUser setCurrentUserName:userName];
+        [HDRSession setUUID:uuid];
+        [HDRSession setCurrentUserName:userName];
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            [self sendRemoteNotificationsDeviceToken:[HDRCurrentUser getDeviceToken]];
+            [self sendRemoteNotificationsDeviceToken:[HDRSession getDeviceToken]];
         });
         return YES;
     }
@@ -64,9 +64,9 @@
     return NO;
 }
 
--(void) sendHODOR:(NSString *)recipient
+- (void) sendHODOR:(NSString *)recipient
 {
-    NSString *body = [NSString stringWithFormat:@"method=sendhodor&sender=%@&recipient=%@", [HDRCurrentUser getCurrentUserName], recipient];
+    NSString *body = [NSString stringWithFormat:@"method=sendhodor&sender=%@&recipient=%@", [HDRSession getCurrentUserName], recipient];
     
     NSData *responseData = [self doNetwork:body];
     NSString *ret = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
@@ -83,7 +83,7 @@
         return;
     }
     
-    NSString *body = [NSString stringWithFormat:@"method=sendtext2&sender=%@&recipient=%@&text=%@&picture=%@", [HDRCurrentUser getCurrentUserName], recipient, text, picture];
+    NSString *body = [NSString stringWithFormat:@"method=sendtext2&sender=%@&recipient=%@&text=%@&picture=%@", [HDRSession getCurrentUserName], recipient, text, picture];
     
     NSData *responseData = [self doNetwork:body];
     NSString *ret = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
@@ -97,7 +97,7 @@
 {
     NSMutableArray *messages = [[NSMutableArray alloc] init];
     
-    NSString *body = [NSString stringWithFormat:@"method=fetchmessages2&from=%@&to=%@&after=%lu", from, [HDRCurrentUser getCurrentUserName], (long)lastSeenId];
+    NSString *body = [NSString stringWithFormat:@"method=fetchmessages2&from=%@&to=%@&after=%lu", from, [HDRSession getCurrentUserName], (long)lastSeenId];
 
     NSData *data = [self doNetwork:body];
     
@@ -118,7 +118,7 @@
         return NO;
     }
     
-    NSString *body = [NSString stringWithFormat:@"method=blockuser&blocker=%@&blockee=%@", [HDRCurrentUser getCurrentUserName], userName];
+    NSString *body = [NSString stringWithFormat:@"method=blockuser&blocker=%@&blockee=%@", [HDRSession getCurrentUserName], userName];
     NSHTTPURLResponse *response = [self doNetworkResponse:body];
     
     return response && response.statusCode == 200;
@@ -131,7 +131,7 @@
         return NO;
     }
     
-    NSString *body = [NSString stringWithFormat:@"method=unblockuser&blocker=%@&blockee=%@", [HDRCurrentUser getCurrentUserName], userName];
+    NSString *body = [NSString stringWithFormat:@"method=unblockuser&blocker=%@&blockee=%@", [HDRSession getCurrentUserName], userName];
     NSHTTPURLResponse *response = [self doNetworkResponse:body];
     
     return response && response.statusCode == 200;
@@ -139,12 +139,12 @@
 
 - (void)sendRemoteNotificationsDeviceToken:(NSString *)deviceToken
 {
-    if (!deviceToken || ![HDRCurrentUser getCurrentUserName])// || [HDRCurrentUser isNotificationTokenSet])
+    if (!deviceToken || ![HDRSession getCurrentUserName])// || [HDRCurrentUser isNotificationTokenSet])
     {
         return;
     }
     
-    NSString *body = [NSString stringWithFormat:@"method=setdevicetoken&username=%@&devicetoken=%@", [HDRCurrentUser getCurrentUserName], [self stringWithPercentEscape:deviceToken]];
+    NSString *body = [NSString stringWithFormat:@"method=setdevicetoken&username=%@&devicetoken=%@", [HDRSession getCurrentUserName], [self stringWithPercentEscape:deviceToken]];
     NSHTTPURLResponse *response = [self doNetworkResponse:body];
     
     if (response && response.statusCode == 200)
@@ -157,7 +157,7 @@
 - (void) refreshTriviaList
 {
     NSMutableArray *list = [[NSMutableArray alloc] init];
-    NSURL *url = [NSURL URLWithString:[[NSString alloc] initWithFormat:@"https://hodorcdn.s3.amazonaws.com/trivia.txt"]];
+    NSURL *url = [NSURL URLWithString:[[HDRConfig instance] messageTemplateEndPoint]];
     
     //fetch the data
     NSData* data = [NSData dataWithContentsOfURL:url];
@@ -204,7 +204,7 @@
 
 - (NSString *)doHash:(NSString *)input
 {
-    NSData *dataIn = [[NSString stringWithFormat:@"%@%@",input, ENC_GUID] dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *dataIn = [[NSString stringWithFormat:@"%@%@",input, [[HDRConfig instance] privateKey]] dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableData *hashData = [NSMutableData dataWithLength:CC_SHA256_DIGEST_LENGTH];
     
     CC_SHA256(dataIn.bytes, (CC_LONG)dataIn.length, hashData.mutableBytes);
@@ -276,7 +276,7 @@
 - (NSData *)doNetwork:(NSString *)body
 {
     //form the url
-    NSURL *url = [NSURL URLWithString:HODOR_SERVICE_ENDPOINT];
+    NSURL *url = [NSURL URLWithString:[[HDRConfig instance] serviceEndPoint]];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     
     body = [self doHash:body];
@@ -295,7 +295,7 @@
 - (NSHTTPURLResponse *)doNetworkResponse:(NSString *)body
 {
     //form the url
-    NSURL *url = [NSURL URLWithString:HODOR_SERVICE_ENDPOINT];
+    NSURL *url = [NSURL URLWithString:[[HDRConfig instance] serviceEndPoint]];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     
     body = [self doHash:body];

@@ -6,10 +6,9 @@
 //  Copyright (c) 2014 Troupe Of Vagrants. All rights reserved.
 //
 
-#import <AVFoundation/AVFoundation.h>
-#import "HDRUtils.h"
+#import "HDRSoundService.h"
 
-@implementation HDRUtils
+@implementation HDRSoundService
 
 + (void) playSound
 {

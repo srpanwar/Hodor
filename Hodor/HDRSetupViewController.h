@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HDRCurrentUser.h"
+#import "HDRSession.h"
 #import "HDRNetworkProvider.h"
-#import "HDRUtils.h"
+#import "HDRSoundService.h"
 
 @interface HDRSetupViewController : UIViewController<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *pageTitleLabel;

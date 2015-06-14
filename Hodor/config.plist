@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>serviceEndPoint</key>
+	<string>http://hodorservice.cloudapp.net/rest/default.aspx</string>
+	<key>messageTemplateEndPoint</key>
+	<string>https://hodorcdn.s3.amazonaws.com/trivia.txt</string>
+	<key>privateKey</key>
+	<string>2711ea6a-d68a-4ffe-a431-6373325795bf</string>
+	<key>emptyGuid</key>
+	<string>00000000-0000-0000-0000-000000000000</string>
+</dict>
+</plist>

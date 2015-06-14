@@ -12,10 +12,10 @@
 #import "HDRFriendsProvider.h"
 #import "HDRListBox.h"
 #import "HDRListBox2.h"
-#import "HDRUtils.h"
+#import "HDRSoundService.h"
 
 #import "HDRTableViewCell.h"
-#import "HDRUtils.h"
+#import "HDRSoundService.h"
 
 @interface HDREntityTableViewCell : HDRTableViewCell
 

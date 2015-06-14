@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "HDRFriendsProvider.h"
 #import "HDRNetworkProvider.h"
-#import "HDRUtils.h"
+#import "HDRSoundService.h"
 #import "HDRUpdater.h"
 #import "HDRHomeViewController.h"
 

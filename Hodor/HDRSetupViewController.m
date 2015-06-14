@@ -25,7 +25,7 @@
 
 - (void)viewDidLoad
 {
-    if ([HDRCurrentUser getCurrentUserName].length)
+    if ([HDRSession getCurrentUserName].length)
     {
         [self goHome];
         return;

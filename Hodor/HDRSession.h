@@ -7,20 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <MapKit/MapKit.h>
 
-@interface HDRCurrentUser : NSObject
+@interface HDRSession : NSObject
 
 + (NSString *) getCurrentUserName;
 + (void) setCurrentUserName:(NSString *) name;
 
-+(NSString *) getDeviceToken;
-+(void) setDeviceToken:(NSString *) dt;
++ (NSString *) getDeviceToken;
++ (void) setDeviceToken:(NSString *) dt;
 
 + (NSString *) getUUID;
 + (void) setUUID:(NSString *) uuid;
 
-+(BOOL)isNotificationTokenSet;
-+(void) setNotificationTokenSet;
++ (BOOL)isNotificationTokenSet;
++ (void) setNotificationTokenSet;
 
 @end

@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <CommonCrypto/CommonDigest.h>
-#import "HDRCommon.h"
+#import "HDRConfig.h"
 #import "HDRMessage.h"
-#import "HDRCurrentUser.h"
+#import "HDRSession.h"
 
 @interface HDRNetworkProvider : NSObject
 

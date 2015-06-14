@@ -75,7 +75,7 @@
     return 0;
 }
 
--(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     UIView *footer = [[UIView alloc] initWithFrame:CGRectZero];
     return footer;

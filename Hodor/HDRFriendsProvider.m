@@ -175,7 +175,7 @@
 }
 
 
--(void)writeArrayWithCustomObjToUserDefaults:(NSString *)keyName withArray:(NSMutableArray *)myArray
+- (void)writeArrayWithCustomObjToUserDefaults:(NSString *)keyName withArray:(NSMutableArray *)myArray
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:myArray];
@@ -183,7 +183,7 @@
     [defaults synchronize];
 }
 
--(NSArray *)readArrayWithCustomObjFromUserDefaults:(NSString*)keyName
+- (NSArray *)readArrayWithCustomObjFromUserDefaults:(NSString*)keyName
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSData *data = [defaults objectForKey:keyName];

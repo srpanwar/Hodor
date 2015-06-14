@@ -24,7 +24,8 @@
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes: (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
     }
 
-    [HDRCurrentUser setCurrentUserName:@"SRPANWAR"];
+    
+    [HDRSession setCurrentUserName:@"SRPANWAR"];
     
     //fetch the predefined message list
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -49,7 +50,7 @@
 {
     NSString *deviceToken = [[data description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
     deviceToken = [deviceToken stringByReplacingOccurrencesOfString:@" " withString:@""];
-    [HDRCurrentUser setDeviceToken:deviceToken];
+    [HDRSession setDeviceToken:deviceToken];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [[HDRNetworkProvider instance] sendRemoteNotificationsDeviceToken:deviceToken];
@@ -80,7 +81,7 @@
     UINavigationController *root = (UINavigationController *)self.window.rootViewController;
     if (root && [root.topViewController isKindOfClass:[HDRHomeViewController class]] &&  [[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
     {
-        [HDRUtils playSoundIncoming];
+        [HDRSoundService playSoundIncoming];
         
         HDRHomeViewController *controller = (HDRHomeViewController *)root.topViewController;
         [controller refreshView:NO];
@@ -114,7 +115,7 @@
 //    }
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [[HDRNetworkProvider instance] sendRemoteNotificationsDeviceToken:[HDRCurrentUser getDeviceToken]];
+        [[HDRNetworkProvider instance] sendRemoteNotificationsDeviceToken:[HDRSession getDeviceToken]];
     });
     
 }
@@ -125,7 +126,7 @@
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [[HDRNetworkProvider instance] refreshTriviaList];
-        [[HDRNetworkProvider instance] sendRemoteNotificationsDeviceToken:[HDRCurrentUser getDeviceToken]];
+        [[HDRNetworkProvider instance] sendRemoteNotificationsDeviceToken:[HDRSession getDeviceToken]];
     });
     
 }

@@ -42,7 +42,7 @@
     self.cachedCells = [[NSCache alloc] init];
     
     self.pageTitleLabel.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:24];
-    self.pageTitleLabel.text = [NSString stringWithFormat:@"HODOR + YOU(%@)", [HDRCurrentUser getCurrentUserName]];
+    self.pageTitleLabel.text = [NSString stringWithFormat:@"HODOR + YOU(%@)", [HDRSession getCurrentUserName]];
 
     self.ratingBtn.layer.cornerRadius = 20.0f;
     self.shareBtn.layer.cornerRadius = 20.0f;
