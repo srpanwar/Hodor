@@ -58,7 +58,7 @@
 
 - (void)loadMessages
 {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    dispatch_async_default(^{
         self.countBtn.hidden = YES;
         self.messages = [self loadMessagesNetwork];
         if (self.messages.count)

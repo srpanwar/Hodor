@@ -11,6 +11,7 @@
 #import "HDRConfig.h"
 #import "HDRMessage.h"
 #import "HDRSession.h"
+#import "HDRCommon.h"
 
 @interface HDRNetworkProvider : NSObject
 

@@ -11,13 +11,15 @@
 @implementation HDRAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{    
+{
+    //we dont need the status bar
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
+    //register to receive notification
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)])
     {
-        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
+        [application registerUserNotificationSettings:[UIUserNotificationSettings
+                                                       settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
     }
     else
     {
@@ -28,7 +30,7 @@
     [HDRSession setCurrentUserName:@"SRPANWAR"];
     
     //fetch the predefined message list
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    dispatch_async_default(^{
         [[HDRNetworkProvider instance] refreshTriviaList];
     });
     
@@ -52,7 +54,7 @@
     deviceToken = [deviceToken stringByReplacingOccurrencesOfString:@" " withString:@""];
     [HDRSession setDeviceToken:deviceToken];
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    dispatch_async_default(^{
         [[HDRNetworkProvider instance] sendRemoteNotificationsDeviceToken:deviceToken];
     });
     
@@ -106,29 +108,18 @@
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     
-//    UILocalNotification *localNotif = [[UILocalNotification alloc] init];
-//    if (localNotif)
-//    {
-//        localNotif.alertBody = @"vivekian";
-//        localNotif.soundName = @"Hodor.wav";
-//        [UIApplication.sharedApplication presentLocalNotificationNow:localNotif];
-//    }
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    dispatch_async_default(^{
         [[HDRNetworkProvider instance] sendRemoteNotificationsDeviceToken:[HDRSession getDeviceToken]];
     });
-    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    dispatch_async_default(^{
         [[HDRNetworkProvider instance] refreshTriviaList];
         [[HDRNetworkProvider instance] sendRemoteNotificationsDeviceToken:[HDRSession getDeviceToken]];
     });
-    
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

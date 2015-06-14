@@ -44,7 +44,7 @@
         {
             if (existingFriend.isBlocked)
             {
-                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                dispatch_async_default(^{
                     [[HDRNetworkProvider instance]unBlockUser:user.name];
                 });
             }

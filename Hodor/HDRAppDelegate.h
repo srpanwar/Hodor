@@ -12,6 +12,7 @@
 #import "HDRSoundService.h"
 #import "HDRUpdater.h"
 #import "HDRHomeViewController.h"
+#import "HDRCommon.h"
 
 @interface HDRAppDelegate : UIResponder <UIApplicationDelegate>
 

@@ -190,6 +190,7 @@
 		78F1D9B01B2D569D000796F9 /* NSDate+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Util.h"; sourceTree = "<group>"; };
 		78F1D9B11B2D569D000796F9 /* NSDate+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Util.m"; sourceTree = "<group>"; };
 		78F1D9B31B2D646B000796F9 /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
+		78F1D9B51B2D7563000796F9 /* HDRCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HDRCommon.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,6 +280,7 @@
 				78237CFD1956A22000BE750D /* HDRSession.m */,
 				78CCB9B519A5909100A5BA99 /* HDRTranslator.h */,
 				78CCB9B619A5909100A5BA99 /* HDRTranslator.m */,
+				78F1D9B51B2D7563000796F9 /* HDRCommon.h */,
 			);
 			name = Utils;
 			sourceTree = "<group>";

@@ -11,6 +11,7 @@
 #import "HDRUser.h"
 #import "HDRFriendsProvider.h"
 #import "HDRNetworkProvider.h"
+#import "HDRCommon.h"
 
 @interface HDRAddUserNameTableViewCell : HDRTableViewCell<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *textField;
