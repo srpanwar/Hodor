@@ -13,10 +13,10 @@
 @interface HDRTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property HDRBaseViewController *viewController;
-@property UITableView *tableView;
+@property (weak, nonatomic) HDRBaseViewController *viewController;
+@property (weak, nonatomic) UITableView *tableView;
 
 - (void)colorify:(NSInteger)index;
-- (CGFloat) getNextRand:(CGFloat)min max:(CGFloat)max;
+- (CGFloat)getNextRand:(CGFloat)min max:(CGFloat)max;
 
 @end

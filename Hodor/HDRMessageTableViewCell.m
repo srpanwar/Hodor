@@ -15,9 +15,6 @@
     [super awakeFromNib];
     // Initialization code
     
-    //self.messageTextView.font = [UIFont fontWithName:@"OpenSans-CondensedBold" size:21.0f];
-    //self.messageTextView.font = [UIFont fontWithName:@"CooperHewitt-Book" size:16.0f];
-    
     self.messageTextView.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:30.0f];
     
     self.messageTextView.textColor = [UIColor colorWithWhite:0.9 alpha:1];

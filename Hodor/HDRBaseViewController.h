@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HDRRefreshableView.h"
 
-@interface HDRBaseViewController : UIViewController
+@interface HDRBaseViewController : UIViewController<HDRRefreshableView>
 
-- (void)refreshView:(BOOL)clearCache;
 
 @end

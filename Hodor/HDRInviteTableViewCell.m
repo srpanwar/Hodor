@@ -78,16 +78,14 @@
 
 - (void)doShare
 {
-    NSString *string = [NSString stringWithFormat:@"Connect with me! Add my 'Hodor' username %@ (if you don't have the app get it here http://goo.gl/68WSRK)", [HDRSession getCurrentUserName]];
+    NSString *string = [self getInviteMessage];
     
     UIActivityViewController *activityViewController =
     [[UIActivityViewController alloc] initWithActivityItems:@[string]
                                       applicationActivities:nil];
     [self.viewController presentViewController:activityViewController
                                             animated:YES
-                                          completion:^{
-                                              // ...
-                                          }];
+                                          completion:nil];
 }
 
 
@@ -103,7 +101,10 @@
 }
 
 - (BOOL)peoplePickerNavigationController:
-(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier
+(ABPeoplePickerNavigationController *)peoplePicker
+      shouldContinueAfterSelectingPerson:(ABRecordRef)person
+                                property:(ABPropertyID)property
+                              identifier:(ABMultiValueIdentifier)identifier
 {
     NSString* mobile = nil;
     if (property == kABPersonPhoneProperty)
@@ -127,7 +128,7 @@
                 picker.messageComposeDelegate = self;
                 picker.recipients = @[mobile];
                 
-                picker.body = [NSString stringWithFormat:@"Connect with me! Add my 'Hodor' username %@ (if you don't have the app get it here http://goo.gl/68WSRK)", [HDRSession getCurrentUserName]];
+                picker.body = [self getInviteMessage];
                 
                 [self.viewController presentViewController:picker animated:YES completion:nil];
             }
@@ -141,11 +142,16 @@
     return NO;
 }
 
-- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult) result
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller
+                 didFinishWithResult:(MessageComposeResult) result
 {
     [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (NSString *)getInviteMessage
+{
+    return [NSString stringWithFormat:NSLocalizedString(@"inviteMessage", @""), [HDRSession getCurrentUserName]];
+}
 
 @end
 

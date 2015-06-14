@@ -39,7 +39,7 @@
 
 - (void)showMenu
 {
-    [self leftAndBack:^{
+    [self leftSwipe:^{
         CGRect frame = self.menuView.frame;
         frame.origin.x = 0;
         [UIView animateWithDuration:0.3f animations:^{
@@ -94,12 +94,5 @@
 }
 
 @end
-
-
-//more action
-//    UISwipeGestureRecognizer *rightSwipeUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(showTextTemplates)];
-//    [rightSwipeUpRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
-//    [nameLabel addGestureRecognizer:rightSwipeUpRecognizer];
-
 
 

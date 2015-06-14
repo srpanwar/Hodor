@@ -17,17 +17,13 @@
 @interface HDRHomeTableViewCell : HDREntityTableViewCell
 
 @property (weak, nonatomic) IBOutlet UIView *menuView;
-
 @property (weak, nonatomic) IBOutlet UIButton *cancelLabel;
 @property (weak, nonatomic) IBOutlet UIButton *deleteLabel;
-
 @property (weak, nonatomic) IBOutlet UIButton *blockLabel;
 
 
 - (IBAction)onCancel:(id)sender;
 - (IBAction)onDelete:(id)sender;
-
 - (IBAction)onBlock:(id)sender;
-
 
 @end

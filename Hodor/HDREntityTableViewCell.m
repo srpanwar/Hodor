@@ -21,7 +21,6 @@
     self.nameLabel.text = @"";
     
     self.countBtn.titleLabel.font =  [UIFont fontWithName:@"OpenSans-CondensedBold" size:17];
-    
     self.countBtn.layer.borderColor = [UIColor colorWithWhite:0.9 alpha:1].CGColor;
     self.countBtn.layer.borderWidth = 1;
     self.countBtn.layer.cornerRadius = 13.5;
@@ -30,21 +29,22 @@
     self.hodorImage.layer.cornerRadius = 15;
     
     //text
-    UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showTextTemplatesUI)];
+    UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                                 action:@selector(showTextTemplatesUI)];
     [self.nameLabel addGestureRecognizer:singleTapGestureRecognizer];
     
     //text
-    UITapGestureRecognizer *doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(resetMessageReadCounter)];
+    UITapGestureRecognizer *doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                                 action:@selector(resetMessageReadCounter)];
     doubleTapGestureRecognizer.numberOfTouchesRequired = 2;
     [self.nameLabel addGestureRecognizer:doubleTapGestureRecognizer];
-    
-//    [singleTapGestureRecognizer requireGestureRecognizerToFail:doubleTapGestureRecognizer];
 }
 
 - (void)resetMessageReadCounter
 {
-    self.user.lastSeenId = 0;// MAX(0, self.user.lastSeenId - 50);
-    [[HDRFriendsProvider instance] setLastSeenId:self.user.name last:self.user.lastSeenId];
+    self.user.lastSeenId = 0;
+    [[HDRFriendsProvider instance] setLastSeenId:self.user.name
+                                            last:self.user.lastSeenId];
     [self loadMessages];
 }
 
@@ -52,7 +52,7 @@
 {
     //first run
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (((int)[self getNextRand:30.0f max:60.0f] % 70) / 70.0f) * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        [self rightAndBack:nil];
+        [self rightSwipe:nil];
     });
 }
 
@@ -65,7 +65,8 @@
         {
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.countBtn.hidden = NO;
-                [self.countBtn setTitle:[NSString stringWithFormat:@"%lu", (unsigned long)self.messages.count] forState:UIControlStateNormal];
+                [self.countBtn setTitle:[NSString stringWithFormat:@"%lu", (unsigned long)self.messages.count]
+                               forState:UIControlStateNormal];
             });
         }
     });
@@ -73,7 +74,8 @@
 
 - (NSMutableArray *)loadMessagesNetwork
 {
-    return [[HDRNetworkProvider instance] fetchMessages:self.user.name after:self.user.lastSeenId]; //self.user.lastSeenId
+    return [[HDRNetworkProvider instance] fetchMessages:self.user.name
+                                                  after:self.user.lastSeenId];
 }
 
 
@@ -81,13 +83,15 @@
 
 - (void)showTextTemplatesUI
 {
-    HDRListBox *listBox = (HDRListBox *)[[[NSBundle mainBundle] loadNibNamed:@"HDRListBox" owner:nil options:nil] lastObject];
+    HDRListBox *listBox = (HDRListBox *)[[[NSBundle mainBundle] loadNibNamed:@"HDRListBox"
+                                                                       owner:nil
+                                                                     options:nil] lastObject];
     [listBox setFrame:[UIScreen mainScreen].bounds];
     listBox.viewController = self.viewController;
     listBox.collection = [HDRNetworkProvider instance].triviaList;
     
     listBox.callback = ^(NSString *text, NSString *picture) {
-        [self doText:text picture:picture];
+        [self sendText:text picture:picture];
     };
     
     
@@ -95,56 +99,51 @@
     [self.viewController.navigationController.view addSubview:listBox];
 }
 
-- (void)doText:(NSString *)text picture:(NSString *)picture
+- (void)sendText:(NSString *)text picture:(NSString *)picture
+{
+    [self sendTextNetwork:text picture:picture];
+    [self showSendHint:@"SEND!"];
+}
+
+- (void)sendTextNetwork:(NSString *)text picture:(NSString *)picture
+{
+    NSString *textP = text ? text : @"";
+    NSString *pictureP = picture ? picture : @"";
+    
+    dispatch_async_default(^{
+        [[HDRNetworkProvider instance] sendText:self.user.name
+                                           text:textP
+                                        picture:pictureP];
+    });
+}
+
+- (void) sendHodor
+{
+    [self sendHodorNetwork];
+    [self showSendHint:@"HODORED!"];
+}
+
+- (void)sendHodorNetwork
+{
+    dispatch_async_default(^{
+        [[HDRNetworkProvider instance] sendHODOR:self.user.name];
+    });
+}
+
+- (void)showSendHint:(NSString *)message
 {
     //hide the metadataview
     self.metaView.hidden = YES;
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        [self doTextNetwork:text picture:picture];
-    });
-    
     [self rotateImageView:self.busyImage callback:^{
         self.metaView.hidden = NO;
-        self.nameLabel.text = @"SEND!";
+        self.nameLabel.text = message;
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.6 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
             self.nameLabel.text = [self.user.name uppercaseString];
             [[HDRFriendsProvider instance] moveToTop:self.user];
-            [self.tableView moveRowAtIndexPath:[self.tableView indexPathForCell:self] toIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-        });
-    }];
-}
-
-- (void)doTextNetwork:(NSString *)text picture:(NSString *)picture
-{
-    text = text ? text : @"";
-    picture = picture ? picture : @"";
-    [[HDRNetworkProvider instance] sendText:self.user.name text:text picture:picture];
-}
-
-- (void)doHodorNetwork
-{
-    [[HDRNetworkProvider instance] sendHODOR:self.user.name];
-}
-
-- (void) doHodor
-{
-    //hide the metadataview
-    self.metaView.hidden = YES;
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        [self doHodorNetwork];
-    });
-    
-    [self rotateImageView:self.busyImage callback:^{
-        self.metaView.hidden = NO;
-        self.nameLabel.text = @"HODORED!";
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.6 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-            self.nameLabel.text = [self.user.name uppercaseString];
-            [[HDRFriendsProvider instance] moveToTop:self.user];
-            [self.tableView moveRowAtIndexPath:[self.tableView indexPathForCell:self] toIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+            [self.tableView moveRowAtIndexPath:[self.tableView indexPathForCell:self]
+                                   toIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
         });
     }];
 }
@@ -154,7 +153,7 @@
 
 - (IBAction)callHodor:(id)sender
 {
-    [self doHodor];
+    [self sendHodor];
 }
 
 - (IBAction)viewMessages:(id)sender
@@ -162,9 +161,6 @@
     if (self.messages.count)
     {
         HDRMessage *msg = self.messages[0];
-        
-        //test hook
-        //msg.content = @"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do  Lorem ipsum dolor sit er elit lamet Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do  Lorem ipsum dolor sit er elit lamet";
         
         //set the last seen id
         [[HDRFriendsProvider instance] setLastSeenId:self.user.name last:msg.msgId];
@@ -187,7 +183,7 @@
 
 
 #pragma mark Animation
-- (void)rightAndBack:(void (^)(void))callback
+- (void)rightSwipe:(void (^)(void))callback
 {
     CGRect frame = self.contentView.frame;
     frame.origin.x = 70.0f;
@@ -212,15 +208,13 @@
     }];
 }
 
-- (void)leftAndBack:(void (^)(void))callback
+- (void)leftSwipe:(void (^)(void))callback
 {
     CGRect frame1 = self.contentView.frame;
     frame1.origin.x = -70.0f;
     
     [UIView animateWithDuration:0.2f animations:^{
-        
         self.contentView.frame = frame1;
-        
     } completion:^(BOOL finished) {
         
         CGRect frame2 = self.contentView.frame;
@@ -242,7 +236,8 @@
     }];
 }
 
-- (void)rotateImageView:(UIImageView *)busyImage callback:(void(^)(void))completionBlock
+- (void)rotateImageView:(UIImageView *)busyImage
+               callback:(void(^)(void))completionBlock
 {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [HDRSoundService playSoundOutgoing];
@@ -276,7 +271,3 @@
 
 @end
 
-
-//    [self rightAndBack:^{
-//
-//    }];

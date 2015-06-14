@@ -22,6 +22,10 @@
 @property (nonatomic) HDRUser* user;
 @property (nonatomic) NSMutableArray *messages;
 
+@property (nonatomic) BOOL showUserName;
+@property (nonatomic) BOOL showLocation;
+
+
 @property (weak, nonatomic) IBOutlet UIView *metaView;
 @property (weak, nonatomic) IBOutlet UIImageView *hodorImage;
 
@@ -30,11 +34,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *countBtn;
 
-@property (nonatomic) BOOL showUserName;
-@property (nonatomic) BOOL showLocation;
-
-- (void)doHodorNetwork;
-- (void)doTextNetwork:(NSString *)text picture:(NSString *)picture;
+- (void)sendHodorNetwork;
+- (void)sendTextNetwork:(NSString *)text picture:(NSString *)picture;
 
 - (IBAction)callHodor:(id)sender;
 - (IBAction)viewMessages:(id)sender;
@@ -43,8 +44,9 @@
 - (NSMutableArray *)loadMessagesNetwork;
 
 - (void)firstRun;
-- (void)rightAndBack:(void (^)(void))callback;
-- (void)leftAndBack:(void (^)(void))callback;
-- (void)rotateImageView:(UIImageView *)busyImage callback:(void(^)(void))completionBlock;
+- (void)rightSwipe:(void (^)(void))callback;
+- (void)leftSwipe:(void (^)(void))callback;
+- (void)rotateImageView:(UIImageView *)busyImage
+               callback:(void(^)(void))completionBlock;
 
 @end

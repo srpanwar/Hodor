@@ -17,9 +17,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @property (weak, nonatomic) IBOutlet UIView *addressView;
 
-@property HDRMessage *message;
-@property BOOL showUserName;
-@property BOOL showLocation;
+@property (nonatomic) HDRMessage *message;
+@property (nonatomic) BOOL showUserName;
+@property (nonatomic) BOOL showLocation;
 
 - (void)colorify:(NSInteger)index;
 - (void)setDatasource:(HDRMessage *)msg;

@@ -168,6 +168,7 @@
 		78E785C319A3484800D992F7 /* HDRMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRMessageTableViewCell.h; sourceTree = "<group>"; };
 		78E785C419A3484800D992F7 /* HDRMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDRMessageTableViewCell.m; sourceTree = "<group>"; };
 		78E785C519A3484800D992F7 /* HDRMessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HDRMessageTableViewCell.xib; sourceTree = "<group>"; };
+		78E7D49A1B2E014F009B2094 /* HDRRefreshableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDRRefreshableView.h; sourceTree = "<group>"; };
 		78F1D9821B2D516D000796F9 /* 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 1.wav; path = Sounds/1.wav; sourceTree = "<group>"; };
 		78F1D9831B2D516D000796F9 /* 2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 2.wav; path = Sounds/2.wav; sourceTree = "<group>"; };
 		78F1D9841B2D516D000796F9 /* 3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 3.wav; path = Sounds/3.wav; sourceTree = "<group>"; };
@@ -234,6 +235,7 @@
 		78237CDC1955864500BE750D /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				78E7D49A1B2E014F009B2094 /* HDRRefreshableView.h */,
 				78745FEF198ED6EC00650542 /* HDRBaseViewController.h */,
 				78745FF0198ED6EC00650542 /* HDRBaseViewController.m */,
 				78E785BD19A345C900D992F7 /* ListBox2 */,
