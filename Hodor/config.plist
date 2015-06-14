@@ -11,7 +11,7 @@
 	<key>messageTemplateEndPoint</key>
 	<string>https://hodorcdn.s3.amazonaws.com/trivia.txt</string>
 	<key>privateKey</key>
-	<string>2711ea6a-d68a-4ffe-a431-6373325795bf</string>
+	<string>2711ea6a-d68a-4ffe-a431-6373325795b</string>
 	<key>emptyGuid</key>
 	<string>00000000-0000-0000-0000-000000000000</string>
 </dict>
