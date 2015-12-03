@@ -27,7 +27,7 @@
     }
 
     
-    [HDRSession setCurrentUserName:@"SRPANWAR"];
+    //[HDRSession setCurrentUserName:@"SRPANWAR"];
     
     //fetch the predefined message list
     dispatch_async_default(^{
