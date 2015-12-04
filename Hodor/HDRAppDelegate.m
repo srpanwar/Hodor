@@ -16,16 +16,8 @@
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
     
     //register to receive notification
-    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)])
-    {
-        [application registerUserNotificationSettings:[UIUserNotificationSettings
-                                                       settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
-    }
-    else
-    {
-        [[UIApplication sharedApplication] registerForRemoteNotificationTypes: (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
-    }
-
+    [application registerUserNotificationSettings:[UIUserNotificationSettings
+                                                   settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
     
     //[HDRSession setCurrentUserName:@"SRPANWAR"];
     
