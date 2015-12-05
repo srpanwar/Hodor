@@ -803,7 +803,7 @@
 				INFOPLIST_FILE = "Hodor/Hodor-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "ac1c8d10-8725-41b3-a004-af87cf088fb5";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -823,7 +823,7 @@
 				INFOPLIST_FILE = "Hodor/Hodor-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "ac1c8d10-8725-41b3-a004-af87cf088fb5";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
