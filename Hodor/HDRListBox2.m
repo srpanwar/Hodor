@@ -143,7 +143,7 @@
     CGRect frame = self.tableView.frame;
     
     CGFloat y = [UIScreen mainScreen].bounds.size.height - self.tableView.contentSize.height;
-    y = fmaxf(y, 100.0f);
+    y = fmaxf(y, 180.0f);
     CGFloat hy = y - hFrame.size.height;
     
     hFrame.origin.y = frame.origin.y = [UIScreen mainScreen].bounds.size.height;
