@@ -19,61 +19,76 @@
     [self.contentView addGestureRecognizer:gestureRecognizer];
 }
 
+#pragma mark UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex != 0)
+    {
+        if ([MFMessageComposeViewController canSendText])
+        {
+            ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, NULL);
+            
+            NSArray *allContacts = (__bridge NSArray *)ABAddressBookCopyArrayOfAllPeople(addressBook);
+            
+            for (int i =0; i < allContacts.count; i++)
+            {
+                ABRecordRef person = (__bridge ABRecordRef)([allContacts objectAtIndex:i]);
+                
+                if (person != nil)
+                {
+                    ABMultiValueRef phones = ABRecordCopyValue(person, kABPersonPhoneProperty);
+                    
+                    if (ABMultiValueGetCount(phones) == 0)
+                    {
+                        CFErrorRef error = nil;
+                        ABAddressBookRemoveRecord(addressBook, person, &error);
+                        
+                        NSString *personName = (__bridge NSString *)ABRecordCopyCompositeName(person);
+                        NSLog(@"Removing %@",personName);
+                        CFRelease((__bridge CFTypeRef)(personName));
+                    }
+                    
+                    if (phones)
+                    {
+                        CFRelease(phones);
+                    }
+                }
+            }
+            
+            CFRelease((__bridge CFTypeRef)(allContacts));
+            
+            CFErrorRef saveError = nil;
+            ABAddressBookSave(addressBook, &saveError);
+            
+            ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
+            picker.peoplePickerDelegate = self;
+            picker.addressBook = addressBook;
+            
+            NSArray *displayedItems = [NSArray arrayWithObjects:[NSNumber numberWithInt:kABPersonPhoneProperty], nil];
+            picker.displayedProperties = displayedItems;
+            
+            // Show the picker
+            [self.viewController presentViewController:picker animated:YES completion:nil];
+            
+            CFRelease(addressBook);
+        }
+        else
+        {
+            [self doShare];
+        }
+    }
+}
+
 
 - (void) doContactSelection
 {
-    if ([MFMessageComposeViewController canSendText])
-    {
-        ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, NULL);
-        
-        NSArray *allContacts = (__bridge NSArray *)ABAddressBookCopyArrayOfAllPeople(addressBook);
-        
-        for (int i =0; i < allContacts.count; i++)
-        {
-            ABRecordRef person = (__bridge ABRecordRef)([allContacts objectAtIndex:i]);
-            
-            if (person != nil)
-            {
-                ABMultiValueRef phones = ABRecordCopyValue(person, kABPersonPhoneProperty);
-                
-                if (ABMultiValueGetCount(phones) == 0)
-                {
-                    CFErrorRef error = nil;
-                    ABAddressBookRemoveRecord(addressBook, person, &error);
-                    
-                    NSString *personName = (__bridge NSString *)ABRecordCopyCompositeName(person);
-                    NSLog(@"Removing %@",personName);
-                    CFRelease((__bridge CFTypeRef)(personName));
-                }
-                
-                if (phones)
-                {
-                    CFRelease(phones);
-                }
-            }
-        }
-        
-        CFRelease((__bridge CFTypeRef)(allContacts));
-        
-        CFErrorRef saveError = nil;
-        ABAddressBookSave(addressBook, &saveError);
-        
-        ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
-        picker.peoplePickerDelegate = self;
-        picker.addressBook = addressBook;
-        
-        NSArray *displayedItems = [NSArray arrayWithObjects:[NSNumber numberWithInt:kABPersonPhoneProperty], nil];
-        picker.displayedProperties = displayedItems;
-        
-        // Show the picker
-        [self.viewController presentViewController:picker animated:YES completion:nil];
-        
-        CFRelease(addressBook);
-    }
-    else
-    {
-        [self doShare];
-    }
+    UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@""
+                                                     message:@"Hodor would like to access your contacts. Continue?"
+                                                    delegate:self
+                                           cancelButtonTitle:@"Cancel"
+                                           otherButtonTitles: @"Ok", nil];
+    [alert show];
 }
 
 - (void)doShare

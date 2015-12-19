@@ -13,7 +13,7 @@
 #import "HDRTableViewCell.h"
 #import "HDRSession.h"
 
-@interface HDRInviteTableViewCell : HDRTableViewCell<ABPeoplePickerNavigationControllerDelegate,MFMessageComposeViewControllerDelegate>
+@interface HDRInviteTableViewCell : HDRTableViewCell<ABPeoplePickerNavigationControllerDelegate,MFMessageComposeViewControllerDelegate, UIAlertViewDelegate>
 
 
 @end
