@@ -64,6 +64,8 @@
             ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
             picker.peoplePickerDelegate = self;
             picker.addressBook = addressBook;
+            picker.predicateForEnablingPerson = [NSPredicate predicateWithFormat:@"phoneNumbers.@count > 0"];
+            picker.predicateForSelectionOfPerson = [NSPredicate predicateWithFormat:@"phoneNumbers.@count == 1"];
             
             NSArray *displayedItems = [NSArray arrayWithObjects:[NSNumber numberWithInt:kABPersonPhoneProperty], nil];
             picker.displayedProperties = displayedItems;
@@ -109,15 +111,15 @@
     [peoplePicker dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker
-      shouldContinueAfterSelectingPerson:(ABRecordRef)person
-{
-    return YES;
+- (void)peoplePickerNavigationController:(ABPeoplePickerNavigationController*)peoplePicker didSelectPerson:(ABRecordRef)person {
+    [self peoplePickerNavigationController:peoplePicker
+                           didSelectPerson:person
+                                  property:kABPersonPhoneProperty identifier:0];
 }
 
-- (BOOL)peoplePickerNavigationController:
-(ABPeoplePickerNavigationController *)peoplePicker
-      shouldContinueAfterSelectingPerson:(ABRecordRef)person
+
+- (void)peoplePickerNavigationController:(ABPeoplePickerNavigationController*)peoplePicker
+                         didSelectPerson:(ABRecordRef)person
                                 property:(ABPropertyID)property
                               identifier:(ABMultiValueIdentifier)identifier
 {
@@ -154,7 +156,7 @@
         CFRelease(CFBridgingRetain(mobile));
     }
     
-    return NO;
+    return;
 }
 
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller
