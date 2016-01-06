@@ -21,7 +21,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder=" pick a cool name!" textAlignment="center" minimumFontSize="17" id="kks-cc-QYw">
-                                <rect key="frame" x="0.0" y="176" width="320" height="95"/>
+                                <rect key="frame" x="0.0" y="141" width="320" height="95"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.06632071167883212" alpha="0.029999999999999999" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -29,7 +29,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dang! This one is already taken. Try other name." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QZg-32-ILV">
-                                <rect key="frame" x="12" y="281" width="296" height="47"/>
+                                <rect key="frame" x="12" y="234" width="296" height="47"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
